@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+      <Dialog>
+          <Conversation Name="Знакомство">
+              <Topic>
+                <Answer>Приветствую тебя, мой друг!</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Деревня">
+              <Topic>
+                <Answer>Да, плохи дела в нашем селении с недавних пор. Многие бегут. Переселяются в другие места. Да только от судьбы не убежишь - @Рагнарок@ приближается!!!</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Рагнарок">
+              <Topic>
+                <Answer>Конец света! Гибель богов! Хаос! Древние боги зла долго ждали, когда ослабеет мощь асов, и вот пробил их час... Зло накрывает миры древа @Иггдразиль@!</Answer>
+              </Topic>
+          </Conversation>
+      </Dialog>

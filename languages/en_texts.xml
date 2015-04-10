@@ -1,0 +1,4315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Texts>
+  <RS ID="0">
+    <Text>{reserved}</Text>
+  </RS>
+  <RS ID="1">
+    <Text>New Game</Text>
+  </RS>
+  <RS ID="2">
+    <Text>Load</Text>
+  </RS>
+  <RS ID="3">
+    <Text>Save</Text>
+  </RS>
+  <RS ID="4">
+    <Text>About</Text>
+  </RS>
+  <RS ID="5">
+    <Text>Options</Text>
+  </RS>
+  <RS ID="6">
+    <Text>Exit</Text>
+  </RS>
+  <RS ID="7">
+    <Text>Back</Text>
+  </RS>
+  <RS ID="8">
+    <Text>Close</Text>
+  </RS>
+  <RS ID="9">
+    <Text>Common</Text>
+  </RS>
+  <RS ID="10">
+    <Text>Keyboard</Text>
+  </RS>
+  <RS ID="11">
+    <Text>Gameplay</Text>
+  </RS>
+  <RS ID="12">
+    <Text>Standard style</Text>
+  </RS>
+  <RS ID="13">
+    <Text>Modern style</Text>
+  </RS>
+  <RS ID="14">
+    <Text>Hide field map</Text>
+  </RS>
+  <RS ID="15">
+    <Text>Hide control panel</Text>
+  </RS>
+  <RS ID="16">
+    <Text>Hide information panel</Text>
+  </RS>
+  <RS ID="17">
+    <Text>Circular FOV</Text>
+  </RS>
+  <RS ID="18">
+    <Text>Music volume</Text>
+  </RS>
+  <RS ID="19">
+    <Text>Sound volume</Text>
+  </RS>
+  <RS ID="20">
+    <Text>Worlds Tree</Text>
+  </RS>
+  <RS ID="21">
+    <Text>Load game</Text>
+  </RS>
+  <RS ID="22">
+    <Text>Save game</Text>
+  </RS>
+  <RS ID="23">
+    <Text>player unknown</Text>
+  </RS>
+  <RS ID="24">
+    <Text>Adventurer name (F1 - random)</Text>
+  </RS>
+  <RS ID="25">
+    <Text>Abilities</Text>
+  </RS>
+  <RS ID="26">
+    <Text>Accept</Text>
+  </RS>
+  <RS ID="27">
+    <Text>Dialog</Text>
+  </RS>
+  <RS ID="28">
+    <Text>Menu</Text>
+  </RS>
+  <RS ID="29">
+    <Text>Skills</Text>
+  </RS>
+  <RS ID="30">
+    <Text>Memory</Text>
+  </RS>
+  <RS ID="31">
+    <Text>Inventory</Text>
+  </RS>
+  <RS ID="32">
+    <Text>Self</Text>
+  </RS>
+  <RS ID="33">
+    <Text>Map</Text>
+  </RS>
+  <RS ID="34">
+    <Text>Go north</Text>
+  </RS>
+  <RS ID="35">
+    <Text>Go south</Text>
+  </RS>
+  <RS ID="36">
+    <Text>Go west</Text>
+  </RS>
+  <RS ID="37">
+    <Text>Go east</Text>
+  </RS>
+  <RS ID="38">
+    <Text>Go north-west</Text>
+  </RS>
+  <RS ID="39">
+    <Text>Go north-east</Text>
+  </RS>
+  <RS ID="40">
+    <Text>Go south-west</Text>
+  </RS>
+  <RS ID="41">
+    <Text>Go south-east</Text>
+  </RS>
+  <RS ID="42">
+    <Text>Wait</Text>
+  </RS>
+  <RS ID="43">
+    <Text>Pickup all</Text>
+  </RS>
+  <RS ID="44">
+    <Text>Legend</Text>
+  </RS>
+  <RS ID="45">
+    <Text>Resources loading...</Text>
+  </RS>
+  <RS ID="46">
+    <Text>Learn</Text>
+  </RS>
+  <RS ID="47">
+    <Text>Trade</Text>
+  </RS>
+  <RS ID="48">
+    <Text>Exchange</Text>
+  </RS>
+  <RS ID="49">
+    <Text>Recruit</Text>
+  </RS>
+  <RS ID="50">
+    <Text>Turn</Text>
+  </RS>
+  <RS ID="51">
+    <Text>Life</Text>
+  </RS>
+  <RS ID="52">
+    <Text>Mana</Text>
+  </RS>
+  <RS ID="53">
+    <Text>Satiety</Text>
+  </RS>
+  <RS ID="54">
+    <Text>Morality</Text>
+  </RS>
+  <RS ID="55">
+    <Text>Armor</Text>
+  </RS>
+  <RS ID="56">
+    <Text>Damage</Text>
+  </RS>
+  <RS ID="57">
+    <Text>ToHit</Text>
+  </RS>
+  <RS ID="58">
+    <Text>Speed</Text>
+  </RS>
+  <RS ID="59">
+    <Text>Luck</Text>
+  </RS>
+  <RS ID="60">
+    <Text>Strength</Text>
+  </RS>
+  <RS ID="61">
+    <Text>Constitution</Text>
+  </RS>
+  <RS ID="62">
+    <Text>Experience</Text>
+  </RS>
+  <RS ID="63">
+    <Text>Level</Text>
+  </RS>
+  <RS ID="64">
+    <Text>?</Text>
+  </RS>
+  <RS ID="65">
+    <Text>Dexterity</Text>
+  </RS>
+  <RS ID="66">
+    <Text>Perception</Text>
+  </RS>
+  <RS ID="67">
+    <Text>Race</Text>
+  </RS>
+  <RS ID="68">
+    <Text>Sex</Text>
+  </RS>
+  <RS ID="69">
+    <Text>(Alive)</Text>
+  </RS>
+  <RS ID="70">
+    <Text>(Undead)</Text>
+  </RS>
+  <RS ID="71">
+    <Text>Diagnosis</Text>
+  </RS>
+  <RS ID="72">
+    <Text>Abilities</Text>
+  </RS>
+  <RS ID="73">
+    <Text>Swimming</Text>
+  </RS>
+  <RS ID="74">
+    <Text>Identification</Text>
+  </RS>
+  <RS ID="75">
+    <Text>Telepathy</Text>
+  </RS>
+  <RS ID="76">
+    <Text>Sixth sense</Text>
+  </RS>
+  <RS ID="77">
+    <Text>Musical acuity</Text>
+  </RS>
+  <RS ID="78">
+    <Text>Short blades</Text>
+  </RS>
+  <RS ID="79">
+    <Text>LongBow</Text>
+  </RS>
+  <RS ID="80">
+    <Text>CrossBow</Text>
+  </RS>
+  <RS ID="81">
+    <Text>Levitation</Text>
+  </RS>
+  <RS ID="82">
+    <Text>Extreme mode</Text>
+  </RS>
+  <RS ID="83">
+    <Text>Spear</Text>
+  </RS>
+  <RS ID="84">
+    <Text>Ray reflect</Text>
+  </RS>
+  <RS ID="85">
+    <Text>Ray absorb</Text>
+  </RS>
+  <RS ID="86">
+    <Text>Resist cold</Text>
+  </RS>
+  <RS ID="87">
+    <Text>Resist heat</Text>
+  </RS>
+  <RS ID="88">
+    <Text>Resist acid</Text>
+  </RS>
+  <RS ID="89">
+    <Text>Resist poison</Text>
+  </RS>
+  <RS ID="90">
+    <Text>Resist ray</Text>
+  </RS>
+  <RS ID="91">
+    <Text>Resist teleport</Text>
+  </RS>
+  <RS ID="92">
+    <Text>Resist death ray</Text>
+  </RS>
+  <RS ID="93">
+    <Text>Resist petrification</Text>
+  </RS>
+  <RS ID="94">
+    <Text>Resist psionic</Text>
+  </RS>
+  <RS ID="95">
+    <Text>Resist displacement ray</Text>
+  </RS>
+  <RS ID="96">
+    <Text>Resist hastening ray</Text>
+  </RS>
+  <RS ID="97">
+    <Text>Resist sleep ray</Text>
+  </RS>
+  <RS ID="98">
+    <Text>Regeneration</Text>
+  </RS>
+  <RS ID="99">
+    <Text>Third sight</Text>
+  </RS>
+  <RS ID="100">
+    <Text>Chain</Text>
+  </RS>
+  <RS ID="101">
+    <Text>Axe</Text>
+  </RS>
+  <RS ID="102">
+    <Text>Parry</Text>
+  </RS>
+  <RS ID="103">
+    <Text>Blunt weapon</Text>
+  </RS>
+  <RS ID="104">
+    <Text>Hand to hand</Text>
+  </RS>
+  <RS ID="105">
+    <Text>Heavy armor</Text>
+  </RS>
+  <RS ID="106">
+    <Text>Light armor</Text>
+  </RS>
+  <RS ID="107">
+    <Text>Long blade</Text>
+  </RS>
+  <RS ID="108">
+    <Text>Marksman</Text>
+  </RS>
+  <RS ID="109">
+    <Text>Medium armor</Text>
+  </RS>
+  <RS ID="110">
+    <Text>Items</Text>
+  </RS>
+  <RS ID="111">
+    <Text>Creatures</Text>
+  </RS>
+  <RS ID="112">
+    <Text>Other</Text>
+  </RS>
+  <RS ID="113">
+    <Text>Debts</Text>
+  </RS>
+  <RS ID="114">
+    <Text>FillVial</Text>
+  </RS>
+  <RS ID="115">
+    <Text>Unknown</Text>
+  </RS>
+  <RS ID="116">
+    <Text>I can't say anything about that.</Text>
+  </RS>
+  <RS ID="117">
+    <Text>- %s, I want be taught beside you something...</Text>
+  </RS>
+  <RS ID="118">
+    <Text>- %s, let's trade!</Text>
+  </RS>
+  <RS ID="119">
+    <Text>- %s, let's exchange something?</Text>
+  </RS>
+  <RS ID="120">
+    <Text>- %s, I want to recruit somebody.</Text>
+  </RS>
+  <RS ID="121">
+    <Text>I'm not a trader.</Text>
+  </RS>
+  <RS ID="122">
+    <Text>I have nothing to exchange.</Text>
+  </RS>
+  <RS ID="123">
+    <Text>Items in pack</Text>
+  </RS>
+  <RS ID="124">
+    <Text>Items in use</Text>
+  </RS>
+  <RS ID="125">
+    <Text>Items on ground</Text>
+  </RS>
+  <RS ID="126">
+    <Text>Available items</Text>
+  </RS>
+  <RS ID="127">
+    <Text>Ingredients</Text>
+  </RS>
+  <RS ID="128">
+    <Text>Result</Text>
+  </RS>
+  <RS ID="129">
+    <Text>This items maked of different metals</Text>
+  </RS>
+  <RS ID="130">
+    <Text>Melt thing(s) in ingot</Text>
+  </RS>
+  <RS ID="131">
+    <Text>Reaction</Text>
+  </RS>
+  <RS ID="132">
+    <Text>Forge</Text>
+  </RS>
+  <RS ID="133">
+    <Text>First you should buy this item.</Text>
+  </RS>
+  <RS ID="134">
+    <Text>Here is nobody around.</Text>
+  </RS>
+  <RS ID="135">
+    <Text>This is an animal! About that you want to talk with it?</Text>
+  </RS>
+  <RS ID="136">
+    <Text>Levels generation</Text>
+  </RS>
+  <RS ID="137">
+    <Text>Levels loading</Text>
+  </RS>
+  <RS ID="138">
+    <Text>Levels saving</Text>
+  </RS>
+  <RS ID="139">
+    <Text>Rejuvenation</Text>
+  </RS>
+  <RS ID="140">
+    <Text>Invisibility</Text>
+  </RS>
+  <RS ID="141">
+    <Text>Invulnerable</Text>
+  </RS>
+  <RS ID="142">
+    <Text>Blessing</Text>
+  </RS>
+  <RS ID="143">
+    <Text>Confusion</Text>
+  </RS>
+  <RS ID="144">
+    <Text>Destruction</Text>
+  </RS>
+  <RS ID="145">
+    <Text>Dispel hex</Text>
+  </RS>
+  <RS ID="146">
+    <Text>Traveling</Text>
+  </RS>
+  <RS ID="147">
+    <Text>Cartography</Text>
+  </RS>
+  <RS ID="148">
+    <Text>Transport</Text>
+  </RS>
+  <RS ID="149">
+    <Text>Detect items</Text>
+  </RS>
+  <RS ID="150">
+    <Text>Cure</Text>
+  </RS>
+  <RS ID="151">
+    <Text>Fading</Text>
+  </RS>
+  <RS ID="152">
+    <Text>Intoxicate</Text>
+  </RS>
+  <RS ID="153">
+    <Text>Contamination</Text>
+  </RS>
+  <RS ID="154">
+    <Text>Blindness</Text>
+  </RS>
+  <RS ID="155">
+    <Text>Fever</Text>
+  </RS>
+  <RS ID="156">
+    <Text>Withered</Text>
+  </RS>
+  <RS ID="157">
+    <Text>Hallucination</Text>
+  </RS>
+  <RS ID="158">
+    <Text>Heal inability</Text>
+  </RS>
+  <RS ID="159">
+    <Text>Poisoned</Text>
+  </RS>
+  <RS ID="160">
+    <Text>Soul seeking</Text>
+  </RS>
+  <RS ID="161">
+    <Text>Burns</Text>
+  </RS>
+  <RS ID="162">
+    <Text>Legs missing</Text>
+  </RS>
+  <RS ID="163">
+    <Text>Vertigo</Text>
+  </RS>
+  <RS ID="164">
+    <Text>Lycanthropy</Text>
+  </RS>
+  <RS ID="165">
+    <Text>Brain scarring</Text>
+  </RS>
+  <RS ID="166">
+    <Text>Impregnation</Text>
+  </RS>
+  <RS ID="167">
+    <Text>Eyes missing</Text>
+  </RS>
+  <RS ID="168">
+    <Text>Deafness</Text>
+  </RS>
+  <RS ID="169">
+    <Text>Fragile</Text>
+  </RS>
+  <RS ID="170">
+    <Text>Immortal</Text>
+  </RS>
+  <RS ID="171">
+    <Text>Diseased</Text>
+  </RS>
+  <RS ID="172">
+    <Text>Hardening</Text>
+  </RS>
+  <RS ID="173">
+    <Text>Draining</Text>
+  </RS>
+  <RS ID="174">
+    <Text>Relocation</Text>
+  </RS>
+  <RS ID="175">
+    <Text>Famine</Text>
+  </RS>
+  <RS ID="176">
+    <Text>Genesis</Text>
+  </RS>
+  <RS ID="177">
+    <Text>Luck</Text>
+  </RS>
+  <RS ID="178">
+    <Text>Strength</Text>
+  </RS>
+  <RS ID="179">
+    <Text>Experience</Text>
+  </RS>
+  <RS ID="180">
+    <Text>Paralysis</Text>
+  </RS>
+  <RS ID="181">
+    <Text>Constitution</Text>
+  </RS>
+  <RS ID="182">
+    <Text>Scaling</Text>
+  </RS>
+  <RS ID="183">
+    <Text>Endurance</Text>
+  </RS>
+  <RS ID="184">
+    <Text>Idle</Text>
+  </RS>
+  <RS ID="185">
+    <Text>Restore magic</Text>
+  </RS>
+  <RS ID="186">
+    <Text>Raise magic</Text>
+  </RS>
+  <RS ID="187">
+    <Text>Speedup</Text>
+  </RS>
+  <RS ID="188">
+    <Text>poison spikes trap</Text>
+  </RS>
+  <RS ID="189">
+    <Text>quicksand trap</Text>
+  </RS>
+  <RS ID="190">
+    <Text>water trap</Text>
+  </RS>
+  <RS ID="191">
+    <Text>stun gas trap</Text>
+  </RS>
+  <RS ID="192">
+    <Text>pit</Text>
+  </RS>
+  <RS ID="193">
+    <Text>door trap</Text>
+  </RS>
+  <RS ID="194">
+    <Text>fire trap</Text>
+  </RS>
+  <RS ID="195">
+    <Text>frost trap</Text>
+  </RS>
+  <RS ID="196">
+    <Text>lava trap</Text>
+  </RS>
+  <RS ID="197">
+    <Text>monster trap</Text>
+  </RS>
+  <RS ID="198">
+    <Text>phase trap</Text>
+  </RS>
+  <RS ID="199">
+    <Text>arrow trap</Text>
+  </RS>
+  <RS ID="200">
+    <Text>crush roof trap</Text>
+  </RS>
+  <RS ID="201">
+    <Text>mist trap</Text>
+  </RS>
+  <RS ID="202">
+    <Text>Dig</Text>
+  </RS>
+  <RS ID="203">
+    <Text>Locus mastery</Text>
+  </RS>
+  <RS ID="204">
+    <Text>Protection</Text>
+  </RS>
+  <RS ID="205">
+    <Text>Regeneration</Text>
+  </RS>
+  <RS ID="206">
+    <Text>Third sight</Text>
+  </RS>
+  <RS ID="207">
+    <Text>Imprisoning</Text>
+  </RS>
+  <RS ID="208">
+    <Text>Extinction</Text>
+  </RS>
+  <RS ID="209">
+    <Text>Knowledge</Text>
+  </RS>
+  <RS ID="210">
+    <Text>Enchantment</Text>
+  </RS>
+  <RS ID="211">
+    <Text>Recharging</Text>
+  </RS>
+  <RS ID="212">
+    <Text>Recall</Text>
+  </RS>
+  <RS ID="213">
+    <Text>Wonder</Text>
+  </RS>
+  <RS ID="214">
+    <Text>Alliance</Text>
+  </RS>
+  <RS ID="215">
+    <Text>Summoning</Text>
+  </RS>
+  <RS ID="216">
+    <Text>Identify</Text>
+  </RS>
+  <RS ID="217">
+    <Text>Twelve gates</Text>
+  </RS>
+  <RS ID="218">
+    <Text>Time stop</Text>
+  </RS>
+  <RS ID="219">
+    <Text>Flame</Text>
+  </RS>
+  <RS ID="220">
+    <Text>Trap generation</Text>
+  </RS>
+  <RS ID="221">
+    <Text>Lava strike</Text>
+  </RS>
+  <RS ID="222">
+    <Text>Pure evil</Text>
+  </RS>
+  <RS ID="223">
+    <Text>Diary</Text>
+  </RS>
+  <RS ID="224">
+    <Text>Switch bodies</Text>
+  </RS>
+  <RS ID="225">
+    <Text>Geology</Text>
+  </RS>
+  <RS ID="226">
+    <Text>misc</Text>
+  </RS>
+  <RS ID="227">
+    <Text>Music</Text>
+  </RS>
+  <RS ID="228">
+    <Text>Animation</Text>
+  </RS>
+  <RS ID="229">
+    <Text>Switch dimension</Text>
+  </RS>
+  <RS ID="230">
+    <Text>Transformation</Text>
+  </RS>
+  <RS ID="231">
+    <Text>Precognition</Text>
+  </RS>
+  <RS ID="232">
+    <Text>Mystery</Text>
+  </RS>
+  <RS ID="233">
+    <Text>Heat</Text>
+  </RS>
+  <RS ID="234">
+    <Text>Fire</Text>
+  </RS>
+  <RS ID="235">
+    <Text>Ice</Text>
+  </RS>
+  <RS ID="236">
+    <Text>Armoring</Text>
+  </RS>
+  <RS ID="237">
+    <Text>Displacement</Text>
+  </RS>
+  <RS ID="238">
+    <Text>Healing</Text>
+  </RS>
+  <RS ID="239">
+    <Text>Deanimation</Text>
+  </RS>
+  <RS ID="240">
+    <Text>Sleep</Text>
+  </RS>
+  <RS ID="241">
+    <Text>Cancellation</Text>
+  </RS>
+  <RS ID="242">
+    <Text>Polymorph</Text>
+  </RS>
+  <RS ID="243">
+    <Text>Restoration</Text>
+  </RS>
+  <RS ID="244">
+    <Text>Stoning</Text>
+  </RS>
+  <RS ID="245">
+    <Text>Light</Text>
+  </RS>
+  <RS ID="246">
+    <Text>Wishing</Text>
+  </RS>
+  <RS ID="247">
+    <Text>Evocation</Text>
+  </RS>
+  <RS ID="248">
+    <Text>Flaying</Text>
+  </RS>
+  <RS ID="249">
+    <Text>Trap detection</Text>
+  </RS>
+  <RS ID="250">
+    <Text>Transmutation</Text>
+  </RS>
+  <RS ID="251">
+    <Text>Amusement</Text>
+  </RS>
+  <RS ID="252">
+    <Text>Wands</Text>
+  </RS>
+  <RS ID="253">
+    <Text>Death</Text>
+  </RS>
+  <RS ID="254">
+    <Text>Tunneling</Text>
+  </RS>
+  <RS ID="255">
+    <Text>Annihilation</Text>
+  </RS>
+  <RS ID="256">
+    <Text>Hastening</Text>
+  </RS>
+  <RS ID="257">
+    <Text>Chaos</Text>
+  </RS>
+  <RS ID="258">
+    <Text>Phase</Text>
+  </RS>
+  <RS ID="259">
+    <Text>Set recall</Text>
+  </RS>
+  <RS ID="260">
+    <Text>Illusory self</Text>
+  </RS>
+  <RS ID="261">
+    <Text>Reflect</Text>
+  </RS>
+  <RS ID="262">
+    <Text>Entomb</Text>
+  </RS>
+  <RS ID="263">
+    <Text>Draw life</Text>
+  </RS>
+  <RS ID="264">
+    <Text>Infravision</Text>
+  </RS>
+  <RS ID="265">
+    <Text>Might</Text>
+  </RS>
+  <RS ID="266">
+    <Text>Eternal Life</Text>
+  </RS>
+  <RS ID="267">
+    <Text>Soul trapping</Text>
+  </RS>
+  <RS ID="268">
+    <Text>Ashes</Text>
+  </RS>
+  <RS ID="269">
+    <Text>Insulation</Text>
+  </RS>
+  <RS ID="270">
+    <Text>Immunity</Text>
+  </RS>
+  <RS ID="271">
+    <Text>Crystal skin</Text>
+  </RS>
+  <RS ID="272">
+    <Text>Change ability</Text>
+  </RS>
+  <RS ID="273">
+    <Text>Change skill</Text>
+  </RS>
+  <RS ID="274">
+    <Text>Basilisk poison</Text>
+  </RS>
+  <RS ID="275">
+    <Text>Borgon vile cloud</Text>
+  </RS>
+  <RS ID="276">
+    <Text>Breleor tendril</Text>
+  </RS>
+  <RS ID="277">
+    <Text>Elle giant throw</Text>
+  </RS>
+  <RS ID="278">
+    <Text>Elle giant crush</Text>
+  </RS>
+  <RS ID="279">
+    <Text>Fire dragon breath</Text>
+  </RS>
+  <RS ID="280">
+    <Text>Fire giant touch</Text>
+  </RS>
+  <RS ID="281">
+    <Text>Fyleisch cloud</Text>
+  </RS>
+  <RS ID="282">
+    <Text>Gas ball explosion</Text>
+  </RS>
+  <RS ID="283">
+    <Text>Giant squid crush</Text>
+  </RS>
+  <RS ID="284">
+    <Text>Glard poison</Text>
+  </RS>
+  <RS ID="285">
+    <Text>Hatchet fish teeth</Text>
+  </RS>
+  <RS ID="286">
+    <Text>Hel dragon cloud</Text>
+  </RS>
+  <RS ID="287">
+    <Text>Hillgiant crush</Text>
+  </RS>
+  <RS ID="288">
+    <Text>Icedragon breath</Text>
+  </RS>
+  <RS ID="289">
+    <Text>Icesphere blast</Text>
+  </RS>
+  <RS ID="290">
+    <Text>Jagredin burning</Text>
+  </RS>
+  <RS ID="291">
+    <Text>Knellbird gaze</Text>
+  </RS>
+  <RS ID="292">
+    <Text>Kobold throw</Text>
+  </RS>
+  <RS ID="293">
+    <Text>Lowerdwarf throw</Text>
+  </RS>
+  <RS ID="294">
+    <Text>Moleman debris</Text>
+  </RS>
+  <RS ID="295">
+    <Text>Phantomasp poison</Text>
+  </RS>
+  <RS ID="296">
+    <Text>Pyrtaath throttle</Text>
+  </RS>
+  <RS ID="297">
+    <Text>Ramapith fire touch</Text>
+  </RS>
+  <RS ID="298">
+    <Text>Sandiff acid</Text>
+  </RS>
+  <RS ID="299">
+    <Text>Scyld breath</Text>
+  </RS>
+  <RS ID="300">
+    <Text>Scyld ray</Text>
+  </RS>
+  <RS ID="301">
+    <Text>Scyld shock wave</Text>
+  </RS>
+  <RS ID="302">
+    <Text>Sentinel gaze</Text>
+  </RS>
+  <RS ID="303">
+    <Text>Serpent poison</Text>
+  </RS>
+  <RS ID="304">
+    <Text>Shadow touch</Text>
+  </RS>
+  <RS ID="305">
+    <Text>Slinn gout</Text>
+  </RS>
+  <RS ID="306">
+    <Text>Spirit touch</Text>
+  </RS>
+  <RS ID="307">
+    <Text>Stunworm stun</Text>
+  </RS>
+  <RS ID="308">
+    <Text>Terrain burning</Text>
+  </RS>
+  <RS ID="309">
+    <Text>Warrior throw</Text>
+  </RS>
+  <RS ID="310">
+    <Text>Watcher gaze</Text>
+  </RS>
+  <RS ID="311">
+    <Text>Weirdfume acid</Text>
+  </RS>
+  <RS ID="312">
+    <Text>Womera throw</Text>
+  </RS>
+  <RS ID="313">
+    <Text>Wooddwarf throw</Text>
+  </RS>
+  <RS ID="314">
+    <Text>Wyvern breath</Text>
+  </RS>
+  <RS ID="315">
+    <Text>Zardon psi blast</Text>
+  </RS>
+  <RS ID="316">
+    <Text>Strength reduce</Text>
+  </RS>
+  <RS ID="317">
+    <Text>Enlarge MaxHP</Text>
+  </RS>
+  <RS ID="318">
+    <Text>Insanity</Text>
+  </RS>
+  <RS ID="319">
+    <Text>Party</Text>
+  </RS>
+  <RS ID="320">
+    <Text>Mercenaries</Text>
+  </RS>
+  <RS ID="321">
+    <Text>Wedge</Text>
+  </RS>
+  <RS ID="322">
+    <Text>Ring</Text>
+  </RS>
+  <RS ID="323">
+    <Text>Square</Text>
+  </RS>
+  <RS ID="324">
+    <Text>An amulet of holding is worthless</Text>
+  </RS>
+  <RS ID="325">
+    <Text>One must wear gauntlets to safely touch a cockatrice</Text>
+  </RS>
+  <RS ID="326">
+    <Text>A dead cockatrice is a powerful weapon</Text>
+  </RS>
+  <RS ID="327">
+    <Text>A silver mantle protects the wearer from magic</Text>
+  </RS>
+  <RS ID="328">
+    <Text>A disperser helm protects against psionic attack</Text>
+  </RS>
+  <RS ID="329">
+    <Text>One cannot write without a stylus</Text>
+  </RS>
+  <RS ID="330">
+    <Text>A sai maims its victims</Text>
+  </RS>
+  <RS ID="331">
+    <Text>Werewolves fear silver</Text>
+  </RS>
+  <RS ID="332">
+    <Text>A barbed whip causes weak creatures to submit</Text>
+  </RS>
+  <RS ID="333">
+    <Text>An ivory staff is especially effective against undead creatures</Text>
+  </RS>
+  <RS ID="334">
+    <Text>A phaseblade is best used when phasing</Text>
+  </RS>
+  <RS ID="335">
+    <Text>Blessed curing repairs most health problems</Text>
+  </RS>
+  <RS ID="336">
+    <Text>The tools of the blacksmith are tongs, anvils, fire, and metal to smelt</Text>
+  </RS>
+  <RS ID="337">
+    <Text>Without knowledge of alchemy, mixing potions is unpredictable</Text>
+  </RS>
+  <RS ID="338">
+    <Text>Basilisks destroy mirrors</Text>
+  </RS>
+  <RS ID="339">
+    <Text>Holy water increases luck</Text>
+  </RS>
+  <RS ID="340">
+    <Text>Rangers dispense justice</Text>
+  </RS>
+  <RS ID="341">
+    <Text>Use the wand of armoring upon yourself</Text>
+  </RS>
+  <RS ID="342">
+    <Text>Kill bartoks from afar</Text>
+  </RS>
+  <RS ID="343">
+    <Text>Fingers and eyes may be gained from a fume</Text>
+  </RS>
+  <RS ID="344">
+    <Text>Cold is the only thing which slows or destroys red ooze</Text>
+  </RS>
+  <RS ID="345">
+    <Text>The rays which emanate from wands may bounce unpredictably</Text>
+  </RS>
+  <RS ID="346">
+    <Text>Bless identification scrolls; they then reveal the true nature of all things</Text>
+  </RS>
+  <RS ID="347">
+    <Text>Death wands have very long ranges</Text>
+  </RS>
+  <RS ID="348">
+    <Text>An ironworker can create a runesword if he has enough raw material</Text>
+  </RS>
+  <RS ID="349">
+    <Text>Throw a net to entrap monsters</Text>
+  </RS>
+  <RS ID="350">
+    <Text>Mirror shields reflect rays and gazes</Text>
+  </RS>
+  <RS ID="351">
+    <Text>Do not strike a ranger directly; he will only summon more of his ilk</Text>
+  </RS>
+  <RS ID="352">
+    <Text>The insane and disturbed can be cured with a single bite of ivy creeper leaves</Text>
+  </RS>
+  <RS ID="353">
+    <Text>A potion of phasing allows the drinker to pass through all substances</Text>
+  </RS>
+  <RS ID="354">
+    <Text>Consumption of the poisonous glard may inoculate the eater against toxins</Text>
+  </RS>
+  <RS ID="355">
+    <Text>The flesh of bats and stalkers can addle a man's brain</Text>
+  </RS>
+  <RS ID="356">
+    <Text>Those who eat knilbs and nymphs can never again be sure of their whereabouts</Text>
+  </RS>
+  <RS ID="357">
+    <Text>A spongy mass is the bane of a seer</Text>
+  </RS>
+  <RS ID="358">
+    <Text>Green mushrooms are widely sought after</Text>
+  </RS>
+  <RS ID="359">
+    <Text>Knowledgable men caution against blindly eating mushrooms</Text>
+  </RS>
+  <RS ID="360">
+    <Text>Yellow mushrooms are thought to affect a man's strength</Text>
+  </RS>
+  <RS ID="361">
+    <Text>Red mushrooms temporarily impair vision</Text>
+  </RS>
+  <RS ID="362">
+    <Text>Speckled growths are well-known to berserkers</Text>
+  </RS>
+  <RS ID="363">
+    <Text>The following creatures are poisonous: dreg, serpent, phantom asp, and phausq</Text>
+  </RS>
+  <RS ID="364">
+    <Text>The wight, stun worm, gorm, basilisk, cockatrice, and fyleisch are inedible</Text>
+  </RS>
+  <RS ID="365">
+    <Text>Flesh of the fire giant, minion, sandiff, and jagrЉdin will burn weak stomachs</Text>
+  </RS>
+  <RS ID="366">
+    <Text>The powers of the seers are enhanced by a ritual feast of raw anssk</Text>
+  </RS>
+  <RS ID="367">
+    <Text>The mighty warrior, Liebgar, ate sauteed hel dragon and breleor before battle</Text>
+  </RS>
+  <RS ID="368">
+    <Text>The skin of the fire dragon can withstand all trials by fire</Text>
+  </RS>
+  <RS ID="369">
+    <Text>To withstand the winter freeze, feast upon ice spheres and ice dragons</Text>
+  </RS>
+  <RS ID="370">
+    <Text>The flesh of the air ghola causes a susceptibility to heat</Text>
+  </RS>
+  <RS ID="371">
+    <Text>Bleeding of the eyes is a common side effect of new-found powers</Text>
+  </RS>
+  <RS ID="372">
+    <Text>These beings seem unaffected by wands: sentinel, wizard, sorcerer and draugr</Text>
+  </RS>
+  <RS ID="373">
+    <Text>Eternal life may not be all that is hoped for</Text>
+  </RS>
+  <RS ID="374">
+    <Text>It is written that three humans must perish to placate the anger of Vidur</Text>
+  </RS>
+  <RS ID="375">
+    <Text>The black sword of Geirrod is an unpredictable weapon</Text>
+  </RS>
+  <RS ID="376">
+    <Text>Enchantment scrolls have profound effects upon cubes, ocarinas, and anvils</Text>
+  </RS>
+  <RS ID="377">
+    <Text>Magic cookies restore the tiny</Text>
+  </RS>
+  <RS ID="378">
+    <Text>A magician may transmogrify worthless objects into valuable ones</Text>
+  </RS>
+  <RS ID="379">
+    <Text>Mottled mushrooms are delicious but can have harmful after-effects</Text>
+  </RS>
+  <RS ID="380">
+    <Text>Clay lumps are thought to provide protection against petrification</Text>
+  </RS>
+  <RS ID="381">
+    <Text>All roots are thought to be beneficial</Text>
+  </RS>
+  <RS ID="382">
+    <Text>Throw a grappling hook to climb out of mud, pits, and quicksand</Text>
+  </RS>
+  <RS ID="383">
+    <Text>A grappling hook is a means of travel for those lacking legs</Text>
+  </RS>
+  <RS ID="384">
+    <Text>A speed of 60 is often fatal; a speed of 70 is always fatal</Text>
+  </RS>
+  <RS ID="385">
+    <Text>Eitri desires a platinum anvil</Text>
+  </RS>
+  <RS ID="386">
+    <Text>Loki finds the wand of amusement aptly named</Text>
+  </RS>
+  <RS ID="387">
+    <Text>The immoral are always punished</Text>
+  </RS>
+  <RS ID="388">
+    <Text>An item of great power is buried in the crypt</Text>
+  </RS>
+  <RS ID="389">
+    <Text>An artifact is lost in the Wasteland</Text>
+  </RS>
+  <RS ID="390">
+    <Text>An artifact has been lost in the depths of Slaeter's sea</Text>
+  </RS>
+  <RS ID="391">
+    <Text>The orb is a doorway to Vanaheim</Text>
+  </RS>
+  <RS ID="392">
+    <Text>The air of Niflheim is deathly cold</Text>
+  </RS>
+  <RS ID="393">
+    <Text>Mortals cannot slay gods</Text>
+  </RS>
+  <RS ID="394">
+    <Text>Only one who can swim or lower tides will uncover the artifact in Slaeter's sea</Text>
+  </RS>
+  <RS ID="395">
+    <Text>Scyld fears he who possesses the green stone</Text>
+  </RS>
+  <RS ID="396">
+    <Text>Those who aspire to greatness discard lodestones</Text>
+  </RS>
+  <RS ID="397">
+    <Text>Bifrost is the flaming rainbow bridge</Text>
+  </RS>
+  <RS ID="398">
+    <Text>Do not step off Bifrost</Text>
+  </RS>
+  <RS ID="399">
+    <Text>The Crossroads are pathways to all that exists</Text>
+  </RS>
+  <RS ID="400">
+    <Text>The portal to Mimer's realm lies ten meters below ground, in the northeast</Text>
+  </RS>
+  <RS ID="401">
+    <Text>Attacking non-hostile creatures is immoral</Text>
+  </RS>
+  <RS ID="402">
+    <Text>To become more powerful, polymorph yourself</Text>
+  </RS>
+  <RS ID="403">
+    <Text>The crypt is located in the west at a depth of thirty meters</Text>
+  </RS>
+  <RS ID="404">
+    <Text>Golden togs are for formal occasions only</Text>
+  </RS>
+  <RS ID="405">
+    <Text>A chin strap provides little protection</Text>
+  </RS>
+  <RS ID="406">
+    <Text>Red bags protect items from extreme temperatures</Text>
+  </RS>
+  <RS ID="407">
+    <Text>Vidur's temple is located in the southern sector at a depth of thirty meters</Text>
+  </RS>
+  <RS ID="408">
+    <Text>Bifrost lies at one end of the river Vid</Text>
+  </RS>
+  <RS ID="409">
+    <Text>The gods have a storehouse of plenty within Asgard</Text>
+  </RS>
+  <RS ID="410">
+    <Text>The land of Chaos contains a powerful artifact</Text>
+  </RS>
+  <RS ID="411">
+    <Text>An orange cube will propel its owner to the Wasteland</Text>
+  </RS>
+  <RS ID="412">
+    <Text>Time may not be stopped outside of Midgard</Text>
+  </RS>
+  <RS ID="413">
+    <Text>Gods and powerful creatures are not affected by scrolls of extinction</Text>
+  </RS>
+  <RS ID="414">
+    <Text>Powerful beings may not be tamed with scolls of alliance</Text>
+  </RS>
+  <RS ID="415">
+    <Text>The diverse colors of sky at the Crossroads represent alternate paths of travel</Text>
+  </RS>
+  <RS ID="416">
+    <Text>Do not attempt to navigate the ocean</Text>
+  </RS>
+  <RS ID="417">
+    <Text>A scroll of enchantment will change the very nature of some objects</Text>
+  </RS>
+  <RS ID="418">
+    <Text>The proper place for an Eye is a small pit</Text>
+  </RS>
+  <RS ID="419">
+    <Text>Strange tunes emanate from enchanted instruments</Text>
+  </RS>
+  <RS ID="420">
+    <Text>One may breathe life into paper figures by hurling them</Text>
+  </RS>
+  <RS ID="421">
+    <Text>One may always climb up the rope of Lazlul</Text>
+  </RS>
+  <RS ID="422">
+    <Text>Psionic power is amplified by diamond needles</Text>
+  </RS>
+  <RS ID="423">
+    <Text>Orange powder can increase visual range</Text>
+  </RS>
+  <RS ID="424">
+    <Text>Archmages destroy and genocide entire classes of items</Text>
+  </RS>
+  <RS ID="425">
+    <Text>Wands of armoring are limited in effect</Text>
+  </RS>
+  <RS ID="426">
+    <Text>The entrance to the Halls of Grynyr is located inside of Nidavellir</Text>
+  </RS>
+  <RS ID="427">
+    <Text>A wooden flute may pacify hostile creatures</Text>
+  </RS>
+  <RS ID="428">
+    <Text>Ritual sacrifice to Vidur is always rewarded</Text>
+  </RS>
+  <RS ID="429">
+    <Text>Empty vials may be filled with non-viscous liquids</Text>
+  </RS>
+  <RS ID="430">
+    <Text>Those who become plants have one turn to avoid losing the ablility to think</Text>
+  </RS>
+  <RS ID="431">
+    <Text>Dead lower dwarves and draugrs should be destroyed</Text>
+  </RS>
+  <RS ID="432">
+    <Text>Save summoning scrolls until you are in need of aid</Text>
+  </RS>
+  <RS ID="433">
+    <Text>You may have up to sixteen fingers</Text>
+  </RS>
+  <RS ID="434">
+    <Text>You may have up to five eyes</Text>
+  </RS>
+  <RS ID="435">
+    <Text>A glass ocarina is a travelling device</Text>
+  </RS>
+  <RS ID="436">
+    <Text>Do not overindulge in potions of mead</Text>
+  </RS>
+  <RS ID="437">
+    <Text>Do not consume too many speed potions at once</Text>
+  </RS>
+  <RS ID="438">
+    <Text>Mixing potions randomly is dangerous, yet rewarding</Text>
+  </RS>
+  <RS ID="439">
+    <Text>Hurl a black gem to garner the lifeforce of an enemy</Text>
+  </RS>
+  <RS ID="440">
+    <Text>Odin's Raven has said: "%s".</Text>
+  </RS>
+  <RS ID="441">
+    <Text>Define a near place.</Text>
+  </RS>
+  <RS ID="442">
+    <Text>Define a place.</Text>
+  </RS>
+  <RS ID="443">
+    <Text>Which direction?</Text>
+  </RS>
+  <RS ID="444">
+    <Text>Define an item.</Text>
+  </RS>
+  <RS ID="445">
+    <Text>Define a creature.</Text>
+  </RS>
+  <RS ID="446">
+    <Text>Define area.</Text>
+  </RS>
+  <RS ID="447">
+    <Text>Specified location is invalid.</Text>
+  </RS>
+  <RS ID="448">
+    <Text>Suddenly, you transform into a werewolf.</Text>
+  </RS>
+  <RS ID="449">
+    <Text>Your skin feels slick.</Text>
+  </RS>
+  <RS ID="450">
+    <Text>You are paralyzed.</Text>
+  </RS>
+  <RS ID="451">
+    <Text>You feel strangely warm.</Text>
+  </RS>
+  <RS ID="452">
+    <Text>You fall asleep.</Text>
+  </RS>
+  <RS ID="453">
+    <Text>You feel strangely cool.</Text>
+  </RS>
+  <RS ID="454">
+    <Text>You is driven insane.</Text>
+  </RS>
+  <RS ID="455">
+    <Text>You return to sanity.</Text>
+  </RS>
+  <RS ID="456">
+    <Text>Alchemy</Text>
+  </RS>
+  <RS ID="457">
+    <Text>Arrow make</Text>
+  </RS>
+  <RS ID="458">
+    <Text>Embalming</Text>
+  </RS>
+  <RS ID="459">
+    <Text>Fennling</Text>
+  </RS>
+  <RS ID="460">
+    <Text>Golem creation</Text>
+  </RS>
+  <RS ID="461">
+    <Text>Husbandry</Text>
+  </RS>
+  <RS ID="462">
+    <Text>Ironworking</Text>
+  </RS>
+  <RS ID="463">
+    <Text>Slave use</Text>
+  </RS>
+  <RS ID="464">
+    <Text>Taming</Text>
+  </RS>
+  <RS ID="465">
+    <Text>Ventriloquism</Text>
+  </RS>
+  <RS ID="466">
+    <Text>Writing</Text>
+  </RS>
+  <RS ID="467">
+    <Text>Dimension travel</Text>
+  </RS>
+  <RS ID="468">
+    <Text>Fire vision</Text>
+  </RS>
+  <RS ID="469">
+    <Text>Heat radiation</Text>
+  </RS>
+  <RS ID="470">
+    <Text>Mind control</Text>
+  </RS>
+  <RS ID="471">
+    <Text>Psi blast</Text>
+  </RS>
+  <RS ID="472">
+    <Text>Terraforming</Text>
+  </RS>
+  <RS ID="473">
+    <Text>Spellcasting</Text>
+  </RS>
+  <RS ID="474">
+    <Text>Innate powers</Text>
+  </RS>
+  <RS ID="475">
+    <Text>grass</Text>
+  </RS>
+  <RS ID="476">
+    <Text>tree</Text>
+  </RS>
+  <RS ID="477">
+    <Text>mountain</Text>
+  </RS>
+  <RS ID="478">
+    <Text>fog</Text>
+  </RS>
+  <RS ID="479">
+    <Text>lava pool</Text>
+  </RS>
+  <RS ID="480">
+    <Text>dead tree</Text>
+  </RS>
+  <RS ID="481">
+    <Text>water</Text>
+  </RS>
+  <RS ID="482">
+    <Text>quicksand</Text>
+  </RS>
+  <RS ID="483">
+    <Text>space</Text>
+  </RS>
+  <RS ID="484">
+    <Text>floor</Text>
+  </RS>
+  <RS ID="485">
+    <Text>Bifrost</Text>
+  </RS>
+  <RS ID="486">
+    <Text>door</Text>
+  </RS>
+  <RS ID="487">
+    <Text>closed door</Text>
+  </RS>
+  <RS ID="488">
+    <Text>wall</Text>
+  </RS>
+  <RS ID="489">
+    <Text>crossroads</Text>
+  </RS>
+  <RS ID="490">
+    <Text>crossroads disk</Text>
+  </RS>
+  <RS ID="491">
+    <Text>vortex</Text>
+  </RS>
+  <RS ID="492">
+    <Text>stairs down</Text>
+  </RS>
+  <RS ID="493">
+    <Text>stairs up</Text>
+  </RS>
+  <RS ID="494">
+    <Text>teleport trap</Text>
+  </RS>
+  <RS ID="495">
+    <Text>well</Text>
+  </RS>
+  <RS ID="496">
+    <Text>rock</Text>
+  </RS>
+  <RS ID="497">
+    <Text>stalagmite</Text>
+  </RS>
+  <RS ID="498">
+    <Text>cave floor</Text>
+  </RS>
+  <RS ID="499">
+    <Text>cave wall</Text>
+  </RS>
+  <RS ID="500">
+    <Text>fence</Text>
+  </RS>
+  <RS ID="501">
+    <Text>gate</Text>
+  </RS>
+  <RS ID="502">
+    <Text>lava</Text>
+  </RS>
+  <RS ID="503">
+    <Text>vulcan</Text>
+  </RS>
+  <RS ID="504">
+    <Text>liquid</Text>
+  </RS>
+  <RS ID="505">
+    <Text>hole down</Text>
+  </RS>
+  <RS ID="506">
+    <Text>hole up</Text>
+  </RS>
+  <RS ID="507">
+    <Text>mud</Text>
+  </RS>
+  <RS ID="508">
+    <Text>pit of sacred eye</Text>
+  </RS>
+  <RS ID="509">
+    <Text>rubble</Text>
+  </RS>
+  <RS ID="510">
+    <Text>ground</Text>
+  </RS>
+  <RS ID="511">
+    <Text>road</Text>
+  </RS>
+  <RS ID="512">
+    <Text>bush</Text>
+  </RS>
+  <RS ID="513">
+    <Text>stump</Text>
+  </RS>
+  <RS ID="514">
+    <Text>Viking</Text>
+  </RS>
+  <RS ID="515">
+    <Text>Blacksmith</Text>
+  </RS>
+  <RS ID="516">
+    <Text>Woodsman</Text>
+  </RS>
+  <RS ID="517">
+    <Text>Alchemist</Text>
+  </RS>
+  <RS ID="518">
+    <Text>Sage</Text>
+  </RS>
+  <RS ID="519">
+    <Text>Conjurer</Text>
+  </RS>
+  <RS ID="520">
+    <Text>Merchant</Text>
+  </RS>
+  <RS ID="521">
+    <Text>armor</Text>
+  </RS>
+  <RS ID="522">
+    <Text>deadbody</Text>
+  </RS>
+  <RS ID="523">
+    <Text>food</Text>
+  </RS>
+  <RS ID="524">
+    <Text>potion</Text>
+  </RS>
+  <RS ID="525">
+    <Text>ring</Text>
+  </RS>
+  <RS ID="526">
+    <Text>tool</Text>
+  </RS>
+  <RS ID="527">
+    <Text>wand</Text>
+  </RS>
+  <RS ID="528">
+    <Text>weapon</Text>
+  </RS>
+  <RS ID="529">
+    <Text>scroll</Text>
+  </RS>
+  <RS ID="530">
+    <Text>coin</Text>
+  </RS>
+  <RS ID="531">
+    <Text>amulet</Text>
+  </RS>
+  <RS ID="532">
+    <Text>shield</Text>
+  </RS>
+  <RS ID="533">
+    <Text>helmet</Text>
+  </RS>
+  <RS ID="534">
+    <Text>clothing</Text>
+  </RS>
+  <RS ID="535">
+    <Text>Help</Text>
+  </RS>
+  <RS ID="536">
+    <Text>Auto pickup items</Text>
+  </RS>
+  <RS ID="537">
+    <Text>Use Ocarina</Text>
+  </RS>
+  <RS ID="538">
+    <Text>You have the power to destroy a race.</Text>
+  </RS>
+  <RS ID="539">
+    <Text>You fall into a pit.</Text>
+  </RS>
+  <RS ID="540">
+    <Text>You got out of the pit.</Text>
+  </RS>
+  <RS ID="541">
+    <Text>Your handhold out of the pit crumbles.</Text>
+  </RS>
+  <RS ID="542">
+    <Text>You climb nearly to the lip of the pit.</Text>
+  </RS>
+  <RS ID="543">
+    <Text>You nearly escape the pit.</Text>
+  </RS>
+  <RS ID="544">
+    <Text>You try to climb out of the pit. You have slowed down.</Text>
+  </RS>
+  <RS ID="545">
+    <Text>You slide back down slightly into the pit.</Text>
+  </RS>
+  <RS ID="546">
+    <Text>As you wish.</Text>
+  </RS>
+  <RS ID="547">
+    <Text>Use GrapplingHook</Text>
+  </RS>
+  <RS ID="548">
+    <Text>Use PickAxe</Text>
+  </RS>
+  <RS ID="549">
+    <Text>Inventory: only icons</Text>
+  </RS>
+  <RS ID="550">
+    <Text>Weight</Text>
+  </RS>
+  <RS ID="551">
+    <Text>Price</Text>
+  </RS>
+  <RS ID="552">
+    <Text>I have nothing to teach you.</Text>
+  </RS>
+  <RS ID="553">
+    <Text>You lack the tools of your trade: %s.</Text>
+  </RS>
+  <RS ID="554">
+    <Text>You see: %s.</Text>
+  </RS>
+  <RS ID="555">
+    <Text>You destroy all humans.</Text>
+  </RS>
+  <RS ID="556">
+    <Text>Henocide</Text>
+  </RS>
+  <RS ID="557">
+    <Text>You wipe out the </Text>
+  </RS>
+  <RS ID="558">
+    <Text>Your morals lowered, the aesirs drew attention to you...</Text>
+  </RS>
+  <RS ID="559">
+    <Text>No such race exists.</Text>
+  </RS>
+  <RS ID="560">
+    <Text>That race is too powerful to destroy.</Text>
+  </RS>
+  <RS ID="561">
+    <Text>Destroyed his race.</Text>
+  </RS>
+  <RS ID="562">
+    <Text>You feel faster.</Text>
+  </RS>
+  <RS ID="563">
+    <Text>Time is stopped in universe.</Text>
+  </RS>
+  <RS ID="564">
+    <Text>Time is stopped for you.</Text>
+  </RS>
+  <RS ID="565">
+    <Text>You can move again.</Text>
+  </RS>
+  <RS ID="566">
+    <Text>You are withered. You cannot regain your strength yet.</Text>
+  </RS>
+  <RS ID="567">
+    <Text>Your body is now five-dimensional.</Text>
+  </RS>
+  <RS ID="568">
+    <Text>You come on Crossroads among dimensions.</Text>
+  </RS>
+  <RS ID="569">
+    <Text>You hear a spraying noise.</Text>
+  </RS>
+  <RS ID="570">
+    <Text>You summoned a greater being.</Text>
+  </RS>
+  <RS ID="571">
+    <Text>You visualize your surroundings.</Text>
+  </RS>
+  <RS ID="572">
+    <Text>You can see again.</Text>
+  </RS>
+  <RS ID="573">
+    <Text>Your forehead feels cooler.</Text>
+  </RS>
+  <RS ID="574">
+    <Text>You feel your life force returning to you.</Text>
+  </RS>
+  <RS ID="575">
+    <Text>Confusion is cured.</Text>
+  </RS>
+  <RS ID="576">
+    <Text>You can see clearly again.</Text>
+  </RS>
+  <RS ID="577">
+    <Text>Heal inability is cured.</Text>
+  </RS>
+  <RS ID="578">
+    <Text>Hela is not impressed with the soul you have imprisoned.</Text>
+  </RS>
+  <RS ID="579">
+    <Text>You feel better.</Text>
+  </RS>
+  <RS ID="580">
+    <Text>You feel much better.</Text>
+  </RS>
+  <RS ID="581">
+    <Text>Your unhealthy glow fades.</Text>
+  </RS>
+  <RS ID="582">
+    <Text>Strange fleshy things sprout from your stumps. They will do nicely as legs.</Text>
+  </RS>
+  <RS ID="583">
+    <Text>Intoxication is cured.</Text>
+  </RS>
+  <RS ID="584">
+    <Text>Your missing eyes grow back.</Text>
+  </RS>
+  <RS ID="585">
+    <Text>You can hear again.</Text>
+  </RS>
+  <RS ID="586">
+    <Text>Vertiginous is cured.</Text>
+  </RS>
+  <RS ID="587">
+    <Text>A violent part of you fades.</Text>
+  </RS>
+  <RS ID="588">
+    <Text>Brain-scarring is cured.</Text>
+  </RS>
+  <RS ID="589">
+    <Text>Something inside you dies.</Text>
+  </RS>
+  <RS ID="590">
+    <Text>You feel worse.</Text>
+  </RS>
+  <RS ID="591">
+    <Text>You slip in the mud.</Text>
+  </RS>
+  <RS ID="592">
+    <Text>You feel stronger.</Text>
+  </RS>
+  <RS ID="593">
+    <Text>You feel weaker.</Text>
+  </RS>
+  <RS ID="594">
+    <Text>You feel %smore experienced.</Text>
+  </RS>
+  <RS ID="595">
+    <Text>You lose a life level.</Text>
+  </RS>
+  <RS ID="596">
+    <Text>You feel healthier.</Text>
+  </RS>
+  <RS ID="597">
+    <Text>You wheeze miserably.</Text>
+  </RS>
+  <RS ID="598">
+    <Text>You will now return here.</Text>
+  </RS>
+  <RS ID="599">
+    <Text>All your items are scattered on level.</Text>
+  </RS>
+  <RS ID="600">
+    <Text>Someone is watching you.</Text>
+  </RS>
+  <RS ID="601">
+    <Text>You know about all traps and portals.</Text>
+  </RS>
+  <RS ID="602">
+    <Text>Fire storm</Text>
+  </RS>
+  <RS ID="603">
+    <Text>Prayer</Text>
+  </RS>
+  <RS ID="604">
+    <Text>Sacrifice</Text>
+  </RS>
+  <RS ID="605">
+    <Text>You begin to radiate heat at will.</Text>
+  </RS>
+  <RS ID="606">
+    <Text>Your heat fizzles out.</Text>
+  </RS>
+  <RS ID="607">
+    <Text>You may write no scrolls.</Text>
+  </RS>
+  <RS ID="608">
+    <Text>You are frozen.</Text>
+  </RS>
+  <RS ID="609">
+    <Text>?</Text>
+  </RS>
+  <RS ID="610">
+    <Text>Your skin tingles.</Text>
+  </RS>
+  <RS ID="611">
+    <Text>You become stronger.</Text>
+  </RS>
+  <RS ID="612">
+    <Text>You become less armored.</Text>
+  </RS>
+  <RS ID="613">
+    <Text>?</Text>
+  </RS>
+  <RS ID="614">
+    <Text>The wand''s magic does not function here.</Text>
+  </RS>
+  <RS ID="615">
+    <Text>Blinding light explodes out of the wand.</Text>
+  </RS>
+  <RS ID="616">
+    <Text>You acquire the skill of precognition.</Text>
+  </RS>
+  <RS ID="617">
+    <Text>You can now reform terrain.</Text>
+  </RS>
+  <RS ID="618">
+    <Text>It burns you.</Text>
+  </RS>
+  <RS ID="619">
+    <Text>Your body has a strange sheen to it.</Text>
+  </RS>
+  <RS ID="620">
+    <Text>You feel as though you will live forever.</Text>
+  </RS>
+  <RS ID="621">
+    <Text>Rocks rain down on your head.</Text>
+  </RS>
+  <RS ID="622">
+    <Text>Lava comes streaming out of the heavens.</Text>
+  </RS>
+  <RS ID="623">
+    <Text>Your mouth feels dry.</Text>
+  </RS>
+  <RS ID="624">
+    <Text>You picture a strange new dimension.</Text>
+  </RS>
+  <RS ID="625">
+    <Text>You have acquired a new resistance.</Text>
+  </RS>
+  <RS ID="626">
+    <Text>You feel more powerful.</Text>
+  </RS>
+  <RS ID="627">
+    <Text>You feel less powerful.</Text>
+  </RS>
+  <RS ID="628">
+    <Text>Your magic energy is revitalized.</Text>
+  </RS>
+  <RS ID="629">
+    <Text>Your magic ability increases.</Text>
+  </RS>
+  <RS ID="630">
+    <Text>Nothing seems to happen.</Text>
+  </RS>
+  <RS ID="631">
+    <Text>You sense objects.</Text>
+  </RS>
+  <RS ID="632">
+    <Text>?</Text>
+  </RS>
+  <RS ID="633">
+    <Text>You feel very sick.</Text>
+  </RS>
+  <RS ID="634">
+    <Text>Your body emits a faint glow.</Text>
+  </RS>
+  <RS ID="635">
+    <Text>Your hair falls out.</Text>
+  </RS>
+  <RS ID="636">
+    <Text>Your skin is sloughing off.</Text>
+  </RS>
+  <RS ID="637">
+    <Text>You are dying.</Text>
+  </RS>
+  <RS ID="638">
+    <Text>You are now blind!</Text>
+  </RS>
+  <RS ID="639">
+    <Text>You feel feverish.</Text>
+  </RS>
+  <RS ID="640">
+    <Text>Your fever overcomes you. You faint.</Text>
+  </RS>
+  <RS ID="641">
+    <Text>The %s drowns.</Text>
+  </RS>
+  <RS ID="642">
+    <Text>Gurgle.</Text>
+  </RS>
+  <RS ID="643">
+    <Text>Your perception is altered.</Text>
+  </RS>
+  <RS ID="644">
+    <Text>You sense monsters.</Text>
+  </RS>
+  <RS ID="645">
+    <Text>Your body is suddenly covered with hair.</Text>
+  </RS>
+  <RS ID="646">
+    <Text>You got a second life. You feel watched over...</Text>
+  </RS>
+  <RS ID="647">
+    <Text>You can now determine the condition of monsters.</Text>
+  </RS>
+  <RS ID="648">
+    <Text>You can now play music.</Text>
+  </RS>
+  <RS ID="649">
+    <Text>You can now bring deads to life.</Text>
+  </RS>
+  <RS ID="650">
+    <Text>You resurrected to life </Text>
+  </RS>
+  <RS ID="651">
+    <Text>You must specify a dead body.</Text>
+  </RS>
+  <RS ID="652">
+    <Text>Monsters appear...</Text>
+  </RS>
+  <RS ID="653">
+    <Text>Caustic liquid sprays out of the wand.</Text>
+  </RS>
+  <RS ID="654">
+    <Text>The orb has no power over plants and creatures of the water.</Text>
+  </RS>
+  <RS ID="655">
+    <Text>You create an illusion of yourself.</Text>
+  </RS>
+  <RS ID="656">
+    <Text>You cannot dig without a pick axe.</Text>
+  </RS>
+  <RS ID="657">
+    <Text>The %s screams and fades into thin air.</Text>
+  </RS>
+  <RS ID="658">
+    <Text>The orb sucks you into its confines and vanishes.</Text>
+  </RS>
+  <RS ID="659">
+    <Text>The orb has its limitations.</Text>
+  </RS>
+  <RS ID="660">
+    <Text>You accidentally create a new life form.</Text>
+  </RS>
+  <RS ID="661">
+    <Text>?</Text>
+  </RS>
+  <RS ID="662">
+    <Text>Eliminate which race?</Text>
+  </RS>
+  <RS ID="663">
+    <Text>You are now invisible.</Text>
+  </RS>
+  <RS ID="664">
+    <Text>You are invulnerable.</Text>
+  </RS>
+  <RS ID="665">
+    <Text>Your pack glows white.</Text>
+  </RS>
+  <RS ID="666">
+    <Text>The %s glows.</Text>
+  </RS>
+  <RS ID="667">
+    <Text>Your pack glows black. Things are destroyed!</Text>
+  </RS>
+  <RS ID="668">
+    <Text>The %s disintigrated.</Text>
+  </RS>
+  <RS ID="669">
+    <Text>Scroll curse all items.</Text>
+  </RS>
+  <RS ID="670">
+    <Text>Scroll dispels curses from all items.</Text>
+  </RS>
+  <RS ID="671">
+    <Text>You teleport to a new location.</Text>
+  </RS>
+  <RS ID="672">
+    <Text>You feel less substantial.</Text>
+  </RS>
+  <RS ID="673">
+    <Text>Your body is solidifying.</Text>
+  </RS>
+  <RS ID="674">
+    <Text>You feel %s.</Text>
+  </RS>
+  <RS ID="675">
+    <Text>You become more robust.</Text>
+  </RS>
+  <RS ID="676">
+    <Text>You go insane.</Text>
+  </RS>
+  <RS ID="677">
+    <Text>Burnt to a crisp</Text>
+  </RS>
+  <RS ID="678">
+    <Text>attack[,,,-ed,-ed,-ed]</Text>
+  </RS>
+  <RS ID="679">
+    <Text>wound[,,,-ed,-ed,-ed]</Text>
+  </RS>
+  <RS ID="680">
+    <Text>kill[,,,-ed,-ed,-ed]</Text>
+  </RS>
+  <RS ID="681">
+    <Text>The cold of Niflheim shocks %s instantly.</Text>
+  </RS>
+  <RS ID="682">
+    <Text>The flames of Bifrost consume %s instantly.</Text>
+  </RS>
+  <RS ID="683">
+    <Text>%s's body is torn apart as pieces of it teleport to various locations.</Text>
+  </RS>
+  <RS ID="684">
+    <Text>Specified direction is invalid.</Text>
+  </RS>
+  <RS ID="685">
+    <Text>Specified item is invalid.</Text>
+  </RS>
+  <RS ID="686">
+    <Text>Specified creature is invalid.</Text>
+  </RS>
+  <RS ID="687">
+    <Text>Specified land is invalid.</Text>
+  </RS>
+  <RS ID="688">
+    <Text>Eyes</Text>
+  </RS>
+  <RS ID="689">
+    <Text>Fingers</Text>
+  </RS>
+  <RS ID="690">
+    <Text>Killed by a %s.</Text>
+  </RS>
+  <RS ID="691">
+    <Text>As Vanaheim is empty, you are set free.</Text>
+  </RS>
+  <RS ID="692">
+    <Text>%s, holder - %s</Text>
+  </RS>
+  <RS ID="693">
+    <Text>Your horrible burns have healed.</Text>
+  </RS>
+  <RS ID="694">
+    <Text>You are overburdened.</Text>
+  </RS>
+  <RS ID="695">
+    <Text>Hexed items cannot be removed.</Text>
+  </RS>
+  <RS ID="696">
+    <Text>The gods have been watching you. They have deemed you unworthy.
+You are struck down by an unseen force.</Text>
+  </RS>
+  <RS ID="697">
+    <Text>high</Text>
+  </RS>
+  <RS ID="698">
+    <Text>average</Text>
+  </RS>
+  <RS ID="699">
+    <Text>low</Text>
+  </RS>
+  <RS ID="700">
+    <Text>absent</Text>
+  </RS>
+  <RS ID="701">
+    <Text>potion</Text>
+  </RS>
+  <RS ID="702">
+    <Text>ring</Text>
+  </RS>
+  <RS ID="703">
+    <Text>wand</Text>
+  </RS>
+  <RS ID="704">
+    <Text>scroll</Text>
+  </RS>
+  <RS ID="705">
+    <Text>coin</Text>
+  </RS>
+  <RS ID="706">
+    <Text>coins</Text>
+  </RS>
+  <RS ID="707">
+    <Text>coins</Text>
+  </RS>
+  <RS ID="708">
+    <Text>Creature</Text>
+  </RS>
+  <RS ID="709">
+    <Text>?</Text>
+  </RS>
+  <RS ID="710">
+    <Text>Attacks</Text>
+  </RS>
+  <RS ID="711">
+    <Text>Ragnarok done. The aesirs overthrow.</Text>
+  </RS>
+  <RS ID="712">
+    <Text>Ragnarok done. The aesirs won.</Text>
+  </RS>
+  <RS ID="713">
+    <Text>You have attained level </Text>
+  </RS>
+  <RS ID="714">
+    <Text>Great joy comes with Hela's death.</Text>
+  </RS>
+  <RS ID="715">
+    <Text>Balder is free.</Text>
+  </RS>
+  <RS ID="716">
+    <Text>A new soul inhabits your ring.</Text>
+  </RS>
+  <RS ID="717">
+    <Text>I is already hired.</Text>
+  </RS>
+  <RS ID="718">
+    <Text>I do not hire: jarl - my chieftain.</Text>
+  </RS>
+  <RS ID="719">
+    <Text>No value</Text>
+  </RS>
+  <RS ID="720">
+    <Text>No name and quantity</Text>
+  </RS>
+  <RS ID="721">
+    <Text>No quantity</Text>
+  </RS>
+  <RS ID="722">
+    <Text>-- unknown or invalid command</Text>
+  </RS>
+  <RS ID="723">
+    <Text>Turns to equip: 0</Text>
+  </RS>
+  <RS ID="724">
+    <Text>Debt</Text>
+  </RS>
+  <RS ID="725">
+    <Text>Money</Text>
+  </RS>
+  <RS ID="726">
+    <Text>anvil</Text>
+  </RS>
+  <RS ID="727">
+    <Text>tongs</Text>
+  </RS>
+  <RS ID="728">
+    <Text>wand of fire</Text>
+  </RS>
+  <RS ID="729">
+    <Text>No projectiles for shooting weapon.</Text>
+  </RS>
+  <RS ID="730">
+    <Text>Unspecified weapon for thowing.</Text>
+  </RS>
+  <RS ID="731">
+    <Text>You can not shoot or throw this projectile.</Text>
+  </RS>
+  <RS ID="732">
+    <Text>%s thanks you for bringing %s.</Text>
+  </RS>
+  <RS ID="733">
+    <Text>Hela draws the Thokk soul from your ring. The Balder's soul is free.</Text>
+  </RS>
+  <RS ID="734">
+    <Text>The scroll has no apparent effect.</Text>
+  </RS>
+  <RS ID="735">
+    <Text>There is no liquid here.</Text>
+  </RS>
+  <RS ID="736">
+    <Text>You eat the </Text>
+  </RS>
+  <RS ID="737">
+    <Text>The raw %s tasted horrible.</Text>
+  </RS>
+  <RS ID="738">
+    <Text>The wand crumbles into dust!</Text>
+  </RS>
+  <RS ID="739">
+    <Text>You read the </Text>
+  </RS>
+  <RS ID="740">
+    <Text>You drink the </Text>
+  </RS>
+  <RS ID="741">
+    <Text>There is nothing here.</Text>
+  </RS>
+  <RS ID="742">
+    <Text>You cannot afford the items you want.</Text>
+  </RS>
+  <RS ID="743">
+    <Text>You die. However, the gods smile upon you. You are returned to life! However, you are merely mortal again.</Text>
+  </RS>
+  <RS ID="744">
+    <Text>Fewer ingredients.</Text>
+  </RS>
+  <RS ID="745">
+    <Text>You do not have a free vial.</Text>
+  </RS>
+  <RS ID="746">
+    <Text>house</Text>
+  </RS>
+  <RS ID="747">
+    <Text>merchant shop</Text>
+  </RS>
+  <RS ID="748">
+    <Text>smithy</Text>
+  </RS>
+  <RS ID="749">
+    <Text>alchemist shop</Text>
+  </RS>
+  <RS ID="750">
+    <Text>conjurer shop</Text>
+  </RS>
+  <RS ID="751">
+    <Text>sage shop</Text>
+  </RS>
+  <RS ID="752">
+    <Text>woodsman shop</Text>
+  </RS>
+  <RS ID="753">
+    <Text>Tyr''arm</Text>
+  </RS>
+  <RS ID="754">
+    <Text>Eitri says: </Text>
+  </RS>
+  <RS ID="755">
+    <Text>I will make what you need, in exchange for a platinum anvil.</Text>
+  </RS>
+  <RS ID="756">
+    <Text>I have a platinum anvil</Text>
+  </RS>
+  <RS ID="757">
+    <Text>I have no a platinum anvil</Text>
+  </RS>
+  <RS ID="758">
+    <Text>Buy or create a platinum anvil.</Text>
+  </RS>
+  <RS ID="759">
+    <Text>Eitri gives you dwarven arm for Tyr.</Text>
+  </RS>
+  <RS ID="760">
+    <Text>Here is dwarven arm for Tyr... Be valiant and help aesirs in Ragnarok!</Text>
+  </RS>
+  <RS ID="761">
+    <Text>blessed</Text>
+  </RS>
+  <RS ID="762">
+    <Text>cursed</Text>
+  </RS>
+  <RS ID="763">
+    <Text>No trees here.</Text>
+  </RS>
+  <RS ID="764">
+    <Text>You make several arrows.</Text>
+  </RS>
+  <RS ID="765">
+    <Text>You have no bodies to work with?</Text>
+  </RS>
+  <RS ID="766">
+    <Text>You create a %s mummy.</Text>
+  </RS>
+  <RS ID="767">
+    <Text>You create a %s golem.</Text>
+  </RS>
+  <RS ID="768">
+    <Text>A golem leaps from your pack. You cannot control it!</Text>
+  </RS>
+  <RS ID="769">
+    <Text>Travel where?</Text>
+  </RS>
+  <RS ID="770">
+    <Text>You return to your plane of existence.</Text>
+  </RS>
+  <RS ID="771">
+    <Text>?</Text>
+  </RS>
+  <RS ID="772">
+    <Text>You play a tune.</Text>
+  </RS>
+  <RS ID="773">
+    <Text>You play a beautiful tune.</Text>
+  </RS>
+  <RS ID="774">
+    <Text>You have no stylus.</Text>
+  </RS>
+  <RS ID="775">
+    <Text>You writing the %s.</Text>
+  </RS>
+  <RS ID="776">
+    <Text>?</Text>
+  </RS>
+  <RS ID="777">
+    <Text>Ray deanimates %s.</Text>
+  </RS>
+  <RS ID="778">
+    <Text>What do you wish for?</Text>
+  </RS>
+  <RS ID="779">
+    <Text>You have wasted your wish.</Text>
+  </RS>
+  <RS ID="780">
+    <Text>Your wish materializes.</Text>
+  </RS>
+  <RS ID="781">
+    <Text>Your liver squirms.</Text>
+  </RS>
+  <RS ID="782">
+    <Text>You escape a phase trap.</Text>
+  </RS>
+  <RS ID="783">
+    <Text>You escape a frost trap.</Text>
+  </RS>
+  <RS ID="784">
+    <Text>You escape a poison spike trap.</Text>
+  </RS>
+  <RS ID="785">
+    <Text>You escape a fire trap.</Text>
+  </RS>
+  <RS ID="786">
+    <Text>You escape a stun gas trap.</Text>
+  </RS>
+  <RS ID="787">
+    <Text>You avoid entering a trap door.</Text>
+  </RS>
+  <RS ID="788">
+    <Text>You escape a teleportation trap.</Text>
+  </RS>
+  <RS ID="789">
+    <Text>You fall through a trap door.</Text>
+  </RS>
+  <RS ID="790">
+    <Text>You are hit by an arrow.</Text>
+  </RS>
+  <RS ID="791">
+    <Text>You are engulfed in flames!</Text>
+  </RS>
+  <RS ID="792">
+    <Text>Some of your scrolls burn up.</Text>
+  </RS>
+  <RS ID="793">
+    <Text>You are burned.</Text>
+  </RS>
+  <RS ID="794">
+    <Text>You are too badly burned. You die.</Text>
+  </RS>
+  <RS ID="795">
+    <Text>The ground here turns to lava.</Text>
+  </RS>
+  <RS ID="796">
+    <Text>The lava burns you.</Text>
+  </RS>
+  <RS ID="797">
+    <Text>You hear a click. Doors open! Monsters enter!</Text>
+  </RS>
+  <RS ID="798">
+    <Text>You are covered in frost.</Text>
+  </RS>
+  <RS ID="799">
+    <Text>Some of your potions freeze and shatter.</Text>
+  </RS>
+  <RS ID="800">
+    <Text>You are too badly frostbitten. You die.</Text>
+  </RS>
+  <RS ID="801">
+    <Text>You begin to sink in quicksand.</Text>
+  </RS>
+  <RS ID="802">
+    <Text>Struggling in quicksand is useless.</Text>
+  </RS>
+  <RS ID="803">
+    <Text>You are sink to your chin.</Text>
+  </RS>
+  <RS ID="804">
+    <Text>You drowned in quicksand.</Text>
+  </RS>
+  <RS ID="805">
+    <Text>You pull yourself forward with the hook.</Text>
+  </RS>
+  <RS ID="806">
+    <Text>Poisoned spikes hit you. You feel weaker.</Text>
+  </RS>
+  <RS ID="807">
+    <Text>The floor beneath you sinks. The room begins to fill with water.</Text>
+  </RS>
+  <RS ID="808">
+    <Text>Strange mist seeps out of the ground.</Text>
+  </RS>
+  <RS ID="809">
+    <Text>You trip a switch. The ceiling cracks.</Text>
+  </RS>
+  <RS ID="810">
+    <Text>You trigger a phase trap.</Text>
+  </RS>
+  <RS ID="811">
+    <Text>You are in a very confined space.</Text>
+  </RS>
+  <RS ID="812">
+    <Text>Your village, once peaceful and thriving, is now all but deserted and overrun by wild creatures from the nearby forest.</Text>
+  </RS>
+  <RS ID="813">
+    <Text>Paths lead off in every direction as you find yourself wandering into a dense forest.</Text>
+  </RS>
+  <RS ID="814">
+    <Text>The evil ones are dead! The world is saved! You are welcomed into Valhalla, home to the mightiest of heroes!</Text>
+  </RS>
+  <RS ID="815">
+    <Text>Language</Text>
+  </RS>
+  <RS ID="816">
+    <Text>is not identified</Text>
+  </RS>
+  <RS ID="817">
+    <Text>%s entrapped in the %s.</Text>
+  </RS>
+  <RS ID="818">
+    <Text>Material</Text>
+  </RS>
+  <RS ID="819">
+    <Text>Breeding is successful!</Text>
+  </RS>
+  <RS ID="820">
+    <Text>Your attempts are futile.</Text>
+  </RS>
+  <RS ID="821">
+    <Text>A magenta ray comes out of your eyes.</Text>
+  </RS>
+  <RS ID="822">
+    <Text>The %s is incinerated.</Text>
+  </RS>
+  <RS ID="823">
+    <Text>You feel no response.</Text>
+  </RS>
+  <RS ID="824">
+    <Text>You probe a foreign mind.</Text>
+  </RS>
+  <RS ID="825">
+    <Text>Nothing seems to happen.</Text>
+  </RS>
+  <RS ID="826">
+    <Text>You are telepathically linked with another.</Text>
+  </RS>
+  <RS ID="827">
+    <Text>You charm the %s.</Text>
+  </RS>
+  <RS ID="828">
+    <Text>You can only move golems which you create or tame or monster whose minds you control.</Text>
+  </RS>
+  <RS ID="829">
+    <Text>Obedience</Text>
+  </RS>
+  <RS ID="830">
+    <Text>You throw your voice.</Text>
+  </RS>
+  <RS ID="831">
+    <Text>musical tool</Text>
+  </RS>
+  <RS ID="832">
+    <Text>short blade</Text>
+  </RS>
+  <RS ID="833">
+    <Text>long blade</Text>
+  </RS>
+  <RS ID="834">
+    <Text>blunt weapon</Text>
+  </RS>
+  <RS ID="835">
+    <Text>heavy armor</Text>
+  </RS>
+  <RS ID="836">
+    <Text>medium armor</Text>
+  </RS>
+  <RS ID="837">
+    <Text>light armor</Text>
+  </RS>
+  <RS ID="838">
+    <Text>spear</Text>
+  </RS>
+  <RS ID="839">
+    <Text>axe</Text>
+  </RS>
+  <RS ID="840">
+    <Text>bow</Text>
+  </RS>
+  <RS ID="841">
+    <Text>crossbow</Text>
+  </RS>
+  <RS ID="842">
+    <Text>projectile</Text>
+  </RS>
+  <RS ID="843">
+    <Text>Use Flute</Text>
+  </RS>
+  <RS ID="844">
+    <Text>Eat Food</Text>
+  </RS>
+  <RS ID="845">
+    <Text>Use DisruptionHorn</Text>
+  </RS>
+  <RS ID="846">
+    <Text>Use LazlulRope</Text>
+  </RS>
+  <RS ID="847">
+    <Text>Your legs! They're gone!</Text>
+  </RS>
+  <RS ID="848">
+    <Text>You have no legs.</Text>
+  </RS>
+  <RS ID="849">
+    <Text>Single</Text>
+  </RS>
+  <RS ID="850">
+    <Text>Server</Text>
+  </RS>
+  <RS ID="851">
+    <Text>Client</Text>
+  </RS>
+  <RS ID="852">
+    <Text>Server address</Text>
+  </RS>
+  <RS ID="853">
+    <Text>Go up</Text>
+  </RS>
+  <RS ID="854">
+    <Text>Go down</Text>
+  </RS>
+  <RS ID="855">
+    <Text>Transfer is succesful.</Text>
+  </RS>
+  <RS ID="856">
+    <Text>Use Gjall</Text>
+  </RS>
+  <RS ID="857">
+    <Text>It is time to Ragnarok!</Text>
+  </RS>
+  <RS ID="858">
+    <Text>Use BlackGem</Text>
+  </RS>
+  <RS ID="859">
+    <Text>Lodestone</Text>
+  </RS>
+  <RS ID="860">
+    <Text>Cube</Text>
+  </RS>
+  <RS ID="861">
+    <Text>You set off a stun gas trap. You have slowed down. You can move again.</Text>
+  </RS>
+  <RS ID="862">
+    <Text>Speeddown</Text>
+  </RS>
+  <RS ID="863">
+    <Text>You cannot go up here.</Text>
+  </RS>
+  <RS ID="864">
+    <Text>You cannot go down here.</Text>
+  </RS>
+  <RS ID="865">
+    <Text>Here no stairways or holes.</Text>
+  </RS>
+  <RS ID="866">
+    <Text>You create traps.</Text>
+  </RS>
+  <RS ID="867">
+    <Text>Your body is covered with acid.</Text>
+  </RS>
+  <RS ID="868">
+    <Text>You are withered!</Text>
+  </RS>
+  <RS ID="869">
+    <Text>Your health is affected.</Text>
+  </RS>
+  <RS ID="870">
+    <Text>Your mind is affected.</Text>
+  </RS>
+  <RS ID="871">
+    <Text>This fog is very thick.</Text>
+  </RS>
+  <RS ID="872">
+    <Text>You can see again.</Text>
+  </RS>
+  <RS ID="873">
+    <Text>You feel one with the earth.</Text>
+  </RS>
+  <RS ID="874">
+    <Text>Killed by falling debris.</Text>
+  </RS>
+  <RS ID="875">
+    <Text>roof crushing</Text>
+  </RS>
+  <RS ID="876">
+    <Text>Divination on runes</Text>
+  </RS>
+  <RS ID="877">
+    <Text>#self# is strung up and balanced on a stump.</Text>
+  </RS>
+  <RS ID="878">
+    <Text>Kick out the stump</Text>
+  </RS>
+  <RS ID="879">
+    <Text>#self# is perilously dangling over water.</Text>
+  </RS>
+  <RS ID="880">
+    <Text>Drown him</Text>
+  </RS>
+  <RS ID="881">
+    <Text>#self# is pinned to the ground with a spear.</Text>
+  </RS>
+  <RS ID="882">
+    <Text>Twist the spear</Text>
+  </RS>
+  <RS ID="883">
+    <Text>He pleads with you to free him and pledges his undying allegiance.</Text>
+  </RS>
+  <RS ID="884">
+    <Text>Set him free</Text>
+  </RS>
+  <RS ID="885">
+    <Text>Do nothing for now</Text>
+  </RS>
+  <RS ID="886">
+    <Text>You free #self#. He will follow you to the ends of the earth.</Text>
+  </RS>
+  <RS ID="887">
+    <Text>Vidur is angered. He seeks vengence.</Text>
+  </RS>
+  <RS ID="888">
+    <Text>#self# sacrificed.</Text>
+  </RS>
+  <RS ID="889">
+    <Text>Loyal service to Vidur through ritual sacrifice is always rewarded handsomely. A spear is slung into the ground between your feet.</Text>
+  </RS>
+  <RS ID="890">
+    <Text>Use Skidbladnir</Text>
+  </RS>
+  <RS ID="891">
+    <Text>%s return to its natural form.</Text>
+  </RS>
+  <RS ID="892">
+    <Text>Pay</Text>
+  </RS>
+  <RS ID="893">
+    <Text>The wand glows.</Text>
+  </RS>
+  <RS ID="894">
+    <Text>The %s is destroyed by light.</Text>
+  </RS>
+  <RS ID="895">
+    <Text>Server is busy...</Text>
+  </RS>
+  <RS ID="896">
+    <Text>Connection failed</Text>
+  </RS>
+  <RS ID="897">
+    <Text>Knowledge tree</Text>
+  </RS>
+  <RS ID="898">
+    <Text>human</Text>
+  </RS>
+  <RS ID="899">
+    <Text>aesir</Text>
+  </RS>
+  <RS ID="900">
+    <Text>evil god</Text>
+  </RS>
+  <RS ID="901">
+    <Text>daemon</Text>
+  </RS>
+  <RS ID="902">
+    <Text>Humans</Text>
+  </RS>
+  <RS ID="903">
+    <Text>Aesir</Text>
+  </RS>
+  <RS ID="904">
+    <Text>Evil Gods</Text>
+  </RS>
+  <RS ID="905">
+    <Text>Daemons</Text>
+  </RS>
+  <RS ID="906">
+    <Text>none</Text>
+  </RS>
+  <RS ID="907">
+    <Text>female</Text>
+  </RS>
+  <RS ID="908">
+    <Text>male</Text>
+  </RS>
+  <RS ID="909">
+    <Text>hermaphrodite</Text>
+  </RS>
+  <RS ID="910">
+    <Text>You envision the birth of a two-headed calf.</Text>
+  </RS>
+  <RS ID="911">
+    <Text>The sun is temporarily covered by a large shadow.</Text>
+  </RS>
+  <RS ID="912">
+    <Text>Meteors shower from the sky.</Text>
+  </RS>
+  <RS ID="913">
+    <Text>Your eyes bleed.</Text>
+  </RS>
+  <RS ID="914">
+    <Text>Killed by the effects of a mushroom</Text>
+  </RS>
+  <RS ID="915">
+    <Text>The %s glows.</Text>
+  </RS>
+  <RS ID="916">
+    <Text>The %s glows with newfound beauty.</Text>
+  </RS>
+  <RS ID="917">
+    <Text>This passage goes nowhere.</Text>
+  </RS>
+  <RS ID="918">
+    <Text>This area is magically bounded.</Text>
+  </RS>
+  <RS ID="919">
+    <Text>Party formation</Text>
+  </RS>
+  <RS ID="920">
+    <Text>Your skin is affected.</Text>
+  </RS>
+  <RS ID="921">
+    <Text>Your strength is affected.</Text>
+  </RS>
+  <RS ID="922">
+    <Text>Your dexterity is affected.</Text>
+  </RS>
+  <RS ID="923">
+    <Text>Night</Text>
+  </RS>
+  <RS ID="924">
+    <Text>Midnight</Text>
+  </RS>
+  <RS ID="925">
+    <Text>Dawn</Text>
+  </RS>
+  <RS ID="926">
+    <Text>Day</Text>
+  </RS>
+  <RS ID="927">
+    <Text>Noon</Text>
+  </RS>
+  <RS ID="928">
+    <Text>Dusk</Text>
+  </RS>
+  <RS ID="929">
+    <Text>Rank</Text>
+  </RS>
+  <RS ID="930">
+    <Text>wounds</Text>
+  </RS>
+  <RS ID="931">
+    <Text>Chief, beside me %s, no medicines!</Text>
+  </RS>
+  <RS ID="932">
+    <Text>remains of</Text>
+  </RS>
+  <RS ID="933">
+    <Text>Stone</Text>
+  </RS>
+  <RS ID="934">
+    <Text>Metal</Text>
+  </RS>
+  <RS ID="935">
+    <Text>Wood</Text>
+  </RS>
+  <RS ID="936">
+    <Text>Glass</Text>
+  </RS>
+  <RS ID="937">
+    <Text>Bone</Text>
+  </RS>
+  <RS ID="938">
+    <Text>Leather</Text>
+  </RS>
+  <RS ID="939">
+    <Text>Flesh</Text>
+  </RS>
+  <RS ID="940">
+    <Text>Paper</Text>
+  </RS>
+  <RS ID="941">
+    <Text>Cloth</Text>
+  </RS>
+  <RS ID="942">
+    <Text>Liquid</Text>
+  </RS>
+  <RS ID="943">
+    <Text>Fiber</Text>
+  </RS>
+  <RS ID="944">
+    <Text>The %s picks something up.</Text>
+  </RS>
+  <RS ID="945">
+    <Text>You play a restless tune.</Text>
+  </RS>
+  <RS ID="946">
+    <Text>You play a quiet tune.</Text>
+  </RS>
+  <RS ID="947">
+    <Text>You garble the words.</Text>
+  </RS>
+  <RS ID="948">
+    <Text>The scroll disappears.</Text>
+  </RS>
+  <RS ID="949">
+    <Text>Your wands are drained.</Text>
+  </RS>
+  <RS ID="950">
+    <Text>The %s pulsates.</Text>
+  </RS>
+  <RS ID="951">
+    <Text>The weird fume envelops you!</Text>
+  </RS>
+  <RS ID="952">
+    <Text>Your mind is rearranged. </Text>
+  </RS>
+  <RS ID="953">
+    <Text>Droplets of acid fall on you. </Text>
+  </RS>
+  <RS ID="954">
+    <Text>You grow another finger. </Text>
+  </RS>
+  <RS ID="955">
+    <Text>You grow another eye. </Text>
+  </RS>
+  <RS ID="956">
+    <Text>You change gender. </Text>
+  </RS>
+  <RS ID="957">
+    <Text>You are unchanged. </Text>
+  </RS>
+  <RS ID="958">
+    <Text>Your brain throbs. </Text>
+  </RS>
+  <RS ID="959">
+    <Text>Cannibalism is considered immoral by most races.</Text>
+  </RS>
+  <RS ID="960">
+    <Text>That meat was old. You choke.</Text>
+  </RS>
+  <RS ID="961">
+    <Text>The disk you left falls into space.</Text>
+  </RS>
+  <RS ID="962">
+    <Text>The creatures ceases its aggression.</Text>
+  </RS>
+  <RS ID="963">
+    <Text>You are moving dangerously fast.</Text>
+  </RS>
+  <RS ID="964">
+    <Text>Your heart cannot take the strain. It bursts.</Text>
+  </RS>
+  <RS ID="965">
+    <Text>Killed by acceleration</Text>
+  </RS>
+  <RS ID="966">
+    <Text>You are solid again.</Text>
+  </RS>
+  <RS ID="967">
+    <Text>You feel much stronger.</Text>
+  </RS>
+  <RS ID="968">
+    <Text>Your power of precognition grows.</Text>
+  </RS>
+  <RS ID="969">
+    <Text>Your body grows warmer.</Text>
+  </RS>
+  <RS ID="970">
+    <Text>Your magic ability decreases.</Text>
+  </RS>
+  <RS ID="971">
+    <Text>The power to reshape the earth grows within you.</Text>
+  </RS>
+  <RS ID="972">
+    <Text>Zapping does not work underwater.</Text>
+  </RS>
+  <RS ID="973">
+    <Text>You feel a sense of ease.</Text>
+  </RS>
+  <RS ID="974">
+    <Text>Your world spins.</Text>
+  </RS>
+  <RS ID="975">
+    <Text>A sign reads, "Shoplifters will be executed."</Text>
+  </RS>
+  <RS ID="976">
+    <Text>Your surroundings seem unfamiliar.</Text>
+  </RS>
+  <RS ID="977">
+    <Text>You cannot swim.</Text>
+  </RS>
+  <RS ID="978">
+    <Text>You cannot levitate.</Text>
+  </RS>
+  <RS ID="979">
+    <Text>You absorb energy.</Text>
+  </RS>
+  <RS ID="980">
+    <Text>This urn contains </Text>
+  </RS>
+  <RS ID="981">
+    <Text>a green powder.</Text>
+  </RS>
+  <RS ID="982">
+    <Text>meat.</Text>
+  </RS>
+  <RS ID="983">
+    <Text>rotten food.</Text>
+  </RS>
+  <RS ID="984">
+    <Text>food.</Text>
+  </RS>
+  <RS ID="985">
+    <Text>nothing.</Text>
+  </RS>
+  <RS ID="986">
+    <Text>an orange powder.</Text>
+  </RS>
+  <RS ID="987">
+    <Text>a smaller urn.</Text>
+  </RS>
+  <RS ID="988">
+    <Text>You feel tougher.</Text>
+  </RS>
+  <RS ID="989">
+    <Text>much </Text>
+  </RS>
+  <RS ID="990">
+    <Text>You hear noise.</Text>
+  </RS>
+  <RS ID="991">
+    <Text>The dead %s sinks.</Text>
+  </RS>
+  <RS ID="992">
+    <Text>You are visible again.</Text>
+  </RS>
+  <RS ID="993">
+    <Text>Your power fails.</Text>
+  </RS>
+  <RS ID="994">
+    <Text>Shriveled by a cursed potion</Text>
+  </RS>
+  <RS ID="995">
+    <Text>This potion contains holy water.</Text>
+  </RS>
+  <RS ID="996">
+    <Text>Your skin burns.</Text>
+  </RS>
+  <RS ID="997">
+    <Text>Consumed unholy water</Text>
+  </RS>
+  <RS ID="998">
+    <Text>Sucked dry by a </Text>
+  </RS>
+  <RS ID="999">
+    <Text>The %s is slain.</Text>
+  </RS>
+  <RS ID="1000">
+    <Text>The tree bursts into flame.</Text>
+  </RS>
+  <RS ID="1001">
+    <Text>You momentarily glimpse a lake of tormenting fire.</Text>
+  </RS>
+  <RS ID="1002">
+    <Text>You tickle %s. He laughs.</Text>
+  </RS>
+  <RS ID="1003">
+    <Text>He puts it to his lips and creates an amazing sound.The forces of good hie to his signal. Heimdall hurries toward Vigrid.</Text>
+  </RS>
+  <RS ID="1004">
+    <Text>Bifrost collapses after you cross it!</Text>
+  </RS>
+  <RS ID="1005">
+    <Text>You cannot return across Bifrost. It has collapsed.</Text>
+  </RS>
+  <RS ID="1006">
+    <Text>The meat humms as you eat it.</Text>
+  </RS>
+  <RS ID="1007">
+    <Text>A minor ache emanates from behind your eyes.</Text>
+  </RS>
+  <RS ID="1008">
+    <Text>The world comes sharply into focus.</Text>
+  </RS>
+  <RS ID="1009">
+    <Text>You turn to stone.</Text>
+  </RS>
+  <RS ID="1010">
+    <Text>Killed by gluttony</Text>
+  </RS>
+  <RS ID="1011">
+    <Text>Ughh. You hack.</Text>
+  </RS>
+  <RS ID="1012">
+    <Text>That was poisonous.</Text>
+  </RS>
+  <RS ID="1013">
+    <Text>You seem unaffected.</Text>
+  </RS>
+  <RS ID="1014">
+    <Text>It burns your throat.</Text>
+  </RS>
+  <RS ID="1015">
+    <Text>Not a good idea...</Text>
+  </RS>
+  <RS ID="1016">
+    <Text>The poison was deadly.</Text>
+  </RS>
+  <RS ID="1017">
+    <Text>You retch.</Text>
+  </RS>
+  <RS ID="1018">
+    <Text>The acidic meat burns your innards.</Text>
+  </RS>
+  <RS ID="1019">
+    <Text>The %s tasted gritty.</Text>
+  </RS>
+  <RS ID="1020">
+    <Text>You produce a new concoction.</Text>
+  </RS>
+  <RS ID="1021">
+    <Text>The resultant mixture bubbles horribly.</Text>
+  </RS>
+  <RS ID="1022">
+    <Text>The meat rots in your hands.</Text>
+  </RS>
+  <RS ID="1023">
+    <Text>You gnaw on the bones of %s.</Text>
+  </RS>
+  <RS ID="1024">
+    <Text>You feel numb.</Text>
+  </RS>
+  <RS ID="1025">
+    <Text>You feel half dead.</Text>
+  </RS>
+  <RS ID="1026">
+    <Text>Starved</Text>
+  </RS>
+  <RS ID="1027">
+    <Text>Your armor falls off.</Text>
+  </RS>
+  <RS ID="1028">
+    <Text>You shall now be known as %s.</Text>
+  </RS>
+  <RS ID="1029">
+    <Text>That felt like swallowing knives.</Text>
+  </RS>
+  <RS ID="1030">
+    <Text>The %s touches your skin.</Text>
+  </RS>
+  <RS ID="1031">
+    <Text>Touched a %s</Text>
+  </RS>
+  <RS ID="1032">
+    <Text>Why did you eat that?</Text>
+  </RS>
+  <RS ID="1033">
+    <Text>The %s was delicious.</Text>
+  </RS>
+  <RS ID="1034">
+    <Text>You are overcome with fear.</Text>
+  </RS>
+  <RS ID="1035">
+    <Text>You flee in terror.</Text>
+  </RS>
+  <RS ID="1036">
+    <Text>You quiver in fear.</Text>
+  </RS>
+  <RS ID="1037">
+    <Text>The %s splashes you.</Text>
+  </RS>
+  <RS ID="1038">
+    <Text>Your items corrodes.</Text>
+  </RS>
+  <RS ID="1039">
+    <Text>You set off a teleportation trap.</Text>
+  </RS>
+  <RS ID="1040">
+    <Text>You are hypnotized by %s''s gaze.</Text>
+  </RS>
+  <RS ID="1041">
+    <Text>You shall now be known as %s the %s.</Text>
+  </RS>
+  <RS ID="1042">
+    <Text>You feel intoxicated.</Text>
+  </RS>
+  <RS ID="1043">
+    <Text>You feel more intoxicated.</Text>
+  </RS>
+  <RS ID="1044">
+    <Text>You gag.</Text>
+  </RS>
+  <RS ID="1045">
+    <Text>You pass out.</Text>
+  </RS>
+  <RS ID="1046">
+    <Text>You have overworked your liver.</Text>
+  </RS>
+  <RS ID="1047">
+    <Text>Killed by alcohol abuse</Text>
+  </RS>
+  <RS ID="1048">
+    <Text>Your lost strength is restored.</Text>
+  </RS>
+  <RS ID="1049">
+    <Text>The life-giving force flows stronger through you.</Text>
+  </RS>
+  <RS ID="1050">
+    <Text>Falling debris hits you.</Text>
+  </RS>
+  <RS ID="1051">
+    <Text>You are charmed into staying your hand.</Text>
+  </RS>
+  <RS ID="1052">
+    <Text>%s slavers, "You will never free Balder. " with its dying breath.</Text>
+  </RS>
+  <RS ID="1053">
+    <Text>The ray %s comes out of the wand.</Text>
+  </RS>
+  <RS ID="1054">
+    <Text>The %s is frozen.</Text>
+  </RS>
+  <RS ID="1055">
+    <Text>There are now holes in the tree.</Text>
+  </RS>
+  <RS ID="1056">
+    <Text>Killed by a death ray</Text>
+  </RS>
+  <RS ID="1057">
+    <Text>The %s is destroyed.</Text>
+  </RS>
+  <RS ID="1058">
+    <Text>The %s is melted.</Text>
+  </RS>
+  <RS ID="1059">
+    <Text>Your body is hardening.</Text>
+  </RS>
+  <RS ID="1060">
+    <Text>You are a statue.</Text>
+  </RS>
+  <RS ID="1061">
+    <Text>Immortalized in stone</Text>
+  </RS>
+  <RS ID="1062">
+    <Text>Tiny seeds burrow into the ground and trees sprout.</Text>
+  </RS>
+  <RS ID="1063">
+    <Text>The forest transforms.</Text>
+  </RS>
+  <RS ID="1064">
+    <Text>Gates open and monsters appear.</Text>
+  </RS>
+  <RS ID="1065">
+    <Text>Gold appears at your feet.</Text>
+  </RS>
+  <RS ID="1066">
+    <Text>Turned to ice</Text>
+  </RS>
+  <RS ID="1067">
+    <Text>Consumed by fire</Text>
+  </RS>
+  <RS ID="1068">
+    <Text>You are the most powerful being here.</Text>
+  </RS>
+  <RS ID="1069">
+    <Text>You switch bodies with another being.</Text>
+  </RS>
+  <RS ID="1070">
+    <Text>No creature exists to switch bodies with.</Text>
+  </RS>
+  <RS ID="1071">
+    <Text>You are now outside the flow of time.</Text>
+  </RS>
+  <RS ID="1072">
+    <Text>Time whizzes by...</Text>
+  </RS>
+  <RS ID="1073">
+    <Text>You have opened a magic gate.</Text>
+  </RS>
+  <RS ID="1074">
+    <Text>You step back into the flow of time.</Text>
+  </RS>
+  <RS ID="1075">
+    <Text>The evil ones are triumphant! The world is consumed in flames! You are perished during Ragnarok.</Text>
+  </RS>
+  <RS ID="1076">
+    <Text>You hurtle through time.</Text>
+  </RS>
+  <RS ID="1077">
+    <Text>That may have been toxic.</Text>
+  </RS>
+  <RS ID="1078">
+    <Text>Degenerated</Text>
+  </RS>
+  <RS ID="1079">
+    <Text>The venom in your system reaches your heart.</Text>
+  </RS>
+  <RS ID="1080">
+    <Text>Killed by a deadly potion</Text>
+  </RS>
+  <RS ID="1081">
+    <Text>The venom in your system is neutralized.</Text>
+  </RS>
+  <RS ID="1082">
+    <Text>The pool of mud dries up.</Text>
+  </RS>
+  <RS ID="1083">
+    <Text>The pool of water dries up.</Text>
+  </RS>
+  <RS ID="1084">
+    <Text>The pool of quicksand dries up.</Text>
+  </RS>
+  <RS ID="1085">
+    <Text>The pool of lava dries up.</Text>
+  </RS>
+  <RS ID="1086">
+    <Text>Nausea brings you to your knees.</Text>
+  </RS>
+  <RS ID="1087">
+    <Text>You enter the portal.</Text>
+  </RS>
+  <RS ID="1088">
+    <Text>Ull gaze</Text>
+  </RS>
+  <RS ID="1089">
+    <Text>The ull's gaze makes you feel disoriented.</Text>
+  </RS>
+  <RS ID="1090">
+    <Text>Your skin crawls with disease!</Text>
+  </RS>
+  <RS ID="1091">
+    <Text>The song of %s charms you.</Text>
+  </RS>
+  <RS ID="1092">
+    <Text>You cannot break free.</Text>
+  </RS>
+  <RS ID="1093">
+    <Text>Your flesh begins to melt.</Text>
+  </RS>
+  <RS ID="1094">
+    <Text>You escape the grasp of the %s.</Text>
+  </RS>
+  <RS ID="1095">
+    <Text>You awake disoriented.</Text>
+  </RS>
+  <RS ID="1096">
+    <Text>The %s's bite puts you to sleep for a long time...</Text>
+  </RS>
+  <RS ID="1097">
+    <Text>The %s's bite puts you to sleep for what seems an eternity...</Text>
+  </RS>
+  <RS ID="1098">
+    <Text>You faint from hunger.</Text>
+  </RS>
+  <RS ID="1099">
+    <Text>{%s} prays to {%s}.</Text>
+  </RS>
+  <RS ID="1100">
+    <Text>You sacrificed the {%s} to {%s}.</Text>
+  </RS>
+  <RS ID="1101">
+    <Text>%s notices your lack of faith!</Text>
+  </RS>
+  <RS ID="1102">
+    <Text>However, %s intercedes on your behalf.</Text>
+  </RS>
+  <RS ID="1103">
+    <Text>But since you pray to a friendly deity, %s decides not to punish you.</Text>
+  </RS>
+  <RS ID="1104">
+    <Text>Your treachery to the %s has been noted.</Text>
+  </RS>
+  <RS ID="1105">
+    <Text>The %s ignore your lack of faith.</Text>
+  </RS>
+  <RS ID="1106">
+    <Text>You are struck by a thunderbolt!</Text>
+  </RS>
+  <RS ID="1107">
+    <Text>Odin's wrath</Text>
+  </RS>
+  <RS ID="1108">
+    <Text>The bolt warps your feeble body...</Text>
+  </RS>
+  <RS ID="1109">
+    <Text>Your prayer was unheard.</Text>
+  </RS>
+  <RS ID="1110">
+    <Text>You hear a nearby thunderclap.</Text>
+  </RS>
+  <RS ID="1111">
+    <Text>An object at your feet.</Text>
+  </RS>
+  <RS ID="1112">
+    <Text>- "Use my gift wisely!"</Text>
+  </RS>
+  <RS ID="1113">
+    <Text>You have insulted your deity!</Text>
+  </RS>
+  <RS ID="1114">
+    <Text>You are terrified, and unable to move.</Text>
+  </RS>
+  <RS ID="1115">
+    <Text>A darkling glow envelopes your offering!</Text>
+  </RS>
+  <RS ID="1116">
+    <Text>The glow slowly fades...</Text>
+  </RS>
+  <RS ID="1117">
+    <Text>With a burst of blue flame, your offering vanishes!</Text>
+  </RS>
+  <RS ID="1118">
+    <Text>A violet nimbus settles around your head and slowly fades.</Text>
+  </RS>
+  <RS ID="1119">
+    <Text>You hear a gong resonating throughout eternity...</Text>
+  </RS>
+  <RS ID="1120">
+    <Text>Since you are in %s, %s won't help you.</Text>
+  </RS>
+  <RS ID="1121">
+    <Text>The Eye fits perfectly into the small pit. </Text>
+  </RS>
+  <RS ID="1122">
+    <Text>The pit encloses the Eye and both vanish.</Text>
+  </RS>
+  <RS ID="1123">
+    <Text>The thunderous noise of a thousand chariots careening out of control is heard. </Text>
+  </RS>
+  <RS ID="1124">
+    <Text>An incredibly bright light whites out your vision. </Text>
+  </RS>
+  <RS ID="1125">
+    <Text>When it clears, you see that %s has appeared. </Text>
+  </RS>
+  <RS ID="1126">
+    <Text>You have no applicable skills.</Text>
+  </RS>
+  <RS ID="1127">
+    <Text>You know nothing.</Text>
+  </RS>
+  <RS ID="1128">
+    <Text>Your liver tingles.</Text>
+  </RS>
+  <RS ID="1129">
+    <Text>Your liver aches.</Text>
+  </RS>
+  <RS ID="1130">
+    <Text>Your wereblood dissipates.</Text>
+  </RS>
+  <RS ID="1131">
+    <Text>You feel like your old self again.</Text>
+  </RS>
+  <RS ID="1132">
+    <Text>You attempt to return to your original form.</Text>
+  </RS>
+  <RS ID="1133">
+    <Text>However, humans are extinct.</Text>
+  </RS>
+  <RS ID="1134">
+    <Text>Turned into a mass of primordial goo.</Text>
+  </RS>
+  <RS ID="1135">
+    <Text>You are mesmerized by the lovely script.</Text>
+  </RS>
+  <RS ID="1136">
+    <Text>You find one particularly interesting entry.</Text>
+  </RS>
+  <RS ID="1137">
+    <Text>You cannot carry anything else.</Text>
+  </RS>
+  <RS ID="1138">
+    <Text>The %s burrows into your skull.</Text>
+  </RS>
+  <RS ID="1139">
+    <Text>The %s burrows into your brain.</Text>
+  </RS>
+  <RS ID="1140">
+    <Text>You hear a powerful spell.</Text>
+  </RS>
+  <RS ID="1141">
+    <Text>The %s casts a spell.</Text>
+  </RS>
+  <RS ID="1142">
+    <Text>The %s zaps a wand.</Text>
+  </RS>
+  <RS ID="1143">
+    <Text>The %s gesticulates.</Text>
+  </RS>
+  <RS ID="1144">
+    <Text>Your pack quivers.</Text>
+  </RS>
+  <RS ID="1145">
+    <Text>You cannot carry that much weight.</Text>
+  </RS>
+  <RS ID="1146">
+    <Text>You are being crushed.</Text>
+  </RS>
+  <RS ID="1147">
+    <Text>The touch of %s withers you!</Text>
+  </RS>
+  <RS ID="1148">
+    <Text>Cast which spell?</Text>
+  </RS>
+  <RS ID="1149">
+    <Text>The spell fails.</Text>
+  </RS>
+  <RS ID="1150">
+    <Text>You now reflect physical attacks.</Text>
+  </RS>
+  <RS ID="1151">
+    <Text>This spell already protects you.</Text>
+  </RS>
+  <RS ID="1152">
+    <Text>Your touch now draws energy from others.</Text>
+  </RS>
+  <RS ID="1153">
+    <Text>This spell already empowers you.</Text>
+  </RS>
+  <RS ID="1154">
+    <Text>You have no energy to spellcast currently.</Text>
+  </RS>
+  <RS ID="1155">
+    <Text>Create which terrain?</Text>
+  </RS>
+  <RS ID="1156">
+    <Text>Write which scroll?</Text>
+  </RS>
+  <RS ID="1157">
+    <Text>Use which skill?</Text>
+  </RS>
+  <RS ID="1158">
+    <Text>The razor-sharp teeth of the %s rip into your flesh.</Text>
+  </RS>
+  <RS ID="1159">
+    <Text>Empower which?</Text>
+  </RS>
+  <RS ID="1160">
+    <Text>You hear a buzzing sound.</Text>
+  </RS>
+  <RS ID="1161">
+    <Text>You cannot wear those without legs.</Text>
+  </RS>
+  <RS ID="1162">
+    <Text>You go blind.</Text>
+  </RS>
+  <RS ID="1163">
+    <Text>The mushroom tasted like dirt.</Text>
+  </RS>
+  <RS ID="1164">
+    <Text>The lump tasted woefully bad.</Text>
+  </RS>
+  <RS ID="1165">
+    <Text>Ulch...</Text>
+  </RS>
+  <RS ID="1166">
+    <Text>%s flashes a toothy grin.</Text>
+  </RS>
+  <RS ID="1167">
+    <Text>Your grey color fades.</Text>
+  </RS>
+  <RS ID="1168">
+    <Text>You dive into the vortex.</Text>
+  </RS>
+  <RS ID="1169">
+    <Text>You dive into a whirlpool.</Text>
+  </RS>
+  <RS ID="1170">
+    <Text>You fall into a whirlpool vortex.</Text>
+  </RS>
+  <RS ID="1171">
+    <Text>Killed by an arrow trap</Text>
+  </RS>
+  <RS ID="1172">
+    <Text>The fungus tastes strange.</Text>
+  </RS>
+  <RS ID="1173">
+    <Text>Shapes flow all around, mesmerizing you.</Text>
+  </RS>
+  <RS ID="1174">
+    <Text>You drool happily.</Text>
+  </RS>
+  <RS ID="1175">
+    <Text>You are shaken violently.</Text>
+  </RS>
+  <RS ID="1176">
+    <Text>It is too deep here.</Text>
+  </RS>
+  <RS ID="1177">
+    <Text>Drained by a ring</Text>
+  </RS>
+  <RS ID="1178">
+    <Text>You are hungry.</Text>
+  </RS>
+  <RS ID="1179">
+    <Text>Killed by a fire trap</Text>
+  </RS>
+  <RS ID="1180">
+    <Text>Killed by an ice trap</Text>
+  </RS>
+  <RS ID="1181">
+    <Text>The lava encases you.</Text>
+  </RS>
+  <RS ID="1182">
+    <Text>Encased in volcanic rock</Text>
+  </RS>
+  <RS ID="1183">
+    <Text>The ground begins to shake violently!</Text>
+  </RS>
+  <RS ID="1184">
+    <Text>The %s is consumed by lava.</Text>
+  </RS>
+  <RS ID="1185">
+    <Text>You cannot carry the rest.</Text>
+  </RS>
+  <RS ID="1186">
+    <Text>You learn to write.</Text>
+  </RS>
+  <RS ID="1187">
+    <Text>You learn how to terraform.</Text>
+  </RS>
+  <RS ID="1188">
+    <Text>You learn to teleport at will.</Text>
+  </RS>
+  <RS ID="1189">
+    <Text>You learn how to fennl.</Text>
+  </RS>
+  <RS ID="1190">
+    <Text>You learn how to produce new potions.</Text>
+  </RS>
+  <RS ID="1191">
+    <Text>You cannot wear more rings than you have fingers.</Text>
+  </RS>
+  <RS ID="1192">
+    <Text>You fall through space to Niflheim.</Text>
+  </RS>
+  <RS ID="1193">
+    <Text>You descend through space.</Text>
+  </RS>
+  <RS ID="1194">
+    <Text>You land gently.</Text>
+  </RS>
+  <RS ID="1195">
+    <Text>Fell to Niflheim</Text>
+  </RS>
+  <RS ID="1196">
+    <Text>You fall into space.</Text>
+  </RS>
+  <RS ID="1197">
+    <Text>Your body will be lost for all time.</Text>
+  </RS>
+  <RS ID="1198">
+    <Text>Died in the expanse of nowhere</Text>
+  </RS>
+  <RS ID="1199">
+    <Text>Your hair stands on end.</Text>
+  </RS>
+  <RS ID="1200">
+    <Text>Boom! The explosion tears into you.</Text>
+  </RS>
+  <RS ID="1201">
+    <Text>Killed while experimenting</Text>
+  </RS>
+  <RS ID="1202">
+    <Text>It is too foggy to see.</Text>
+  </RS>
+  <RS ID="1203">
+    <Text>You cannot see there.</Text>
+  </RS>
+  <RS ID="1204">
+    <Text>Froze to death</Text>
+  </RS>
+  <RS ID="1205">
+    <Text>You are instantly numbed by the cold of Niflheim.</Text>
+  </RS>
+  <RS ID="1206">
+    <Text>You are burnt to a crisp by the flames of Bifrost.</Text>
+  </RS>
+  <RS ID="1207">
+    <Text>You feel a tingling in your body.</Text>
+  </RS>
+  <RS ID="1208">
+    <Text>Killed by rotting disease</Text>
+  </RS>
+  <RS ID="1209">
+    <Text>You succumb to your illness.</Text>
+  </RS>
+  <RS ID="1210">
+    <Text>Felled by disease</Text>
+  </RS>
+  <RS ID="1211">
+    <Text>You are cured.</Text>
+  </RS>
+  <RS ID="1212">
+    <Text>Encased in ice</Text>
+  </RS>
+  <RS ID="1213">
+    <Text>Your sacrifice disappears!</Text>
+  </RS>
+  <RS ID="1214">
+    <Text>Your sacrifice puffs up, swelling bigger and bigger, and pops!</Text>
+  </RS>
+  <RS ID="1215">
+    <Text>Your sacrifice collapses into a cloud of dancing particles and fades away!</Text>
+  </RS>
+  <RS ID="1216">
+    <Text>consumed in a flash of light</Text>
+  </RS>
+  <RS ID="1217">
+    <Text>consumed in a burst of flame</Text>
+  </RS>
+  <RS ID="1218">
+    <Text>Your sacrifice is %s!</Text>
+  </RS>
+  <RS ID="1219">
+    <Text>consumed in an awesome column of roaring fire</Text>
+  </RS>
+  <RS ID="1220">
+    <Text>burnt away by malevolent black fire</Text>
+  </RS>
+  <RS ID="1221">
+    <Text>dissolved in a cloud of green smoke</Text>
+  </RS>
+  <RS ID="1222">
+    <Text>You feel that %s is unimpressed by your pathetic offering.</Text>
+  </RS>
+  <RS ID="1223">
+    <Text>You are zorched by godsfire!</Text>
+  </RS>
+  <RS ID="1224">
+    <Text>The fire burns away your worldly experience!</Text>
+  </RS>
+  <RS ID="1225">
+    <Text>Your power is reduced by the blast!!!</Text>
+  </RS>
+  <RS ID="1226">
+    <Text>You are blasted by a shaft of black fire!</Text>
+  </RS>
+  <RS ID="1227">
+    <Text>Surtr's anger</Text>
+  </RS>
+  <RS ID="1228">
+    <Text>You are wreathed in clouds of smoke.</Text>
+  </RS>
+  <RS ID="1229">
+    <Text>You feel Surtr's Black Hand on your heart...</Text>
+  </RS>
+  <RS ID="1230">
+    <Text>You are zapped by dark moonbeams!</Text>
+  </RS>
+  <RS ID="1231">
+    <Text>Hela's malice</Text>
+  </RS>
+  <RS ID="1232">
+    <Text>The beams leach you of magical power!</Text>
+  </RS>
+  <RS ID="1233">
+    <Text>Burned to death</Text>
+  </RS>
+  <RS ID="1234">
+    <Text>white</Text>
+  </RS>
+  <RS ID="1235">
+    <Text>yellow</Text>
+  </RS>
+  <RS ID="1236">
+    <Text>grey</Text>
+  </RS>
+  <RS ID="1237">
+    <Text>A %s flame comes from the scroll.</Text>
+  </RS>
+  <RS ID="1238">
+    <Text>statue of</Text>
+  </RS>
+  <RS ID="1239">
+    <Text>You cannot throw underwater.</Text>
+  </RS>
+  <RS ID="1240">
+    <Text>%s to %s</Text>
+  </RS>
+  <RS ID="1241">
+    <Text>Journal</Text>
+  </RS>
+  <RS ID="1242">
+    <Text>%s is caught in the net.</Text>
+  </RS>
+  <RS ID="1243">
+    <Text>This creature can only be hit with magical or blessed weapons.</Text>
+  </RS>
+  <RS ID="1244">
+    <Text>To activate the mode of key change, press Enter</Text>
+  </RS>
+  <RS ID="1245">
+    <Text>No Lazlul's rope.</Text>
+  </RS>
+  <RS ID="1246">
+    <Text>You can no longer move.</Text>
+  </RS>
+  <RS ID="1247">
+    <Text>You may never die.</Text>
+  </RS>
+  <RS ID="1248">
+    <Text>Became a living statue</Text>
+  </RS>
+  <RS ID="1249">
+    <Text>Killed:</Text>
+  </RS>
+  <RS ID="1250">
+    <Text> in </Text>
+  </RS>
+  <RS ID="1251">
+    <Text>ghost</Text>
+  </RS>
+  <RS ID="1252">
+    <Text>illusion</Text>
+  </RS>
+  <RS ID="1253">
+    <Text>Flood</Text>
+  </RS>
+  <RS ID="1254">
+    <Text>Sail</Text>
+  </RS>
+  <RS ID="1255">
+    <Text>Swoon</Text>
+  </RS>
+  <RS ID="1256">
+    <Text>Prowling</Text>
+  </RS>
+  <RS ID="1257">
+    <Text>HurtleThroughTime</Text>
+  </RS>
+  <RS ID="1258">
+    <Text>CaughtInNet</Text>
+  </RS>
+  <RS ID="1259">
+    <Text>Steel</Text>
+  </RS>
+  <RS ID="1260">
+    <Text>Diamond</Text>
+  </RS>
+  <RS ID="1261">
+    <Text>Silver</Text>
+  </RS>
+  <RS ID="1262">
+    <Text>Mithril</Text>
+  </RS>
+  <RS ID="1263">
+    <Text>You entered into the %s.</Text>
+  </RS>
+  <RS ID="1264">
+    <Text>Goes %s year. Glorious %s goes in search of artifacts of the gods.</Text>
+  </RS>
+  <RS ID="1265">
+    <Text>Fused in stone.</Text>
+  </RS>
+  <RS ID="1266">
+    <Text>Skidbladnir need to launch onto water.</Text>
+  </RS>
+
+  <RS ID="1267">
+    <Text>An invisible choir sings, and you are bathed in radiance...</Text>
+  </RS>
+  <RS ID="1268">
+    <Text>Congratulations, mortal!</Text>
+  </RS>
+  <RS ID="1269">
+    <Text>In return for thy service, I grant thee the gift of Immortality!</Text>
+  </RS>
+  <RS ID="1270">
+    <Text>You ascend to the status of Demigod...</Text>
+  </RS>
+  <RS ID="1271">
+    <Text>Vile creature, thou durst call upon me?</Text>
+  </RS>
+  <RS ID="1272">
+    <Text>Walk no more, perversion of nature!</Text>
+  </RS>
+  <RS ID="1273">
+    <Text>You feel like you are falling apart.</Text>
+  </RS>
+  <RS ID="1274">
+    <Text>Your ardent plea is ignored.</Text>
+  </RS>
+  <RS ID="1275">
+    <Text>You feel ashamed.</Text>
+  </RS>
+  <RS ID="1276">
+    <Text>A shaft of lucent radiance lances down from the heavens!</Text>
+  </RS>
+  <RS ID="1277">
+    <Text>You feel uplifted...</Text>
+  </RS>
+  <RS ID="1278">
+    <Text>%s rejects your sacrifice!</Text>
+  </RS>
+  <RS ID="1279">
+    <Text>Suffer, infidel!</Text>
+  </RS>
+  <RS ID="1280">
+    <Text>You learnt to see beauty in fire and destruction, pleasure in pain and rejoice in the relentless spread of Muspelheim.</Text>
+  </RS>
+  <RS ID="1281">
+    <Text>You are surrounded by a shimmering light.</Text>
+  </RS>
+  <RS ID="1282">
+    <Text>A feeling of sanctity comes over you.</Text>
+  </RS>
+  <RS ID="1283">
+    <Text>Winds</Text>
+  </RS>
+  <RS ID="1284">
+    <Text>Perfect health</Text>
+  </RS>
+  <RS ID="1285">
+    <Text>Give me the money, thief!</Text>
+  </RS>
+
+  <RS ID="1301">
+    <Text>willow</Text>
+  </RS>
+  <RS ID="1302">
+    <Text>linden</Text>
+  </RS>
+  <RS ID="1303">
+    <Text>laurel</Text>
+  </RS>
+  <RS ID="1304">
+    <Text>fir</Text>
+  </RS>
+  <RS ID="1305">
+    <Text>hazel</Text>
+  </RS>
+  <RS ID="1306">
+    <Text>walnut</Text>
+  </RS>
+  <RS ID="1307">
+    <Text>beech</Text>
+  </RS>
+  <RS ID="1308">
+    <Text>oak</Text>
+  </RS>
+  <RS ID="1309">
+    <Text>maple</Text>
+  </RS>
+  <RS ID="1310">
+    <Text>larch</Text>
+  </RS>
+  <RS ID="1311">
+    <Text>poplar</Text>
+  </RS>
+  <RS ID="1312">
+    <Text>pine</Text>
+  </RS>
+  <RS ID="1313">
+    <Text>elder</Text>
+  </RS>
+  <RS ID="1314">
+    <Text>elm</Text>
+  </RS>
+  <RS ID="1315">
+    <Text>birch</Text>
+  </RS>
+  <RS ID="1316">
+    <Text>ash</Text>
+  </RS>
+  <RS ID="1317">
+    <Text>alder</Text>
+  </RS>
+  <RS ID="1318">
+    <Text>spruce</Text>
+  </RS>
+  <RS ID="1319">
+    <Text>aspen</Text>
+  </RS>
+  <RS ID="1320">
+    <Text>balsa</Text>
+  </RS>
+  <RS ID="1321">
+    <Text>banyan</Text>
+  </RS>
+  <RS ID="1322">
+    <Text>cedar</Text>
+  </RS>
+  <RS ID="1323">
+    <Text>cypress</Text>
+  </RS>
+  <RS ID="1324">
+    <Text>dogwood</Text>
+  </RS>
+  <RS ID="1325">
+    <Text>eucalyptus</Text>
+  </RS>
+  <RS ID="1326">
+    <Text>redwood</Text>
+  </RS>
+  <RS ID="1327">
+    <Text>rosewood</Text>
+  </RS>
+  <RS ID="1328">
+    <Text>sycamore</Text>
+  </RS>
+  <RS ID="1329">
+    <Text>teak</Text>
+  </RS>
+  <RS ID="1330">
+    <Text>mistletoe</Text>
+  </RS>
+  <RS ID="1331">
+    <Text>hawthorn</Text>
+  </RS>
+  <RS ID="1332">
+    <Text>bamboo</Text>
+  </RS>
+  <RS ID="1333">
+    <Text>forked</Text>
+  </RS>
+  <RS ID="1334">
+    <Text>runic</Text>
+  </RS>
+  <RS ID="1335">
+    <Text>yew</Text>
+  </RS>
+  <RS ID="1336">
+    <Text>long</Text>
+  </RS>
+  <RS ID="1337">
+    <Text>short</Text>
+  </RS>
+
+  <RS ID="1351">
+    <Text>gold</Text>
+  </RS>
+  <RS ID="1352">
+    <Text>silver</Text>
+  </RS>
+  <RS ID="1353">
+    <Text>bone</Text>
+  </RS>
+  <RS ID="1354">
+    <Text>sard</Text>
+  </RS>
+  <RS ID="1355">
+    <Text>pearl</Text>
+  </RS>
+  <RS ID="1356">
+    <Text>beryl</Text>
+  </RS>
+  <RS ID="1357">
+    <Text>opal</Text>
+  </RS>
+  <RS ID="1358">
+    <Text>jasper</Text>
+  </RS>
+  <RS ID="1359">
+    <Text>emerald</Text>
+  </RS>
+  <RS ID="1360">
+    <Text>onyx</Text>
+  </RS>
+  <RS ID="1361">
+    <Text>jet</Text>
+  </RS>
+  <RS ID="1362">
+    <Text>ruby</Text>
+  </RS>
+  <RS ID="1363">
+    <Text>garnet</Text>
+  </RS>
+  <RS ID="1364">
+    <Text>agate</Text>
+  </RS>
+  <RS ID="1365">
+    <Text>topaz</Text>
+  </RS>
+  <RS ID="1366">
+    <Text>jade</Text>
+  </RS>
+  <RS ID="1367">
+    <Text>amber</Text>
+  </RS>
+  <RS ID="1368">
+    <Text>alexandrite</Text>
+  </RS>
+  <RS ID="1369">
+    <Text>amethyst</Text>
+  </RS>
+  <RS ID="1370">
+    <Text>aquamarine</Text>
+  </RS>
+  <RS ID="1371">
+    <Text>diamond</Text>
+  </RS>
+  <RS ID="1372">
+    <Text>granite</Text>
+  </RS>
+  <RS ID="1373">
+    <Text>malachite</Text>
+  </RS>
+  <RS ID="1374">
+    <Text>marble</Text>
+  </RS>
+  <RS ID="1375">
+    <Text>rhodonite</Text>
+  </RS>
+  <RS ID="1376">
+    <Text>sapphire</Text>
+  </RS>
+  <RS ID="1377">
+    <Text>turquoise</Text>
+  </RS>
+  <RS ID="1378">
+    <Text>obsidian</Text>
+  </RS>
+  <RS ID="1379">
+    <Text>adamantite</Text>
+  </RS>
+  <RS ID="1380">
+    <Text>coral</Text>
+  </RS>
+
+  <RS ID="1401">
+    <Text>dark</Text>
+  </RS>
+  <RS ID="1402">
+    <Text>milky</Text>
+  </RS>
+  <RS ID="1403">
+    <Text>flashing</Text>
+  </RS>
+  <RS ID="1404">
+    <Text>shimmering</Text>
+  </RS>
+  <RS ID="1405">
+    <Text>viscous</Text>
+  </RS>
+  <RS ID="1406">
+    <Text>opaque</Text>
+  </RS>
+  <RS ID="1407">
+    <Text>bubbly</Text>
+  </RS>
+  <RS ID="1408">
+    <Text>pale</Text>
+  </RS>
+  <RS ID="1409">
+    <Text>clear</Text>
+  </RS>
+  <RS ID="1410">
+    <Text>murky</Text>
+  </RS>
+  <RS ID="1411">
+    <Text>icy</Text>
+  </RS>
+  <RS ID="1412">
+    <Text>aqua</Text>
+  </RS>
+  <RS ID="1413">
+    <Text>smoky</Text>
+  </RS>
+  <RS ID="1414">
+    <Text>glowing</Text>
+  </RS>
+  <RS ID="1415">
+    <Text>roiling</Text>
+  </RS>
+  <RS ID="1416">
+    <Text>tepid</Text>
+  </RS>
+  <RS ID="1417">
+    <Text>oily</Text>
+  </RS>
+  <RS ID="1418">
+    <Text>muddy</Text>
+  </RS>
+  <RS ID="1419">
+    <Text>frothy</Text>
+  </RS>
+  <RS ID="1420">
+    <Text>grey</Text>
+  </RS>
+  <RS ID="1421">
+    <Text>foul</Text>
+  </RS>
+  <RS ID="1422">
+    <Text>orange</Text>
+  </RS>
+  <RS ID="1423">
+    <Text>gritty</Text>
+  </RS>
+  <RS ID="1424">
+    <Text>brown</Text>
+  </RS>
+  <RS ID="1425">
+    <Text>ancient</Text>
+  </RS>
+  <RS ID="1426">
+    <Text>filmy</Text>
+  </RS>
+  <RS ID="1427">
+    <Text>yellow</Text>
+  </RS>
+  <RS ID="1428">
+    <Text>hybrid</Text>
+  </RS>
+  <RS ID="1429">
+    <Text>pulsing</Text>
+  </RS>
+  <RS ID="1430">
+    <Text>stagnant</Text>
+  </RS>
+  <RS ID="1431">
+    <Text>slimy</Text>
+  </RS>
+  <RS ID="1432">
+    <Text>green</Text>
+  </RS>
+  <RS ID="1433">
+    <Text>sparkling</Text>
+  </RS>
+  <RS ID="1434">
+    <Text>loathsome</Text>
+  </RS>
+
+  <RS ID="1451">
+    <Text>grey</Text>
+  </RS>
+  <RS ID="1452">
+    <Text>orange</Text>
+  </RS>
+  <RS ID="1453">
+    <Text>blue</Text>
+  </RS>
+  <RS ID="1454">
+    <Text>green</Text>
+  </RS>
+  <RS ID="1455">
+    <Text>white</Text>
+  </RS>
+  <RS ID="1456">
+    <Text>cyan</Text>
+  </RS>
+  <RS ID="1457">
+    <Text>brown</Text>
+  </RS>
+  <RS ID="1458">
+    <Text>red</Text>
+  </RS>
+  <RS ID="1459">
+    <Text>black</Text>
+  </RS>
+  <RS ID="1460">
+    <Text>yellow</Text>
+  </RS>
+  <RS ID="1461">
+    <Text>purple</Text>
+  </RS>
+  <RS ID="1462">
+    <Text>crimson</Text>
+  </RS>
+  <RS ID="1463">
+    <Text>azure</Text>
+  </RS>
+  <RS ID="1464">
+    <Text>indigo</Text>
+  </RS>
+  <RS ID="1465">
+    <Text>magenta</Text>
+  </RS>
+  <RS ID="1466">
+    <Text>pink</Text>
+  </RS>
+  <RS ID="1467">
+    <Text>violet</Text>
+  </RS>
+  <RS ID="1468">
+    <Text>vermilion</Text>
+  </RS>
+  <RS ID="1469">
+    <Text>blinding</Text>
+  </RS>
+  <RS ID="1470">
+    <Text>flashing</Text>
+  </RS>
+  <RS ID="1471">
+    <Text>foul</Text>
+  </RS>
+  <RS ID="1472">
+    <Text>pulsing</Text>
+  </RS>
+  <RS ID="1473">
+    <Text>milky</Text>
+  </RS>
+  <RS ID="1474">
+    <Text>dull</Text>
+  </RS>
+  <RS ID="1475">
+    <Text>dark</Text>
+  </RS>
+
+  <RS ID="1501">
+    <Text>papyrus</Text>
+  </RS>
+  <RS ID="1502">
+    <Text>vellum</Text>
+  </RS>
+  <RS ID="1503">
+    <Text>silken</Text>
+  </RS>
+  <RS ID="1504">
+    <Text>leather</Text>
+  </RS>
+  <RS ID="1505">
+    <Text>hemp</Text>
+  </RS>
+  <RS ID="1506">
+    <Text>runic</Text>
+  </RS>
+  <RS ID="1507">
+    <Text>ancient</Text>
+  </RS>
+  <RS ID="1508">
+    <Text>shiny</Text>
+  </RS>
+  <RS ID="1509">
+    <Text>crinkly</Text>
+  </RS>
+  <RS ID="1510">
+    <Text>decayed</Text>
+  </RS>
+  <RS ID="1511">
+    <Text>ragged</Text>
+  </RS>
+  <RS ID="1512">
+    <Text>flimsy</Text>
+  </RS>
+  <RS ID="1513">
+    <Text>smudged</Text>
+  </RS>
+  <RS ID="1514">
+    <Text>ornate</Text>
+  </RS>
+  <RS ID="1515">
+    <Text>stained</Text>
+  </RS>
+  <RS ID="1516">
+    <Text>prose</Text>
+  </RS>
+  <RS ID="1517">
+    <Text>faded</Text>
+  </RS>
+  <RS ID="1518">
+    <Text>wordy</Text>
+  </RS>
+  <RS ID="1519">
+    <Text>woven</Text>
+  </RS>
+  <RS ID="1520">
+    <Text>charred</Text>
+  </RS>
+  <RS ID="1521">
+    <Text>folded</Text>
+  </RS>
+  <RS ID="1522">
+    <Text>cryptic</Text>
+  </RS>
+  <RS ID="1523">
+    <Text>flashing</Text>
+  </RS>
+</Texts>

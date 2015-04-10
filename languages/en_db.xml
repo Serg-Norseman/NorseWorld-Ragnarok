@@ -1,0 +1,2762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RDB>
+  <Entries>
+    <Entry ID="0">
+      <Name>viking</Name>
+      <Desc>The apprentice Viking is training to become a master of weaponry. As such, he has the highest HP (high 30s) and STR (18) of the apprentice classes. As the Viking becomes more experienced in the field of battle, he learns to attack so quickly that occasionally he will get a second attack.</Desc>
+      <Morphology>viking[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="1">
+      <Name>alchemist</Name>
+      <Desc>The alchemist is an average physical specimen (HP in mid 20s, STR 14). As an apprentice, the alchemist sets out with an array of potions. These potions may not be beneficial, nor may mixing them be so. Therefore, it is often prudent to wait before experimenting. While it is possible for anyone to learn the art of alchemy, an apprentice alchemist will learn the profession faster, make fewer mistakes, and can create unique potions once he has reached a level of mastery. The pride of the alchemist is the potion of second life.</Desc>
+      <Morphology>alchemist[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="2">
+      <Name>blacksmith</Name>
+      <Desc>The blacksmith is a robust character (HP low 30s, STR 17) who is following in the family trade. He is equipped with a silver sword, scale mail and an ingot of fine metal to forge. The blacksmith is one of the most respected members of his community due to ability to forge weapons and armor after his apprenticeship ends. Although other characters may learn to forge weapons and armor, adventurers who choose this profession will be able to master the art of the smith faster and produce finished goods that other classes may not.</Desc>
+      <Morphology>blacksmith[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="3">
+      <Name>conjurer</Name>
+      <Desc>The conjurer is not as strong or as healthy as other classes (HP high 20s, STR 10). However, he makes up for his failings by learning the art of spell-casting, the skill of fennling, and the ability to teleport. The spells that are available to the conjurer are as follows (cost listed in magic points): | (1): Set recall - Casting this spell sets the level to which the player will return upon reading a scroll of recall. (1 point) | (2):	Illusory self - Creates an illusion of the spell caster that will act as an ally until dispelled. (6 points) learned by third level conjurers. | (3):	 Reflect - Reflects part of physical attacks directed upon user. (11 magic points) learned at fifth level. | (4): Entomb - Encloses each area of a level, causing those who have no means of escape to slowly starve. (13 magic pts) learned at seventh level. | (5):	Draw life - Allows caster to drain life from beings touched bare-handed. (11 magic pts) learned at tenth level.</Desc>
+      <Morphology>conjurer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="4">
+      <Name>sage</Name>
+      <Desc>The sage is one of the physically weakest classes (HP low 20s, STR 12). What he lacks in strength, he makes in intellect; the sage is the most learned of all the classes. While others are able to learn to write, their knowledge is limited. Not so with the sage; once he learns to write with his stylus, it will be just a matter of time until he can produces scrolls never before seen. The most prized accomplishment of a sage is a scroll of switch bodies.</Desc>
+      <Morphology>sage[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="5">
+      <Name>woodsman</Name>
+      <Desc>The woodsman is hardy (HP mid 30s, STR 16). He is adept with both the long bow and the crossbow. He is equipped with both as well as the appropriate projectiles. He easily learns to swim, quickly learns the art of fletching, and can tame lesser creatures when he becomes a master woodsman.</Desc>
+      <Morphology>woodsman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="6">
+      <Name>wier</Name>
+      <Desc>Wiers overwhelm their opponents with a sense of greed. Once affected by a wier, all else is unimportant except counting gold on hand. |Drop your gold at the first sight of a wier.</Desc>
+      <Morphology>wier[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="7">
+      <Name>womera</Name>
+      <Desc>Cannibals. Skilled group hunters. Adept with spears hurls them from great distances. |Do not let womerae line up horizontally, vertically, or at a forty-five degree angle with you. This will keep them from throwing spears at you.</Desc>
+      <Morphology>womera[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="8">
+      <Name>archer</Name>
+      <Desc>Archers fire arrows at their foes. Hostile to man. |Do not allow archers to line up with you horizontally, vertically, or at a forty- five degree angle. This will inhibit their aiming.</Desc>
+      <Morphology>archer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="9">
+      <Name>fire dragon</Name>
+      <Desc>Powerful, flame-breathing reptile. Deadly. |Wear a ring of ashes or a mirror shield if not already fireproof. Dragons carry treasure. Killing them is worthwhile.</Desc>
+      <Morphology>fire dragon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="10">
+      <Name>frost bat</Name>
+      <Desc>Frost bats attack and move away. |Move away from frost bats, and wait for them to end their turn next to you, then attack.</Desc>
+      <Morphology>frost bat[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="11">
+      <Name>nymph</Name>
+      <Desc>Nymphs steal from the unwary. If their mark is male, they can charm him into removing his armor, and steal almost everything. Once they steal, they teleport away. |Kill nymphs before they get near. Be female. If a nymph steals an item of value, hunt her down to retrieve it.</Desc>
+      <Morphology>nymph[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="12">
+      <Name>breeder</Name>
+      <Desc>Secretive race created to populate Midgard. Breeders clone any creature (besides you) which they encounter. |Kill the breeder(s) first, then attack their progeny.</Desc>
+      <Morphology>breeder[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="13">
+      <Name>red ooze</Name>
+      <Desc>Voracious, slow moving mass. This creature can consume anything and is always hungry. It eats any weapon used against it, and any creature it touches gets trapped in its sticky form. It cannot be destroyed by combat or projectile weapons. |Red ooze is sensitive to wands of cold. Zapping one once will stop it. Repeated zaps will destroy it. Always carry spare weapons if red ooze is present. Once red ooze consumes your weapon, it is far too easy to accidentally hit it with your fist. If struck barehanded, a red ooze can devour first your gauntlets and then your hand.</Desc>
+      <Morphology>red ooze[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="14">
+      <Name>anssk</Name>
+      <Desc>Floating, unaggressive creature whose main defense is hypnosis. Anssks attempt to hypnotize their victims so others can slay them. |Do not look at an anssk directly during physical assault. Throw items at them or zap wands. Anssks do not attack, so it is not necessary to kill them at all.</Desc>
+      <Morphology>anssk[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="15">
+      <Name>wild boar</Name>
+      <Desc>Vicious and quick. Beware their tusks. |Stand your ground and fight. Boars are faster than humans. Flight for a regular speed human will be disastrous.</Desc>
+      <Morphology>wild boar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="16">
+      <Name>preden</Name>
+      <Desc>Small, flying creature whose bite spreads a feverish disease. Fatal if not treated. The victims become feverish, have fainting spells, and eventually die. |After fighting predens, use the SELF command to check to ensure you have not been infected. If infected, drink a potion of curing.</Desc>
+      <Morphology>preden[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="17">
+      <Name>archmage</Name>
+      <Desc>Powerful mage with deadly and destructive spells. Can create horrible new races. Archmages can only be hit by magical weapons. Archmages have the power to eliminate entire classes of objects from the game indiscriminately. |Do not let an archmage have a turn while he can see you. Attack him from afar in hallways when you know where he is through the amulet of infravision or telepathy. Also, use the wand of cancellation against these beings. If you cannot beat them through these means, read a scroll of extinction and specify archmages.</Desc>
+      <Morphology>archmage[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="18">
+      <Name>dreg</Name>
+      <Desc>Slow, nasty creature. Dregs are acidic creatures that splash acid on everything. Attacking them will corrode weapons and armor. |Kill dregs with throwing weapons and wands. They are slow, so simply move away if they get near.</Desc>
+      <Morphology>dreg[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="19">
+      <Name>faleryn</Name>
+      <Desc>This plant-like creature grows and divides at an incredible rate. They grow new limbs if others are sheared off. |Only one in eight faleryn is capable of dividing. Identify and destroy these first. Speed up and use wands to kill more than one at a time. You must kill them faster than they can reproduce.</Desc>
+      <Morphology>faleryn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="20">
+      <Name>gas ball</Name>
+      <Desc>Gas balls explode next to their victims, causing physical damage and hearing loss. Victims will be stunned for several turns. |Kill gas balls before they land in the square next to you.</Desc>
+      <Morphology>gas ball[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="21">
+      <Name>gnome</Name>
+      <Desc>Small, nocturnal humanoids who hate mankind. Adept tool-users. Travel in groups. Gnomes are scavengers who pick up anything.</Desc>
+      <Morphology>gnome[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="22">
+      <Name>jacchus</Name>
+      <Desc>A jacchus can spread a disease that halts the body's natural ability to heal. |Wear a ring of regeneration or drink a potion of curing to combat this disorder.</Desc>
+      <Morphology>jacchus[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="23">
+      <Name>magician</Name>
+      <Desc>Scilful magician. Magicians enjoy polymorphing your items, including the weapon you wield. If they feel threatened, they can summon archmages, sorcerers, and summoners to their aid. |Wearing a silver mantle will deflect the magician's magic. Magicians can be very useful.</Desc>
+      <Morphology>magician[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="24">
+      <Name>minion</Name>
+      <Desc>Evil inhabitants of Niflheim which have crept into Midgard. Known to swarm their prey. If more than four minions surround you, they will grab you, hold you down, and beat on you. |Do not get surrounded. Minions come in droves, especially when summoned by higher masters.</Desc>
+      <Morphology>minion[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="25">
+      <Name>pale moss</Name>
+      <Desc>Also called "memory moss". This dense, harmful organism can affect memory. Pale moss will cause all those nearby to forget things, specifically the identities of scrolls, wands, potions, and rings. Pale moss takes several hits to destroy. |Do not step near pale moss unless you have acquired the skill of identification. This skill renders their powers worthless.</Desc>
+      <Morphology>pale moss[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="26">
+      <Name>phantom asp</Name>
+      <Desc>This beautiful snake was imported from Arabia. It's bite is almost always fatal. The bite of the phantom asp is instant death. Even the poison resistant have a 4% chance of death when bitten by a phantom asp (unless they wear a war vest). |Do not allow a phantom asp to come within one square of you. Kill it from afar with projectile weapons or wands.</Desc>
+      <Morphology>phantom asp[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="27">
+      <Name>phausq</Name>
+      <Desc>Brooding, eyeless creature which attacks in darkness. Phausqs shuns light, darkening any room they enter. |Wands of light will kill all phausqs in a room.</Desc>
+      <Morphology>phausq[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="28">
+      <Name>shade</Name>
+      <Desc>An undead being which feeds on magical energy. Shades can only be hit with blessed weapons. They corrupt items in their victim's packs. |Wield a magic or blessed weapon. Try to kill them from afar.</Desc>
+      <Morphology>shade[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="29">
+      <Name>slinn</Name>
+      <Desc>An abomination of a creature escaped from Niflheim. Slinn spew unholy water which will decrease victim's luck.</Desc>
+      <Morphology>slinn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="30">
+      <Name>sorcerer</Name>
+      <Desc>Sorcerers are ray resistant humans who wield offensive wands as weapons. |Wear a mirror shield.</Desc>
+      <Morphology>sorcerer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="31">
+      <Name>swordsman</Name>
+      <Desc>Invaders from the East. Deadly masters of combat and adept with any weapon. Swordsmen are very fast and can inflict critical damage through striking vulnerable points.</Desc>
+      <Morphology>swordsman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="32">
+      <Name>troll</Name>
+      <Desc>Trolls regenerate hit points at a rapid pace. It is important to slay them quickly.</Desc>
+      <Morphology>troll[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="33">
+      <Name>warrior</Name>
+      <Desc>Aggressive barbarian fron south. Warriors throw exploding flasks of burning liquid that do damage to the square they hit and all eight squares surrounding it. |Do not allow warriors to line up with you horizontally, vertically, or on a forty-five degree diagonal. This will inhibit their throwing. When you defeat them, take their flasks and throw them at your enemies.</Desc>
+      <Morphology>warrior[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="34">
+      <Name>wizard</Name>
+      <Desc>Wizards have the following destructive powers: | Summoning a duplicate of you to fight on their side | Charming you into not attacking | Paralyzing you for 11-17 turns | Healing rapidly | Stealing your maximum hit points for their own use | Using other creature's special powers | Improving their AC 10-20 points |Wizards use spell points for all of their operations, so they cannot use these attacks every turn. They are very dangerous and should be battled with care. It is wise to wipe them out with a scroll of extinction if you have a chance.</Desc>
+      <Morphology>wizard[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="35">
+      <Name>zardon</Name>
+      <Desc>A spindly creature with vast mental powers. Very capable of killing from a distance. A zardon can send a psionic blast from a long distance. They usually kill their victims before they can even be found. |Wear a disperser helm. If your mind is squeezed by a blast of pain, and you cannot survive many more such episodes, leave the level quickly.</Desc>
+      <Morphology>zardon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="36">
+      <Name>lacunar</Name>
+      <Desc>Lacunars are friendly mermen-like beings who inhabit the forest.</Desc>
+      <Morphology>lacunar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="37">
+      <Name>gorm</Name>
+      <Desc>Biped with a strong exoskeleton and acidic blood. The gorm seeks a living host for its offspring. Gorms are extremely fast. They put other creatures to sleep and implant their embryos within them. Upon eating, the host will die. Gorms are an acid-based life-form. |If impregnated by a gorm, drink a blessed potion of curing. Gorm blood will corrode your weapons. Speed up before fighting a pack of gorms.</Desc>
+      <Morphology>gorm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="38">
+      <Name>fyleisch</Name>
+      <Desc>This undead creature has depopulated many a hamlet. Fyleisches travel in a mist of life-draining fog. They can drain up to half of your hit points per turn if you are not undead. |Kill fyleisches from afar with projectile weapons or a wand of deanimation. Fyleisches carry several items. Killing them is worthwhile.</Desc>
+      <Morphology>fyleisch[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="39">
+      <Name>bear</Name>
+      <Desc>Large, aggressive and dangerous. Bears do lots of damage to low level characters. |Zap bears with wands. Get bears to follow you to friendly creatures who will help battle them. Shoot bears with projectile weapons while they are at a distance. Run around trees to lose them if they are in pursuit.</Desc>
+      <Morphology>bear[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="40">
+      <Name>rat</Name>
+      <Desc>The rat is the easiest creature to kill.</Desc>
+      <Morphology>rat[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="41">
+      <Name>basilisk</Name>
+      <Desc>Largest of the land-bound reptiles. Few survive an encounter with this beast. Basilisks breathe poison gas and their gaze petrifies those who are not resistant to stoning. They belch smoke from a distance that will blacken mirror shields. |Carry several mirror shields and clay lumps when in basilisk territory. Wear a ring of immunity if you are not immune to poison.</Desc>
+      <Morphology>basilisk[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="42">
+      <Name>berserker</Name>
+      <Desc>Crazed Warriors who have eaten mind-altering mushrooms. Will readily attack anything. |Do not get near them if you are weak. If you leave them be, they will kill other monsters.</Desc>
+      <Morphology>berserker[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="43">
+      <Name>brown bat</Name>
+      <Desc>Brown bats attack and fly away. |Step away from them until they are next to you, then strike.</Desc>
+      <Morphology>brown bat[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="44">
+      <Name>corpse</Name>
+      <Desc>Corpses carry a rotting disease that infects those they hit. |Kill corpses from afar, if possible. Drink a potion of curing or wear a ring of regeneration to counteract the disease if it is contracted.</Desc>
+      <Morphology>corpse[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="45">
+      <Name>dwarf</Name>
+      <Desc>Dwarves are friendly creatures who inhabit the forest</Desc>
+      <Morphology>dwarf[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="46">
+      <Name>elgar</Name>
+      <Desc>Elgars are friendly race bird-like creatures who inhabit the forest.</Desc>
+      <Morphology>elgar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="47">
+      <Name>giant squid</Name>
+      <Desc>Giant squids grab their victims and crush them with their tentacles.</Desc>
+      <Morphology>giant squid[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="48">
+      <Name>hatchetfish</Name>
+      <Desc>Hatchetfish attack anything that comes near the water. They are fast, and cause high damage. |Kill hatchetfish from land (at least one space away from the edge). For fun, polymorph them with a wand of polymorph and watch them drown if they take on a form that cannot fly or swim (this is risky).</Desc>
+      <Morphology>hatchetfish[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="49">
+      <Name>homunculus</Name>
+      <Desc>This small animal's bite can cause unconsciousness. Aggressive and nasty. |Kill homunculi quickly. Dispatch them first when facing a group of monsters.</Desc>
+      <Morphology>homunculus[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="50">
+      <Name>imp</Name>
+      <Desc>Imps are small and difficult to hit.</Desc>
+      <Morphology>imp[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="51">
+      <Name>knilb</Name>
+      <Desc>Small dog-like creature, which can teleport. Knilbs attack and teleport away. |Do not eat dead knilbs unless you wish to teleport uncontrollably for the rest of the game.</Desc>
+      <Morphology>knilb[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="52">
+      <Name>kobold</Name>
+      <Desc>Malevolent race of underground dwellers. Kobolds are cowardly and attack with projectile weapons.</Desc>
+      <Morphology>kobold[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="53">
+      <Name>serpent</Name>
+      <Desc>A serpent's poison bite will lower strength. They are slightly faster than humans. |Do not flee, but kill serpents with wands and projectiles. If you are immune to poison, serpents present no problem. If a serpent decrements your strength, drink a potion of rejuvenation.</Desc>
+      <Morphology>serpent[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="54">
+      <Name>slywert</Name>
+      <Morphology>slywert[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="55">
+      <Name>stalker</Name>
+      <Desc>Invisible hunter and foe of mankind. They will hit their victims and then move away. |Determine which direction the stalker's attack is coming from by moving around, then move away. The stalker will move next to you. Now strike blindly in the direction from which he moved.</Desc>
+      <Morphology>stalker[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="56">
+      <Name>stun jelly</Name>
+      <Desc>Stun jellies blend into the background, allowing beings to stumble into them. They paralyze their victims for several turns. Once they are found, they will give chase at a slow speed.</Desc>
+      <Morphology>stun jelly[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="57">
+      <Name>weird fume</Name>
+      <Desc>Weird fumes are misty vapors that envelop their victims and alter them physically. They can do the following: | Grow extra eyes on their victims | Grow extra fingers on their victims | Change their victim's gender | Cause their victims to become vertiginous | Pour acid on their victims | Scramble their victim's current perception of their surroundings |Every time your brain throbs while fighting a weird fume, you have become that much more vertiginous (prone to 2-5 turn spells of confusion). For each throbbing attack, you will have to drink one potion of blessed curing. Extra eyes increase attacking odds. Extra fingers make it possible to wear more rings. Wearing a ring of crystal skin will neutralize the acid attack. If you are eyeless and cannot find a potion of curing, a weird fume will grow you new eyes.</Desc>
+      <Morphology>weird fume[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="58">
+      <Name>werewolf</Name>
+      <Desc>Once dismissed as folklore, bite of this fell creatures can be fatal and can induce lycanthropy. Victim will then be prone to lycanthropic prowling attacks (becoming a were-being themselves, dropping their possessions, and attacking all in sight). They are eceptively fast. |Avoid werewolves. If you must fight them, use a silver sword to kill them instantly. If a werewolf hits, drink a blessed potion of curing to dissipate your were-blood. If you fear you may be lycanthropic, test, is it true.</Desc>
+      <Morphology>werewolf[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="59">
+      <Name>wild dog</Name>
+      <Desc>Wild dogs come in packs.</Desc>
+      <Morphology>wild dog[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="60">
+      <Name>wood dwarf</Name>
+      <Desc>Wood dwarfs shoot crossbow bolts at other creatures. |Do not let wood dwarves line up horizontally, vertically, or at a forty-five degree angle with you. This will keep them from shooting at you.</Desc>
+      <Morphology>wood dwarf[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="61">
+      <Name>retchweed</Name>
+      <Desc>Retchweeds smell so bad, they immobilize passersby for 1-5 turns. They then attack with sharp branches for physical damage. The nausea will lower your food value. |Do not venture near retchweed if low on food. Attack them from afar. They do not move so they make excellent targets for projectile practice.</Desc>
+      <Morphology>retchweed[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="62">
+      <Name>shadow dog</Name>
+      <Desc>Stealthy carnivore, adept at hiding. Shadow dogs fade in and out of visibility.</Desc>
+      <Morphology>shadow dog[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="63">
+      <Name>spirit</Name>
+      <Desc>Undead soul whose touch can freeze the blood. Spirits can drain their victim's maximum hit points and stun them for several turns.</Desc>
+      <Morphology>spirit[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="64">
+      <Name>adventurer</Name>
+      <Desc>Adventurers are friendly humans. They will willingly trade with you and can be equipped with the NPC command. They are useful allies.</Desc>
+      <Morphology>adventurer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="65">
+      <Name>cockatrice</Name>
+      <Desc>Cockatrices are weak creatures, but they possess the power to turn others to stone with their gaze. Touching a dead cockatrice with bare hands is sudden death to those not resistant to petrification. |Do not hit cockatrices with bare hands. Use a mirror shield to reflect their gaze. Carry clay lumps to counteract hardening if you are gazed upon. If you have gauntlets, pick up the dead cockatrice and wield it as your weapon. Its touch will stone other creatures. Do not pick up a dead cockatrice without gloves.</Desc>
+      <Morphology>cockatrice[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="66">
+      <Name>ranger</Name>
+      <Desc>Self-appointed dispenser of justice. Rangers are usually neutral, but will become hostile if you steal from a trader, read scrolls of extinction, or attack other rangers. They stun their victims and steal their gold and booty as punishment for breaking their rules. |Read extinction on levels you intend to exit soon. One hostile ranger will be summoned for every race extinguished. If you steal from a trader, leave the level quickly to avoid both the trader and the angry ranger that will be summoned. Never hit rangers directly. This will summon more. Attack with throwing weapons and wands.</Desc>
+      <Morphology>ranger[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="67">
+      <Name>elle giant</Name>
+      <Desc>Elle giants throw boulders at passing beings. They can also grab and crush the life out of anything.</Desc>
+      <Morphology>elle giant[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="68">
+      <Name>fire giant</Name>
+      <Desc>Flamming horror of Muspellheim. Fire giants travel in a cloud of intense heat that is three squares in diameter. They lay waste to anything in their path. Their touch can set you ablaze, destroying multiple items in your pack. |Wear a ring of ashes if not heat resistant. Attack from afar.</Desc>
+      <Morphology>fire giant[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="69">
+      <Name>iridorn</Name>
+      <Desc>Iridorns are greedy head collectors. Iridorns have razor-sharp hands designed for beheading others. They also emit polymorph rays from their eyes. |Wear a mirror shield to reflect the polymorph rays and a gorget to protect your neck. Iridorns can only be hit by magic weapons.</Desc>
+      <Morphology>iridorn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="70">
+      <Name>knell bird</Name>
+      <Desc>Strange bird, that can kill without contact. Knell birds indiscriminately choose any being near them to attack with a deadly gaze. |If you have less than 175 hp, kill the death bird immediately or leave the area. Remember, the death bird will attack other creatures nearby. If you are in a crowd, you may survive longer (with the exception of a crowd of death birds).</Desc>
+      <Morphology>knell bird[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="71">
+      <Name>sandiff</Name>
+      <Desc>Aggressive beast which sprays a corrosive acid on a potential meal. Beware. They gout sheets of acid from up to three squares away. The acid will destroy items in your pack over a period of several turns. |Even rings of crystal skin will not protect your items from destruction. Avoid sandiffs or obliterate them with a scroll of extinction. If you must fight a sandiff, kill it as quickly as you can with wands, projectiles, or any magic at your disposal.</Desc>
+      <Morphology>sandiff[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="72">
+      <Name>sentinel</Name>
+      <Desc>A terrible, floating five-eyed creature. Beware its gaze. Hard to kill. Sentinels have five eyes, each with a different power. The four eyes located on the top of sentinels have the following attacks: | Teleport victims away | Summon other sentinels | Petrify victims | Paralyze victims |The main sentinel eye reflects rays. |Wear a mirror shield. This will reflect teleport, petrification, and paralysis rays. If the sentinel's main eye is destroyed, all rays except teleportation will affect the sentinel.</Desc>
+      <Morphology>sentinel[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="73">
+      <Name>bloodslug</Name>
+      <Desc>Bloodslugs can suck your blood out of your body once they grab you. Their bite can spread disease.</Desc>
+      <Morphology>bloodslug[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="74">
+      <Name>blur</Name>
+      <Desc>Fastest creature in Midgard. Appearance unknown. Blurs are very fast and have multiple attacks. |Do not try to flee from a blur. Stand your ground and fight. Eating dead blurs increases speed.</Desc>
+      <Morphology>blur[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="75">
+      <Name>enchantress</Name>
+      <Desc>Enchantresses sing magic, mesmerizing songs that paralyze male listeners. |Attack enchantresses from afar, before they sing. A silver mantle will cancel the effects of their song. Be female. Allow a gas ball to deafen you.</Desc>
+      <Morphology>enchantress[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="76">
+      <Name>gibberer</Name>
+      <Desc>Vile, multi-mouthed mass. Voracious. Gibberers gain more attacks during battle. They also destroy any items they find. They can grab and hold their victims.</Desc>
+      <Morphology>gibberer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="77">
+      <Name>hill giant</Name>
+      <Desc>Incredibly strong. Can crush with its grasp. Hill giants grab opponents and crush them in their powerful embrace.</Desc>
+      <Morphology>hill giant[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="78">
+      <Name>jagredin</Name>
+      <Desc>Jagredins love to dig. They create new tunnels everywhere. |Being made of pure lava, a jagredin can attack by burning its victims. Wands of transmutation will kill a jagredin instantly. If you attack a jagredin barehanded (and you are not heat resistant), you will be burned.</Desc>
+      <Morphology>jagredin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="79">
+      <Name>kalvin</Name>
+      <Desc>Kalvins have lightning fast hands for plucking eyes out of their victims. |Kill kalvins from afar. They rarely miss your eyes. Once you have one or zero eyes left, only drinking a blessed potion of curing or a weird fume can regrow them.</Desc>
+      <Morphology>kalvin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="80">
+      <Name>morph</Name>
+      <Desc>Ancient, magical being. Potentially very deadly. Morphs take on the forms and powers of other races. They can change their form at will. |Morphs have many hit points. Fight them as you would the monster they are masquerading as, but remember they may take more time to kill.</Desc>
+      <Morphology>morph[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="81">
+      <Name>ogre</Name>
+      <Desc>Cave-dwelling giant. Slow, but very strong. Ogres can grab their victims and crush them.</Desc>
+      <Morphology>ogre[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="82">
+      <Name>pelgrat</Name>
+      <Desc>Pelgrats suck the power out of your wands for their own purpose, which is usually zapping you. They are ray-proof by nature. |Drop wands behind you upon sight of a pelgrat and defeat him through physical means. Wear a mirror shield to reflect his rays.</Desc>
+      <Morphology>pelgrat[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="83">
+      <Name>ramapith</Name>
+      <Desc>Ramapiths whose touch can boil blood away even the heat resistant. They can boil your blood away in under seven turns. |If a ramapith hits several times in a row, escape to cool your blood down. Wear a ring of ashes if you are not heat resistant.</Desc>
+      <Morphology>ramapith[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="84">
+      <Name>roc</Name>
+      <Desc>Rocs is a great bird, which dives on hostile their summoner creatures, pick them up and hurl to the ground. In causes a large damage and kills most of creatures.</Desc>
+      <Morphology>roc[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="85">
+      <Name>rock giant</Name>
+      <Desc>A particularly evil race of giants which seeks to destroy man and reclaim Midgard. Rock giants are the weakest giants. However, they can still inflict great pain upon smaller foes.</Desc>
+      <Morphology>rock giant[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="86">
+      <Name>ruxicon</Name>
+      <Desc>This strange and aggressive creature destroys and erodes all it touches. Ruxicons cause armor and weapons to deteriorate. They can affect many substances, including metal, wood, and leather. |Do not let a ruxicon near you if you wear armor. Kill it from afar.</Desc>
+      <Morphology>ruxicon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="87">
+      <Name>secitt</Name>
+      <Desc>Secitts multiply every turn near their next food to a maximum of 15 secitts per level. |Speed up so you can kill secitts faster than they can multiply. Kill secitts as soon as they are visible. If they see you, they will multiply.</Desc>
+      <Morphology>secitt[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="88">
+      <Name>summoner</Name>
+      <Desc>Summoners summon other creatures to their aid.</Desc>
+      <Morphology>summoner[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="89">
+      <Name>xyxort</Name>
+      <Desc>Xyxorts are vicious fighters.</Desc>
+      <Morphology>xyxort[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="90">
+      <Name>chameleon</Name>
+      <Desc>A deceptive deadly carnivore. Chameleons disguise themselves as useful items and attack by grabbing those who touch them.</Desc>
+      <Morphology>chameleon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="91">
+      <Name>draugr</Name>
+      <Desc>The most powerful of the undead. Able to spring back from any attack. |The best strategy with a draugr is retreat.</Desc>
+      <Morphology>draugr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="92">
+      <Name>ghost</Name>
+      <Desc>Lingering spirits of past adventurers. Ghosts are difficult to hit and can cause terror in their foes. When afraid, an adventurer can think of nothing but flight. |Zap ghosts with wands to kill them quickly.</Desc>
+      <Morphology>ghost[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="93">
+      <Name>guardian</Name>
+      <Desc>Guardians do not attack until you step near them. |Attack guardians one at a time. Throwing or zapping an unmoving guardian will prompt them all to seek you out.</Desc>
+      <Morphology>guardian[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="94">
+      <Name>hel dragon</Name>
+      <Desc>This most lethal of all carnivores has keen long distance smell which enables it to instantly teleport next to its prey. Very deadly.</Desc>
+      <Morphology>hel dragon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="95">
+      <Name>ice sphere</Name>
+      <Desc>Ice spheres sidle up to their victims and explode. |Wear a ring of insulation or kill the sphere before it comes close. Ice spheres are extra susceptible to rays of fire.</Desc>
+      <Morphology>ice sphere[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="96">
+      <Name>migdnart</Name>
+      <Desc>Devil-spawned beings from Niflheim. Migdnarts do excessive damage and travel in packs. |Watch your hit points and flee if necessary.</Desc>
+      <Morphology>migdnart[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="97">
+      <Name>moleman</Name>
+      <Desc>Molemen collapse the ceiling on those who invade their domain and then burrow away. |Do not stand near the stairs or items you may want, lest the battle destroy them.</Desc>
+      <Morphology>moleman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="98">
+      <Name>orc</Name>
+      <Desc>Orcs are hardy scavengers.</Desc>
+      <Morphology>orc[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="99">
+      <Name>live rock</Name>
+      <Desc>Terrain can be accidentally brought to life through the power of terraforming. Hela also has the power to bring terrain to life. |Deanimation rays will stop living terrain.</Desc>
+      <Morphology>live rock[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="100">
+      <Name>sandform</Name>
+      <Desc>Terrain can be accidentally brought to life through the power of terraforming. Hela also has the power to bring terrain to life. |Deanimation rays will stop living terrain. Do not let quicksand drown you.</Desc>
+      <Morphology>sandform[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="101">
+      <Name>shadow</Name>
+      <Desc>Invisible, undead, life-draining creature. Shadows drain your maximum hit points, but otherwise present little threat.</Desc>
+      <Morphology>shadow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="102">
+      <Name>stun worm</Name>
+      <Desc>Stun worms use electricity to paralyze their victims for 1-3 turns.</Desc>
+      <Morphology>stun worm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="103">
+      <Name>time master</Name>
+      <Desc>Timemasters are randomly created from the characteristics of all other creatures. |Timemasters have many items in their possession. They are dangerous foes to fight, but the rewards can be high.</Desc>
+      <Morphology>time master[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="104">
+      <Name>valkyrie</Name>
+      <Desc>Valkyries are the guardians of Asgard. They collect great warrior's souls to defend the homes of the gods.</Desc>
+      <Morphology>valkyrie[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="105">
+      <Name>Vanisher</Name>
+      <Desc>Vanishers render all they touch invisible. Their victims turns invisible and then slowly cease to exist. There is no cure for a vanisher's touch. |Avoid hand to hand combat with vanishers. Watch out for invisible creatures on a level with a vanisher.</Desc>
+      <Morphology>Vanisher[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="106">
+      <Name>wight</Name>
+      <Desc>Powerful, undead creature which feeds off the energy of the living. Its touch ages and weakens opponents, reducing their strength to three and making it impossible to rejuvenate their lost strength until they heal their withered condition. |If withered, drink a potion of curing, then a potion of rejuvenation.</Desc>
+      <Morphology>wight[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="107">
+      <Name>wraith</Name>
+      <Desc>Undead, life-draining being. Lowers life levels of humans. |Wands of deanimation will destroy wraiths, but if you kill them through other means, they will leave a body worth eating. Dead wraiths boost your experience level.</Desc>
+      <Morphology>wraith[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="108">
+      <Name>wyvern</Name>
+      <Desc>Small fire-breathing winged reptile. |If you are not resistant to heat, wear a ring of ashes or mirror shield to resist the wyvern's ray.</Desc>
+      <Morphology>wyvern[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="109">
+      <Name>yapok</Name>
+      <Desc>Solitary, aggressive creatures. Yapoks will summon other yapoks if they feel imperiled.</Desc>
+      <Morphology>yapok[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="110">
+      <Name>yeti</Name>
+      <Desc>Yetis are lumbering eating machines. |Yetis are extra susceptible to wands of fire.</Desc>
+      <Morphology>yeti[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="111">
+      <Name>mudman</Name>
+      <Desc>Mudmen attempt to surround their victims with mud. |If in mud, throw projectiles and zap wands at mudmen to avoid slipping in mud and wasting your turn. Wands of transmutation will kill mudmen instantly.</Desc>
+      <Morphology>mudman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="112">
+      <Name>Aspenth</Name>
+      <Desc>Guardian of Mimer's well. Delights in drowning trespassers with his vicious bite and crushing tentacles. Aspenth must be defeated to release @Gjall@, Heimdall's horn. He lives underwater and has the ability to force the air out of your lungs and decrement your constitution by biting chunks out of your abdomen. |Read your messages. If you read that you must surface soon, ascend instantly. You cannot zap, throw, breathe rays (if you are a ray breathing monster), or use fire vision underwater. Do not go underwater with too much weight, as you will sink like a rock despite knowing how to swim. Aspenth can only be hit with magical weapons.</Desc>
+      <Morphology>Aspenth[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="113">
+      <Name>Raven</Name>
+      <Desc>Odin's two ravens will occasionally tell you secrets from Odin himself. Do not attack them.</Desc>
+      <Morphology>Raven[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="114">
+      <Name>Thokk</Name>
+      <Desc>A giantess. The only creature which did not weep at the death of Balder. It is said that @Hela@ will exchange Thokk's soul for Balder's.</Desc>
+      <Morphology>Thokk[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="115">
+      <Name>Jormungand</Name>
+      <Desc>Named the world-serpent, this gigantic beast encircles the entire world. Prophesy says that @Thor@ and Jormungand will destroy each other at Ragnarok.</Desc>
+      <Morphology>Jormungand[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="116">
+      <Name>Eitri</Name>
+      <Desc>Reclusive master dwarvesmith who can construct anything. His creations include Mjollnir and artificial hair for Thor's wife. Eitri is a smith capable of crafting a prosthesis for Tyr. He is neutral.</Desc>
+      <Morphology>Eitri[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="117">
+      <Name>Emanon</Name>
+      <Desc>This demon occupies the central section of Niflheim. He summons red oozes and draugars; genociding the former is recommended. In addition, he teleports to your location, can strip off items which you are wearing, and can knock your weapon from your grasp. |Bring multiple weapons or wear crystal gloves. Use throwing weapons as well. Emanon reflects rays.</Desc>
+      <Morphology>Emanon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="118">
+      <Name>Fenrir</Name>
+      <Desc>Fenrir - Moon Dog, is the son of @Loki@, the giant wolf. He named so, because he is fated swallow Sun and Moon during @Ragnarok@. Aces kept him together themselves. But the greater he grows the more terrilble and dangerous he becomes. Then gods decides rivet him by chains. But twice chains were teared. Third once they decides fasten him chains forged by dwarfs - most strong in the world. Nobody knew how to do that. Then they asked a Fenrir to try this chains and test how are they strong. Wolf suspects something wrong and asked anyone puts an arm into his mouth. That was do a @Tyr@ - most gallant of all. And then chains tighten up Fenrir has bited off right arm of god. Gods were fastened wolf to ground at Lungvi island. His mouth is overlayed by sword and slobber drops from it gives headwaters Von (Hope) river. Hope, that someday he will escaping out fetters and sinister prophecy will perform. During @Ragnarok@ he will kill @Odin@ and will be defeated by @Vidur@.</Desc>
+      <Morphology>Fenrir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="119">
+      <Name>Freyr</Name>
+      <Desc>Freyr - as personifing vegetation, harvest, wealth and peace. His simbol is a mill, his sword is @Hundingsbana@. |The most powerful of the Aesir, Freyr was once invincible. He has given up his powerful sword Mimming to marry a giantess.</Desc>
+      <Morphology>Freyr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="120">
+      <Name>Garm</Name>
+      <Desc>This wolf-being guards the entrance to @Niflheim@. Prophesy says he will aid his kinsman, Fenrir in Tyr destroying.</Desc>
+      <Morphology>Garm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="121">
+      <Name>Heimdall</Name>
+      <Desc>Heimdall - also his names Wise Ace or White Ace. He is the Guard of the bridge Bifrost. Odin's son. His Horse call Golden Forelock. He lives in place Himinbierg, beside most bridge @Bifrost@. His teeths from solid gold. Heimdall sleeps less than a bird, sees in any direction for one hundred days of the way and has such sensitive hearing that can hear the growing of the herb and wool. He travelled on the land and helped the people - a nearest god for them. Protects such characteristics, as clairvoyance and vigilance. He has the horn called Gjallahorn, and when he blows in it, sounds in all worlds. He is one of twelve main (after Odin) gods. In @Ragnarok@ he and his main enemy @Loki@ will kill each other by spears. |Protects Asgard from invasion by the evil forces with his renowned eyesight. Resides on Bifrost and will signal the coming of Ragnarok by blowing his horn, Gjall.</Desc>
+      <Morphology>Heimdall[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="122">
+      <Name>Hobjoi</Name>
+      <Morphology>Hobjoi[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="123">
+      <Name>Nidhogg</Name>
+      <Desc>Nidhogg is a dragon lying in well @Hvergelmer@ and gnawing one of the roots of Yggdrasill. Nidhogg gnaws not only roots of wood. Beside it he has the other food - a sinners. The righteous persons after death if believe the ancient myth, comes into @Giml@, on heavens, or in Decreasing Moon mountains, in chamber @Sindri@, made from red gold. The Perjurers waits the chamber on Coasts of Dead: it is huge and terrible, completely wreathed from snakes, as wattle, and poisonous rivers flows along the chamber. But worst of all happens to the sinners, coming after death in Boiling Caldron water: Nidhogg there gnaws the dead bodies of deceased. |Nidhogg is the most powerful demon and resides in the southern section of Niflheim. You may not employ wands anywhere on his level. He can attack you from anywhere that he can see you. His powerful attacks include the following: | Permanently slowing victims down | Absorbing victims invulnerability for his use | Causing victims to hallucinate | Forcing victims to wield worthless weapons | Summoning hel dragons and nidslacrs | Modifying items in victims pack for the worse |Throw at him from afar as he is resistant to the effects of rays and breath weapons.</Desc>
+      <Morphology>Nidhogg[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="124">
+      <Name>Odin</Name>
+      <Desc>Odin - observes the Nine Worlds from @Hlitskalf@ tower in Asgard. |Odin has an eight-legged horse, he rides the it in heavens. |Leader of the gods, Odin is missing an eye which he was sacrificed to gain knowledge about the world during the short time when he wasn't exist himself. Occasionally sends his ravens to @Midgard@ to share his vast knowledge with mankind. Preferred weapon is @Gungnir@ his spear.</Desc>
+      <Morphology>Odin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="125">
+      <Name>Surtr</Name>
+      <Desc>The most powerful inhabitant of Muspelheim, this fire giant seeks to consume the entire universe with his sword.</Desc>
+      <Morphology>Surtr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="126">
+      <Name>Thor</Name>
+      <Desc>The Thor - a god of the thunder, son of Odin and Iord (earth); has most importance between all aces. He was pictured in the manner of young man with red by beard; he possessed three terrible signs of the difference - a thunderous hammer @Mjollnir@, which always hit the target and returned back itself, belt of power @Megingjardar@ and iron gloves. He was in constant feud with giants genders of Jots and Turses and with Jormungand (the serpent of Midgard); in the future during the Ragnarok, he will kill them, but herewith was defeated himself by their poisonous breathing. His wife @Sif@ from former marriage, given birth @Ull@, the quick archer, and from Thor gave birth the daughter Trud ("Power"); from Jarnsaxa Thor had two sons, @Magni@ ("Strongness") and @Modi@ ("Courage"). The Residence of Thor was @Trudheim@ or Trudvang ("country or field of power"), where were chambers @Bilskirnir@. |God of the sky and strongest of the gods. Protector of mankind. Preferred weapon is Mjollnir, his magic hammer.</Desc>
+      <Morphology>Thor[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="127">
+      <Name>Tyr</Name>
+      <Desc>Tyr's appearance identifies him from afar. He is missing an arm which was sacrificed so that Fenrir could be safely chained up.</Desc>
+      <Morphology>Tyr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="128">
+      <Name>Balder</Name>
+      <Desc>Balder (Baldur) - a good god, keeper of the springtime, son of Odin, father of gods and goddesses-mother @Frigg@. When he begun to dreamt the evil dreams, great Frigg, alarmed, was go on the land to inveigle all things of the world not to do the ills her light-radiating son. And all stones, metals, plants, water, animals, birds and fishes willingly gave the promise not to harm Balder. Only with one mistletoe Frigg has forgotten to take the floor, such homely was looking mistletoe. About this was called on @Loki@. And branch of mistletoe, throwed on urging insidious Loki by hand of the Balder's brother, blind god Hed, was pierced the heart an sun-carried god. And this was a beginning of the curse of Loki. |The purest and most loved of the gods, Balder was slain by Loki's treachery. His soul now suffers the unbearable cold of Niflheim.</Desc>
+      <Morphology>Balder[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="129">
+      <Name>Anxarcule</Name>
+      <Desc>Anxarcule is the second-most powerful demon and occupies the eastern section of Niflheim. Among his many lethal powers are the ability to teleport to your location, the consumption of your legs, the theft of your weapon for his own use, and the summoning of your double. Rays and magical breath cause Anxarcule to grow stronger. |To destroy Anxarcule, you must be very powerful, speed up to maximum speed, and bring a variety of weapons to wield. Wield a worthless item to start. Attack Anxarcule with thrown weapons while discovering his cycle of attack. If you can determine when he will not receive an attack, wield a powerful weapon for that turn and strike him. Then return to a worthless weapon. If you cannot tell when he will not receive an attack, use all of your powerful weapons, wielding the next most powerful after he steals your current one. If a double is made, it should not be fought, for it will have your equivalent fighting power. If you are wearing crystal gloves, you should never wield a weapon against Anxarcule, but you will need to watch for doubles. Wear the war vest or drink a blessed potion of curing to restore your legs.</Desc>
+      <Morphology>Anxarcule[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="130">
+      <Name>breleor</Name>
+      <Desc>A shambling plant-creature which feeds on living flesh. A dazzling combination of shapes and colors hypnotizes its prey not attacking them directly. They reach tendrils into the skin of their victims for one-fourth of the victim's current hit points. There is a 3% chance that these tendrils will pierce the heart. This will slay all except undead beings. If a breleor is annoyed with your presence, it can send you to the Halls of Grynr. |Do not attack breleors directly. Attack them with throwing weapons or avoid them completely. Only magic weapons will hit breleors.</Desc>
+      <Morphology>breleor[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="131">
+      <Name>Gymir</Name>
+      <Desc>Powerful king of the mountain giants. In ancient times he gave his daughter's hand to Freyr in exchange for the legendary sword, Mimming. He lives a secluded life and dislikes other creatures.</Desc>
+      <Morphology>Gymir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="132">
+      <Name>Hela</Name>
+      <Desc>Heli is a daughter of @Loki@, ruler of Niflheim, underground kingdom of dead, queen of dead (except heroes, living in Valhalla at Odin). Giantess, above belt she look like an usual woman, but below - a skeleton. Left half of her face and body is red as damp meat, and right is blue-black. |Hela wields the most powerful weapon in the game, but is not very difficult to kill if you can survive her onslaught. She will call out to the souls of those you have slain to fight you again, and raise the walls of her domain up against you in battle. Hela grows stronger when struck with rays or breath. |Make sure that you have the ring of soul trapping containing Thokk's soul when you arrive here. Wait until she offers to free a soul and choose Balder to be freed. Avoid getting bogged down in a battle against her creatures. Simply slay her (after she has freed Balder's soul), grab her scythe, and leave.</Desc>
+      <Morphology>Hela[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="133">
+      <Name>KonrRig</Name>
+      <Desc>Lord of the insane, surrounded by those who worship chaos. |This demon who resides in the northwest section of Niflheim has only one major power, the ability to drive men insane. |Do not carry anything you do not want to use while insane. Throwing at Konr Rig merely makes him stronger. He also reflects rays. You must fight him hand-to- hand.</Desc>
+      <Morphology>KonrRig[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="134">
+      <Name>Loki</Name>
+      <Desc>Once a welcome member of Asgard, this evil god is now an outcast. Bound to earth and tortured by the gods, his great sufferings are the cause of earthquakes. It is said he will someday unfetter himself and lead the ice giants across the water to destroy @Asgard@.</Desc>
+      <Morphology>Loki[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="135">
+      <Name>Plog</Name>
+      <Desc>Plog is the relatively harmless demon of the western section of Niflheim. He summons minions and migdnarts, gouts unholy water (which decrements luck and causes minor physical damage), and drains all wands you carry. He only uses these special attacks when he is directly next to you; however, since his other special power is to teleport next to you, he usually implements his attacks. |If you cannot defeat Plog, leave @Niflheim@ and return only after you are more powerful. He is resistant to some wands.</Desc>
+      <Morphology>Plog[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="136">
+      <Name>Scyld</Name>
+      <Desc>Scyld has the following powers: | Breath of freezing cold | Deadly force rays from his eyes | Ability to hurl victims long distances | Ability to send victims to the depths of the Halls of Grynr Scyld is invulnerable to all but the one who possesses the green stone. |Do not approach Scyld without the green stone.</Desc>
+      <Morphology>Scyld[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="137">
+      <Name>Uorik</Name>
+      <Desc>Powerful being created by the dwarves to protect their realm. Said to currently stand guard over the inner sanctum of the dwarves. He attacks all who attempt to enter their armory.</Desc>
+      <Morphology>Uorik[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="138">
+      <Name>Vanseril</Name>
+      <Desc>This powerful demon occupies the northern section of Niflheim. Do not approach him closely for he has a strange mist which surrounds him. This mist drains your strength, which he then converts into his hit points. In addition, he has a powerful psionic attack. Lastly, once he has drained your strength, he teleports further away from you so that you cannot engage in hand-to-hand combat. |It is recommended that you travel here only when wearing a disperser helm or while you are invulnerable. Throw projectiles at him from afar. Rays cause Vanseril to become more powerful.</Desc>
+      <Morphology>Vanseril[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="139">
+      <Name>Vidur</Name>
+      <Desc>Vidur is a powerful frost giant lord who lurks underground in Midgard. |Vidur can only be hit with magic weapons.</Desc>
+      <Morphology>Vidur[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="140">
+      <Name>edgewort</Name>
+      <Desc>One edgewort will be present for each immoral act which you have committed. These heinous creatures will attempt to hurl you from the bridge @Bifrost@. To avoid this, stay in the wide section of the bridge. |Only an edgewort positioned to your left or right can quicken your doom, so ignore the others if an edgewort stands on your immediate left or right. You will probably wish to speed up, use wands, and/or summon friends (with a scroll of summoning) to ensure your success.</Desc>
+      <Morphology>edgewort[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="141">
+      <Name>halcyon</Name>
+      <Desc>As long as a halcyon lives, its creator will have increased luck (+10).</Desc>
+      <Morphology>halcyon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="142">
+      <Name>merchant</Name>
+      <Desc>Merchants run shops on the Bazaar. They will gladly trade goods with you. |Do not attack a merchant unless you are quite powerful. Speed up, and throw projectiles from afar to soften merchants up before combat. Black gems make short work of most merchants. They are immune to wands with the exception of annihilation.</Desc>
+      <Morphology>merchant[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="143">
+      <Name>trader</Name>
+      <Desc>Traders run shops throughout the tamer levels of the forest and underground halls. They will gladly trade goods with you and will attack hostile creatures entering their shop. |Do not attack a trader unless you are quite powerful. Speed up, and throw projectiles from afar to soften traders up before combat. Black gems make short work of most traders. They are immune to wands with the exception of annihilation.</Desc>
+      <Morphology>trader[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="144">
+      <Name>air ghola</Name>
+      <Desc>Flying undead creatures that sprout from the corpses of lower dwarves. |Air gholas are destroyed by rays of deanimation.</Desc>
+      <Morphology>air ghola[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="145">
+      <Name>bartok</Name>
+      <Desc>When a bartok dies, it emits a psionic death wail that damages all beings nearby. It lessens with distance. |Kill bartoks from as far away as possible.</Desc>
+      <Morphology>bartok[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="146">
+      <Name>borgon vile</Name>
+      <Desc>Borgon viles travel in a whirling cloud of rocks. |Do not get within visual range of a borgon vile lest their hailstorm of rocks damage you. Attack from afar. Borgon viles leave a trail of diamond needles which increase psionic ability if picked up. Cancellation rays will make a borgon vile unable to create a whirling cloud of rocks.</Desc>
+      <Morphology>borgon vile[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="147">
+      <Name>glard</Name>
+      <Desc>Large, venomous flying creature. Lives in nests. Glards are fast, poisonous, and can kill if you are not poison resistant. |Wear a ring of immunity.</Desc>
+      <Morphology>glard[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="148">
+      <Name>Gulveig</Name>
+      <Desc>This resident of the southwest section of Niflheim has three major powers. He can summon minions and ramapiths, gout unholy water and has a tentacle which can petrify those who wander too near. |Throw at him from afar or use wands against him.</Desc>
+      <Morphology>Gulveig[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="149">
+      <Name>lower dwarf</Name>
+      <Desc>Lower dwarfs are adept at throwing homemade khives. |Destroy the bodies of lower dwarfs, lest they sprout into air gholas. Lower dwarfs are heat resistant, but all other wands and powers can affect them.</Desc>
+      <Morphology>lower dwarf[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="150">
+      <Name>nidslacr</Name>
+      <Desc>Related to dragons, the nidslacr prefers a quicksand environment. The female preserves the bodies of its victims to lay her eggs. This creature's touch affects memory and dexterity. |Nidslacrs are formidable and frustrating foes. They catch any weapon thrown at them and they cause their foes to forget learned skills and powers. Nidslacrs split when hit by rays. Hel dragons and nidslacrs are a deadly combination. Hel dragons fire death rays which split nidslacrs over and over again. Nidslacrs turn the ground underneath them to quicksand. |Avoid nidslacrs at all costs. Terraform their square into a mountain or equally destructive terrain. As a last resort, battle them hand-to-hand. Stay as far away from them as possible.</Desc>
+      <Morphology>nidslacr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="151">
+      <Name>Rashok</Name>
+      <Desc>Rashok is subservient to you. |Avoid conflict with Rashok.</Desc>
+      <Morphology>Rashok[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="152">
+      <Name>Hreset</Name>
+      <Desc>Hreset is a great being who is subservient to your commands. |Avoid conflict with Hreset.</Desc>
+      <Morphology>Hreset[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="153">
+      <Name>Li-Krin</Name>
+      <Desc>Li-Krin is a powerful being who is subservient to your desires. |Avoid conflict with Li-Krin.</Desc>
+      <Morphology>Li-Krin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="154">
+      <Name>Elcich</Name>
+      <Desc>Elcich is subservient to your wishes and will slay your enemies. |Avoid conflict with Elcich.</Desc>
+      <Morphology>Elcich[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="155">
+      <Name>Bartan</Name>
+      <Desc>Bartan is insane. |Avoid Bartan. Exit the level if possible.</Desc>
+      <Morphology>Bartan[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="156">
+      <Name>bandit</Name>
+      <Desc>Swarthy groups of human plunderers who often have items of interest. Bandits moves quickly. |Killing bandits is beneficial. They carry many items worth possessing.</Desc>
+      <Morphology>bandit[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="157">
+      <Name>Harbard</Name>
+      <Desc>Harbard guards the entrance to @Niflheim@ by the river @Gioll@. He will remain dormant until a living creature crosses the lorkesth- infested river. |Harbard initially stands on the stairway down to Niflheim. Only magic weapons will hit Harbard.</Desc>
+      <Morphology>Harbard[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="158">
+      <Name>hrygar</Name>
+      <Desc>Very fast, flying creature. Hrygars swoop in, attack, and move away. |Move away from a hrygar until it ends its turn next to you. Then attack. Use wands when in a direct line.</Desc>
+      <Morphology>hrygar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="159">
+      <Name>ice dragon</Name>
+      <Desc>This fur-bearing reptile can freeze with its breath. Known to hoard treasure. Ice dragons breathe rays of intense cold at their victims. |Wear a ring of insulation or a mirror shield if not already cold resistant. Ice dragons carry treasure. Ice dragons are extra susceptible to rays of fire.</Desc>
+      <Morphology>ice dragon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="160">
+      <Name>vampire</Name>
+      <Desc>A vampire can drain life out of their foes. |Vampires can be turned to dust with a wand of deanimation.</Desc>
+      <Morphology>vampire[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="161">
+      <Name>denizen</Name>
+      <Desc>Denizens are different every game. They are made up of the attributes of randomly selected creatures.</Desc>
+      <Morphology>denizen[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="162">
+      <Name>blue wisp</Name>
+      <Desc>Blue wispsare different every game. They are made up of the attributes of randomly selected creatures.</Desc>
+      <Morphology>blue wisp[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="163">
+      <Name>grey terror</Name>
+      <Desc>Grey terrors are different every game. They are made up of the attributes of randomly selected creatures.</Desc>
+      <Morphology>grey terror[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="164">
+      <Name>grange pawn</Name>
+      <Desc>Grange pawns are different every game. They are made up of the attributes of randomly selected creatures.</Desc>
+      <Morphology>grange pawn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="165">
+      <Name>lava flow</Name>
+      <Desc>Terrain can be accidentally brought to life through the power of terraforming. Hela also has the power to bring terrain to life. |Deanimation rays will stop living terrain. Lava will burn you. Cold rays will harden the lava.</Desc>
+      <Morphology>lava flow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="166">
+      <Name>mud flow</Name>
+      <Desc>Terrain can be accidentally brought to life through the power of terraforming. Hela also has the power to bring terrain to life. |Deanimation rays will stop living terrain. Do not let mud drown you. Fire rays will evaporate the living liquids.</Desc>
+      <Morphology>mud flow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="167">
+      <Name>norseman</Name>
+      <Morphology>norseman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="168">
+      <Name>pyrta ath</Name>
+      <Desc>Pyrta aths envelop opponent's heads and attempt to smother them. In six turns, victims will smother and die. In addition, attacking a pyrta ath on your head will damage you as well.</Desc>
+      <Morphology>pyrta ath[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="169">
+      <Name>Thorgrim</Name>
+      <Morphology>Thorgrim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="170">
+      <Name>watery form</Name>
+      <Desc>Terrain can be accidentally brought to life through the power of terraforming. Hela also has the power to bring terrain to life. |Deanimation rays will stop living terrain. Do not let living water drown you. Fire rays will evaporate the living liquids.</Desc>
+      <Morphology>watery form[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="171">
+      <Name>ull</Name>
+      <Desc>An ull can disorient an assailant from a distance.</Desc>
+      <Morphology>ull[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="172">
+      <Name>funnel</Name>
+      <Desc>The funnel is somewhat chaotic. It hurls creatures and items every direction and dries up water as it travels.</Desc>
+      <Morphology>funnel[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="173">
+      <Name>lorkesth</Name>
+      <Desc>The only creature that can survive the waters of the river Gioll. Lorkesths are the most violent of sea creatures. Their immense size makes them difficult to kill. |Lorkesths are immune to petrification and psionic attack. Other wands are effective. If you do not have thousands of hit points, stay away from the water's edge if lorkesths are present. Use projectile weapons and wands from at least one square inland.</Desc>
+      <Morphology>lorkesth[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="174">
+      <Name>qivuit</Name>
+      <Desc>Qivuits are primarily aquatic, but can survive on land. They attack, then retreat quickly. |Kill qivuits from at least one square inland. If in the water, move away from them until they end their turn next to you so that you can strike.</Desc>
+      <Morphology>qivuit[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="175">
+      <Name>whale</Name>
+      <Desc>Whale remain loyal to their creator and swim about swallowing hostile sea creatures. It is extremely useful in the River Vid and on Slaeter's Sea. Whales suffocate if thrown onto land.</Desc>
+      <Morphology>whale[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="176">
+      <Name>ivy creeper</Name>
+      <Desc>Carnivorous, rapidly growing plant. Has poisonous spores and powerful tendrils. Ivy creepers grab and devour their food. Attacking them will release spores that render the attacker's skin fragile, causing them to take double damage until a blessed potion of curing is consumed. Sometimes they release poison gas into the air when struck. This poison can cause death 4% of the time for the non-poison resistant. Creepers can also blind attackers for 10-20 turns. |Attack from afar with projectile weapons. Kill the innermost part of the plant and the rest will die as well (or attack as far back as you can, pruning the creeper as you go).</Desc>
+      <Morphology>ivy creeper[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="177">
+      <Name>dead body</Name>
+      <Morphology>dead body[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="178">
+      <Name>coin</Name>
+      <Morphology>coin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="179">
+      <Name>food ration</Name>
+      <Desc>The field ration of warrior. |Explorer's mainstay. Bland but filling.</Desc>
+      <Morphology>food ration[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="180">
+      <Name>urn</Name>
+      <Desc>Foodstuffs prepared by Shamans. Urns contain one of the following: | green powder: increases strength | orange powder: 10% chance of third sight | nothing | meat | food | rotten food	 | smaller urn.</Desc>
+      <Morphology>urn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="181">
+      <Name>black mushroom</Name>
+      <Desc>Black mushrooms give the consumer temporary fire-vision. This is indicated by bleeding of the eyes, and 0-20 hp of damage.</Desc>
+      <Morphology>black mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="182">
+      <Name>bleached root</Name>
+      <Desc>Bleached roots have a 50% chance of increasing the consumer's constitution.</Desc>
+      <Morphology>bleached root[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="183">
+      <Name>green lump</Name>
+      <Desc>Green lumps are quite nutritious. |The thrall's main food source. High in nutrition, low in taste.</Desc>
+      <Morphology>green lump[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="184">
+      <Name>mottled mushroom</Name>
+      <Desc>Mottled mushrooms taste delicious but produce 30-40 hp of damage several turns later.</Desc>
+      <Morphology>mottled mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="185">
+      <Name>speckled growth</Name>
+      <Desc>Speckled growths are hallucinogens. They cause the consumer to go insane for a limited amount of time.</Desc>
+      <Morphology>speckled growth[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="186">
+      <Name>spongy mass</Name>
+      <Desc>Spongy masses cancel the sixth sense gained by eating dead anssks.</Desc>
+      <Morphology>spongy mass[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="187">
+      <Name>white mushroom</Name>
+      <Desc>White mushrooms reduce the consumer to a state of starvation, leaving ten turns to live.</Desc>
+      <Morphology>white mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="188">
+      <Name>yellow mushroom</Name>
+      <Desc>Yellow mushrooms decrease strength.</Desc>
+      <Morphology>yellow mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="189">
+      <Name>phaseblade</Name>
+      <Desc>If the user is phasing, the phaseblade has a substantial advantage to hit and damage.</Desc>
+      <Morphology>phaseblade[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="190">
+      <Name>wooden flute</Name>
+      <Desc>Initially, playing the wooden flute will pacify nearby creatures and drive others towards the far reaches of the current level. After the flute is used several times, it begins to wear out and starts to produce a restless tune. A restless tune will drive all creatures towards the user. Flutes can be reenergized with scrolls of recharging. If the user has the skill of music, flutes will not play restless tunes, but will always function as if they were new.</Desc>
+      <Morphology>wooden flute[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="191">
+      <Name>runesword</Name>
+      <Desc>The runesword is the most revered weapon in the Northern lands. It can be forged only by master blacksmiths.</Desc>
+      <Morphology>runesword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="192">
+      <Name>platinum anvil</Name>
+      <Desc>In order to aid Tyr, a prosthetic arm must be crafted for him by the dwarvesmith Eitri. Eitri needs a platinum anvil to accomplish this task. A platinum anvil is created by enchanting a regular anvil.</Desc>
+      <Morphology>platinum anvil[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="193">
+      <Name>grappling hook</Name>
+      <Desc>The grappling hook is an essential tool for most adventurers. Grappling hooks are used to escape pits, quicksand, and mud. They can also be used to crawl onto rubble. The grappling hook is used by throwing it in the direction the user wishes to move. If that space is blocked by a creature, it will hit the creature instead of hooking and pulling the user forwards.</Desc>
+      <Morphology>grappling hook[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="194">
+      <Name>pick axe</Name>
+      <Desc>The pick axe is useful for digging through walls and rock. It can also be used to fell trees. The process takes 10-20 turns, and if the user is interrupted, their work in progress is saved.</Desc>
+      <Morphology>pick axe[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="195">
+      <Name>ocarina</Name>
+      <Desc>The ocarina is a wind instrument that produces soft, mellow music. Regular ocarinas are expensive and only aesthetic in function.</Desc>
+      <Morphology>ocarina[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="196">
+      <Name>stylus</Name>
+      <Desc>Styli are the tools that must be used to write scrolls. Knowledge of writing is useless unless one possesses a stylus. Those who start the game as a sage will begin with a stylus.</Desc>
+      <Morphology>stylus[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="197">
+      <Name>orange cube</Name>
+      <Desc>The orange cube is created by enchanting either a grey or blue cube with a scroll of enchantment. The orange cube will lie dormant for a while and then randomly transport the owner to the wasteland where a lost artifact is located.</Desc>
+      <Morphology>orange cube[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="198">
+      <Name>ingot</Name>
+      <Desc>Ingots represent the material a blacksmith has for crafting items. Items can be melted down and added to the ingot if more material is required to fashion larger items than the current ingot (or item being smelted) has material for. The new ingot can then be melted down to form larger items. To use the skill of ironworking, one must have an anvil, tongs, a wand of fire, something metal to smelt, and the skill of ironworking.</Desc>
+      <Morphology>ingot[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="199">
+      <Name>diamond needle</Name>
+      <Desc>@Borgon vile@ hurl rocks about with such force, that they impact each other, occasionally leaving splinters of incredibly compressed carbon (diamond). When these splinters are picked up, they inject themselves under the skin and seat themselves in the brain. This causes some initial damage (21-28 hp per needle) to the being who touches them, but if the damage is sustained, the being will find themselves able to psionically attack other beings. This effect is cumulative. The more needles that the being picks up, the higher their psi power ability. Psi power level can be examined.</Desc>
+      <Morphology>diamond needle[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="200">
+      <Name>dwarven arm</Name>
+      <Desc>In order for @Tyr@ to be able to battle the evil gods at the final battle of @Ragnarok@, he must have a prosthetic arm made. The dwarvesmith, @Eitri@, will fashion a dwarven arm for Tyr in exchange for a platinum anvil.</Desc>
+      <Morphology>dwarven arm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="201">
+      <Name>flask</Name>
+      <Desc>Flasks are filled with liquid fire.</Desc>
+      <Morphology>flask[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="202">
+      <Name>Orb of imprisoning</Name>
+      <Desc>The orb of imprisoning is used to banish all but the most powerful of creatures to @Vanaheim@, a plane that torn away from the Tree of Worlds. It is a very powerful tool for those who confront creatures they cannot best. If person has low morality, the orb will backfire, sucking the user into Vanaheim to release all of the creatures imprisoned there. Once all other creatures are dead, the user will be returned to their own plane without the orb. The lower a user's morality, the higher the likelihood they will be imprisoned by the orb. The user may voluntarily travel to Vanaheim by selecting their own square when using the orb.</Desc>
+      <Morphology>Orb of imprisoning[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="203">
+      <Name>Red bag</Name>
+      <Desc>A red bag is a magic sack that can hold unlimited number of items without encumbering the user with their weight. Items in the bag are actually located in a different plane, so they are not treated as if they are in the user's pack. If the red bag is destroyed, items therein are never recovered. Items owned by traders are billed to anyone who places them in a red bag. Items that combine, such as food, arrows, etc., only count as one of items if they are placed in the bag as a single unit.</Desc>
+      <Morphology>Red bag[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="204">
+      <Name>tongs</Name>
+      <Desc>Tongs are an important tool for the blacksmith.</Desc>
+      <Morphology>tongs[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="205">
+      <Name>arrow</Name>
+      <Desc>Long bow's projectiles.</Desc>
+      <Morphology>arrow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="206">
+      <Name>bolt</Name>
+      <Desc>Crossbow's projectiles.</Desc>
+      <Morphology>bolt[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="207">
+      <Name>flint knife</Name>
+      <Desc>Knives are not very effective.</Desc>
+      <Morphology>flint knife[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="208">
+      <Name>War vest</Name>
+      <Desc>This lost artifact provides immunity against poison and regenerates lost body parts.</Desc>
+      <Morphology>War vest[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="209">
+      <Name>clay lump</Name>
+      <Desc>Clay lumps stop petrification if eaten while the body is hardening.</Desc>
+      <Morphology>clay lump[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="210">
+      <Name>crude spear</Name>
+      <Desc>Although primarily a projectile weapon, the spear can be wielded.</Desc>
+      <Morphology>crude spear[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="211">
+      <Name>sai</Name>
+      <Desc>A sai is used to maim victims. In the hands of a novice, this will happen rarely, but in the hands of a weaponmaster, victims will frequently be maimed. Maiming reduces the number of attacks an assailant receives by rendering their limbs useless. In addition, a weaponmaster gains an advantage when wielding a sai.</Desc>
+      <Morphology>sai[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="212">
+      <Name>silver sword</Name>
+      <Desc>A silver sword destroys werewolves on contact.</Desc>
+      <Morphology>silver sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="213">
+      <Name>long bow</Name>
+      <Desc>Long bows fire projectiles long distances.</Desc>
+      <Morphology>long bow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="214">
+      <Name>crossbow</Name>
+      <Desc>The crossbow does more damage than the longbow.</Desc>
+      <Morphology>crossbow[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="215">
+      <Name>mace</Name>
+      <Desc>A mace is a wooden club with metal spikes.</Desc>
+      <Morphology>mace[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="216">
+      <Name>trident</Name>
+      <Desc>The trident is a lethal, three-pronged thrusting weapon.</Desc>
+      <Morphology>trident[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="217">
+      <Name>war hammer</Name>
+      <Desc>The war hammer is designed to smash armor.</Desc>
+      <Morphology>war hammer[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="218">
+      <Name>net</Name>
+      <Desc>The net is used to ensnare enemies.</Desc>
+      <Morphology>net[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="219">
+      <Name>holocaust cloak</Name>
+      <Desc>Made of dragon scales, holocaust cloaks render the wearer fireproof.</Desc>
+      <Morphology>holocaust cloak[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="220">
+      <Name>mirror shield</Name>
+      <Desc>Mirror shields reflect any ray or gaze attacks directed at the wearer.</Desc>
+      <Morphology>mirror shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="221">
+      <Name>bracers</Name>
+      <Desc>Bracers are worn to protect the forearms.</Desc>
+      <Morphology>bracers[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="222">
+      <Name>grey cloak</Name>
+      <Desc>Grey cloaks camouflage the wearer.</Desc>
+      <Morphology>grey cloak[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="223">
+      <Name>helmet</Name>
+      <Desc>Simple and reliable head protection in combat. Metallic frame and leather panels</Desc>
+      <Morphology>helmet[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="224">
+      <Name>chain mail</Name>
+      <Desc>Light and strong armor from rings entwined together. Provides the mobility and decent protection from cutting weapon. Weakly protects from hacking and smashing strikes and nearly does not protect from crossbow bolts. Several better protects from arrows.</Desc>
+      <Morphology>chain mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="225">
+      <Name>scale mail</Name>
+      <Desc>Chain mail with attached on bosom metallic plates. In place of the fastening the plates greatly improves protection under a certain increase the weight and conservation to mobilities.</Desc>
+      <Morphology>scale mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="226">
+      <Name>plate mail</Name>
+      <Desc>Plate mail is the heaviest type of armor. |Maximum protection under serious restriction of the mobilities.</Desc>
+      <Morphology>plate mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="227">
+      <Name>gauntlets</Name>
+      <Desc>Metallic gloves protect the hands from physical damages.</Desc>
+      <Morphology>gauntlets[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="228">
+      <Name>greaves</Name>
+      <Desc>Metallic plates are worn to protect the shins.</Desc>
+      <Morphology>greaves[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="229">
+      <Name>leather armor</Name>
+      <Desc>The simple armor made from piece thick well tanniced leather. More heavier than metallic, herewith much more cheaply. Provides good protection from strikes. Little weakens the action stabbing and throwing weapon.</Desc>
+      <Morphology>leather armor[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="230">
+      <Name>leather boots</Name>
+      <Desc>Usual footwear North Europe inhabitants. Strong, watertight, on soft sole. Protects the legs from sharp stones mainly.</Desc>
+      <Morphology>leather boots[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="231">
+      <Name>smooth shield</Name>
+      <Desc>@Basilisks@ can blacken a mirror shield with caustic poison gas, rendering them non-reflecting. At this point they become smooth shields.</Desc>
+      <Morphology>smooth shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="232">
+      <Name>Gjall</Name>
+      <Desc>Gjall is Heimdall's powerful horn. It is used to signal danger to the gods. If Gjall is blown, the evil ones will cease being stealthy and attack the gods immediately. This is not beneficial to the user who needs time to accomplish their other goals. It is better to return Gjall to Heimdall who stands guard on Bifrost.</Desc>
+      <Morphology>Gjall[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="233">
+      <Name>Skidbladnir</Name>
+      <Desc>Freyr's magical boat enables the land-bound to travel over water. When not in use, Skidbladnir folds up and fits in the user's pocket. Skidbladnir is usually docked on Slaeter's Sea, but can occasionally be found elsewhere. When use enlarges velocity of the movement on sea at 40.</Desc>
+      <Morphology>Skidbladnir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="234">
+      <Name>Gungnir</Name>
+      <Desc>Odin's spear almost never misses when thrown. It is the most powerful throwing weapon in existence.</Desc>
+      <Morphology>Gungnir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="235">
+      <Name>Mimming</Name>
+      <Desc>Freyr's sword.</Desc>
+      <Morphology>Mimming[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="236">
+      <Name>Mjollnir</Name>
+      <Desc>Thor's hammer will always return when thrown and can be used to zap lightning bolts in any direction.</Desc>
+      <Morphology>Mjollnir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="237">
+      <Name>Scythe</Name>
+      <Desc>Hela's deadly scythe is used to herd living souls into the land of the dead. It is a very formidable weapon. The scythe is lightweight and can be wielded by any creature who can tear it from Hela's grasp.</Desc>
+      <Morphology>Scythe[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="238">
+      <Name>anvil</Name>
+      <Desc>Although the weight of anvils is annoying, they have several uses. Blacksmiths need an anvil, @tongs@, and a @wand of fire@ to smelt items. Extra anvils provide a large amount of material for forging other items.</Desc>
+      <Morphology>anvil[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="239">
+      <Name>blue cube</Name>
+      <Desc>The blue cube will move the user backward in time 1-100 turns at random intervals.</Desc>
+      <Morphology>blue cube[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="240">
+      <Name>gnarled root</Name>
+      <Desc>Gnarled roots will cure light injuries and restore stamina as a normal potion of curing would.</Desc>
+      <Morphology>gnarled root[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="241">
+      <Name>green mushroom</Name>
+      <Desc>Green mushrooms increase the consumer's maximum hit points.</Desc>
+      <Morphology>green mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="242">
+      <Name>grey cube</Name>
+      <Desc>The grey cube will move the user forward in time 1-500 turns at random intervals.</Desc>
+      <Morphology>grey cube[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="243">
+      <Name>lodestone</Name>
+      <Desc>A lodestone is an evil item. It is given to those who wish for @Gjall@ or Lazlul's rope with the wand of wishing. If held in an adventurer's pack, the magic of the lodestone does any of the following every turn: | Turns one square of the current level to stone, including, possibly, the adventurer's | Creates monsters around the user | Destroys other items from the user's pack | Decrements the user's luck | Does hit point damage to the user.</Desc>
+      <Morphology>lodestone[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="244">
+      <Name>magic cookie</Name>
+      <Desc>Cookies restore the consumer to original size if they have been shrunk by drinking a potion of mystery.</Desc>
+      <Morphology>magic cookie[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="245">
+      <Name>mithril mail</Name>
+      <Desc>Mithril mail is weightless.</Desc>
+      <Morphology>mithril mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="246">
+      <Name>paper funnel</Name>
+      <Desc>The funnel is somewhat chaotic. It hurls creatures and items every direction and dries up water as it travels.</Desc>
+      <Morphology>paper funnel[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="247">
+      <Name>red mushroom</Name>
+      <Desc>Red mushrooms make the consumer go blind for a few turns. This can allow the adventurer to take advantage of a sixth sense which can be gained by eating a dead anssk.</Desc>
+      <Morphology>red mushroom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="248">
+      <Name>silver mantle</Name>
+      <Desc>Silver mantles nullify many creatures' magical attacks, including those of magicians and enchantresses.</Desc>
+      <Morphology>silver mantle[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="249">
+      <Name>strange herb</Name>
+      <Desc>Strange herbs expand, filling the stomach completely when eaten.</Desc>
+      <Morphology>strange herb[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="250">
+      <Name>black gem</Name>
+      <Desc>Black gems drain the life force from dying victims. |Black gems are powerful projectile weapons. Not only do they do grievous damage to those they strike, they also channel the life energy of those they kill back towards the one who threw them. This energy is absorbed by the user in the form of a permanent hit point increase. However, if the user is wearing a ring of soul trapping, the energy will not be channeled into hit points, but will be absorbed by the ring.</Desc>
+      <Morphology>black gem[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="251">
+      <Name>black sword</Name>
+      <Desc>The black sword of Geirrod is a deadly cursed weapon that can only be acquired through being greedy with the wand of wishing. It inflicts grievous harm on whoever wields it. It is bestowed upon those who wish for @Mjollnir@, @Gungnir@, @Mimming@, Hela's scythe, or the runesword. The black sword will hit intended foes 5% of the time.</Desc>
+      <Morphology>black sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="252">
+      <Name>blazing cape</Name>
+      <Desc>The blazing cape is a lost artifact which lights any room it enters.</Desc>
+      <Morphology>blazing cape[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="253">
+      <Name>chin strap</Name>
+      <Desc>Chin straps are bestowed upon the greedy when they wish for lost artifacts with the wand of wishing. It will appear that their wish has been granted, until their first combat encounter. It takes three scrolls of dispel hex to remove these once their true nature has been revealed.</Desc>
+      <Morphology>chin strap[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="254">
+      <Name>disruption horn</Name>
+      <Desc>The disruption horn is used to lower the roofs of underground halls. It will not work outdoors or in the bazaar. To use the disruption horn, select it in an underground room (or its doorway). The user then has 2-4 turns to wait for the ceiling to collapse. Doorways are a safe place to stand to view the carnage. Most monsters and items within the room will be destroyed or severely damaged. Eventually the disruption horn will crack and split. It is then destroyed.</Desc>
+      <Morphology>disruption horn[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="255">
+      <Name>golden togs</Name>
+      <Desc>Golden togs are bestowed upon the greedy when they wish for lost artifacts with the wand of wishing. It will appear that their wish has been granted, until their first combat encounter. It takes three scrolls of dispel hex to remove these once their true nature has been revealed.</Desc>
+      <Morphology>golden togs[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="256">
+      <Name>green stone</Name>
+      <Desc>The green stone is Scyld's only weakness. He is impervious to physical harm, unless his assailant carries the green stone. If the green stone is stored in the red bag, it will not bother Scyld. The green stone need not be wielded or thrown, merely held in the user's current inventory.</Desc>
+      <Morphology>green stone[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="257">
+      <Name>Lazlul rope</Name>
+      <Desc>Lazlul's rope is usually located in Vidur's temple, where it was left by one of three hapless adventurers. It is used to ascend through holes in the ceiling that would otherwise be unreachable. It works by magically uncoiling itself and winding upwards out of the user's pack. Once the user is safe, the rope returns to their pack. To use the rope, merely use the up arrow button with the mouse or type "&lt;" from the keyboard when under a hole leading upwards.</Desc>
+      <Morphology>Lazlul rope[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="258">
+      <Name>vial</Name>
+      <Desc>Empty vials are the remains of dried-up potions. Although seemingly worthless, they are very valuable on Alfheim's plane, where raw potion matter lies in ponds throughout the level. Vials can be filled. If a potion of drinking water is ever required for an alchemy mixture, simply fill an empty vial in a nearby body of water.</Desc>
+      <Morphology>vial[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="259">
+      <Name>Knowledge helm</Name>
+      <Desc>The helm of knowledge is a lost artifact which causes the user to learn skills in order of usefulness when reading scrolls of knowledge.</Desc>
+      <Morphology>Knowledge helm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="260">
+      <Name>disperser helm</Name>
+      <Desc>Carved from the skulls of zardons, disperser helms absorb psionic frequencies, muting the attacks of zardons and Vanseril. They must be identified to be distinguished from normal helmets.</Desc>
+      <Morphology>disperser helm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="261">
+      <Name>banded mail</Name>
+      <Desc>This armour assembled from metallic bands bended on the body form and connected together. Good protection by price of a certain reduction to mobilities. Well protects from arrows, several worse - from bolts.</Desc>
+      <Morphology>banded mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="262">
+      <Name>barbed whip</Name>
+      <Desc>The barbed whip can be used to beat a creature into submission. The affected creature will become neutral and occasionally surrender his possessions as a sign of allegiance.</Desc>
+      <Morphology>barbed whip[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="263">
+      <Name>battle axe</Name>
+      <Desc>A battle axe is a heavy, double edged weapon.</Desc>
+      <Morphology>battle axe[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="264">
+      <Name>gorget</Name>
+      <Desc>Gorgets protect the wearer's throat. These are essential equipment for those combating iridorns.</Desc>
+      <Morphology>gorget[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="265">
+      <Name>iron shield</Name>
+      <Desc>Mildly extended shield wholly forged from iron. Heavy, but efficient means of protection in fight on all distances.</Desc>
+      <Morphology>iron shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="266">
+      <Name>ivory staff</Name>
+      <Desc>The ivory staff severely wounds the undead upon physical contact.</Desc>
+      <Morphology>ivory staff[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="267">
+      <Name>scroll of blessing</Name>
+      <Desc>Blessing will alter the condition of items in the following ways: raises quality from cursed to normal and normal to blessed. If a scroll of blessing is read while the reader is confused,all potions and scrolls in the reader's pack will have a 60% chance of being blessed (or cursed if the scroll of blessing is cursed). If a scroll of blessing is cursed, it will decrease bonuses and reduce quality.</Desc>
+      <Morphology>scroll of blessing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="268">
+      <Name>scroll of destruction</Name>
+      <Desc>Destruction scrolls destroy one item from the reader's pack as chosen by the reader. If destruction is read while the reader is confused, every item they possess is either destroyed or damaged in some way.</Desc>
+      <Morphology>scroll of destruction[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="269">
+      <Name>scroll of dispel hex</Name>
+      <Desc>Reading a dispel hex scroll removes hexes from every item in the reader's pack. |Reading dispel hex while confused hexes every item in the reader's pack.</Desc>
+      <Morphology>scroll of dispel hex[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="270">
+      <Name>scroll  of traveling</Name>
+      <Desc>Scrolls of traveling teleport the reader elsewhere on the level. If the scroll is blessed, it will allow the reader to choose their intended destination. If traveling is read while confused, it will whisk the user to a random location in the universe.</Desc>
+      <Morphology>scroll  of traveling[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="271">
+      <Name>scroll of extinction</Name>
+      <Desc>Extinction can be used to exterminate entire races of beings. Extincting one's own race ends the reader's life. Some races cannot be destroyed. If extinction is read while confused, the reader will either bring a previously exterminated race back to life. If humans are chosen and the reader is not human, all human monsters will be eliminated. Destroying races always decrements the reader's morality rating. |Names of races can be specified only in singular format (example: "gnome" or "berserker").</Desc>
+      <Morphology>scroll of extinction[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="272">
+      <Name>scroll of knowledge</Name>
+      <Desc>Reading a scroll of knowledge will empower the reader with the knowledge of some skill or power. Once the reader has learned the appropriate skill for their character class, the skill or power will be chosen randomly, unless the reader is wearing the helm of knowledge, a lost artifact.</Desc>
+      <Morphology>scroll of knowledge[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="273">
+      <Name>scroll of cartography</Name>
+      <Desc>When read, scrolls of cartography map the reader's current region. Cursed scrolls of cartography will un-map a region when read. Blessed scrolls of cartography will show the location all traps on level.</Desc>
+      <Morphology>scroll of cartography[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="274">
+      <Name>scroll of transport</Name>
+      <Desc>Transport takes the reader to and from the bazaar below Midgard. Killing the traders is difficult. An AC of -250 is recommended before even attempting to slay them.</Desc>
+      <Morphology>scroll of transport[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="275">
+      <Name>scroll of enchantment</Name>
+      <Desc>Enchantment has many effects. All items affected by enchantment are automatically identified. Reading blessed enchantment adds 10-15 to bonuses, normal enchantment adds 5-10 and cursed enchantment adds 1- 5. It affects the each class of items and some unique items individually.</Desc>
+      <Morphology>scroll of enchantment[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="276">
+      <Name>scroll of recharging</Name>
+      <Desc>The scroll of recharging is used to add charges to wands. It can also be used to revitalize a worn-out barbed whip or wooden flute. Blessed recharging can add a charge to a wand of wishing. Reading recharging while confused will suck all the charges out of the reader's wands and drain the submission power from barbed whips.</Desc>
+      <Morphology>scroll of recharging[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="277">
+      <Name>scroll of recall</Name>
+      <Desc>Scrolls of recall take the reader to the last location where a set recall spell was cast. This spell is learned as a conjurer. If no spell has been cast, the reader will return to the village. Reading recall is deadly in the bazaar. The bazaar's magic force field acts as a scrambler for the recall magic, teleporting chunks of the reader throughout the universe.</Desc>
+      <Morphology>scroll of recall[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="278">
+      <Name>scroll of wonder</Name>
+      <Desc>Reading a scroll of wonder results in one of several unpredictable events. They are the following: | Surround the reader with trees | Dry up all potions, mud, quicksand, lava and water on the current level, including potions in the readers pack | Polymorph the reader into another creature | Turn friendly creatures against the reader while hostile creatures become friendly | Turn all trees into other plants | Speed the reader up | Speed all other creatures up | Make the reader resistant to unwanted teleportation and able to teleport at will | Make the reader resistant to death rays, acid, petrification, magical rays and breath, cold, heat, or poison. |Reading wonder when confused builds a river across the current level. |Blessed wonder will turn the reader into a powerful being if it chooses the polymorph option. Cursed wonder will turn the reader into a weak creature or a plant if it chooses the polymorph option.</Desc>
+      <Morphology>scroll of wonder[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="279">
+      <Name>scroll of alliance</Name>
+      <Desc>Reading alliance will cause creatures immediately next to the reader to become friendly. Powerful monsters are not affected by alliance. A cursed scroll of alliance angers nearby creatures.</Desc>
+      <Morphology>scroll of alliance[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="280">
+      <Name>scroll of summoning</Name>
+      <Desc>Summoning calls powerful beings to your aid from another dimension. All five are relatively similar, with each one having their own special characteristics. Reading summoning while confused will either send every non-powerful monster away from the current level (93% chance) or summon a grey terror (7% chance).</Desc>
+      <Morphology>scroll of summoning[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="281">
+      <Name>scroll of identification</Name>
+      <Desc>Reading identification will make known the nature of any item the reader chooses. If a blessed scroll of identification is read, all items in the reader's pack become identified. If a scroll of identification is read while confused, the reader's own identity is lost.</Desc>
+      <Morphology>scroll of identification[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="282">
+      <Name>scroll of twelve gates</Name>
+      <Desc>Creatures are summoned by twelve gates scrolls. If twelve gates is read while the reader is confused, gold will appear around the reader, accompanied by several wiers. If a player reads twelve gates while confused in the bazaar, it will create blue wisps.</Desc>
+      <Morphology>scroll of twelve gates[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="283">
+      <Name>scroll of time stop</Name>
+      <Desc>Scrolls of time stop have the power to halt the flow of time for the entire universe with the exception of the reader. Reading blessed time stop halts the flow of time for 100-126 turns, normal time stop halts time for 10-30 turns, and cursed time stop halts the reader for 10-30 turns while the rest of the universe continues moving forwards. Only humans can step outside of time. Readers from any other species will not find this scroll useful. |Time stop is ineffective in the bazaar and Mimer's well. If read in Mimer's Realm, Niflheim, Jotenheim, Nidavellir, the armory, Asgard, the ocean, or on Bifrost or the River Gioll a magic gate will open and any creatures may appear.</Desc>
+      <Morphology>scroll of time stop[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="284">
+      <Name>scroll of flame</Name>
+      <Desc>Flame will always harm the non-fire resistant reader. Blessed flame will raise the non-fire resistant reader's maximum hit points. Cursed flame will lower the non-fire resistant reader's maximum hit points. Reading flame while confused will damage non-fire resistant monsters immediately near the reader.</Desc>
+      <Morphology>scroll of flame[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="285">
+      <Name>scroll of trap generation</Name>
+      <Desc>Reading scrolls of trap generation will make traps around the reader to ensnare attacking hordes of monsters. If trap generation is read while confused, all traps on the current level are destroyed.</Desc>
+      <Morphology>scroll of trap generation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="286">
+      <Name>scroll of lava strike</Name>
+      <Desc>Reading a scroll of lava strike summons lava from the heavens in a three square radius around the reader. If lava strike is read while confused, blue rocks will rain down on the reader's head, doing 20-40 hp of damage.</Desc>
+      <Morphology>scroll of lava strike[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="287">
+      <Name>scroll of pure evil</Name>
+      <Desc>Scrolls of pure evil does any one of the following foul things: | Hexes and damages all items in the reader's pack | Makes 100 traps on the current level | Sends the reader to Niflheim | Surrounds the reader with migdnarts | Creates 100 monsters | Pure evil blinds the reader for 400-500 turns and decrements the reader's morality | Summons denizens.</Desc>
+      <Morphology>scroll of pure evil[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="288">
+      <Name>diary</Name>
+      <Morphology>diary[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="289">
+      <Name>scroll of switch bodies</Name>
+      <Desc>The scroll of switch bodies searches a level for the most powerful being and puts the reader in that being's body while putting the being in the reader's body with all the reader's possessions. If the reader is the most powerful being, or there is no being nearby, transfer will not occur. Reading switch bodies while confused will cause the reader to switch bodies with the weakest being in the area.</Desc>
+      <Morphology>scroll of switch bodies[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="290">
+      <Name>potion of rejuvenation</Name>
+      <Desc>Drinking a potion of rejuvenation will restore missing strength to the user. Blessed rejuvenation will inoculate the user against future poisoning. A cursed potion of rejuvenation will cause the consumer's liver to lose its ability to process poisons. |When withered by a wight, it is important to drink curing first to regain the ability to rejuvenate; then drink a potion of rejuvenation.</Desc>
+      <Morphology>potion of rejuvenation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="291">
+      <Name>holy water</Name>
+      <Desc>Drinking blessed and normal holy water increases the luck of the user. Cursed holy water lowers the user's luck and causes a minor burning sensation.</Desc>
+      <Morphology>holy water[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="292">
+      <Name>potion of translucence</Name>
+      <Desc>Upon drinking translucence, the user becomes invisible for 110-210 turns. When invisible, the user is difficult to find and monsters cannot track them as readily.</Desc>
+      <Morphology>potion of translucence[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="293">
+      <Name>potion of phasing</Name>
+      <Desc>When consumed, a potion of phasing allows the user to walk through any solid substance as if it were air. Cursed potions of phasing only last one turn. Normal and blessed potions of phasing will warn the user before they re-solidify. Solidifying in solid rock and trees is always fatal.</Desc>
+      <Morphology>potion of phasing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="294">
+      <Name>potion of depredation</Name>
+      <Desc>Potions of depredation reveal the location of all items on the current level, including those being carried by other beings and those underwater. Depredation is useful for locating lost artifacts in the crypt, Slaeter's Sea, and chaos.</Desc>
+      <Morphology>potion of depredation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="295">
+      <Name>potion of lycanthropy</Name>
+      <Desc>Once the user drinks a potion of lycanthropy, they will succumb to attacks of prowling. Shedding clothes and dropping possessions, the user will seek and devour any life form it finds, attacking indiscriminately. Upon returning to natural form, the damage incurred during the event takes its toll. This can be deadly for users with low hit points. Lycanthropy can be cured by drinking blessed curing or polymorphing into a different creature.</Desc>
+      <Morphology>potion of lycanthropy[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="296">
+      <Name>potion of curing</Name>
+      <Desc>Normal curing will regenerate some lost hit points. Blessed curing will restore all lost hit points. Cursed curing will do hit point damage to the user. |Blessed curing will cure the following: | Burns from a fire trap | Missing legs | Vertigo (one potion of blessed curing is required for each time the user's brain throbbed from an encounter with a weird fume) | Lycanthropy (either from a potion or a werewolf bite) | Brain scarring (flashbacks from hallucination) | Impregnation by a gorm | Venom | Loss of eyes if less than two are present | Deafness | Contamination.</Desc>
+      <Morphology>potion of curing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="297">
+      <Name>potion of speed</Name>
+      <Desc>Potions of speed have cumulative effects. The more potions the user consumes, the faster they will be. There is a limit to the human metabolism, however. Speeds of 60 are usually fatal, and 70 is always fatal. When the message "You are moving dangerously fast" appears, it is time to stop drinking potions of speed until they wear off.</Desc>
+      <Morphology>potion of speed[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="298">
+      <Name>potion of strength</Name>
+      <Desc>Drinking a blessed or normal potion of strength will raise the strength of the user. Cursed strength lowers the strength of the user when consumed.</Desc>
+      <Morphology>potion of strength[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="299">
+      <Name>potion of experience</Name>
+      <Desc>Blessed and normal experience potions raise the experience level of the user while cursed experience lowers the experience level of the user.</Desc>
+      <Morphology>potion of experience[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="300">
+      <Name>potion of paralysis</Name>
+      <Desc>Blessed and normal experience potions raise the experience level of the user while cursed experience lowers the experience level of the user.</Desc>
+      <Morphology>potion of paralysis[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="301">
+      <Name>mead</Name>
+      <Desc>Potions of mead confuse the user. The confusion will last several turns. This can be useful when the user wishes to utilize the effects of certain scrolls that behave differently when read confused. Drinking several potions of mead in a limited time can cause the user to pass out or even die from alcohol poisoning.</Desc>
+      <Morphology>mead[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="302">
+      <Name>venom</Name>
+      <Desc>Drinking venom is never beneficial. The non-poison resistant user will die in 1 to 200 turns unless a potion of blessed curing is consumed.</Desc>
+      <Morphology>venom[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="303">
+      <Name>potion of contamination</Name>
+      <Desc>Contamination launches the user on a path of slow degeneration. Their skin and hair slowly slough off and they eventually die from internal malfunction unless a potion of blessed curing is consumed.</Desc>
+      <Morphology>potion of contamination[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="304">
+      <Name>potion of blindness</Name>
+      <Desc>Potions of blindness will cause the user to lose their sight for 10- 300 turns depending on quality. If the user has eaten a dead anssk without eating a spongy mass afterwards, they will be able to detect the presence of other beings while blind.</Desc>
+      <Morphology>potion of blindness[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="305">
+      <Name>potion of constitution</Name>
+      <Desc>Blessed and normal potions of constitution will raise the constitution of the user. Cursed constitution lowers the constitution of the user.</Desc>
+      <Morphology>potion of constitution[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="306">
+      <Name>potion of soul seeking</Name>
+      <Desc>Soul seeking reveals the locations of all life on the current level except disguised chameleons.</Desc>
+      <Morphology>potion of soul seeking[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="307">
+      <Name>potion of hallucination</Name>
+      <Desc>Potions of hallucination cause the user to see wild shapes and creatures everywhere for several turns. Once the potion wears off, residual flashbacks will occur until a potion of blessed curing is drunk.</Desc>
+      <Morphology>potion of hallucination[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="308">
+      <Name>potion of scaling</Name>
+      <Desc>Potions of scaling toughen the skin of the user if blessed or normal, improving the armor class. Cursed potions of scaling damage the skin.</Desc>
+      <Morphology>potion of scaling[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="309">
+      <Name>potion of endurance</Name>
+      <Desc>Potions of endurance temporarily raise the hit points of the user above their maximum. Cursed endurance lowers the current hit points and is often deadly.</Desc>
+      <Morphology>potion of endurance[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="310">
+      <Name>drinking water</Name>
+      <Desc>Drinking a flask of water is useless, but it is an essential ingredient to some alchemical mixtures. If a potion of drinking water is needed but cannot be found, merely fill an empty vial from a pool of water.</Desc>
+      <Morphology>drinking water[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="311">
+      <Name>potion of restore magic</Name>
+      <Desc>If a conjurer needs to cast more spells but does not have time to wait for spell points to regenerate, drinking restore magic will recover missing magic points quickly.</Desc>
+      <Morphology>potion of restore magic[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="312">
+      <Name>potion of raise magic</Name>
+      <Desc>The more powerful conjurer spells need more spell points than an apprentice conjurer is given. The only way to gain spell points is drinking potions of raise magic. Cursed raise magic potions will lower the maximum number of spell points available to the user.</Desc>
+      <Morphology>potion of raise magic[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="313">
+      <Name>potion of second life</Name>
+      <Desc>Only a master alchemist can create a potion of second life. It can only be created once per game. Once drunk, the potion of second life will resurrect the user from death one time, repairing whatever damage caused their mortal condition.</Desc>
+      <Morphology>potion of second life[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="314">
+      <Name>potion of geology</Name>
+      <Desc>Drinking a potion of geology gives the user a limited ability to alter terrain. This is extremely useful in combat. Only the most powerful of monsters can resist the effects of a mountain being created on their head. These monsters will try to reflect the attack to a square in the vicinity - hopefully not the user's. Terraforming can also be used to alter a water square that contains an item the terraformer desires.</Desc>
+      <Morphology>potion of geology[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="315">
+      <Name>potion of diagnosis</Name>
+      <Desc>Potions of diagnosis give the user the ability to ascertain the physical condition, disposition, and attack capabilities of other beings.</Desc>
+      <Morphology>potion of diagnosis[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="316">
+      <Name>potion of music</Name>
+      <Desc>Drinking a potion of music will bestow the skill of music upon the user. With the skill of music, the user can use the glass ocarina to choose their destination upon exiting chaos and use the wooden flute to tame monsters.</Desc>
+      <Morphology>potion of music[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="317">
+      <Name>potion of invulnerability</Name>
+      <Desc>Potions of invulnerability make the user impervious to physical attacks for a limited time. They are cumulative in effect up to 750 turns with each potion adding 100-150 turns of invulnerability.</Desc>
+      <Morphology>potion of invulnerability[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="318">
+      <Name>potion of animation</Name>
+      <Desc>Drinking animation gives the user a limited ability to bring items to life to fight by their side.</Desc>
+      <Morphology>potion of animation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="319">
+      <Name>potion of switch dimension</Name>
+      <Desc>Potions of switch dimension give the user the ability to travel via the crossroads. The crossroads are above all the planes of the universe, and stepping off them will cause the traveler to descend into any of the realms of the universe. The area that will be visited is determined by the color of the space into which the traveler steps.</Desc>
+      <Morphology>potion of switch dimension[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="320">
+      <Name>potion of transformation</Name>
+      <Desc>Drinking a potion of transformation will polymorph the user into a powerful creature. If the user is not happy with the form, they can drink other potions of transformation or zap restoration to return to their original human form.</Desc>
+      <Morphology>potion of transformation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="321">
+      <Name>potion of precognition</Name>
+      <Desc>Drinking a potion of precognition gives the user a finite ability to determine the nature of an unidentified object. This is useful for reading unknown scrolls when pure evil and flame are still unknown or drinking potions when contamination, venom, lycanthropy, blindness, and paralysis are still unknown.</Desc>
+      <Morphology>potion of precognition[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="322">
+      <Name>potion of mystery</Name>
+      <Desc>Potions of mystery are potions that are mixed randomly with no heed paid to the alchemy mixing list. Potions of mystery can have any of the following effects: | Remove the user's legs. | Teach the user the skill of fennling. Fennling is the art of combining wands to reduce inventory. | Give the user temporary knowledge of writing. This skill can only be used if the writer has a stylus.</Desc>
+      <Morphology>potion of mystery[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="323">
+      <Name>potion of heat</Name>
+      <Desc>Potions of heat give the user a limited ability to blast a cloud of searing heat outwards in a three square radius. This cloud is the same cloud used by the destructive fire giant.</Desc>
+      <Morphology>potion of heat[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="324">
+      <Name>wand of fire</Name>
+      <Desc>Wands of fire are useful for baking non-fire resistant monsters, removing trees, and smelting metal as a blacksmith.</Desc>
+      <Morphology>wand of fire[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="325">
+      <Name>wand of ice</Name>
+      <Desc>Wands of ice are one of the few ways of destroying red oozes. A @red ooze@ will be initially frozen, and then later killed by repeatedly being zapped with an ice wand. Ice wands are ineffective against cold resistant monsters. They can be used to kill trees.</Desc>
+      <Morphology>wand of ice[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="326">
+      <Name>wand of armoring</Name>
+      <Desc>Armoring can be used to toughen the skin of any being at which it is directed.</Desc>
+      <Morphology>wand of armoring[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="327">
+      <Name>wand of displacement</Name>
+      <Desc>Wands of displacement are used to move living things to new, random locations. They are very useful for moving the user out of trouble as well. Use the period (.) key or click on the adventurer icon with the mouse when aiming the wand (this aims the wand at the user) and the adventurer will be teleported somewhere else.</Desc>
+      <Morphology>wand of displacement[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="328">
+      <Name>wand of healing</Name>
+      <Desc>Whatever is hit by a ray of healing will regenerate a few lost hit points. If a user wishes to heal they may either zap themselves directly.</Desc>
+      <Morphology>wand of healing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="329">
+      <Name>wand of deanimation</Name>
+      <Desc>Undead monsters are immune to death rays, but they crumble instantly when struck by deanimation. Even the powerful fyleisch cannot stand up to the smallest contact with a ray of deanimation. All living beings are unaffected by deanimation rays. If the user has polymorphed into an undead form, deanimation will kill them as well. Living items and terrain will be returned to their natural form by a deanimation ray.</Desc>
+      <Morphology>wand of deanimation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="330">
+      <Name>wand of sleep</Name>
+      <Desc>Sleep rays affect all monsters which are not ray resistant, putting them into a trance for several turns.</Desc>
+      <Morphology>wand of sleep[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="331">
+      <Name>wand of cancellation</Name>
+      <Desc>Cancellation will render most magical attacks, moves, and defenses by monsters inoperative. If a cancellation ray hits the user, it will cancel their fire vision and destroy the magical properties of their silver mantle.</Desc>
+      <Morphology>wand of cancellation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="332">
+      <Name>wand of polymorph</Name>
+      <Desc>Polymorph rays change the nature of all living things in their path. Non-ray resistant creatures will be turned into another completely random creature. This can be disastrous in early levels, yet rewarding against powerful monsters. Trees that are hit by a polymorph ray will be turned into another completely random creature. This can be disastrous in early levels, yet rewarding against powerful monsters. Trees that are hit by a polymorph ray will be turned into faleryns. |If non-ray resistant users hits themselves with polymorph, they will be changed into any of several random creatures. Mirror shields will reflect these rays. Wands of restoration will restore the user to original form.</Desc>
+      <Morphology>wand of polymorph[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="333">
+      <Name>wand of restoration</Name>
+      <Desc>Zapping a restoration wand restores the zapper's original form. One need not worry about returning to the old state exactly though, for the old constitution, strength, and hit points increase alongside current constitution, strength, and hit points. If one is experimenting with wands of polymorph, scrolls of wonder, and potions of transformation, it is useful to wield a wand of restoration so that it will not be dropped during the changes.</Desc>
+      <Morphology>wand of restoration[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="334">
+      <Name>wand of stoning</Name>
+      <Desc>The wand of stoning can be used to petrify creatures who are not resistant to rays or petrification. The user should be very careful not to bounce this ray into themselves if they are not resistant to stoning or rays.</Desc>
+      <Morphology>wand of stoning[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="335">
+      <Name>wand of light</Name>
+      <Desc>Light wands illuminate rooms underground. They will also destroy any phausq in the room.</Desc>
+      <Morphology>wand of light[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="336">
+      <Name>wand of wishing</Name>
+      <Desc>Wands of wishing are the most sought after item in the game. They contain enough magic to fashion any reasonable item the user requests. If the user is too greedy in his request, the wish goes bad, leaving the user with an evil facsimile. The rules for using the wand of wishing are the following: | - To wish for an item, type the full name exactly as it would appear if it were identified by a scroll of identification (excepting wand charges). | - Quantity may be requested for items that combine. Items that do not combine (scrolls, wands, etc.) cannot be wished for in groups of more than one. The maximum quantity that can be wished for is equivalent to the user's luck. | - If one of the unique items has already been created, the user's wish will not be granted if they request them. | - If items have been eliminated by archmages and are later wished for, the wish will not be granted, for the item no longer exists.</Desc>
+      <Morphology>wand of wishing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="337">
+      <Name>wand of evocation</Name>
+      <Desc>Evocation creates beings out of thin air when zapped. The disposition of these beings matches the disposition of others of their respective races, so they can be either friendly or hostile. Evocation can be useful when the user is searching for a particular monster to eat or merely a steady supply of food.</Desc>
+      <Morphology>wand of evocation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="338">
+      <Name>wand of flaying</Name>
+      <Desc>The wand of flaying can be used in close combat, because it does not bounce. Flaying emits a ray that turns into caustic acid when it strikes. It does heavy damage.</Desc>
+      <Morphology>wand of flaying[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="339">
+      <Name>wand of trap detection</Name>
+      <Desc>Zapping trap detection makes the user aware of all of the traps lurking on the current level. Portals and vortexes will also be made visible.</Desc>
+      <Morphology>wand of trap detection[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="340">
+      <Name>wand of transmutation</Name>
+      <Desc>A transmutation ray changes terrain. It will also turn mudmen, anti- jags, and jagredins inside out because they are made of living terrain. If the user is a mudman, or jagredin and chooses to zap themselves, they will die.</Desc>
+      <Morphology>wand of transmutation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="341">
+      <Name>wand of amusement</Name>
+      <Desc>The wand of amusement is given to those who wish for the wand of wishing. It will look exactly like the wand of wishing, except it will do the following evil things when zapped: | Reduce user's strength to 3, and lower user's maximum restorable strength to 10 | Create 125 traps | Reduce the user's constitution to 1 | Reduce the toughness of the user's skin by 10 AC points | Move the user to a more hostile area of the universe.</Desc>
+      <Morphology>wand of amusement[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="342">
+      <Name>wand of wands</Name>
+      <Desc>The wand of wands is an unpredictable and deceptive item. It can take on the magical abilities of all other wands except wishing and amusement. It also has its own special power of occasionally zapping every square within a three square radius around the user. Trees struck will die and monsters will be affected by this power in any of the following ways: | Driven insane (attacking everything in sight) | Teleported away | Turned into rodents (non-powerful monsters only) | Rendered immobile |Often a wand of wands will be thought to be whatever wand possesses the power they displayed upon first use. Later, they will surprise the user by doing something completely different.</Desc>
+      <Morphology>wand of wands[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="343">
+      <Name>wand of death</Name>
+      <Desc>It is dangerous to use a wand of death carelessly. The death ray travels a long distance. Undead beings and creatures resistant to death rays are not affected by death rays. Any non-ray resistant living being struck by a death ray ceases to live instantly.</Desc>
+      <Morphology>wand of death[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="344">
+      <Name>wand of tunneling</Name>
+      <Desc>Tunneling wands actually teleport earth and other solid matter out of their path, effectively digging tunnels in any direction.</Desc>
+      <Morphology>wand of tunneling[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="345">
+      <Name>wand of annihilation</Name>
+      <Desc>An annihilation ray is the most powerful destructive force in the game. Zapping annihilation unleashes a ray of energy that destroys everything in its path, leaving only a swath of useless rubble. Only the most powerful of gods and demons can resist the onslaught of annihilation. Zapping annihilation downward will dig a giant hole. The user will fall through this hole if they cannot levitate. If the user is underground and zaps annihilation upwards, tons of rubble will collapse onto their head. Annihilation will not function in Mimer's Realm, Nidavellir, Jotenheim, Asgard, chaos, the wasteland, the bazaar, the crypt, Vanaheim, the armory, the ocean, Niflheim, Vidur's Temple, Mimer's Well, or on the crossroads, Bifrost, Slaeter's Sea, Alfheim's plane, or the River Gioll.</Desc>
+      <Morphology>wand of annihilation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="346">
+      <Name>wand of hastening</Name>
+      <Desc>Hastening rays speed lesser creatures. Hastening is ineffective on users themselves.</Desc>
+      <Morphology>wand of hastening[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="347">
+      <Name>wand of chaos</Name>
+      <Desc>Chaos wands have several random effects. The effects are the following: | Distribute the user's belongings throughout the current level | Create water near the user (drowning unfortunate monsters who cannot swim) | Create 3-19 monsters on the level | Create 21-23 items on the level | Make the user feel watched (this has no real effect).</Desc>
+      <Morphology>wand of chaos[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="348">
+      <Name>amulet of infravision</Name>
+      <Desc>Amulet of infravision is in Vidur's temple. The amulet will allow you to see the guardians before you unwittingly stumble into them.</Desc>
+      <Morphology>amulet of infravision[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="349">
+      <Name>amulet of quickening</Name>
+      <Desc>The amulet of quickening increases the speed of the player. Eventually this amulet will cease to glow and become an Eye of Sertrud.</Desc>
+      <Morphology>amulet of quickening[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="350">
+      <Name>amulet of Sertrud Eye</Name>
+      <Desc>An Eye of Sertrud is merely ornamental, but eventually needed to recover @Mjollnir@, Thor's hammer. By placing Eyes of Sertrud in each of five pits located somewhere in the Halls of Grynr, Mjollnir will be unlocked.</Desc>
+      <Morphology>amulet of Sertrud Eye[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="351">
+      <Name>amulet of holding</Name>
+      <Desc>Amulet of holding bonds permanently to the throat of the wearer until destroyed or stolen.</Desc>
+      <Morphology>amulet of holding[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="352">
+      <Name>amulet of ethereality</Name>
+      <Desc>Ethereality is a lost artifact that causes the user to "phase". When phasing, it is possible to walk straight through anything solid.</Desc>
+      <Morphology>amulet of ethereality[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="353">
+      <Name>amulet of might</Name>
+      <Desc>The amulet of might is a lost artifact that adds 15 to the strength of the character, greatly improving their physical abilities and sometimes making it possible for them to wield the weapons of the gods (@Gungnir@, @Mjollnir@, and @Mimming@).</Desc>
+      <Morphology>amulet of might[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="354">
+      <Name>amulet of eternal life</Name>
+      <Desc>The amulet of eternal life can only be acquired by being excessively greedy with the wand of wishing. If a player wishes for the amulets of ethereality or might, or eternal life itself, they will get the amulet of eternal life. This amulet freezes the user as a living statue, ending their game.</Desc>
+      <Morphology>amulet of eternal life[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="355">
+      <Name>ring of agility</Name>
+      <Desc>Rings of agility increase the wearer's ability to dodge and parry attacks. A +0 ring of agility will improve the wearer's AC by one point. Each additional bonus improves AC by one point. The effect of wearing multiple rings of agility is cumulative. The maximum bonus for rings of agility (as with any item) is +100.</Desc>
+      <Morphology>ring of agility[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="356">
+      <Name>ring of locus mastery</Name>
+      <Desc>The ring of locus mastery allows the wearer to select the location where they would like to teleport if they find themselves teleporting for any reason. If the selected location is not fit for occupation (through changes in terrain or presence of another being), a new one will be randomly selected. Locus mastery is ineffective in the following areas: @Asgard@, @Nidavellir@, @The ocean@, @The River Gioll@, @Bifrost@, @Niflheim@, @The armory@, @Vigrid@, @Jotenheim@, @Mimer's realm@. Locus mastery will not function if the player is in a trance.</Desc>
+      <Morphology>ring of locus mastery[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="357">
+      <Name>ring of protection</Name>
+      <Desc>Rings of protection search for traps and alert the wearer to their presence. Every turn, the ring has a percentage chance of locating each hidden trap within three squares of the wearer. This percentage makes itself known once the ring is identified.</Desc>
+      <Morphology>ring of protection[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="358">
+      <Name>ring of regeneration</Name>
+      <Desc>Rings of regeneration cause the wearer to heal at an accelerated rate. The effects of regeneration rings are cumulative, so wearing several is a good idea.</Desc>
+      <Morphology>ring of regeneration[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="359">
+      <Name>ring of third sight</Name>
+      <Desc>Rings of third sight allow the wearer to see invisible creatures.</Desc>
+      <Morphology>ring of third sight[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="360">
+      <Name>ring of soul trapping</Name>
+      <Desc>The ring of soul trapping captures the souls of the departing dead. Any creature that dies on a level where soul trapping is worn will be imprisoned in the ring. The soul cannot escape until another soul is captured, at which point it is released. To release Balder's soul from Niflheim, it is necessary to capture the soul of @Thokk@ in this ring. As soon as Thokk's soul is imprisoned, the ring must be removed so no other soul will replace her. The ring is then presented to @Hela@ in exchange for the release of Balder. If a black gem is thrown, the life energy of the being that is slain will be added to the assailant unless the assailant is wearing the ring of soul trapping. Instead, the ring will garner the energy that the gem transmits. For convenience, the ring of soul trapping will annotate itself with the name of the soul it currently contains.</Desc>
+      <Morphology>ring of soul trapping[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="361">
+      <Name>ring of genesis</Name>
+      <Desc>Wearing the ring of genesis draws other creator's toward the wearer's level at an accelerated rate. This ring can be useful if the wearer desires to practice fighting techniques or plunder the possessions of these wandering creatures.</Desc>
+      <Morphology>ring of genesis[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="362">
+      <Name>ring of famine</Name>
+      <Desc>Famine causes the wearer to digest food at an accelerated rate. This ring is never useful.</Desc>
+      <Morphology>ring of famine[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="363">
+      <Name>ring of luck</Name>
+      <Desc>Rings of purity and luck are rings of delusion crafted to look appealing. The effects of several rings of luck are cumulative.</Desc>
+      <Morphology>ring of luck[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="364">
+      <Name>ring of ashes</Name>
+      <Desc>The ring of ashes renders the wearer resistant to heat. Rings of ashes do not protect the wearer's inventory from heat attacks, such as the searing cloud generated by the fire giant.</Desc>
+      <Morphology>ring of ashes[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="365">
+      <Name>ring of insulation</Name>
+      <Desc>The ring of insulation renders the wearer resistant to cold.</Desc>
+      <Morphology>ring of insulation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="366">
+      <Name>ring of immunity</Name>
+      <Desc>Rings of immunity render the wearer immune to most poisons. The exception is the phantom asp. The bite of the phantom asp has a small chance of killing even the poison resistant.</Desc>
+      <Morphology>ring of immunity[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="367">
+      <Name>ring of crystal skin</Name>
+      <Desc>The ring of crystal skin renders the wearer resistant to acid. |The ring of crystal skin does not protect the wearer's belongings from acid. The attack of the sandiff may destroy many items from the pack of a ring of crystal skin wearer.</Desc>
+      <Morphology>ring of crystal skin[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="368">
+      <Name>ring of relocation</Name>
+      <Desc>The ring of relocation teleports the user at arbitrary intervals. It is useful for escaping from regions that have caved-in or been blocked somehow. It will also help escape from a phase trap hole. When worn in conjunction with a ring of locus mastery, the ring of relocation can be a useful tool.</Desc>
+      <Morphology>ring of relocation[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="369">
+      <Name>ring of invisibility</Name>
+      <Desc>Wearing a ring of invisibility makes the wearer difficult to see. Some creatures will lose track of the wearer and wander away. Being invisible improves AC by a factor of three.</Desc>
+      <Morphology>ring of invisibility[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="370">
+      <Name>ring of draining</Name>
+      <Desc>Rings of draining lower the maximum hit points of the wearer steadily. These rings are never useful.</Desc>
+      <Morphology>ring of draining[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="371">
+      <Name>Village</Name>
+      <Desc>The Initial point of the game. Populated by inhabitants and several merchants. Fenced by paling. Placed in northwest part of Forest.</Desc>
+      <Morphology>Village[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="372">
+      <Name>Forest</Name>
+      <Desc>Great wood area in the centre of Midgard. Populated by monsters. Surrounded at all sides with impenetrable mountain ranges. Sometime in south-east part is placed an entry in the Caves.</Desc>
+      <Morphology>Forest[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="373">
+      <Name>Vid River</Name>
+      <Desc>On the other side of impenetrable mountain ranges, surrounding Forest flows the Vid river.</Desc>
+      <Morphology>Vid River[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="374">
+      <Name>Mimer Realm</Name>
+      <Desc>The Mimer Realm teem the mortal dangers and horrible creatures.</Desc>
+      <Morphology>Mimer Realm[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="375">
+      <Name>Ocean</Name>
+      <Desc>The great sea, surrounding land of Midgard.</Desc>
+      <Morphology>Ocean[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="376">
+      <Name>Nidavellir</Name>
+      <Desc>The dwarven Caves, located on west from Jotunheim. Rumored that in Nidavellire are located both mithical dwarven workshops, and great mines digged by dwarves, which are spreads beyond the scope of earth depths.</Desc>
+      <Morphology>Nidavellir[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="377">
+      <Name>Jotenheim</Name>
+      <Desc>Jotunheim ("country of giants") - cool, rocky country on north and east edges of the land, Jotuns inhabiting place. They are given birth bu primitive power of the nature and occur from time, when even gods wasn't borned. Their rough power is exceed only by their wisdom, since ancient times giants can see that neither gods, nor people never will be able to see. Jotunheim was considered as country high woods, powerful rivers, deep caves, giant mountains and long distances.</Desc>
+      <Morphology>Jotenheim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="378">
+      <Name>Gioll River</Name>
+      <Desc>Flows through misty area, at east of Nidavellir and at south of Jotunheim. There is an entry in @Niflheim@ in it. You are expected by hidden in river Lorkests and @Harbard@, powerful guard of the stairway, guiding to Niflheim.</Desc>
+      <Morphology>Gioll River[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="379">
+      <Name>Slaeter Sea</Name>
+      <Desc>The Slaeter Sea lies southward from Gioll river. There is an entry on the rainbow bridge @Bifrost@.</Desc>
+      <Morphology>Slaeter Sea[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="380">
+      <Name>Bifrost</Name>
+      <Desc>Bifrost - a bridge, retaining daemon from attack on @Asgard@. One edgewort will be present for each immoral act which you have committed. These heinous creatures will attempt to hurl you from the bridge @Bifrost@. But your main purpose - return Heimdall horn @Gjall@.</Desc>
+      <Morphology>Bifrost[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="381">
+      <Name>Grynr Halls</Name>
+      <Desc>The Grynr Halls are abound with items; however, they also pervaded hostile creatures. Venture in them possible only if you brave or stubborn fool. You better to become fast to avoid the monsters and read the scrolls of trap generation in confused to destroy all traps. Preferable avoid the levels, which does not contains five sacred pits and do not come down more deeply, than necessary, if you have no need the experience fighting with creatures, which can be found in Halls. In any case, here can appear draugars and hel dragons, and had to return quickly.</Desc>
+      <Morphology>Grynr Halls[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="382">
+      <Name>Mimer Well</Name>
+      <Desc>Deep well located within Mimer's realm. On its bottom resides serpent @Aspenth@, the magically transformed horn @Gjall@. |To reach a Mimer's realm necessary step into a strange portal, which is placed at inaccessible northeastern section of Deep Caves there may be come through Greate Caves.</Desc>
+      <Morphology>Mimer Well[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="383">
+      <Name>Armory</Name>
+      <Desc>The Secret dwarven workshops located in underground cave under Nidavellir. |South-east cave Nidavellir contains the area completely overlayed by stalagmites, which forms the stairwell, leading downwards to arsenal. It is necessary to pass the stalagmites and defeat Uorik, dwarven guard, protecting entry in Arsenal.</Desc>
+      <Morphology>Armory[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="384">
+      <Name>Caves</Name>
+      <Desc>Upper layer of Svartalfheim. The large net of underground labyrinths, populated monsters. Placed under Great Wood. Entry in Caves is at southeast of great Wood.</Desc>
+      <Morphology>Caves[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="385">
+      <Name>Deep Caves</Name>
+      <Desc>Central layer of Svartalfheim. The large net of underground labyrinths, populated monsters. Placed on a layer below Caves. On northeast of the Deep Caves is placed the strange portal in Mimer's Realm.</Desc>
+      <Morphology>Deep Caves[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="386">
+      <Name>Great Caves</Name>
+      <Desc>Lower layer of Svartalfheim. The large net of underground labyrinths, populated monsters. Placed on a layer below Deep Caves. Through it possible to pass in northeastern part of Deep Caves. In Great Caves are placed @Crypt@, entry in @Temple@ and @Bazaar@.</Desc>
+      <Morphology>Great Caves[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="387">
+      <Name>Temple</Name>
+      <Desc>The Vidar's Temple placed in depths of Midgard. Reach it possible through @Great Caves@.</Desc>
+      <Morphology>Temple[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="388">
+      <Name>Crypt</Name>
+      <Desc>Part of Greate Caves guarded by the watcher, there are about 100 traps scattered about the crypt. There is an artifact in crypt. The crypt is located in the Greate Caves and populated undead. The crypt can be entered on a mossy stairway hidden at Deep Caves somewhere above the crypt (west edge) or by digging either down from above the crypt at Deep Caves, or west from the Greate Caves to the immediate east of the crypt.</Desc>
+      <Morphology>Crypt[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="389">
+      <Name>Bazaar</Name>
+      <Desc>The bazaar is an entirely different matter. Six traders guard this shop and all are more powerful than most other beings. None of the above methods of theft will succeed here. If you wish to steal, you must slay all of the traders yourself. Remember, they are incredibly powerful. Otherwise, collect all the gold which you stumble upon and purchase everything that you desire.</Desc>
+      <Morphology>Bazaar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="390">
+      <Name>Alfheim</Name>
+      <Desc>Not much is known about Alfheim. It is believed that the source of great power emanated from this plane. |Alfheim is a land of plenty. If you travel here with empty vials and/or a wand of wishing to create more of them, you can create any potion (except for potions which may be created only by alchemists) by filling the vials with the strange liquids found here. Through this method you can raise your luck and constitution to their maximum values (100 and 1500 respectively) and consume as many potions of experience, strength, and scaling as you wish. Reading a scroll of blessing on these potions while confused is recommended before consumption, as many of them will then become blessed potions.</Desc>
+      <Morphology>Alfheim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="391">
+      <Name>Crossroads</Name>
+      <Desc>The Crossroads are spoken of only in whispers by those who worship the great gods of the knilbs. While the knilbs themselves barely understand the powers that they have. It is said that a man who gains the knowledge of traveling via the Crossroads will rule the world. |You can only visit the crossroads by using the power of dimension travel. This power can only be gained through drinking a potion of switch dimension or eating a dead breleor. Once on the crossroads, you are safe from attack, and can travel nearly anywhere you wish when you see fit. Dimension travel can be used to escape almost any unpleasant situation, and is the most useful means of traveling in the game. The crossroads is comprised of round discs hovering above multi-colored space. As soon as you step into space, you will travel to a new location. The location you visit is dependent on the color of the space below you.</Desc>
+      <Morphology>Crossroads[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="392">
+      <Name>Muspelheim</Name>
+      <Desc>Muspelheim ("burning country"), the world of the fire locating in the south and the first from all nine, what existed just before creation beginning. This place of the terrible light and heat. Only its inhabitants, fire giants, can endure its flame. Their chieftain @Surtr@, protects the border of Muspelheim and he wields a burning sword. In @Ragnarok@ he and his army will destroy all gods and their world by fire. |Muspelheim is a strange world that Konr Rig created through sheer will. It exists as a warning to those who tamper with his power without properly worshipping him. |Muspelheim is an chaotic, mortally dangerous fire world. Every turn approximately one- third of the realm reforms itself in a bizarre upheaval, affecting whatever creatures have been created there. Those who visit Muspelheim through magical means seem to be unaffected by this phenomenon. This world can prove dangerous to those who venture here as most visitors may not be prepared to battle a nearby hel dragon or breleor. Caution is advised. |Visiting Muspelheim is possible through two means. The first is by using a glass ocarina. The second means of arriving in Muspelheim is through the power of dimension travel. |The artifact is easiest to detect upon first arrival. Drinking a potion of depredation is the best way to locate the artifact. |Leaving Muspelheim can be accomplished by playing the glass ocarina, reading a scroll of recall, using the power of dimension travel, or reading a scroll of transport. If the glass ocarina is used, and the user has the knowledge of music, the user will be able to choose their destination. Only places that the adventurer has previously visited can be chosen. If the glass ocarina is used without knowledge of music, a random destination will be chosen. If this destination is undesirable, the adventurer may simply go back to Muspelheim and try again.</Desc>
+      <Morphology>Muspelheim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="393">
+      <Name>Wasteland</Name>
+      <Desc>The Wasteland is an area that has slipped outside the normal flow of time. It is an area which is as unstable as @Midgard@ was in the early stages of its existence. |Scattered throughout the wasteland are hundreds of items, one of which is a lost artifact. Finding the artifact before the volcano explodes is important. Using potions of speed, amulets of quickening, and scrolls of time stop can buy the time needed to search through the superfluous items, but the best technique is to gain the power of terraforming through the skill of alchemy and alter the volcano itself. |Reaching the wasteland is accomplished in three ways. The first way to reach the wasteland is to enchant either a grey or a blue cube. The cube will turn orange, and if carried for a while, it will eventually transport the owner to the wasteland. Once in the wasteland, it is a good idea to drop the cube or place it in a red bag, as it will move the owner randomly throughout the level otherwise. The second way to reach the wasteland is through using the power of dimension travel. The third way to reach the wasteland is through using the glass ocarina. This method only works if the user has previously visited the wasteland, for the ocarina will only take the user to familiar places. |Once a traveler has reached the wasteland, they must have a way back. Some suggestions are the following: | use the glass ocarina to travel to chaos, | use the power of dimension travel, | read a scroll of recall, | read a scroll of transport, | read a scroll of teleport while confused.</Desc>
+      <Morphology>Wasteland[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="394">
+      <Name>Niflheim</Name>
+      <Desc>Niflheim ("dark world") - a world of ice and mirk on far north - very enigmatic place. Amongst mist and ice seed of life is buried. When heat Muspelheim has transformed ice of Niflheim in flow of water, began the creation. In spite of the fact that frozen water of Niflheim hid the spark to life, first of all it is a world of death, and the universe is afraiding deadly power of ice giants, which was born here at the beginning of times. The northest part of Niflheim, numbed by terrible severe cold, seems like icy fields and mountains, appeared from water of Elivagar - a river that was run there till immemorial times. Descriptions are rather scanty. Entry - a gloomy cave amongst rocks and gaps. By some legends, this cave is guarded by monstrous dog @Garm@, sitting on chain before Ragnarok approaching. Hereinafter flows the river Gioll. The Bridge across Gioll protects the virgo Modgud. After bridge stands the gates; the keeper of the local chambers - posterity of @Loki@ - @Hela@. In some sources also mentioned the Nastrond ("Coasts of Dead") with chamber, entwined from alive snakes: there leaves the punishment perjurers, murderers and adulterer, which had to ford river Slid ("ferocious"), where instead of water are daggers and sharp swords. |Niflheim - a world of the unconceived chill, located under Midgard. The souls onees who has fallen in fight ingloriously, moves in it to spend the eternity here, where Hela and her legions of daemons rules the Niflheim by iron hand. Exactly here Hela cruelly keeps the Balder's soul. The demons, hel dragons, and nidslacrs of Niflheim each contain the power to destroy you. Here are some ways to avoid destruction: | Maximize your speed. Wear an amulet of quickening and try to have a backup on hand. If you are human, read time stop before you travel to Niflheim (the ideal place to travel from is the Crossroads) or at least drink potions of speed until you are speed 50. | Maximize your hit points. Drink potions of endurance and potions of invulnerability. | Fight only monsters you must. All of the demons must be slain, or they will travel to @Asgard@ for the final battle and may have to be dealt with there. Likewise, because hel dragons have the ability to teleport to you they must be defeated if you have not yet destroyed the demon who inhabits the particular realm of Niflheim you are exploring. Genocide minions by reading a scroll of extinction so that they cannot overwhelm you and hold you down for the more powerful monsters. Flee if your life is endangered and then return after healing. | You will need an alternate method of leaving Niflheim. The stairway which leads downward to it is magical and uni-directional. Some methods of leaving include reading a scroll of recall, reading a scroll of traveling while confused, playing a glass ocarina, and using the power of dimension travel.</Desc>
+      <Morphology>Niflheim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="395">
+      <Name>Vanaheim</Name>
+      <Desc>Vanaheim is a plane, home of the Vanir, located west of Midgard and Asgard, where the gods send those who need to learn the lesson of humility. 
+	  |Vanaheim - a plane, which was torn away from @Yggdrasill@ tree. Travel to Vanaheim may by selecting their own square when using the Orb of imprisoning.</Desc>
+      <Morphology>Vanaheim[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="396">
+      <Name>Valhalla</Name>
+      <Desc>Valgalla ("chamber of killed") - a Common-room of Odin in Asgard. Five hundred and fourty doors are leads there, in each door can pass shoulder to shoulder 800 heroes. The brave warriors fallen in battle with enemy, have not releasing weapon from hands before death, without efforts will find these chambers, because their rafters are spears, roof is maken from helmets and shields, and pews covered by mails. Here they are trains to fight on side of gods in @Ragnarok@, and feasts, eating meat of boar Sehrimnir, it boils in caldron @Elidhrimnir@ cook @Andhrimnir@), and drinks strong, as old honey, milk of the nanny goat @Hioydrun@, which grazes beside top of Yggdrasill the ash, gnawing its branches and leaves, and gives so much milk that it is enough for all inhabitants of Asgard.</Desc>
+      <Morphology>Valhalla[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="397">
+      <Name>Vigrid</Name>
+      <Desc>The field of the last battle - Ragnarok. Placed on the east of Asgard. After coming on Vigrid Bifrost decays and @Ragnarok@ begins.</Desc>
+      <Morphology>Vigrid[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="398">
+      <Name>Gods Fortress</Name>
+      <Desc>The Citadel, residing around chambers of Odin on Asgard. (?)</Desc>
+      <Morphology>Gods Fortress[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="399">
+      <Name>Asgard</Name>
+      <Desc>(Layer) Asgard exists on a plane above Midgard and is accessible to mortals only by crossing the rainbow bridge. Here lie the homes of the gods, @Valhalla@ and the great plain, @Vigrid@, the prophesied site of @Ragnarok@, the final battle for the existence of the universe.</Desc>
+    </Entry>
+    <Entry ID="400">
+      <Name>Gods Fortress</Name>
+      <Desc>(Layer) Крепость Асов</Desc>
+    </Entry>
+    <Entry ID="401">
+      <Name>Midgard</Name>
+      <Desc>(Layer) Midgard is the plane of the world where men lives. It consists of a great forest bounded by impassable mountains. On the other sides of these mountains flows the rivers Vid and Gioll, lies Mimer's realm (which is host to hordes of powerful creatures and there placed well of Mimer), @Jotenheim@ (the land of the fire and frost giants), @Nidavellir@ (the dwarven caves), Slaeter's sea (a land of great adventures and dangers), and the base of the flaming rainbow bridge, Bifrost, which leads on @Asgard@. Somewhere within the boundaries of the great forest lies an entrance to a vast underground world. The size of this dungeons is unknown but rumors have filtered back of the existence of a large crypt, a temple, and even a strange bazaar. Few have ever ventured past Midgard's protective mountains or into the world of darkness below the forest. Nidavellir is said to be home to both the mythical forges of the dwarfs and their gigantic mines which reach beyond the depths of the earth.</Desc>
+    </Entry>
+    <Entry ID="402">
+      <Name>Mimer Well</Name>
+      <Desc>(Layer) Колодец Мимира</Desc>
+    </Entry>
+    <Entry ID="403">
+      <Name>Armory</Name>
+      <Desc>(Layer) Арсенал</Desc>
+    </Entry>
+    <Entry ID="404">
+      <Name>Grynr Halls</Name>
+      <Desc>(Layer) Залы Гринра</Desc>
+    </Entry>
+    <Entry ID="405">
+      <Name>Svartalfheim (1)</Name>
+      <Desc>(Svartalfheim) Caves</Desc>
+    </Entry>
+    <Entry ID="406">
+      <Name>Svartalfheim (2)</Name>
+      <Desc>(Svartalfheim) Deep Caves</Desc>
+    </Entry>
+    <Entry ID="407">
+      <Name>Svartalfheim (3)</Name>
+      <Desc>(Svartalfheim) Great Caves</Desc>
+    </Entry>
+    <Entry ID="408">
+      <Name>Alfheim</Name>
+      <Desc>(Layer) Alfheim</Desc>
+    </Entry>
+    <Entry ID="409">
+      <Name>Crossroads</Name>
+      <Desc>(Layer) Распутье Мира</Desc>
+    </Entry>
+    <Entry ID="410">
+      <Name>Vanaheim</Name>
+      <Desc>(Layer) Vanaheim</Desc>
+    </Entry>
+    <Entry ID="411">
+      <Name>Muspelheim</Name>
+      <Desc>(Layer) Муспельхейм</Desc>
+    </Entry>
+    <Entry ID="412">
+      <Name>Wasteland</Name>
+      <Desc>(Layer) Пустошь</Desc>
+    </Entry>
+    <Entry ID="413">
+      <Name>Niflheim</Name>
+      <Desc>(Layer) Нифльхейм</Desc>
+    </Entry>
+    <Entry ID="414">
+      <Name>Field_Asgard00</Name>
+    </Entry>
+    <Entry ID="415">
+      <Name>Field_Asgard10</Name>
+    </Entry>
+    <Entry ID="416">
+      <Name>Field_GodsFortress00</Name>
+    </Entry>
+    <Entry ID="417">
+      <Name>Field_Midgard00</Name>
+    </Entry>
+    <Entry ID="418">
+      <Name>Field_Midgard10</Name>
+    </Entry>
+    <Entry ID="419">
+      <Name>Field_Midgard20</Name>
+    </Entry>
+    <Entry ID="420">
+      <Name>Field_Midgard30</Name>
+    </Entry>
+    <Entry ID="421">
+      <Name>Field_Midgard40</Name>
+    </Entry>
+    <Entry ID="422">
+      <Name>Field_Midgard50</Name>
+    </Entry>
+    <Entry ID="423">
+      <Name>Field_Midgard60</Name>
+    </Entry>
+    <Entry ID="424">
+      <Name>Field_Midgard01</Name>
+    </Entry>
+    <Entry ID="425">
+      <Name>Field_Midgard11</Name>
+    </Entry>
+    <Entry ID="426">
+      <Name>Field_Midgard21</Name>
+    </Entry>
+    <Entry ID="427">
+      <Name>Field_Midgard31</Name>
+    </Entry>
+    <Entry ID="428">
+      <Name>Field_Midgard41</Name>
+    </Entry>
+    <Entry ID="429">
+      <Name>Field_Midgard51</Name>
+    </Entry>
+    <Entry ID="430">
+      <Name>Field_Midgard61</Name>
+    </Entry>
+    <Entry ID="431">
+      <Name>Field_Midgard02</Name>
+    </Entry>
+    <Entry ID="432">
+      <Name>Field_Midgard12</Name>
+    </Entry>
+    <Entry ID="433">
+      <Name>Field_Midgard22</Name>
+    </Entry>
+    <Entry ID="434">
+      <Name>Field_Midgard32</Name>
+    </Entry>
+    <Entry ID="435">
+      <Name>Field_Midgard42</Name>
+    </Entry>
+    <Entry ID="436">
+      <Name>Field_Midgard52</Name>
+    </Entry>
+    <Entry ID="437">
+      <Name>Field_Midgard62</Name>
+    </Entry>
+    <Entry ID="438">
+      <Name>Field_Midgard03</Name>
+    </Entry>
+    <Entry ID="439">
+      <Name>Field_Midgard13</Name>
+    </Entry>
+    <Entry ID="440">
+      <Name>Field_Midgard23</Name>
+    </Entry>
+    <Entry ID="441">
+      <Name>Field_Midgard33</Name>
+    </Entry>
+    <Entry ID="442">
+      <Name>Field_Midgard43</Name>
+    </Entry>
+    <Entry ID="443">
+      <Name>Field_Midgard53</Name>
+    </Entry>
+    <Entry ID="444">
+      <Name>Field_Midgard63</Name>
+    </Entry>
+    <Entry ID="445">
+      <Name>Field_Midgard04</Name>
+    </Entry>
+    <Entry ID="446">
+      <Name>Field_Midgard14</Name>
+    </Entry>
+    <Entry ID="447">
+      <Name>Field_Midgard24</Name>
+    </Entry>
+    <Entry ID="448">
+      <Name>Field_Midgard34</Name>
+    </Entry>
+    <Entry ID="449">
+      <Name>Field_Midgard44</Name>
+    </Entry>
+    <Entry ID="450">
+      <Name>Field_Midgard54</Name>
+    </Entry>
+    <Entry ID="451">
+      <Name>Field_Midgard64</Name>
+    </Entry>
+    <Entry ID="452">
+      <Name>Field_Midgard05</Name>
+    </Entry>
+    <Entry ID="453">
+      <Name>Field_Midgard15</Name>
+    </Entry>
+    <Entry ID="454">
+      <Name>Field_Midgard25</Name>
+    </Entry>
+    <Entry ID="455">
+      <Name>Field_Midgard35</Name>
+    </Entry>
+    <Entry ID="456">
+      <Name>Field_Midgard45</Name>
+    </Entry>
+    <Entry ID="457">
+      <Name>Field_Midgard55</Name>
+    </Entry>
+    <Entry ID="458">
+      <Name>Field_Midgard65</Name>
+    </Entry>
+    <Entry ID="459">
+      <Name>Field_Midgard06</Name>
+    </Entry>
+    <Entry ID="460">
+      <Name>Field_Midgard16</Name>
+    </Entry>
+    <Entry ID="461">
+      <Name>Field_Midgard26</Name>
+    </Entry>
+    <Entry ID="462">
+      <Name>Field_Midgard36</Name>
+    </Entry>
+    <Entry ID="463">
+      <Name>Field_Midgard46</Name>
+    </Entry>
+    <Entry ID="464">
+      <Name>Field_Midgard56</Name>
+    </Entry>
+    <Entry ID="465">
+      <Name>Field_Midgard66</Name>
+    </Entry>
+    <Entry ID="466">
+      <Name>Field_Midgard07</Name>
+    </Entry>
+    <Entry ID="467">
+      <Name>Field_Midgard17</Name>
+    </Entry>
+    <Entry ID="468">
+      <Name>Field_Midgard27</Name>
+    </Entry>
+    <Entry ID="469">
+      <Name>Field_Midgard37</Name>
+    </Entry>
+    <Entry ID="470">
+      <Name>Field_Midgard47</Name>
+    </Entry>
+    <Entry ID="471">
+      <Name>Field_Midgard57</Name>
+    </Entry>
+    <Entry ID="472">
+      <Name>Field_Midgard67</Name>
+    </Entry>
+    <Entry ID="473">
+      <Name>Field_Midgard08</Name>
+    </Entry>
+    <Entry ID="474">
+      <Name>Field_Midgard18</Name>
+    </Entry>
+    <Entry ID="475">
+      <Name>Field_Midgard28</Name>
+    </Entry>
+    <Entry ID="476">
+      <Name>Field_Midgard38</Name>
+    </Entry>
+    <Entry ID="477">
+      <Name>Field_Midgard48</Name>
+    </Entry>
+    <Entry ID="478">
+      <Name>Field_Midgard58</Name>
+    </Entry>
+    <Entry ID="479">
+      <Name>Field_Midgard68</Name>
+    </Entry>
+    <Entry ID="480">
+      <Name>Field_MimerWell00</Name>
+    </Entry>
+    <Entry ID="481">
+      <Name>Field_Armory00</Name>
+    </Entry>
+    <Entry ID="482">
+      <Name>Field_GrynrHalls00</Name>
+    </Entry>
+    <Entry ID="483">
+      <Name>Field_Caves100</Name>
+    </Entry>
+    <Entry ID="484">
+      <Name>Field_Caves110</Name>
+    </Entry>
+    <Entry ID="485">
+      <Name>Field_Caves120</Name>
+    </Entry>
+    <Entry ID="486">
+      <Name>Field_Caves101</Name>
+    </Entry>
+    <Entry ID="487">
+      <Name>Field_Caves111</Name>
+    </Entry>
+    <Entry ID="488">
+      <Name>Field_Caves121</Name>
+    </Entry>
+    <Entry ID="489">
+      <Name>Field_Caves102</Name>
+    </Entry>
+    <Entry ID="490">
+      <Name>Field_Caves112</Name>
+    </Entry>
+    <Entry ID="491">
+      <Name>Field_Caves122</Name>
+    </Entry>
+    <Entry ID="492">
+      <Name>Field_Caves200</Name>
+    </Entry>
+    <Entry ID="493">
+      <Name>Field_Caves210</Name>
+    </Entry>
+    <Entry ID="494">
+      <Name>Field_Caves220</Name>
+    </Entry>
+    <Entry ID="495">
+      <Name>Field_Caves201</Name>
+    </Entry>
+    <Entry ID="496">
+      <Name>Field_Caves211</Name>
+    </Entry>
+    <Entry ID="497">
+      <Name>Field_Caves221</Name>
+    </Entry>
+    <Entry ID="498">
+      <Name>Field_Caves202</Name>
+    </Entry>
+    <Entry ID="499">
+      <Name>Field_Caves212</Name>
+    </Entry>
+    <Entry ID="500">
+      <Name>Field_Caves222</Name>
+    </Entry>
+    <Entry ID="501">
+      <Name>Field_Caves300</Name>
+    </Entry>
+    <Entry ID="502">
+      <Name>Field_Caves310</Name>
+    </Entry>
+    <Entry ID="503">
+      <Name>Field_Caves320</Name>
+    </Entry>
+    <Entry ID="504">
+      <Name>Field_Caves301</Name>
+    </Entry>
+    <Entry ID="505">
+      <Name>Field_Caves311</Name>
+    </Entry>
+    <Entry ID="506">
+      <Name>Field_Caves321</Name>
+    </Entry>
+    <Entry ID="507">
+      <Name>Field_Caves302</Name>
+    </Entry>
+    <Entry ID="508">
+      <Name>Field_Caves312</Name>
+    </Entry>
+    <Entry ID="509">
+      <Name>Field_Caves322</Name>
+    </Entry>
+    <Entry ID="510">
+      <Name>Field_Alfheim00</Name>
+    </Entry>
+    <Entry ID="511">
+      <Name>Field_Crossroads00</Name>
+    </Entry>
+    <Entry ID="512">
+      <Name>Field_Vanaheim00</Name>
+    </Entry>
+    <Entry ID="513">
+      <Name>Field_Muspelheim00</Name>
+    </Entry>
+    <Entry ID="514">
+      <Name>Field_Wasteland00</Name>
+    </Entry>
+    <Entry ID="515">
+      <Name>Field_Niflheim00</Name>
+    </Entry>
+    <Entry ID="516">
+      <Name>Field_Niflheim10</Name>
+    </Entry>
+    <Entry ID="517">
+      <Name>Field_Niflheim20</Name>
+    </Entry>
+    <Entry ID="518">
+      <Name>Field_Niflheim01</Name>
+    </Entry>
+    <Entry ID="519">
+      <Name>Field_Niflheim11</Name>
+    </Entry>
+    <Entry ID="520">
+      <Name>Field_Niflheim21</Name>
+    </Entry>
+    <Entry ID="521">
+      <Name>Field_Niflheim02</Name>
+    </Entry>
+    <Entry ID="522">
+      <Name>Field_Niflheim12</Name>
+    </Entry>
+    <Entry ID="523">
+      <Name>Field_Niflheim22</Name>
+    </Entry>
+    <Entry ID="528">
+      <Name>Meta_Rnd_Potion</Name>
+      <Morphology>Meta_Rnd_Potion[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="529">
+      <Name>Meta_Rnd_Amulet</Name>
+      <Morphology>Meta_Rnd_Amulet[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="530">
+      <Name>Meta_Rnd_Ring</Name>
+      <Morphology>Meta_Rnd_Ring[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="531">
+      <Name>Meta_Rnd_Wand</Name>
+      <Morphology>Meta_Rnd_Wand[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="532">
+      <Name>Meta_Rnd_Scroll</Name>
+      <Morphology>Meta_Rnd_Scroll[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="533">
+      <Name>Meta_Rnd_Weapon</Name>
+      <Morphology>Meta_Rnd_Weapon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="534">
+      <Name>Meta_Rnd_Armor</Name>
+      <Morphology>Meta_Rnd_Armor[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="535">
+      <Name>Meta_Rnd_Clothing</Name>
+      <Morphology>Meta_Rnd_Clothing[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="536">
+      <Name>Meta_Rnd_Food</Name>
+      <Morphology>Meta_Rnd_Food[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="537">
+      <Name>Meta_Rnd_NatureObject</Name>
+      <Morphology>Meta_Rnd_NatureObject[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="538">
+      <Name>Meta_Rnd_Tool</Name>
+      <Morphology>Meta_Rnd_Tool[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="539">
+      <Name>glass ocarina</Name>
+      <Desc>The ocarina is a wind instrument that produces soft, mellow music. Regular ocarinas are expensive and only aesthetic in function. If a scroll of enchantment is used to alter an ocarina, its composition will turn to clear glass and it will become a traveling device. Playing the glass ocarina will transport the user to @Muspelheim@, a world of ever-changing design and population. Once in @Muspelheim@, the user may play the ocarina again to be transported back to the plane of Midgard. The ocarina almost never returns the user to their original level in Midgard, but if the area they return to appears threatening or undesirable, they may simple play the ocarina again and repeat the procedure until they land in a suitable location. |Upon gaining the mastery of music, the user may choose which level they will return to when they exit chaos. Only places they have visited before will be accessible.</Desc>
+      <Morphology>glass ocarina[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="540">
+      <Name>guardsman</Name>
+      <Desc>Defender of village. One of inhabitants</Desc>
+      <Morphology>guardsman[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="541">
+      <Name>jarl</Name>
+      <Desc>The elder of village, leads guardsmen.</Desc>
+      <Morphology>jarl[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="542">
+      <Name>Ragnarok</Name>
+      <Desc>Ragnarok (Ragnarjok) - "The Gods Ruin", the end of the world, during which along with all world will perish and the first generation of gods whereupon will occur the rebirth and renovation of the world. In this day the gods would fall, and @Jormungand@ will spew a sea of the poison on great Thor, and he will fall as poisoned fly. But while snake waits the judgment day and dreams about future.</Desc>
+    </Entry>
+    <Entry ID="543">
+      <Name>Golden apples</Name>
+      <Desc>Golden apples of Asgard - their protects the goddess @Idunn@. Only they gives gods eternal youth.</Desc>
+    </Entry>
+    <Entry ID="544">
+      <Name>Norns</Name>
+      <Desc>Norns - three goddesses-prophetess, dwells under roots of Yggdrasill and daily waters it by water from the Urd Source that it wouldn't dried up, but will remain green and fresh, and strong. Their names are: @Urd@ (the past, fate), @Verdandi@ (the present, formation), @Skuld@ (future, duty). They spins the thread, thread fates of all peoples. As they will done this - so and will form the life of the person from the very birth.</Desc>
+    </Entry>
+    <Entry ID="545">
+      <Name>Velva</Name>
+      <Desc>Prophet giantess, best prognosticatoress. The Velva has chosen herself the eternal dream in a great burial mound on the Gloomy Limits edge that nobody wouldn't ask her predictions any more.</Desc>
+    </Entry>
+    <Entry ID="546">
+      <Name>Idun</Name>
+      <Desc>Idunn - a daughter of dwarf @Ivaldi@, wife of @Bragi@; the goddess to eternal youth. She is modest and calm, but without her aces already wasn't above-ground long ago. Idunn has basket with eternal youth apples, which she regales the gods. This basket is magic: it does never becomes empty, since in lieu thereof each taken out apple here and now appears new in it.</Desc>
+    </Entry>
+    <Entry ID="547">
+      <Name>Bragi</Name>
+      <Desc>Bragi is a god of New Life, nature and man reincarnation, the god of poets and scalds. Odin's son, Idunn's husband. Nobody doesn't knows how so well as he to compose a poetries and songs, and any, who wants to become a poet, must ask his protection. He is one of twelve main (after Odin) gods. Often about him speaks "Long-beard". He was named "the divine singer", untarnished and perfect.</Desc>
+    </Entry>
+    <Entry ID="548">
+      <Name>Yggdrasill</Name>
+      <Desc>Yggdrasill ("Igg's horse" (Igg - one of the names of Odin)) - world tree - a gigantic ash, being a structured base of the world, tree of life and fate. The whole universe is depending on world tree. Its name emphasizes the role Yggdrasill as way, on which @Odin@ wanders from one world in another. Yggdrasill rests on three roots, from which one spreads at people (in @Midgard@), another at Jotuns (in @Jotunheim@), the third in @Niflheim@. Under its branches are rules aces, and under the first root placed the Urd well, three Norns are living around. Their names are: @Urd@ (the past), @Verdandi@ (the present), @Skuld@ (future), they are supports eternal freshness and youth of tree - waters the tree by water from the well that it, gnawed by dragon and deers, didn't rot. Two other wells are feeds the tree too. Under the second root is a well of wisdom, near which lives awesome giant @Mimer@, the most powerful of all giants, he guards a water from the well and doesn't give to drink from it anybody. By legend, Odin has paid his right eye that once drink water from this well. Under the third root is a @Hvergelmer@ well, from which are flows the rivers, created land. The top of Yggdrasill the ash is named @Lerad@. There is giant wise eagle sits on it, and the hawk @Vedrfjolnir@ ("faded from bad weather") sits between his eyes, four deers are plycking a leaves on it branches and dragon Nidhogg in @Hvergelmer@ well, gnaws the roots of ash. Squirrel @Ratatosk@ ("nibbleteeth"), jumping along the tree, incessantly carries the swearwords, which showering each other eagle and dragon. Besides, deer @Eiktyurmir@ ("with oaken horns tips") and nanny goat @Hioydrun@ eats its leaves, standing up on roof of Valgalla. Yggdrasill covered by honey dew, and eating its leaves nanny goat @Hioydrun@ feeds the inexhaustible mead milk the warriors fallen in fights (einheries) in Valgalla.</Desc>
+    </Entry>
+    <Entry ID="549">
+      <Name>Jarnsaxa</Name>
+      <Desc>Jarnsaxa - daughter of van Aegir, sweetheart of Thor, gave birth him sons @Magni@ and @Modi@.</Desc>
+    </Entry>
+    <Entry ID="550">
+      <Name>Elivagar</Name>
+      <Desc>Elivagar ("turbulent waves") - a river, running since immemorial timeses in the outermost part of Niflheim. Its waters are poisonous.</Desc>
+    </Entry>
+    <Entry ID="551">
+      <Name>Elli</Name>
+      <Desc>Elli - goddeness of old age.</Desc>
+    </Entry>
+    <Entry ID="552">
+      <Name>Huginn</Name>
+      <Desc>Huginn ("The thought") - One of two ravens, served to Odin and sitting on his shoulders.</Desc>
+    </Entry>
+    <Entry ID="553">
+      <Name>mummy</Name>
+      <Morphology>mummy[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="554">
+      <Name>ring of delusion</Name>
+      <Desc>Rings of delusion are crafted to look exactly like other valuable rings. They will defy identification until the wearer realizes their true nature or gains the skill of identification. They contain no magic, but only confuse the wearer into believing they possess powers and resistances that they do not. When wearing a ring it is recommended to check its functioning to insure that it is genuine and not merely a ring of delusion.</Desc>
+      <Morphology>ring of delusion[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="555">
+      <Name>Meta_Rnd_ThrowWeapon</Name>
+      <Morphology>Meta_Rnd_ThrowWeapon[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="556">
+      <Name>torch</Name>
+      <Morphology>torch[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="557">
+      <Name>blue rock</Name>
+      <Desc>Blue rocks rain down on the heads of those who read lava strike while confused. All are heavy, but worth quite a bit on the open market.</Desc>
+      <Morphology>blue rock[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="558">
+      <Name>boulder</Name>
+      <Desc>Boulders are the remains of those unfortunate souls who have been petrified by cockatrices, sentinels, basilisks, and wands of stoning. All are heavy, but worth quite a bit on the open market.</Desc>
+      <Morphology>boulder[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="559">
+      <Name>Agnar</Name>
+      <Morphology>Agnar[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="560">
+      <Name>Haddingr</Name>
+      <Morphology>Haddingr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="561">
+      <Name>Ketill</Name>
+      <Morphology>Ketill[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="562">
+      <Name>snake</Name>
+      <Morphology>snake[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="563">
+      <Name>clover</Name>
+      <Morphology>clover[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="564">
+      <Name>mint</Name>
+      <Morphology>mint[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="565">
+      <Name>gypsum</Name>
+      <Morphology>gypsum[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="566">
+      <Name>phosphor</Name>
+      <Morphology>phosphor[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="567">
+      <Name>salt</Name>
+      <Morphology>salt[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="568">
+      <Name>sulphur</Name>
+      <Morphology>sulphur[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="569">
+      <Name>way bread</Name>
+      <Desc>Lembas - elven way bread. Light and much nourishing any other meal. If don't break it, very long tine don't become stale. One small cake will be enough for whole day.</Desc>
+      <Morphology>way bread[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="570">
+      <Name>Oldman</Name>
+    </Entry>
+    <Entry ID="571">
+      <Name>Shopkeeper</Name>
+    </Entry>
+    <Entry ID="572">
+      <Name>DemonBane</Name>
+      <Desc>Lethal weapons to fight demons.</Desc>
+      <Morphology>Demon Bane[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="573">
+      <Name>DragonSlay</Name>
+      <Desc>Lethal weapon to fight dragons.</Desc>
+      <Morphology>Dragon Slay[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="574">
+      <Name>diamond</Name>
+      <Morphology>diamond[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="575">
+      <Name>emerald</Name>
+      <Morphology>emerald[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="576">
+      <Name>ruby</Name>
+      <Morphology>ruby[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="577">
+      <Name>sapphire</Name>
+      <Morphology>sapphire[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="578">
+      <Name>random gem</Name>
+    </Entry>
+
+    <Entry ID="580">
+	  <Name>Rune Algiz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="581">
+	  <Name>Rune Ansuz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="582">
+	  <Name>Rune Berkana</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="583">
+	  <Name>Rune Dagaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="584">
+	  <Name>Rune Ehwaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="585">
+	  <Name>Rune Eihwaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="586">
+	  <Name>Rune Fehu</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="587">
+	  <Name>Rune Gebo</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="588">
+	  <Name>Rune Hagalaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="589">
+	  <Name>Rune Ingwaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="590">
+	  <Name>Rune Isaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="591">
+	  <Name>Rune Jeran</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="592">
+	  <Name>Rune Kaunan</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="593">
+	  <Name>Rune Laguz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="594">
+	  <Name>Rune Mannaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="595">
+	  <Name>Rune Naudiz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="596">
+	  <Name>Rune Othalan</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="597">
+	  <Name>Rune Pertho</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="598">
+	  <Name>Rune Raido</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="599">
+	  <Name>Rune Sowilo</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="600">
+	  <Name>Rune Thurisaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="601">
+	  <Name>Rune Tiwaz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="602">
+	  <Name>Rune Uruz</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="603">
+	  <Name>Rune Wunjo</Name>
+      <Desc></Desc>
+    </Entry>
+    <Entry ID="604">
+	  <Name>Rune Empty</Name>
+      <Desc></Desc>
+    </Entry>
+
+    <Entry ID="605">
+	  <Name>Serpent Sword</Name>
+      <Desc></Desc>
+      <Morphology>Serpent Sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="606">
+	  <Name>Crystal gloves</Name>
+      <Desc></Desc>
+      <Morphology>Crystal gloves[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="607">
+	  <Name>shield</Name>
+      <Desc></Desc>
+      <Morphology>shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="608">
+	  <Name>shield</Name>
+      <Desc></Desc>
+      <Morphology>shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="609">
+	  <Name>shield</Name>
+      <Desc></Desc>
+      <Morphology>shield[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="610">
+	  <Name>ring mail</Name>
+      <Desc></Desc>
+      <Morphology>ring mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="611">
+	  <Name>ring mail</Name>
+      <Desc></Desc>
+      <Morphology>ring mail[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="612">
+	  <Name>sword</Name>
+      <Desc></Desc>
+      <Morphology>sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="613">
+	  <Name>sword</Name>
+      <Desc></Desc>
+      <Morphology>sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="614">
+	  <Name>sword</Name>
+      <Desc></Desc>
+      <Morphology>sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="615">
+	  <Name>sword</Name>
+      <Desc></Desc>
+      <Morphology>sword[,,,,,,,,,,,]</Morphology>
+    </Entry>
+    <Entry ID="616">
+	  <Name>Norse Boots</Name>
+      <Desc></Desc>
+      <Morphology>Norse Boots[,,,,,,,,,,,]</Morphology>
+    </Entry>
+
+    <Entry ID="617">
+	  <Name>Jarnvidr</Name>
+      <Desc>Jarnvidr ("Iron-wood") is a forest located east of @Midgard@, in the @Jotenheim@, inhabited by troll women who bore giantesses and giant wolves.</Desc>
+	  <Morphology>Jarnvidr[,,,,,,,,,,,]</Morphology>
+    </Entry>
+  </Entries>
+</RDB>

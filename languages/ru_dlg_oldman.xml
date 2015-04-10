@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+      <Dialog>
+          <Conversation Name="Знакомство">
+              <Topic>
+				<Phrase>Здравствуй, Старец!</Phrase>
+                <Answer>Здравствуй. Я зовусь #self#, я старейшина этой деревни.</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Деревня">
+              <Topic>
+				<Phrase>Как в деревне?</Phrase>
+                <Answer>Нехорошие времена настали: в лесу завелись всякие монстры и нежить, от соседей давно вестей не было, торговцы уже год, как не приезжали... Никак, проснулась в своей пещере Вёльва и грядёт @Рагнарок@.</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Рагнарок">
+              <Topic>
+				<Phrase>Неужели Рагнарок все-таки наступает?</Phrase>
+                <Answer>Не дано смертному предотвратить Битву Битв. Но отважный и доблестный может помочь богам в этой битве и тогда, возможно, исход её будет отличаться от прорицания Вёльвы. Такова участь викинга...</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Участь викинга">
+              <Topic>
+				<Phrase>Участь моя похоже решена: я отправляюсь в путь, чтобы свершилось предначертанное!</Phrase>
+                <Answer>Да благословят тебя боги и дадут удачу. Иди в центр Мидгарда. Там ты отыщешь путь в пещеры. Захвати на дорогу припасов и набери воды - в лесу мало чистых источников.</Answer>
+              </Topic>
+          </Conversation>
+          <Conversation Name="Задание">
+              <Topic>
+				<Condition>NPC.hasItem('DemonBane')</Condition>
+				<Phrase>Нет ли у тебя задания, Старец?</Phrase>
+                <Answer>Стар я стал, не могу уже чистить лес вокруг своими силами. Убей всех враждебных тварей в этом лесу и будет тебе награда.</Answer>
+				  <Topic>
+					<Phrase>Есть, убить всех монстров!</Phrase>
+					<Answer>Иди-иди...</Answer>
+				  </Topic>
+				  <Topic>
+					<Condition>NPC.isFieldCleared()</Condition>
+					<Phrase>Все монстры убиты!</Phrase>
+					<Answer>Вот тебе награда, сынок! Был я когда-то могучим убийцей демонов и отдаю тебе свой меч-кладенец!</Answer>
+					<Action>NPC.transferItem(player, 'DemonBane');</Action>
+				  </Topic>
+              </Topic>
+          </Conversation>
+      </Dialog>
