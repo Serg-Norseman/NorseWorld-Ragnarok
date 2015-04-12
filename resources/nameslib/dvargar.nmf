@@ -1,0 +1,48 @@
+/*****************************************************/
+/* MALL.NAM                                          */
+/* Namnfil f”r namn fr†n xxxxxxxxxxx                 */
+/* av Johan Danforth                                 */
+/* rader som b”rjar med / „r kommentar-rader         */
+/* varje section b”rjar med [xxx] enlig filen nedan  */
+/*****************************************************/
+/* balin durin bofur bifur bombur belin */
+[first]
+B
+D
+F
+G
+Gl
+H
+K
+L
+M
+N
+R
+S
+T
+V
+[mid]
+a
+e
+i
+o
+oi
+u
+[final]
+bur
+fur
+gan
+gnus
+gnar
+li
+lin
+lir
+mli
+nar
+nus
+rin
+ran
+sin
+sil
+sur
+[stop]

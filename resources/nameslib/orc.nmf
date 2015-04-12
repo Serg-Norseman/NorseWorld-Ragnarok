@@ -1,0 +1,63 @@
+/*****************************************************/
+/* ORC1.NAM                                          */
+/* Namnfil f”r orch-f”rnamn                          */
+/* av Johan Danforth och Tobias Petersson            */
+/* rader som b”rjar med / „r kommentar-rader         */
+/* varje section b”rjar med [xxx] enlig filen nedan  */
+/*****************************************************/
+[first]
+B
+C
+D
+Er
+F
+G
+Gr
+H
+K
+L
+M
+N
+P
+Pr
+R
+S
+T
+V
+Vr
+[mid]
+a
+i
+o
+u
+[final]
+dak
+dash
+dish
+dush
+gak
+gar
+gor
+gdush
+hai
+l
+lo
+lok
+gdish
+k
+kar
+kor
+lg
+mak
+nak
+nai
+ng
+nk
+rag
+rbag
+rg
+rk
+rt
+ruk
+shnak
+[stop]

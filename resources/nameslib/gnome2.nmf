@@ -1,0 +1,52 @@
+/*****************************************************/
+/* Deverry2.nam                                      */
+/* Namnfil f”r namn fr†n Deverry (kvinnor)           */
+/* av Johan Danforth                                 */
+/* rader som b”rjar med / „r kommentar-rader         */
+/* varje section b”rjar med [xxx] enlig filen nedan  */
+/*****************************************************/
+[first]
+Al
+Br
+C
+Cl
+D
+El
+Gw
+J
+L
+M
+N
+Mer
+S
+R
+Ys
+[mid]
+a
+ae
+e
+ea
+i
+o
+u
+y
+w
+[final]
+brylla
+cla
+dda
+ll
+lla
+llyra
+lonna
+lyan
+na
+ngwen
+niver
+noic
+ra
+rka
+ryan
+ssa
+vyan
+[stop]
