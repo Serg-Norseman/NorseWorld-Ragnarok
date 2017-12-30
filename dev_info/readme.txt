@@ -1,14 +1,13 @@
 ﻿=== English ===
 
-The current version of "NorseWorld: Ragnarok": 0.10.0 (from 28.12.2014).
+The current version of "NorseWorld: Ragnarok": 0.11.0 (from 12.04.2015).
 
 1. To start the game needs Java Runtime (JRE). Link: 
 http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html.
 Need to agree to the license and download jre-8u25-windows-i586.exe or jre-8u25-windows-x64.exe.
 
-2. Link to download the distributions: http://sourceforge.net/projects/norseworld/files/v0.10.0/. At the moment, there are two variants distribution (Windows x86 and x64).
-
-3. Also has game's soundpak. To use - unpack in the game folder and place next to the folder languages.
+2. Link to download the distributions: http://sourceforge.net/projects/norseworld/files/v0.11.0/. 
+At the moment, there are one variant of distribution (Windows x86-x64).
 
 4. To start the game using start.bat, in which the path to the JRE is write tough, and on some computers path may be different. If the game will not start, you need to replace him to a path discovered in "Program Files\Java\" folder "jre...".
 
@@ -18,15 +17,13 @@ Need to agree to the license and download jre-8u25-windows-i586.exe or jre-8u25-
 
 === Russian ===
 
-Текущая версия "NorseWorld: Ragnarok": 0.10.0 (от 28/12/2014).
+Текущая версия "NorseWorld: Ragnarok": 0.11.0 (от 12.04.2015).
 
 1. Для запуска игры нужен Java Runtime (JRE). Ссылка: http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html.
 Нужно подтвердить согласие с лицензией и скачать jre-8u25-windows-i586.exe или jre-8u25-windows-x64.exe.
 
-2. Ссылка для закачки дистрибутивов: http://sourceforge.net/projects/norseworld/files/v0.10.0/.
-На данный момент имеются два варианта дистрибутива (Windows x86, x64).
-
-3. Также имеется soundpak игры. Для использования - распаковать в папку игры и поместить рядом с папкой languages.
+2. Ссылка для закачки дистрибутивов: http://sourceforge.net/projects/norseworld/files/v0.11.0/.
+На данный момент имеется один вариант дистрибутива (Windows x86 и x64).
 
 4. Для запуска игры используется start.bat, в котором путь к JRE прописан жестко, и на каких-то компьютерах путь может отличаться. Если игра не будет запускаться, нужно найти в "Program Files\Java\" папку "jre..." и заменить путь в start.bat на найденный.
 
