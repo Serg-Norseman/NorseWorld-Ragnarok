@@ -352,16 +352,16 @@
     <Text>I can't say anything about that.</Text>
   </RS>
   <RS ID="117">
-    <Text>- %s, I want be taught beside you something...</Text>
+    <Text>- {0}, I want be taught beside you something...</Text>
   </RS>
   <RS ID="118">
-    <Text>- %s, let's trade!</Text>
+    <Text>- {0}, let's trade!</Text>
   </RS>
   <RS ID="119">
-    <Text>- %s, let's exchange something?</Text>
+    <Text>- {0}, let's exchange something?</Text>
   </RS>
   <RS ID="120">
-    <Text>- %s, I want to recruit somebody.</Text>
+    <Text>- {0}, I want to recruit somebody.</Text>
   </RS>
   <RS ID="121">
     <Text>I'm not a trader.</Text>
@@ -1321,7 +1321,7 @@
     <Text>Hurl a black gem to garner the lifeforce of an enemy</Text>
   </RS>
   <RS ID="440">
-    <Text>Odin's Raven has said: "%s".</Text>
+    <Text>Odin's Raven has said: "{0}".</Text>
   </RS>
   <RS ID="441">
     <Text>Define a near place.</Text>
@@ -1660,10 +1660,10 @@
     <Text>I have nothing to teach you.</Text>
   </RS>
   <RS ID="553">
-    <Text>You lack the tools of your trade: %s.</Text>
+    <Text>You lack the tools of your trade: {0}.</Text>
   </RS>
   <RS ID="554">
-    <Text>You see: %s.</Text>
+    <Text>You see: {0}.</Text>
   </RS>
   <RS ID="555">
     <Text>You destroy all humans.</Text>
@@ -1783,7 +1783,7 @@
     <Text>You feel weaker.</Text>
   </RS>
   <RS ID="594">
-    <Text>You feel %smore experienced.</Text>
+    <Text>You feel {0} more experienced.</Text>
   </RS>
   <RS ID="595">
     <Text>You lose a life level.</Text>
@@ -1924,7 +1924,7 @@
     <Text>Your fever overcomes you. You faint.</Text>
   </RS>
   <RS ID="641">
-    <Text>The %s drowns.</Text>
+    <Text>The {0} drowns.</Text>
   </RS>
   <RS ID="642">
     <Text>Gurgle.</Text>
@@ -1972,7 +1972,7 @@
     <Text>You cannot dig without a pick axe.</Text>
   </RS>
   <RS ID="657">
-    <Text>The %s screams and fades into thin air.</Text>
+    <Text>The {0} screams and fades into thin air.</Text>
   </RS>
   <RS ID="658">
     <Text>The orb sucks you into its confines and vanishes.</Text>
@@ -1999,13 +1999,13 @@
     <Text>Your pack glows white.</Text>
   </RS>
   <RS ID="666">
-    <Text>The %s glows.</Text>
+    <Text>The {0} glows.</Text>
   </RS>
   <RS ID="667">
     <Text>Your pack glows black. Things are destroyed!</Text>
   </RS>
   <RS ID="668">
-    <Text>The %s disintigrated.</Text>
+    <Text>The {0} disintigrated.</Text>
   </RS>
   <RS ID="669">
     <Text>Scroll curse all items.</Text>
@@ -2023,7 +2023,7 @@
     <Text>Your body is solidifying.</Text>
   </RS>
   <RS ID="674">
-    <Text>You feel %s.</Text>
+    <Text>You feel {0}.</Text>
   </RS>
   <RS ID="675">
     <Text>You become more robust.</Text>
@@ -2044,13 +2044,13 @@
     <Text>kill[,,,-ed,-ed,-ed]</Text>
   </RS>
   <RS ID="681">
-    <Text>The cold of Niflheim shocks %s instantly.</Text>
+    <Text>The cold of Niflheim shocks {0} instantly.</Text>
   </RS>
   <RS ID="682">
-    <Text>The flames of Bifrost consume %s instantly.</Text>
+    <Text>The flames of Bifrost consume {0} instantly.</Text>
   </RS>
   <RS ID="683">
-    <Text>%s's body is torn apart as pieces of it teleport to various locations.</Text>
+    <Text>{0}'s body is torn apart as pieces of it teleport to various locations.</Text>
   </RS>
   <RS ID="684">
     <Text>Specified direction is invalid.</Text>
@@ -2071,13 +2071,13 @@
     <Text>Fingers</Text>
   </RS>
   <RS ID="690">
-    <Text>Killed by a %s.</Text>
+    <Text>Killed by a {0}.</Text>
   </RS>
   <RS ID="691">
     <Text>As Vanaheim is empty, you are set free.</Text>
   </RS>
   <RS ID="692">
-    <Text>%s, holder - %s</Text>
+    <Text>{0}, holder - {1}</Text>
   </RS>
   <RS ID="693">
     <Text>Your horrible burns have healed.</Text>
@@ -2198,7 +2198,7 @@ You are struck down by an unseen force.</Text>
     <Text>You can not shoot or throw this projectile.</Text>
   </RS>
   <RS ID="732">
-    <Text>%s thanks you for bringing %s.</Text>
+    <Text>{0} thanks you for bringing {1}.</Text>
   </RS>
   <RS ID="733">
     <Text>Hela draws the Thokk soul from your ring. The Balder's soul is free.</Text>
@@ -2213,7 +2213,7 @@ You are struck down by an unseen force.</Text>
     <Text>You eat the </Text>
   </RS>
   <RS ID="737">
-    <Text>The raw %s tasted horrible.</Text>
+    <Text>The raw {0} tasted horrible.</Text>
   </RS>
   <RS ID="738">
     <Text>The wand crumbles into dust!</Text>
@@ -2300,10 +2300,10 @@ You are struck down by an unseen force.</Text>
     <Text>You have no bodies to work with?</Text>
   </RS>
   <RS ID="766">
-    <Text>You create a %s mummy.</Text>
+    <Text>You create a {0} mummy.</Text>
   </RS>
   <RS ID="767">
-    <Text>You create a %s golem.</Text>
+    <Text>You create a {0} golem.</Text>
   </RS>
   <RS ID="768">
     <Text>A golem leaps from your pack. You cannot control it!</Text>
@@ -2327,13 +2327,13 @@ You are struck down by an unseen force.</Text>
     <Text>You have no stylus.</Text>
   </RS>
   <RS ID="775">
-    <Text>You writing the %s.</Text>
+    <Text>You writing the {0}.</Text>
   </RS>
   <RS ID="776">
     <Text>?</Text>
   </RS>
   <RS ID="777">
-    <Text>Ray deanimates %s.</Text>
+    <Text>Ray deanimates {0}.</Text>
   </RS>
   <RS ID="778">
     <Text>What do you wish for?</Text>
@@ -2453,7 +2453,7 @@ You are struck down by an unseen force.</Text>
     <Text>is not identified</Text>
   </RS>
   <RS ID="817">
-    <Text>%s entrapped in the %s.</Text>
+    <Text>{0} entrapped in the {1}.</Text>
   </RS>
   <RS ID="818">
     <Text>Material</Text>
@@ -2468,7 +2468,7 @@ You are struck down by an unseen force.</Text>
     <Text>A magenta ray comes out of your eyes.</Text>
   </RS>
   <RS ID="822">
-    <Text>The %s is incinerated.</Text>
+    <Text>The {0} is incinerated.</Text>
   </RS>
   <RS ID="823">
     <Text>You feel no response.</Text>
@@ -2483,7 +2483,7 @@ You are struck down by an unseen force.</Text>
     <Text>You are telepathically linked with another.</Text>
   </RS>
   <RS ID="827">
-    <Text>You charm the %s.</Text>
+    <Text>You charm the {0}.</Text>
   </RS>
   <RS ID="828">
     <Text>You can only move golems which you create or tame or monster whose minds you control.</Text>
@@ -2675,7 +2675,7 @@ You are struck down by an unseen force.</Text>
     <Text>Use Skidbladnir</Text>
   </RS>
   <RS ID="891">
-    <Text>%s return to its natural form.</Text>
+    <Text>{0} return to its natural form.</Text>
   </RS>
   <RS ID="892">
     <Text>Pay</Text>
@@ -2684,7 +2684,7 @@ You are struck down by an unseen force.</Text>
     <Text>The wand glows.</Text>
   </RS>
   <RS ID="894">
-    <Text>The %s is destroyed by light.</Text>
+    <Text>The {0} is destroyed by light.</Text>
   </RS>
   <RS ID="895">
     <Text>Server is busy...</Text>
@@ -2747,10 +2747,10 @@ You are struck down by an unseen force.</Text>
     <Text>Killed by the effects of a mushroom</Text>
   </RS>
   <RS ID="915">
-    <Text>The %s glows.</Text>
+    <Text>The {0} glows.</Text>
   </RS>
   <RS ID="916">
-    <Text>The %s glows with newfound beauty.</Text>
+    <Text>The {0} glows with newfound beauty.</Text>
   </RS>
   <RS ID="917">
     <Text>This passage goes nowhere.</Text>
@@ -2795,7 +2795,7 @@ You are struck down by an unseen force.</Text>
     <Text>wounds</Text>
   </RS>
   <RS ID="931">
-    <Text>Chief, beside me %s, no medicines!</Text>
+    <Text>Chief, beside me {0}, no medicines!</Text>
   </RS>
   <RS ID="932">
     <Text>remains of</Text>
@@ -2834,7 +2834,7 @@ You are struck down by an unseen force.</Text>
     <Text>Fiber</Text>
   </RS>
   <RS ID="944">
-    <Text>The %s picks something up.</Text>
+    <Text>The {0} picks something up.</Text>
   </RS>
   <RS ID="945">
     <Text>You play a restless tune.</Text>
@@ -2852,7 +2852,7 @@ You are struck down by an unseen force.</Text>
     <Text>Your wands are drained.</Text>
   </RS>
   <RS ID="950">
-    <Text>The %s pulsates.</Text>
+    <Text>The {0} pulsates.</Text>
   </RS>
   <RS ID="951">
     <Text>The weird fume envelops you!</Text>
@@ -2975,7 +2975,7 @@ You are struck down by an unseen force.</Text>
     <Text>You hear noise.</Text>
   </RS>
   <RS ID="991">
-    <Text>The dead %s sinks.</Text>
+    <Text>The dead {0} sinks.</Text>
   </RS>
   <RS ID="992">
     <Text>You are visible again.</Text>
@@ -2999,7 +2999,7 @@ You are struck down by an unseen force.</Text>
     <Text>Sucked dry by a </Text>
   </RS>
   <RS ID="999">
-    <Text>The %s is slain.</Text>
+    <Text>The {0} is slain.</Text>
   </RS>
   <RS ID="1000">
     <Text>The tree bursts into flame.</Text>
@@ -3008,7 +3008,7 @@ You are struck down by an unseen force.</Text>
     <Text>You momentarily glimpse a lake of tormenting fire.</Text>
   </RS>
   <RS ID="1002">
-    <Text>You tickle %s. He laughs.</Text>
+    <Text>You tickle {0}. He laughs.</Text>
   </RS>
   <RS ID="1003">
     <Text>He puts it to his lips and creates an amazing sound.The forces of good hie to his signal. Heimdall hurries toward Vigrid.</Text>
@@ -3059,7 +3059,7 @@ You are struck down by an unseen force.</Text>
     <Text>The acidic meat burns your innards.</Text>
   </RS>
   <RS ID="1019">
-    <Text>The %s tasted gritty.</Text>
+    <Text>The {0} tasted gritty.</Text>
   </RS>
   <RS ID="1020">
     <Text>You produce a new concoction.</Text>
@@ -3071,7 +3071,7 @@ You are struck down by an unseen force.</Text>
     <Text>The meat rots in your hands.</Text>
   </RS>
   <RS ID="1023">
-    <Text>You gnaw on the bones of %s.</Text>
+    <Text>You gnaw on the bones of {0}.</Text>
   </RS>
   <RS ID="1024">
     <Text>You feel numb.</Text>
@@ -3086,22 +3086,22 @@ You are struck down by an unseen force.</Text>
     <Text>Your armor falls off.</Text>
   </RS>
   <RS ID="1028">
-    <Text>You shall now be known as %s.</Text>
+    <Text>You shall now be known as {0}.</Text>
   </RS>
   <RS ID="1029">
     <Text>That felt like swallowing knives.</Text>
   </RS>
   <RS ID="1030">
-    <Text>The %s touches your skin.</Text>
+    <Text>The {0} touches your skin.</Text>
   </RS>
   <RS ID="1031">
-    <Text>Touched a %s</Text>
+    <Text>Touched a {0}</Text>
   </RS>
   <RS ID="1032">
     <Text>Why did you eat that?</Text>
   </RS>
   <RS ID="1033">
-    <Text>The %s was delicious.</Text>
+    <Text>The {0} was delicious.</Text>
   </RS>
   <RS ID="1034">
     <Text>You are overcome with fear.</Text>
@@ -3113,7 +3113,7 @@ You are struck down by an unseen force.</Text>
     <Text>You quiver in fear.</Text>
   </RS>
   <RS ID="1037">
-    <Text>The %s splashes you.</Text>
+    <Text>The {0} splashes you.</Text>
   </RS>
   <RS ID="1038">
     <Text>Your items corrodes.</Text>
@@ -3122,10 +3122,10 @@ You are struck down by an unseen force.</Text>
     <Text>You set off a teleportation trap.</Text>
   </RS>
   <RS ID="1040">
-    <Text>You are hypnotized by %s''s gaze.</Text>
+    <Text>You are hypnotized by {0}''s gaze.</Text>
   </RS>
   <RS ID="1041">
-    <Text>You shall now be known as %s the %s.</Text>
+    <Text>You shall now be known as {0} the {1}.</Text>
   </RS>
   <RS ID="1042">
     <Text>You feel intoxicated.</Text>
@@ -3158,13 +3158,13 @@ You are struck down by an unseen force.</Text>
     <Text>You are charmed into staying your hand.</Text>
   </RS>
   <RS ID="1052">
-    <Text>%s slavers, "You will never free Balder. " with its dying breath.</Text>
+    <Text>{0} slavers, "You will never free Balder. " with its dying breath.</Text>
   </RS>
   <RS ID="1053">
-    <Text>The ray %s comes out of the wand.</Text>
+    <Text>The ray {0} comes out of the wand.</Text>
   </RS>
   <RS ID="1054">
-    <Text>The %s is frozen.</Text>
+    <Text>The {0} is frozen.</Text>
   </RS>
   <RS ID="1055">
     <Text>There are now holes in the tree.</Text>
@@ -3173,10 +3173,10 @@ You are struck down by an unseen force.</Text>
     <Text>Killed by a death ray</Text>
   </RS>
   <RS ID="1057">
-    <Text>The %s is destroyed.</Text>
+    <Text>The {0} is destroyed.</Text>
   </RS>
   <RS ID="1058">
-    <Text>The %s is melted.</Text>
+    <Text>The {0} is melted.</Text>
   </RS>
   <RS ID="1059">
     <Text>Your body is hardening.</Text>
@@ -3275,7 +3275,7 @@ You are struck down by an unseen force.</Text>
     <Text>Your skin crawls with disease!</Text>
   </RS>
   <RS ID="1091">
-    <Text>The song of %s charms you.</Text>
+    <Text>The song of {0} charms you.</Text>
   </RS>
   <RS ID="1092">
     <Text>You cannot break free.</Text>
@@ -3284,40 +3284,40 @@ You are struck down by an unseen force.</Text>
     <Text>Your flesh begins to melt.</Text>
   </RS>
   <RS ID="1094">
-    <Text>You escape the grasp of the %s.</Text>
+    <Text>You escape the grasp of the {0}.</Text>
   </RS>
   <RS ID="1095">
     <Text>You awake disoriented.</Text>
   </RS>
   <RS ID="1096">
-    <Text>The %s's bite puts you to sleep for a long time...</Text>
+    <Text>The {0}'s bite puts you to sleep for a long time...</Text>
   </RS>
   <RS ID="1097">
-    <Text>The %s's bite puts you to sleep for what seems an eternity...</Text>
+    <Text>The {0}'s bite puts you to sleep for what seems an eternity...</Text>
   </RS>
   <RS ID="1098">
     <Text>You faint from hunger.</Text>
   </RS>
   <RS ID="1099">
-    <Text>{%s} prays to {%s}.</Text>
+    <Text>{0} prays to {1}.</Text>
   </RS>
   <RS ID="1100">
-    <Text>You sacrificed the {%s} to {%s}.</Text>
+    <Text>You sacrificed the {0} to {1}.</Text>
   </RS>
   <RS ID="1101">
-    <Text>%s notices your lack of faith!</Text>
+    <Text>{0} notices your lack of faith!</Text>
   </RS>
   <RS ID="1102">
-    <Text>However, %s intercedes on your behalf.</Text>
+    <Text>However, {0} intercedes on your behalf.</Text>
   </RS>
   <RS ID="1103">
-    <Text>But since you pray to a friendly deity, %s decides not to punish you.</Text>
+    <Text>But since you pray to a friendly deity, {0} decides not to punish you.</Text>
   </RS>
   <RS ID="1104">
-    <Text>Your treachery to the %s has been noted.</Text>
+    <Text>Your treachery to the {0} has been noted.</Text>
   </RS>
   <RS ID="1105">
-    <Text>The %s ignore your lack of faith.</Text>
+    <Text>The {0} ignore your lack of faith.</Text>
   </RS>
   <RS ID="1106">
     <Text>You are struck by a thunderbolt!</Text>
@@ -3362,7 +3362,7 @@ You are struck down by an unseen force.</Text>
     <Text>You hear a gong resonating throughout eternity...</Text>
   </RS>
   <RS ID="1120">
-    <Text>Since you are in %s, %s won't help you.</Text>
+    <Text>Since you are in {0}, {1} won't help you.</Text>
   </RS>
   <RS ID="1121">
     <Text>The Eye fits perfectly into the small pit. </Text>
@@ -3377,7 +3377,7 @@ You are struck down by an unseen force.</Text>
     <Text>An incredibly bright light whites out your vision. </Text>
   </RS>
   <RS ID="1125">
-    <Text>When it clears, you see that %s has appeared. </Text>
+    <Text>When it clears, you see that {0} has appeared. </Text>
   </RS>
   <RS ID="1126">
     <Text>You have no applicable skills.</Text>
@@ -3416,22 +3416,22 @@ You are struck down by an unseen force.</Text>
     <Text>You cannot carry anything else.</Text>
   </RS>
   <RS ID="1138">
-    <Text>The %s burrows into your skull.</Text>
+    <Text>The {0} burrows into your skull.</Text>
   </RS>
   <RS ID="1139">
-    <Text>The %s burrows into your brain.</Text>
+    <Text>The {0} burrows into your brain.</Text>
   </RS>
   <RS ID="1140">
     <Text>You hear a powerful spell.</Text>
   </RS>
   <RS ID="1141">
-    <Text>The %s casts a spell.</Text>
+    <Text>The {0} casts a spell.</Text>
   </RS>
   <RS ID="1142">
-    <Text>The %s zaps a wand.</Text>
+    <Text>The {0} zaps a wand.</Text>
   </RS>
   <RS ID="1143">
-    <Text>The %s gesticulates.</Text>
+    <Text>The {0} gesticulates.</Text>
   </RS>
   <RS ID="1144">
     <Text>Your pack quivers.</Text>
@@ -3443,7 +3443,7 @@ You are struck down by an unseen force.</Text>
     <Text>You are being crushed.</Text>
   </RS>
   <RS ID="1147">
-    <Text>The touch of %s withers you!</Text>
+    <Text>The touch of {0} withers you!</Text>
   </RS>
   <RS ID="1148">
     <Text>Cast which spell?</Text>
@@ -3476,7 +3476,7 @@ You are struck down by an unseen force.</Text>
     <Text>Use which skill?</Text>
   </RS>
   <RS ID="1158">
-    <Text>The razor-sharp teeth of the %s rip into your flesh.</Text>
+    <Text>The razor-sharp teeth of the {0} rip into your flesh.</Text>
   </RS>
   <RS ID="1159">
     <Text>Empower which?</Text>
@@ -3500,7 +3500,7 @@ You are struck down by an unseen force.</Text>
     <Text>Ulch...</Text>
   </RS>
   <RS ID="1166">
-    <Text>%s flashes a toothy grin.</Text>
+    <Text>{0} flashes a toothy grin.</Text>
   </RS>
   <RS ID="1167">
     <Text>Your grey color fades.</Text>
@@ -3554,7 +3554,7 @@ You are struck down by an unseen force.</Text>
     <Text>The ground begins to shake violently!</Text>
   </RS>
   <RS ID="1184">
-    <Text>The %s is consumed by lava.</Text>
+    <Text>The {0} is consumed by lava.</Text>
   </RS>
   <RS ID="1185">
     <Text>You cannot carry the rest.</Text>
@@ -3656,7 +3656,7 @@ You are struck down by an unseen force.</Text>
     <Text>consumed in a burst of flame</Text>
   </RS>
   <RS ID="1218">
-    <Text>Your sacrifice is %s!</Text>
+    <Text>Your sacrifice is {0}!</Text>
   </RS>
   <RS ID="1219">
     <Text>consumed in an awesome column of roaring fire</Text>
@@ -3668,7 +3668,7 @@ You are struck down by an unseen force.</Text>
     <Text>dissolved in a cloud of green smoke</Text>
   </RS>
   <RS ID="1222">
-    <Text>You feel that %s is unimpressed by your pathetic offering.</Text>
+    <Text>You feel that {0} is unimpressed by your pathetic offering.</Text>
   </RS>
   <RS ID="1223">
     <Text>You are zorched by godsfire!</Text>
@@ -3713,7 +3713,7 @@ You are struck down by an unseen force.</Text>
     <Text>grey</Text>
   </RS>
   <RS ID="1237">
-    <Text>A %s flame comes from the scroll.</Text>
+    <Text>A {0} flame comes from the scroll.</Text>
   </RS>
   <RS ID="1238">
     <Text>statue of</Text>
@@ -3722,13 +3722,13 @@ You are struck down by an unseen force.</Text>
     <Text>You cannot throw underwater.</Text>
   </RS>
   <RS ID="1240">
-    <Text>%s to %s</Text>
+    <Text>{0} to {1}</Text>
   </RS>
   <RS ID="1241">
     <Text>Journal</Text>
   </RS>
   <RS ID="1242">
-    <Text>%s is caught in the net.</Text>
+    <Text>{0} is caught in the net.</Text>
   </RS>
   <RS ID="1243">
     <Text>This creature can only be hit with magical or blessed weapons.</Text>
@@ -3791,10 +3791,10 @@ You are struck down by an unseen force.</Text>
     <Text>Mithril</Text>
   </RS>
   <RS ID="1263">
-    <Text>You entered into the %s.</Text>
+    <Text>You entered into the {0}.</Text>
   </RS>
   <RS ID="1264">
-    <Text>Goes %s year. Glorious %s goes in search of artifacts of the gods.</Text>
+    <Text>Goes {0} year. Glorious {1} goes in search of artifacts of the gods.</Text>
   </RS>
   <RS ID="1265">
     <Text>Fused in stone.</Text>
@@ -3837,7 +3837,7 @@ You are struck down by an unseen force.</Text>
     <Text>You feel uplifted...</Text>
   </RS>
   <RS ID="1278">
-    <Text>%s rejects your sacrifice!</Text>
+    <Text>{0} rejects your sacrifice!</Text>
   </RS>
   <RS ID="1279">
     <Text>Suffer, infidel!</Text>

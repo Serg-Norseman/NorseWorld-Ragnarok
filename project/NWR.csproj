@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{6E912A66-571D-4847-A914-23B149068801}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NWR</RootNamespace>
+    <AssemblyName>NWR</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+    <StartupObject>NWR.GUI.NWMainWindow</StartupObject>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SDL2-CS">
+      <HintPath>libs\SDL2-CS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Core\Types\EffectTargetRec.cs" />
+    <Compile Include="Core\Types\SymbolRec.cs" />
+    <Compile Include="Core\Attribute.cs" />
+    <Compile Include="Core\AttributeList.cs" />
+    <Compile Include="Core\FileHeader.cs" />
+    <Compile Include="Core\GameEvent.cs" />
+    <Compile Include="Core\IHost.cs" />
+    <Compile Include="Core\IntList.cs" />
+    <Compile Include="Core\Locale.cs" />
+    <Compile Include="Core\NWDateTime.cs" />
+    <Compile Include="Core\RS.cs" />
+    <Compile Include="Core\StaticData.cs" />
+    <Compile Include="Core\Types\AbilityID.cs" />
+    <Compile Include="Core\Types\AbilityRec.cs" />
+    <Compile Include="Core\Types\ActionFlags.cs" />
+    <Compile Include="Core\Types\ActionRec.cs" />
+    <Compile Include="Core\Types\AlignmentEx.cs" />
+    <Compile Include="Core\Types\AnimationKind.cs" />
+    <Compile Include="Core\Types\AttackKind.cs" />
+    <Compile Include="Core\Types\BestWeaponSigns.cs" />
+    <Compile Include="Core\Types\BuildingID.cs" />
+    <Compile Include="Core\Types\BuildingRec.cs" />
+    <Compile Include="Core\Types\CreatureAction.cs" />
+    <Compile Include="Core\Types\CreatureState.cs" />
+    <Compile Include="Core\Types\DamageKind.cs" />
+    <Compile Include="Core\Types\DialogServiceRec.cs" />
+    <Compile Include="Core\Types\EventFlags.cs" />
+    <Compile Include="Core\Types\EventID.cs" />
+    <Compile Include="Core\Types\EventRec.cs" />
+    <Compile Include="Core\Types\GameScreen.cs" />
+    <Compile Include="Core\Types\GameState.cs" />
+    <Compile Include="Core\Types\ItemAttribute.cs" />
+    <Compile Include="Core\Types\ItemKind.cs" />
+    <Compile Include="Core\Types\ItemKindRec.cs" />
+    <Compile Include="Core\Types\ItemPrefixRec.cs" />
+    <Compile Include="Core\Types\ItemsCompareResult.cs" />
+    <Compile Include="Core\Types\ItemState.cs" />
+    <Compile Include="Core\Types\ItemStateRec.cs" />
+    <Compile Include="Core\Types\ItfElement.cs" />
+    <Compile Include="Core\Types\ItfElementRec.cs" />
+    <Compile Include="Core\Types\LogFeatures.cs" />
+    <Compile Include="Core\Types\MagicRec.cs" />
+    <Compile Include="Core\Types\MainControl.cs" />
+    <Compile Include="Core\Types\MainControlRec.cs" />
+    <Compile Include="Core\Types\MaterialKind.cs" />
+    <Compile Include="Core\Types\MaterialKindRec.cs" />
+    <Compile Include="Core\Types\OctantRec.cs" />
+    <Compile Include="Core\Types\PantheonRec.cs" />
+    <Compile Include="Core\Types\PlaceFlags.cs" />
+    <Compile Include="Core\Types\PlaceID.cs" />
+    <Compile Include="Core\Types\PlaceRec.cs" />
+    <Compile Include="Core\Types\QuestItemState.cs" />
+    <Compile Include="Core\Types\RaceID.cs" />
+    <Compile Include="Core\Types\RaceRec.cs" />
+    <Compile Include="Core\Types\Reaction.cs" />
+    <Compile Include="Core\Types\RecipeRec.cs" />
+    <Compile Include="Core\Types\RequestKind.cs" />
+    <Compile Include="Core\Types\RuneRec.cs" />
+    <Compile Include="Core\Types\ScreenRec.cs" />
+    <Compile Include="Core\Types\ScreenStatus.cs" />
+    <Compile Include="Core\Types\Service.cs" />
+    <Compile Include="Core\Types\SexRec.cs" />
+    <Compile Include="Core\Types\SkillID.cs" />
+    <Compile Include="Core\Types\SkillKind.cs" />
+    <Compile Include="Core\Types\SkillRec.cs" />
+    <Compile Include="Core\Types\SymbolID.cs" />
+    <Compile Include="Core\Types\SysCreature.cs" />
+    <Compile Include="Core\Types\SysCreatureRec.cs" />
+    <Compile Include="Core\Types\TabooItemRec.cs" />
+    <Compile Include="Core\Types\TeachableKind.cs" />
+    <Compile Include="Core\Types\TeachableRec.cs" />
+    <Compile Include="Core\Types\TrapRec.cs" />
+    <Compile Include="Core\Types\TrapResult.cs" />
+    <Compile Include="Core\Types\TurnState.cs" />
+    <Compile Include="Core\Types\UserAction.cs" />
+    <Compile Include="Core\Types\UserActionRec.cs" />
+    <Compile Include="Core\Types\VolatileState.cs" />
+    <Compile Include="Core\Types\BodypartAbilities.cs" />
+    <Compile Include="Core\Types\BodypartType.cs" />
+    <Compile Include="Creatures\Brain\AttackRisk.cs" />
+    <Compile Include="Creatures\Brain\BeastBrain.cs" />
+    <Compile Include="Creatures\Brain\EitriBrain.cs" />
+    <Compile Include="Creatures\Brain\EmitterKind.cs" />
+    <Compile Include="Creatures\Brain\GoalKind.cs" />
+    <Compile Include="Creatures\Brain\Goals\AreaGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\AreaGuardGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\DebtTakeGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\EnemyChaseGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\EnemyEvadeGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\EscortGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\FlockGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\ItemAcquireGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\LocatedGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\PlayerFindGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\PointGuardGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\ShopReturnGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\StalkGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\TravelGoal.cs" />
+    <Compile Include="Creatures\Brain\Goals\WareReturnGoal.cs" />
+    <Compile Include="Creatures\Brain\LeaderBrain.cs" />
+    <Compile Include="Creatures\Brain\NWBrainEntity.cs" />
+    <Compile Include="Creatures\Brain\NWGoalEntity.cs" />
+    <Compile Include="Creatures\Brain\RavenBrain.cs" />
+    <Compile Include="Creatures\Brain\SentientBrain.cs" />
+    <Compile Include="Creatures\Brain\TraderBrain.cs" />
+    <Compile Include="Creatures\Brain\VictimBrain.cs" />
+    <Compile Include="Creatures\Brain\WarriorBrain.cs" />
+    <Compile Include="Creatures\CreaturesList.cs" />
+    <Compile Include="Creatures\CustomBody.cs" />
+    <Compile Include="Creatures\GlobalPosition.cs" />
+    <Compile Include="Creatures\HumanBody.cs" />
+    <Compile Include="Creatures\NamesLib.cs" />
+    <Compile Include="Creatures\NWCreature.cs" />
+    <Compile Include="Creatures\Projectile.cs" />
+    <Compile Include="Creatures\ShootObj.cs" />
+    <Compile Include="Creatures\Specials\ArticulateCreature.cs" />
+    <Compile Include="Creatures\Specials\ArticulateSegment.cs" />
+    <Compile Include="Creatures\Specials\IvyCreeper.cs" />
+    <Compile Include="Creatures\Specials\Snake.cs" />
+    <Compile Include="Database\ConversationEntry.cs" />
+    <Compile Include="Database\CreatureEntry.cs" />
+    <Compile Include="Database\CreatureFlags.cs" />
+    <Compile Include="Database\DataEntry.cs" />
+    <Compile Include="Database\DeclinableEntry.cs" />
+    <Compile Include="Database\DialogEntry.cs" />
+    <Compile Include="Database\EventHandlerEntry.cs" />
+    <Compile Include="Database\FieldEntry.cs" />
+    <Compile Include="Database\FieldSource.cs" />
+    <Compile Include="Database\InfoEntry.cs" />
+    <Compile Include="Database\ItemEntry.cs" />
+    <Compile Include="Database\ItemFlags.cs" />
+    <Compile Include="Database\LandEntry.cs" />
+    <Compile Include="Database\LandFlags.cs" />
+    <Compile Include="Database\LayerEntry.cs" />
+    <Compile Include="Database\MaterialEntry.cs" />
+    <Compile Include="Database\NWDatabase.cs" />
+    <Compile Include="Database\TopicEntry.cs" />
+    <Compile Include="Database\TopicsContainer.cs" />
+    <Compile Include="Database\VolatileEntry.cs" />
+    <Compile Include="Effects\Effect.cs" />
+    <Compile Include="Effects\EffectAction.cs" />
+    <Compile Include="Effects\EffectExt.cs" />
+    <Compile Include="Effects\EffectFlags.cs" />
+    <Compile Include="Effects\EffectID.cs" />
+    <Compile Include="Effects\EffectParams.cs" />
+    <Compile Include="Effects\EffectProcRec.cs" />
+    <Compile Include="Effects\EffectRec.cs" />
+    <Compile Include="Effects\EffectsData.cs" />
+    <Compile Include="Effects\EffectsFactory.cs" />
+    <Compile Include="Effects\EffectsList.cs" />
+    <Compile Include="Effects\EffectTarget.cs" />
+    <Compile Include="Effects\FyleischCloud.cs" />
+    <Compile Include="Effects\InvokeMode.cs" />
+    <Compile Include="Effects\Rays\AnnihilationRay.cs" />
+    <Compile Include="Effects\Rays\BlackGemRay.cs" />
+    <Compile Include="Effects\Rays\CancellationRay.cs" />
+    <Compile Include="Effects\Rays\DeanimationRay.cs" />
+    <Compile Include="Effects\Rays\DeathRay.cs" />
+    <Compile Include="Effects\Rays\EffectRay.cs" />
+    <Compile Include="Effects\Rays\FireRay.cs" />
+    <Compile Include="Effects\Rays\FireVisionRay.cs" />
+    <Compile Include="Effects\Rays\FlayingRay.cs" />
+    <Compile Include="Effects\Rays\GrapplingHookRay.cs" />
+    <Compile Include="Effects\Rays\IceRay.cs" />
+    <Compile Include="Effects\Rays\MonsterSkillRay.cs" />
+    <Compile Include="Effects\Rays\PolymorphRay.cs" />
+    <Compile Include="Effects\Rays\StoningRay.cs" />
+    <Compile Include="Effects\Rays\TransmutationRay.cs" />
+    <Compile Include="Effects\Rays\TunnelingRay.cs" />
+    <Compile Include="GUI\BaseControl.cs" />
+    <Compile Include="GUI\BaseDragObject.cs" />
+    <Compile Include="GUI\BaseHintWindow.cs" />
+    <Compile Include="GUI\BaseMainWindow.cs" />
+    <Compile Include="GUI\BaseWindow.cs" />
+    <Compile Include="GUI\ImageList.cs" />
+    <Compile Include="Game\Archive.cs" />
+    <Compile Include="Game\Ghosts\Ghost.cs" />
+    <Compile Include="Game\Ghosts\GhostsList.cs" />
+    <Compile Include="Game\NWGameSpace.cs" />
+    <Compile Include="Game\NWResourceManager.cs" />
+    <Compile Include="Game\Quests\EnemyQuest.cs" />
+    <Compile Include="Game\Quests\ItemQuest.cs" />
+    <Compile Include="Game\Quests\MainQuest.cs" />
+    <Compile Include="Game\Scores\Score.cs" />
+    <Compile Include="Game\Scores\ScoresList.cs" />
+    <Compile Include="Game\SoundEngine.cs" />
+    <Compile Include="Game\Story\Journal.cs" />
+    <Compile Include="Game\Story\JournalItem.cs" />
+    <Compile Include="Game\Story\Quest.cs" />
+    <Compile Include="GUI\AboutWindow.cs" />
+    <Compile Include="GUI\AlchemyWindow.cs" />
+    <Compile Include="GUI\ConsoleWindow.cs" />
+    <Compile Include="GUI\Controls\CheckBox.cs" />
+    <Compile Include="GUI\Controls\CtlBorders.cs" />
+    <Compile Include="GUI\Controls\CtlCommon.cs" />
+    <Compile Include="GUI\Controls\CustomButton.cs" />
+    <Compile Include="GUI\Controls\EditBox.cs" />
+    <Compile Include="GUI\Controls\HintWindow.cs" />
+    <Compile Include="GUI\Controls\Label.cs" />
+    <Compile Include="GUI\Controls\LBColumnTitle.cs" />
+    <Compile Include="GUI\Controls\LBColumnTitles.cs" />
+    <Compile Include="GUI\Controls\LBItem.cs" />
+    <Compile Include="GUI\Controls\LBItemList.cs" />
+    <Compile Include="GUI\Controls\ListBox.cs" />
+    <Compile Include="GUI\Controls\Marquee.cs" />
+    <Compile Include="GUI\Controls\ProgressBar.cs" />
+    <Compile Include="GUI\Controls\ScrollBar.cs" />
+    <Compile Include="GUI\Controls\TabControl.cs" />
+    <Compile Include="GUI\Controls\TabSheet.cs" />
+    <Compile Include="GUI\Controls\TextBox.cs" />
+    <Compile Include="GUI\Controls\TextControl.cs" />
+    <Compile Include="GUI\DialogWindow.cs" />
+    <Compile Include="GUI\DivinationWindow.cs" />
+    <Compile Include="GUI\ExchangeWindow.cs" />
+    <Compile Include="GUI\FilesWindow.cs" />
+    <Compile Include="GUI\HeroWindow.cs" />
+    <Compile Include="GUI\InputWindow.cs" />
+    <Compile Include="GUI\IntroWindow.cs" />
+    <Compile Include="GUI\InventoryObject.cs" />
+    <Compile Include="GUI\InventoryWindow.cs" />
+    <Compile Include="GUI\JournalWindow.cs" />
+    <Compile Include="GUI\KnowledgesWindow.cs" />
+    <Compile Include="GUI\MapWindow.cs" />
+    <Compile Include="GUI\MenuWindow.cs" />
+    <Compile Include="GUI\MessageWindow.cs" />
+    <Compile Include="GUI\NPCWindow.cs" />
+    <Compile Include="GUI\NWButton.cs" />
+    <Compile Include="GUI\NWWindow.cs" />
+    <Compile Include="GUI\OptionsWindow.cs" />
+    <Compile Include="GUI\PartyWindow.cs" />
+    <Compile Include="GUI\ProgressWindow.cs" />
+    <Compile Include="GUI\RecruitWindow.cs" />
+    <Compile Include="GUI\SelfWindow.cs" />
+    <Compile Include="GUI\SkillsWindow.cs" />
+    <Compile Include="GUI\SmithyWindow.cs" />
+    <Compile Include="GUI\StartupWindow.cs" />
+    <Compile Include="GUI\TeachWindow.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemsList.cs" />
+    <Compile Include="Game\GlobalVars.cs" />
+    <Compile Include="GUI\NWMainWindow.cs" />
+    <Compile Include="GUI\Painter.cs" />
+    <Compile Include="Game\TargetObj.cs" />
+    <Compile Include="Game\Craft.cs" />
+    <Compile Include="Game\Debt.cs" />
+    <Compile Include="Game\Faith.cs" />
+    <Compile Include="Game\Hallucination.cs" />
+    <Compile Include="Game\Knowledge.cs" />
+    <Compile Include="Game\Memory.cs" />
+    <Compile Include="Game\MemoryEntry.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\RecallPos.cs" />
+    <Compile Include="Game\SourceForm.cs" />
+    <Compile Include="Universe\BaseRoom.cs" />
+    <Compile Include="Universe\Building.cs" />
+    <Compile Include="Universe\Door.cs" />
+    <Compile Include="Universe\DungeonRoom.cs" />
+    <Compile Include="Universe\Gate.cs" />
+    <Compile Include="Universe\MapEffect.cs" />
+    <Compile Include="Universe\MapObject.cs" />
+    <Compile Include="Universe\NWField.cs" />
+    <Compile Include="Universe\NWLayer.cs" />
+    <Compile Include="Universe\NWTile.cs" />
+    <Compile Include="Universe\Region.cs" />
+    <Compile Include="Universe\UniverseBuilder.cs" />
+    <Compile Include="Universe\Village.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="libs\fmodex.dll">
+      <Link>fmodex.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="libs\SDL2.dll">
+      <Link>SDL2.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="libs\SDL2_image.dll">
+      <Link>SDL2_image.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BSLib\BSLib\BSLib.csproj">
+      <Project>{f657a1b7-c834-420a-b302-88460e3f6283}</Project>
+      <Name>BSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZRLib\project\ZRLib.csproj">
+      <Project>{da3cb263-9751-421b-8ae5-2915d3e26096}</Project>
+      <Name>ZRLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
