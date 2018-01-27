@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -65,7 +65,7 @@ namespace NWR.GUI
                     int tx = itemRect.Left + 2 + box.IconWidth - 1 - box.Font.GetTextWidth("+");
                     int ty = itemRect.Top + (box.ItemHeight - box.IconHeight) / 2;
 
-                    screen.SetTextColor(BaseScreen.clLime, true);
+                    screen.SetTextColor(Colors.Lime, true);
                     screen.DrawText(tx, ty, "+", 0);
                 }
             }
@@ -681,7 +681,7 @@ namespace NWR.GUI
                     debt = player.GetDebt(Collocutor.Name);
                 }
 
-                screen.SetTextColor(BaseScreen.clGold, true);
+                screen.SetTextColor(Colors.Gold, true);
 
                 ExtRect pakRt = fPackList.Bounds; // 2
                 ExtRect eqpRt = fEquipList.Bounds; // 0

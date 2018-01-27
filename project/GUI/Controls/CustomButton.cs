@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -34,9 +34,9 @@ namespace NWR.GUI.Controls
         private static void DrawButton(BaseScreen screen, ExtRect rect, string text, bool enabled, bool down, bool border)
         {
             if (border) {
-                screen.DrawRectangle(rect, BaseScreen.clWhite, BaseScreen.clBlack);
-                /*int c = BaseScreen.clGray;
-                int c2 = BaseScreen.clBlack;
+                screen.DrawRectangle(rect, Colors.White, Colors.Black);
+                /*int c = Colors.Gray;
+                int c2 = Colors.Black;
                 if (aDown) {
                     screen.drawLine(aRect.Left + 1, aRect.Top + 1, aRect.Left + 1, aRect.Bottom, c2);
                     screen.drawLine(aRect.Left + 1, aRect.Top + 1, aRect.Right, aRect.Top + 1, c2);
@@ -79,7 +79,7 @@ namespace NWR.GUI.Controls
             ExtRect rt = ClientRect;
 
             if (fImage == null) {
-                screen.SetTextColor(BaseScreen.clBlack, true);
+                screen.SetTextColor(Colors.Black, true);
                 DrawButton(screen, rt, Caption, Enabled, Down, true);
             } else {
                 if (Enabled) {
@@ -88,10 +88,10 @@ namespace NWR.GUI.Controls
                     } else {
                         screen.DrawImage(0, 0, 0, 0, Width, Height, fImage, 255);
                     }
-                    screen.SetTextColor(BaseScreen.clGold, true);
+                    screen.SetTextColor(Colors.Gold, true);
                 } else {
                     screen.DrawImage(0, 0, 0, Height << 1, Width, Height, fImage, 255);
-                    screen.SetTextColor(BaseScreen.clSilver, true);
+                    screen.SetTextColor(Colors.Silver, true);
                 }
 
                 DrawButton(screen, rt, Caption, Enabled, Down, false);
@@ -137,7 +137,7 @@ namespace NWR.GUI.Controls
                 }
     
                 if (value.CompareTo("") != 0) {
-                    fGlyph = NWResourceManager.LoadImage(MainWindow.Screen, value, BaseScreen.clNone);
+                    fGlyph = NWResourceManager.LoadImage(MainWindow.Screen, value, Colors.None);
                 }
             }
         }
@@ -151,7 +151,7 @@ namespace NWR.GUI.Controls
                 }
     
                 if (value.CompareTo("") != 0) {
-                    fImage = NWResourceManager.LoadImage(MainWindow.Screen, value, BaseScreen.clNone);
+                    fImage = NWResourceManager.LoadImage(MainWindow.Screen, value, Colors.None);
                 }
             }
         }

@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -207,8 +207,8 @@ namespace NWR.GUI
         {
             base.DoPaintEvent(screen);
 
-            CtlCommon.SmFont.Color = BaseScreen.clGold;
-            CtlCommon.BgFont.Color = BaseScreen.clGold;
+            CtlCommon.SmFont.Color = Colors.Gold;
+            CtlCommon.BgFont.Color = Colors.Gold;
 
             screen.Font = CtlCommon.BgFont;
 
@@ -229,10 +229,10 @@ namespace NWR.GUI
                 GlobalVars.nwrWin.Resources.DrawImage(screen, rd.Left, rd.Top, StaticData.dbItfElements[(int)ItfElement.id_FileDelete].ImageIndex, 255);
                 ExtRect rn = GetFileOpRect(i, MI_FILENUM);
                 GlobalVars.nwrWin.Resources.DrawImage(screen, rn.Left, rn.Top, StaticData.dbItfElements[(int)ItfElement.id_FileNum].ImageIndex, 255);
-                int col = BaseScreen.clNavy;
+                int col = Colors.Navy;
                 screen.SetTextColor(col, true);
                 screen.DrawText(rd.Left + 34, rd.Top + 2, Convert.ToString(i), 0);
-                screen.SetTextColor(BaseScreen.clGold, true);
+                screen.SetTextColor(Colors.Gold, true);
                 screen.DrawText(rd.Left + 54, rd.Top + 2, fFiles[i].PlayerName, 0);
                 screen.DrawText(rd.Left + 200, rd.Top + 2, fFiles[i].LandName, 0);
 

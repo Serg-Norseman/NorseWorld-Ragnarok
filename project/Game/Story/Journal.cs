@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -99,7 +99,7 @@ namespace NWR.Game.Story
 
         public void StoreTime(NWDateTime time)
         {
-            StoreMessage(JournalItem.SIT_DAY, "    <" + time.ToString(false, false) + ">", BaseScreen.clSkyBlue, time);
+            StoreMessage(JournalItem.SIT_DAY, "    <" + time.ToString(false, false) + ">", Colors.SkyBlue, time);
         }
 
         public void Load(string fileName)
@@ -159,7 +159,7 @@ namespace NWR.Game.Story
             }
 
             lines.Add("");
-            lines.AddObject("    " + BaseLocale.GetStr(RS.rs_Killed), new JournalItem(JournalItem.SIT_KILLED, "", BaseScreen.clRed, JournalItem.DEFAULT_TURN));
+            lines.AddObject("    " + BaseLocale.GetStr(RS.rs_Killed), new JournalItem(JournalItem.SIT_KILLED, "", Colors.Red, JournalItem.DEFAULT_TURN));
 
             for (int i = 0; i < num; i++) {
                 Core.Attribute attr = fEnemies.GetItem(i);

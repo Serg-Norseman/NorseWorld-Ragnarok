@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -540,32 +540,32 @@ namespace NWR.Core
             dbSysCreatures[6] = SysCreatureRec.Create(SysCreature.sc_Merchant, RS.rs_Merchant, "Merchant", ExtRect.Create(0, 0, 0, 0));
 
             dbItemKinds = new ItemKindRec[26];
-            dbItemKinds[0] = ItemKindRec.Create(RS.rs_IK_Armor, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[1] = ItemKindRec.Create(RS.rs_IK_DeadBody, 10, BaseScreen.clMaroon, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[2] = ItemKindRec.Create(RS.rs_IK_Food, 8, BaseScreen.clYellow, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[3] = ItemKindRec.Create(RS.rs_IK_Potion, 4, BaseScreen.clYellow, true, 13, "Potion", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[4] = ItemKindRec.Create(RS.rs_IK_Ring, 5, BaseScreen.clGold, true, 26, "Ring", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[5] = ItemKindRec.Create(RS.rs_IK_Tool, 9, BaseScreen.clBlue, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emHold);
-            dbItemKinds[6] = ItemKindRec.Create(RS.rs_IK_Wand, 7, BaseScreen.clLime, true, 21, "Wand", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[7] = ItemKindRec.Create(RS.rs_IK_BluntWeapon, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_BluntWeapon, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
-            dbItemKinds[8] = ItemKindRec.Create(RS.rs_IK_Scroll, 6, BaseScreen.clAqua, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[9] = ItemKindRec.Create(RS.rs_IK_Coin, 11, BaseScreen.clGold, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[10] = ItemKindRec.Create(RS.rs_IK_Amulet, 1, BaseScreen.clGold, true, 25, "Amulet", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[11] = ItemKindRec.Create(RS.rs_IK_ShortBlade, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_ShortBlades, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
-            dbItemKinds[12] = ItemKindRec.Create(RS.rs_IK_LongBlade, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_LongBlade, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
-            dbItemKinds[13] = ItemKindRec.Create(RS.rs_IK_Shield, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_Parry, ItemFlags.Create(), EquipMode.emHold);
-            dbItemKinds[14] = ItemKindRec.Create(RS.rs_IK_Helmet, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[15] = ItemKindRec.Create(RS.rs_IK_Clothing, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[16] = ItemKindRec.Create(RS.rs_IK_Spear, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_Spear, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
-            dbItemKinds[17] = ItemKindRec.Create(RS.rs_IK_Axe, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_Axe, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
-            dbItemKinds[18] = ItemKindRec.Create(RS.rs_IK_Bow, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_LongBow, ItemFlags.Create(ItemFlags.if_ShootWeapon, ItemFlags.if_TwoHanded), EquipMode.emHold);
-            dbItemKinds[19] = ItemKindRec.Create(RS.rs_IK_CrossBow, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_CrossBow, ItemFlags.Create(ItemFlags.if_ShootWeapon, ItemFlags.if_TwoHanded), EquipMode.emHold);
-            dbItemKinds[20] = ItemKindRec.Create(RS.rs_IK_HeavyArmor, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_HeavyArmor, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[21] = ItemKindRec.Create(RS.rs_IK_MediumArmor, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_MediumArmor, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[22] = ItemKindRec.Create(RS.rs_IK_LightArmor, 2, BaseScreen.clTeal, false, 0, "", AbilityID.Ab_LightArmor, ItemFlags.Create(), EquipMode.emWear);
-            dbItemKinds[23] = ItemKindRec.Create(RS.rs_IK_MusicalTool, 9, BaseScreen.clBlue, false, 0, "", AbilityID.Ab_MusicalAcuity, ItemFlags.Create(), EquipMode.emNone);
-            dbItemKinds[24] = ItemKindRec.Create(RS.rs_IK_Projectile, 3, BaseScreen.clGreen, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(ItemFlags.if_Projectile), EquipMode.emWear);
-            dbItemKinds[25] = ItemKindRec.Create(RS.rs_IK_Misc, 9, BaseScreen.clBlue, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[0] = ItemKindRec.Create(RS.rs_IK_Armor, 2, Colors.Teal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[1] = ItemKindRec.Create(RS.rs_IK_DeadBody, 10, Colors.Maroon, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[2] = ItemKindRec.Create(RS.rs_IK_Food, 8, Colors.Yellow, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[3] = ItemKindRec.Create(RS.rs_IK_Potion, 4, Colors.Yellow, true, 13, "Potion", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[4] = ItemKindRec.Create(RS.rs_IK_Ring, 5, Colors.Gold, true, 26, "Ring", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[5] = ItemKindRec.Create(RS.rs_IK_Tool, 9, Colors.Blue, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emHold);
+            dbItemKinds[6] = ItemKindRec.Create(RS.rs_IK_Wand, 7, Colors.Lime, true, 21, "Wand", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[7] = ItemKindRec.Create(RS.rs_IK_BluntWeapon, 3, Colors.Green, false, 0, "", AbilityID.Ab_BluntWeapon, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
+            dbItemKinds[8] = ItemKindRec.Create(RS.rs_IK_Scroll, 6, Colors.Aqua, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[9] = ItemKindRec.Create(RS.rs_IK_Coin, 11, Colors.Gold, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[10] = ItemKindRec.Create(RS.rs_IK_Amulet, 1, Colors.Gold, true, 25, "Amulet", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[11] = ItemKindRec.Create(RS.rs_IK_ShortBlade, 3, Colors.Green, false, 0, "", AbilityID.Ab_ShortBlades, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
+            dbItemKinds[12] = ItemKindRec.Create(RS.rs_IK_LongBlade, 3, Colors.Green, false, 0, "", AbilityID.Ab_LongBlade, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
+            dbItemKinds[13] = ItemKindRec.Create(RS.rs_IK_Shield, 2, Colors.Teal, false, 0, "", AbilityID.Ab_Parry, ItemFlags.Create(), EquipMode.emHold);
+            dbItemKinds[14] = ItemKindRec.Create(RS.rs_IK_Helmet, 2, Colors.Teal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[15] = ItemKindRec.Create(RS.rs_IK_Clothing, 2, Colors.Teal, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[16] = ItemKindRec.Create(RS.rs_IK_Spear, 3, Colors.Green, false, 0, "", AbilityID.Ab_Spear, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
+            dbItemKinds[17] = ItemKindRec.Create(RS.rs_IK_Axe, 3, Colors.Green, false, 0, "", AbilityID.Ab_Axe, ItemFlags.Create(ItemFlags.if_MeleeWeapon), EquipMode.emHold);
+            dbItemKinds[18] = ItemKindRec.Create(RS.rs_IK_Bow, 3, Colors.Green, false, 0, "", AbilityID.Ab_LongBow, ItemFlags.Create(ItemFlags.if_ShootWeapon, ItemFlags.if_TwoHanded), EquipMode.emHold);
+            dbItemKinds[19] = ItemKindRec.Create(RS.rs_IK_CrossBow, 3, Colors.Green, false, 0, "", AbilityID.Ab_CrossBow, ItemFlags.Create(ItemFlags.if_ShootWeapon, ItemFlags.if_TwoHanded), EquipMode.emHold);
+            dbItemKinds[20] = ItemKindRec.Create(RS.rs_IK_HeavyArmor, 2, Colors.Teal, false, 0, "", AbilityID.Ab_HeavyArmor, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[21] = ItemKindRec.Create(RS.rs_IK_MediumArmor, 2, Colors.Teal, false, 0, "", AbilityID.Ab_MediumArmor, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[22] = ItemKindRec.Create(RS.rs_IK_LightArmor, 2, Colors.Teal, false, 0, "", AbilityID.Ab_LightArmor, ItemFlags.Create(), EquipMode.emWear);
+            dbItemKinds[23] = ItemKindRec.Create(RS.rs_IK_MusicalTool, 9, Colors.Blue, false, 0, "", AbilityID.Ab_MusicalAcuity, ItemFlags.Create(), EquipMode.emNone);
+            dbItemKinds[24] = ItemKindRec.Create(RS.rs_IK_Projectile, 3, Colors.Green, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(ItemFlags.if_Projectile), EquipMode.emWear);
+            dbItemKinds[25] = ItemKindRec.Create(RS.rs_IK_Misc, 9, Colors.Blue, false, 0, "", AbilityID.Ab_None, ItemFlags.Create(), EquipMode.emNone);
 
             dbItemStates = new ItemStateRec[3];
             dbItemStates[0] = ItemStateRec.Create("", RS.rs_Reserved, 1f, 0);
@@ -573,21 +573,21 @@ namespace NWR.Core
             dbItemStates[2] = ItemStateRec.Create(" (п)", RS.rs_Cursed, 0.4f, -1);
 
             dbItfElements = new ItfElementRec[15];
-            dbItfElements[0] = ItfElementRec.Create("Up.tga", BaseScreen.clWhite);
-            dbItfElements[1] = ItfElementRec.Create("Down.tga", BaseScreen.clWhite);
-            dbItfElements[2] = ItfElementRec.Create("Left.tga", BaseScreen.clWhite);
-            dbItfElements[3] = ItfElementRec.Create("Right.tga", BaseScreen.clWhite);
-            dbItfElements[4] = ItfElementRec.Create("Cursor.tga", BaseScreen.clWhite);
-            dbItfElements[5] = ItfElementRec.Create("Cursor_N.tga", BaseScreen.clWhite);
-            dbItfElements[6] = ItfElementRec.Create("Cursor_S.tga", BaseScreen.clWhite);
-            dbItfElements[7] = ItfElementRec.Create("Cursor_W.tga", BaseScreen.clWhite);
-            dbItfElements[8] = ItfElementRec.Create("Cursor_E.tga", BaseScreen.clWhite);
-            dbItfElements[9] = ItfElementRec.Create("Cursor_NW.tga", BaseScreen.clWhite);
-            dbItfElements[10] = ItfElementRec.Create("Cursor_NE.tga", BaseScreen.clWhite);
-            dbItfElements[11] = ItfElementRec.Create("Cursor_SW.tga", BaseScreen.clWhite);
-            dbItfElements[12] = ItfElementRec.Create("Cursor_SE.tga", BaseScreen.clWhite);
-            dbItfElements[13] = ItfElementRec.Create("FileDelete.tga", BaseScreen.clNone);
-            dbItfElements[14] = ItfElementRec.Create("FileNum.tga", BaseScreen.clNone);
+            dbItfElements[0] = ItfElementRec.Create("Up.tga", Colors.White);
+            dbItfElements[1] = ItfElementRec.Create("Down.tga", Colors.White);
+            dbItfElements[2] = ItfElementRec.Create("Left.tga", Colors.White);
+            dbItfElements[3] = ItfElementRec.Create("Right.tga", Colors.White);
+            dbItfElements[4] = ItfElementRec.Create("Cursor.tga", Colors.White);
+            dbItfElements[5] = ItfElementRec.Create("Cursor_N.tga", Colors.White);
+            dbItfElements[6] = ItfElementRec.Create("Cursor_S.tga", Colors.White);
+            dbItfElements[7] = ItfElementRec.Create("Cursor_W.tga", Colors.White);
+            dbItfElements[8] = ItfElementRec.Create("Cursor_E.tga", Colors.White);
+            dbItfElements[9] = ItfElementRec.Create("Cursor_NW.tga", Colors.White);
+            dbItfElements[10] = ItfElementRec.Create("Cursor_NE.tga", Colors.White);
+            dbItfElements[11] = ItfElementRec.Create("Cursor_SW.tga", Colors.White);
+            dbItfElements[12] = ItfElementRec.Create("Cursor_SE.tga", Colors.White);
+            dbItfElements[13] = ItfElementRec.Create("FileDelete.tga", Colors.None);
+            dbItfElements[14] = ItfElementRec.Create("FileNum.tga", Colors.None);
 
             dbMainControls = new MainControlRec[10];
             dbMainControls[0] = MainControlRec.Create(RS.rs_Reserved, "", EventID.event_Nothing, ExtRect.Create(0, 0, 0, 0));
@@ -701,90 +701,90 @@ namespace NWR.Core
             dbSkills[71] = SkillRec.Create(RS.rs_RunicDivination, SkillKind.ssPlain, "Divination", EffectID.eid_RunicDivination);
 
             dbSymbols = new SymbolRec[84];
-            dbSymbols[0] = SymbolRec.Create("_None", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[1] = SymbolRec.Create("_Cursor", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[2] = SymbolRec.Create("_Grass", 0, '.', BaseScreen.clGreen);
-            dbSymbols[3] = SymbolRec.Create("_Tree", 0, 'T', BaseScreen.clLime);
-            dbSymbols[4] = SymbolRec.Create("_Mountain", 0, '^', BaseScreen.clOlive);
-            dbSymbols[5] = SymbolRec.Create("_Player", 0, '@', BaseScreen.clWhite);
-            dbSymbols[6] = SymbolRec.Create("_Armor", 0, '[', BaseScreen.clWhite);
-            dbSymbols[7] = SymbolRec.Create("_DeadBody", 0, '+', BaseScreen.clWhite);
-            dbSymbols[8] = SymbolRec.Create("_Food", 0, '%', BaseScreen.clWhite);
-            dbSymbols[9] = SymbolRec.Create("_Potion", 0, '%', BaseScreen.clWhite);
-            dbSymbols[10] = SymbolRec.Create("_Ring", 0, '*', BaseScreen.clYellow);
-            dbSymbols[11] = SymbolRec.Create("_Tool", 0, '=', BaseScreen.clWhite);
-            dbSymbols[12] = SymbolRec.Create("_Trap", 0, ',', BaseScreen.clMaroon);
-            dbSymbols[13] = SymbolRec.Create("_Wand", 0, '|', BaseScreen.clWhite);
-            dbSymbols[14] = SymbolRec.Create("_Weapon", 0, '(', BaseScreen.clWhite);
-            dbSymbols[15] = SymbolRec.Create("_Scroll", 0, '?', BaseScreen.clWhite);
-            dbSymbols[16] = SymbolRec.Create("_Coin", 0, '$', BaseScreen.clYellow);
-            dbSymbols[17] = SymbolRec.Create("_Floor", 0, '.', BaseScreen.clGray);
-            dbSymbols[18] = SymbolRec.Create("_WallN", 0, '#', BaseScreen.clGray);
-            dbSymbols[19] = SymbolRec.Create("_WallS", 0, '#', BaseScreen.clGray);
-            dbSymbols[20] = SymbolRec.Create("_WallW", 0, '#', BaseScreen.clGray);
-            dbSymbols[21] = SymbolRec.Create("_WallE", 0, '#', BaseScreen.clGray);
-            dbSymbols[22] = SymbolRec.Create("_WallNW", 0, '#', BaseScreen.clGray);
-            dbSymbols[23] = SymbolRec.Create("_WallNE", 0, '#', BaseScreen.clGray);
-            dbSymbols[24] = SymbolRec.Create("_WallSW", 0, '#', BaseScreen.clGray);
-            dbSymbols[25] = SymbolRec.Create("_WallSE", 0, '#', BaseScreen.clGray);
-            dbSymbols[26] = SymbolRec.Create("_Enemy", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[27] = SymbolRec.Create("_Left", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[28] = SymbolRec.Create("_Up", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[29] = SymbolRec.Create("_Right", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[30] = SymbolRec.Create("_Down", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[31] = SymbolRec.Create("_Vortex", 0, '0', BaseScreen.clWhite);
-            dbSymbols[32] = SymbolRec.Create("_Lava", 0, '~', BaseScreen.clMaroon);
-            dbSymbols[33] = SymbolRec.Create("_Mud", 0, '~', BaseScreen.clPurple);
-            dbSymbols[34] = SymbolRec.Create("_Water", 0, '~', BaseScreen.clBlue);
-            dbSymbols[35] = SymbolRec.Create("_Ally", 0, 'x', BaseScreen.clYellow);
-            dbSymbols[36] = SymbolRec.Create("_StairsDown", 0, '>', BaseScreen.clGray);
-            dbSymbols[37] = SymbolRec.Create("_StairsUp", 0, '<', BaseScreen.clGray);
-            dbSymbols[38] = SymbolRec.Create("_Quicksand", 0, '~', BaseScreen.clSilver);
-            dbSymbols[39] = SymbolRec.Create("_Space", 0, '.', BaseScreen.clNavy);
-            dbSymbols[40] = SymbolRec.Create("_Amulet", 0, '*', BaseScreen.clYellow);
-            dbSymbols[41] = SymbolRec.Create("_cr_a", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[42] = SymbolRec.Create("_cr_b", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[43] = SymbolRec.Create("_cr_ba", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[44] = SymbolRec.Create("_cr_g", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[45] = SymbolRec.Create("_cr_gk", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[46] = SymbolRec.Create("_cr_k", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[47] = SymbolRec.Create("_cr_l", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[48] = SymbolRec.Create("_cr_r", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[49] = SymbolRec.Create("_cr_w", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[50] = SymbolRec.Create("_cr_wl", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[51] = SymbolRec.Create("_cr_y", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[52] = SymbolRec.Create("_cr_yr", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[53] = SymbolRec.Create("_cr_disk", 0, 'x', BaseScreen.clWhite);
-            dbSymbols[54] = SymbolRec.Create("_Fog", 0, '°', BaseScreen.clAqua);
-            dbSymbols[55] = SymbolRec.Create("_Hole", 0, 'o', BaseScreen.clWhite);
-            dbSymbols[56] = SymbolRec.Create("_Bifrost", 150, 'ъ', BaseScreen.clWhite);
-            dbSymbols[57] = SymbolRec.Create("_DeadTree", 0, 'T', BaseScreen.clSilver);
-            dbSymbols[58] = SymbolRec.Create("_Well", 0, 'o', BaseScreen.clSilver);
-            dbSymbols[59] = SymbolRec.Create("_Stalagmite", 0, '!', BaseScreen.clSilver);
-            dbSymbols[60] = SymbolRec.Create("_CaveFloor", 0, '.', BaseScreen.clOlive);
-            dbSymbols[61] = SymbolRec.Create("_CaveWall", 0, '#', BaseScreen.clOlive);
-            dbSymbols[62] = SymbolRec.Create("_SmallPit", 0, 'o', BaseScreen.clSilver);
-            dbSymbols[63] = SymbolRec.Create("_Rubble", 0, '~', BaseScreen.clGray);
-            dbSymbols[64] = SymbolRec.Create("_Liquid", 0, '~', BaseScreen.clAqua);
-            dbSymbols[65] = SymbolRec.Create("_Vulcan", 0, '^', BaseScreen.clMaroon);
-            dbSymbols[66] = SymbolRec.Create("_Ground", 0, '.', BaseScreen.clGray);
-            dbSymbols[67] = SymbolRec.Create("_Floor", 0, 'ъ', BaseScreen.clGray);
-            dbSymbols[68] = SymbolRec.Create("_Floor", 0, 'ъ', BaseScreen.clGray);
-            dbSymbols[69] = SymbolRec.Create("_Floor", 0, 'ъ', BaseScreen.clGray);
-            dbSymbols[70] = SymbolRec.Create("_Floor", 0, 'ъ', BaseScreen.clGray);
-            dbSymbols[71] = SymbolRec.Create("_WallN", 0, 'x', BaseScreen.clGray);
-            dbSymbols[72] = SymbolRec.Create("_WallS", 0, 'x', BaseScreen.clGray);
-            dbSymbols[73] = SymbolRec.Create("_WallW", 0, 'x', BaseScreen.clGray);
-            dbSymbols[74] = SymbolRec.Create("_WallE", 0, 'x', BaseScreen.clGray);
-            dbSymbols[75] = SymbolRec.Create("_AllyHuman", 0, '@', BaseScreen.clLime);
-            dbSymbols[76] = SymbolRec.Create("_EnemyHuman", 0, '@', BaseScreen.clRed);
-            dbSymbols[77] = SymbolRec.Create("_Ivy", 14, 'E', BaseScreen.clRed);
-            dbSymbols[78] = SymbolRec.Create("_Snake", 24, 's', BaseScreen.clRed);
-            dbSymbols[79] = SymbolRec.Create("_VortexStrange", 0, '0', BaseScreen.clWhite);
-            dbSymbols[80] = SymbolRec.Create("_StoningHuman", 0, '.', BaseScreen.clWhite);
-            dbSymbols[81] = SymbolRec.Create("_Ting", 64, '.', BaseScreen.clWhite);
-            dbSymbols[82] = SymbolRec.Create("_Road", 15, '.', BaseScreen.clWhite);
-            dbSymbols[83] = SymbolRec.Create("_IronTree", 0, '.', BaseScreen.clWhite);
+            dbSymbols[0] = SymbolRec.Create("_None", 0, 'x', Colors.White);
+            dbSymbols[1] = SymbolRec.Create("_Cursor", 0, 'x', Colors.White);
+            dbSymbols[2] = SymbolRec.Create("_Grass", 0, '.', Colors.Green);
+            dbSymbols[3] = SymbolRec.Create("_Tree", 0, 'T', Colors.Lime);
+            dbSymbols[4] = SymbolRec.Create("_Mountain", 0, '^', Colors.Olive);
+            dbSymbols[5] = SymbolRec.Create("_Player", 0, '@', Colors.White);
+            dbSymbols[6] = SymbolRec.Create("_Armor", 0, '[', Colors.White);
+            dbSymbols[7] = SymbolRec.Create("_DeadBody", 0, '+', Colors.White);
+            dbSymbols[8] = SymbolRec.Create("_Food", 0, '%', Colors.White);
+            dbSymbols[9] = SymbolRec.Create("_Potion", 0, '%', Colors.White);
+            dbSymbols[10] = SymbolRec.Create("_Ring", 0, '*', Colors.Yellow);
+            dbSymbols[11] = SymbolRec.Create("_Tool", 0, '=', Colors.White);
+            dbSymbols[12] = SymbolRec.Create("_Trap", 0, ',', Colors.Maroon);
+            dbSymbols[13] = SymbolRec.Create("_Wand", 0, '|', Colors.White);
+            dbSymbols[14] = SymbolRec.Create("_Weapon", 0, '(', Colors.White);
+            dbSymbols[15] = SymbolRec.Create("_Scroll", 0, '?', Colors.White);
+            dbSymbols[16] = SymbolRec.Create("_Coin", 0, '$', Colors.Yellow);
+            dbSymbols[17] = SymbolRec.Create("_Floor", 0, '.', Colors.Gray);
+            dbSymbols[18] = SymbolRec.Create("_WallN", 0, '#', Colors.Gray);
+            dbSymbols[19] = SymbolRec.Create("_WallS", 0, '#', Colors.Gray);
+            dbSymbols[20] = SymbolRec.Create("_WallW", 0, '#', Colors.Gray);
+            dbSymbols[21] = SymbolRec.Create("_WallE", 0, '#', Colors.Gray);
+            dbSymbols[22] = SymbolRec.Create("_WallNW", 0, '#', Colors.Gray);
+            dbSymbols[23] = SymbolRec.Create("_WallNE", 0, '#', Colors.Gray);
+            dbSymbols[24] = SymbolRec.Create("_WallSW", 0, '#', Colors.Gray);
+            dbSymbols[25] = SymbolRec.Create("_WallSE", 0, '#', Colors.Gray);
+            dbSymbols[26] = SymbolRec.Create("_Enemy", 0, 'x', Colors.White);
+            dbSymbols[27] = SymbolRec.Create("_Left", 0, 'x', Colors.White);
+            dbSymbols[28] = SymbolRec.Create("_Up", 0, 'x', Colors.White);
+            dbSymbols[29] = SymbolRec.Create("_Right", 0, 'x', Colors.White);
+            dbSymbols[30] = SymbolRec.Create("_Down", 0, 'x', Colors.White);
+            dbSymbols[31] = SymbolRec.Create("_Vortex", 0, '0', Colors.White);
+            dbSymbols[32] = SymbolRec.Create("_Lava", 0, '~', Colors.Maroon);
+            dbSymbols[33] = SymbolRec.Create("_Mud", 0, '~', Colors.Purple);
+            dbSymbols[34] = SymbolRec.Create("_Water", 0, '~', Colors.Blue);
+            dbSymbols[35] = SymbolRec.Create("_Ally", 0, 'x', Colors.Yellow);
+            dbSymbols[36] = SymbolRec.Create("_StairsDown", 0, '>', Colors.Gray);
+            dbSymbols[37] = SymbolRec.Create("_StairsUp", 0, '<', Colors.Gray);
+            dbSymbols[38] = SymbolRec.Create("_Quicksand", 0, '~', Colors.Silver);
+            dbSymbols[39] = SymbolRec.Create("_Space", 0, '.', Colors.Navy);
+            dbSymbols[40] = SymbolRec.Create("_Amulet", 0, '*', Colors.Yellow);
+            dbSymbols[41] = SymbolRec.Create("_cr_a", 0, 'x', Colors.White);
+            dbSymbols[42] = SymbolRec.Create("_cr_b", 0, 'x', Colors.White);
+            dbSymbols[43] = SymbolRec.Create("_cr_ba", 0, 'x', Colors.White);
+            dbSymbols[44] = SymbolRec.Create("_cr_g", 0, 'x', Colors.White);
+            dbSymbols[45] = SymbolRec.Create("_cr_gk", 0, 'x', Colors.White);
+            dbSymbols[46] = SymbolRec.Create("_cr_k", 0, 'x', Colors.White);
+            dbSymbols[47] = SymbolRec.Create("_cr_l", 0, 'x', Colors.White);
+            dbSymbols[48] = SymbolRec.Create("_cr_r", 0, 'x', Colors.White);
+            dbSymbols[49] = SymbolRec.Create("_cr_w", 0, 'x', Colors.White);
+            dbSymbols[50] = SymbolRec.Create("_cr_wl", 0, 'x', Colors.White);
+            dbSymbols[51] = SymbolRec.Create("_cr_y", 0, 'x', Colors.White);
+            dbSymbols[52] = SymbolRec.Create("_cr_yr", 0, 'x', Colors.White);
+            dbSymbols[53] = SymbolRec.Create("_cr_disk", 0, 'x', Colors.White);
+            dbSymbols[54] = SymbolRec.Create("_Fog", 0, '°', Colors.Aqua);
+            dbSymbols[55] = SymbolRec.Create("_Hole", 0, 'o', Colors.White);
+            dbSymbols[56] = SymbolRec.Create("_Bifrost", 150, 'ъ', Colors.White);
+            dbSymbols[57] = SymbolRec.Create("_DeadTree", 0, 'T', Colors.Silver);
+            dbSymbols[58] = SymbolRec.Create("_Well", 0, 'o', Colors.Silver);
+            dbSymbols[59] = SymbolRec.Create("_Stalagmite", 0, '!', Colors.Silver);
+            dbSymbols[60] = SymbolRec.Create("_CaveFloor", 0, '.', Colors.Olive);
+            dbSymbols[61] = SymbolRec.Create("_CaveWall", 0, '#', Colors.Olive);
+            dbSymbols[62] = SymbolRec.Create("_SmallPit", 0, 'o', Colors.Silver);
+            dbSymbols[63] = SymbolRec.Create("_Rubble", 0, '~', Colors.Gray);
+            dbSymbols[64] = SymbolRec.Create("_Liquid", 0, '~', Colors.Aqua);
+            dbSymbols[65] = SymbolRec.Create("_Vulcan", 0, '^', Colors.Maroon);
+            dbSymbols[66] = SymbolRec.Create("_Ground", 0, '.', Colors.Gray);
+            dbSymbols[67] = SymbolRec.Create("_Floor", 0, 'ъ', Colors.Gray);
+            dbSymbols[68] = SymbolRec.Create("_Floor", 0, 'ъ', Colors.Gray);
+            dbSymbols[69] = SymbolRec.Create("_Floor", 0, 'ъ', Colors.Gray);
+            dbSymbols[70] = SymbolRec.Create("_Floor", 0, 'ъ', Colors.Gray);
+            dbSymbols[71] = SymbolRec.Create("_WallN", 0, 'x', Colors.Gray);
+            dbSymbols[72] = SymbolRec.Create("_WallS", 0, 'x', Colors.Gray);
+            dbSymbols[73] = SymbolRec.Create("_WallW", 0, 'x', Colors.Gray);
+            dbSymbols[74] = SymbolRec.Create("_WallE", 0, 'x', Colors.Gray);
+            dbSymbols[75] = SymbolRec.Create("_AllyHuman", 0, '@', Colors.Lime);
+            dbSymbols[76] = SymbolRec.Create("_EnemyHuman", 0, '@', Colors.Red);
+            dbSymbols[77] = SymbolRec.Create("_Ivy", 14, 'E', Colors.Red);
+            dbSymbols[78] = SymbolRec.Create("_Snake", 24, 's', Colors.Red);
+            dbSymbols[79] = SymbolRec.Create("_VortexStrange", 0, '0', Colors.White);
+            dbSymbols[80] = SymbolRec.Create("_StoningHuman", 0, '.', Colors.White);
+            dbSymbols[81] = SymbolRec.Create("_Ting", 64, '.', Colors.White);
+            dbSymbols[82] = SymbolRec.Create("_Road", 15, '.', Colors.White);
+            dbSymbols[83] = SymbolRec.Create("_IronTree", 0, '.', Colors.White);
 
             dbDialogServices = new DialogServiceRec[4];
             dbDialogServices[0] = DialogServiceRec.Create(RS.rs_Teach, RS.rs_Teach_Question);

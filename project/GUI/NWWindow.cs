@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -54,7 +54,7 @@ namespace NWR.GUI
                 if (BackDraw) {
                     screen.DrawFilled(crt, BaseScreen.FILL_TILE, 0, 0, (int)CtlCommon.WinBack.Width, (int)CtlCommon.WinBack.Height, 0, 0, CtlCommon.WinBack);
                 } else {
-                    screen.FillRect(crt, BaseScreen.clBlack);
+                    screen.FillRect(crt, Colors.Black);
                 }
 
                 screen.DrawFilled(crt, BaseScreen.FILL_HORZ, 16, 0, 61, 8, L, T, CtlCommon.WinDecor);

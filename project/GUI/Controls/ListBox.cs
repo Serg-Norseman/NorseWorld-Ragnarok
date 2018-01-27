@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -490,9 +490,9 @@ namespace NWR.GUI.Controls
         {
             ExtRect crt = ClientRect;
             if ((ControlStyle.Contains(ControlStyles.сsOpaque))) {
-                screen.FillRect(crt, BaseScreen.clBlack);
+                screen.FillRect(crt, Colors.Black);
             }
-            screen.SetTextColor(BaseScreen.clGold, true);
+            screen.SetTextColor(Colors.Gold, true);
             CtlCommon.DrawCtlBorder(screen, crt);
 
             switch (fMode) {
@@ -668,18 +668,18 @@ namespace NWR.GUI.Controls
             ScrollBar.Top = 0;
             ScrollBar.Height = 104;
 
-            SelColor = BaseScreen.clGray;
-            SelBorderColor = BaseScreen.clGray;
+            SelColor = Colors.Gray;
+            SelBorderColor = Colors.Gray;
             Height = 100;
             Width = 200;
             ItemHeight = Font.Height + 2;
             BaseScreen scr = MainWindow.Screen;
 
-            CheckImage = NWResourceManager.LoadImage(scr, "itf/Check.tga", BaseScreen.clNone);
+            CheckImage = NWResourceManager.LoadImage(scr, "itf/Check.tga", Colors.None);
             CheckHeight = (int)((int)CheckImage.Height / 3);
             CheckWidth = (int)CheckImage.Width;
 
-            TVBtn = NWResourceManager.LoadImage(scr, "itf/TVBtn.tga", BaseScreen.clBlack);
+            TVBtn = NWResourceManager.LoadImage(scr, "itf/TVBtn.tga", Colors.Black);
             LevelOffset = (int)TVBtn.Width;
         }
 

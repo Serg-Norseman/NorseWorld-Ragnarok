@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -27,7 +27,7 @@ namespace NWR.Game.Story
 {
     public class JournalItem
     {
-        public const int DEFAULT_COLOR = BaseScreen.clGold;
+        public const int DEFAULT_COLOR = Colors.Gold;
         public const int DEFAULT_TURN = 0;
 
         public const int SIT_DEFAULT = 0;
@@ -86,26 +86,26 @@ namespace NWR.Game.Story
 
             switch (Type) {
                 case SIT_DIALOG:
-                    res = BaseScreen.clGoldenrod;
+                    res = Colors.Goldenrod;
                     break;
                 case SIT_DAY:
-                    res = BaseScreen.clSkyBlue;
+                    res = Colors.SkyBlue;
                     break;
                 case SIT_KILLED:
-                    res = BaseScreen.clRed;
+                    res = Colors.Red;
                     break;
                 case SIT_QUESTS:
-                    res = BaseScreen.clBlue;
+                    res = Colors.Blue;
                     break;
                 case SIT_QUEST_Y:
-                    res = BaseScreen.clGreen;
+                    res = Colors.Green;
                     break;
                 case SIT_QUEST_N:
-                    res = BaseScreen.clMaroon;
+                    res = Colors.Maroon;
                     break;
 
                 default:
-                    res = BaseScreen.clGold;
+                    res = Colors.Gold;
                     break;
             }
 

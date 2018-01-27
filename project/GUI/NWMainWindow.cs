@@ -1,15 +1,15 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih (aka Alchemist).
+ *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
  *
- *  this file is part of "NorseWorld: Ragnarok".
+ *  This file is part of "NorseWorld: Ragnarok".
  *
- *  this program is free software: you can redistribute it and/or modify
+ *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  this program is distributed in the hope that it will be useful,
+ *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -485,10 +485,10 @@ namespace NWR.GUI
                 string dir;
 
                 if (Style == RGS_MODERN) {
-                    col = BaseScreen.clBlack;
+                    col = Colors.Black;
                     dir = "tileset_ms/";
                 } else {
-                    col = BaseScreen.clWhite;
+                    col = Colors.White;
                     dir = "tileset/";
                 }
 
@@ -516,7 +516,7 @@ namespace NWR.GUI
                 }
 
                 dir = "items/";
-                col = BaseScreen.clWhite;
+                col = Colors.White;
                 for (var ik = ItemKind.ik_First; ik <= ItemKind.ik_Last; ik++) {
                     var ikRec = StaticData.dbItemKinds[(int)ik];
 
@@ -582,7 +582,7 @@ namespace NWR.GUI
                 }
 
                 dir = "creatures/";
-                col = BaseScreen.clWhite;
+                col = Colors.White;
                 for (int j = 0; j < GlobalVars.dbCreatures.Count; j++) {
                     CreatureEntry eCreature = (CreatureEntry)GlobalVars.nwrDB.GetEntry(GlobalVars.dbCreatures[j]);
 
@@ -614,7 +614,7 @@ namespace NWR.GUI
                 }
 
                 dir = "effects/";
-                col = BaseScreen.clWhite;
+                col = Colors.White;
                 for (var eff = EffectID.eid_First; eff <= EffectID.eid_Last; eff++) {
                     int idx;
 
@@ -640,7 +640,7 @@ namespace NWR.GUI
 
                     if (skRec.Kinds != SkillKind.ssInnatePower && skRec.gfx != "") {
                         string s = dir + skRec.gfx + ".tga";
-                        skRec.ImageIndex = Resources.AddImage(s, BaseScreen.clWhite, false);
+                        skRec.ImageIndex = Resources.AddImage(s, Colors.White, false);
                     }
 
                     ProgressStep();
@@ -658,11 +658,11 @@ namespace NWR.GUI
                     SymbolRec sid = StaticData.dbSymbols[(int)sym];
 
                     string s = sid.gfx;
-                    sid.ImageIndex = Symbols.AddImage(dir + s + ".tga", BaseScreen.clWhite, false);
+                    sid.ImageIndex = Symbols.AddImage(dir + s + ".tga", Colors.White, false);
 
                     int num8 = sid.SubCount;
                     for (int j = 1; j <= num8; j++) {
-                        Symbols.AddImage((dir + s + "_" + ConvertHelper.AdjustNumber(j, 3) + ".tga"), BaseScreen.clWhite, false);
+                        Symbols.AddImage((dir + s + "_" + ConvertHelper.AdjustNumber(j, 3) + ".tga"), Colors.White, false);
                     }
 
                     ProgressStep();
@@ -676,7 +676,7 @@ namespace NWR.GUI
                     for (int y = 0; y < eLayer.H; y++) {
                         for (int x = 0; x < eLayer.W; x++) {
                             string s = dir + eLayer.IconsName + Convert.ToString(x) + Convert.ToString(y) + ".tga";
-                            Resources.AddImage(s, BaseScreen.clFuchsia, false);
+                            Resources.AddImage(s, Colors.Fuchsia, false);
                         }
                     }
 
@@ -686,7 +686,7 @@ namespace NWR.GUI
                 dir = "runes/";
                 foreach (RuneRec rune in StaticData.dbRunes) {
                     string s = dir + rune.Sign + ".tga";
-                    rune.ImageIndex = Resources.AddImage(s, BaseScreen.clWhite, false);
+                    rune.ImageIndex = Resources.AddImage(s, Colors.White, false);
                     ProgressStep();
                 }
             } catch (Exception ex) {
@@ -732,12 +732,12 @@ namespace NWR.GUI
                                 SymbolID sid = creature.Symbol;
                                 if (sid == SymbolID.sid_None) {
                                     if (creature.Stoning) {
-                                        screen.SetTextColor(BaseScreen.clGray, true);
+                                        screen.SetTextColor(Colors.Gray, true);
                                     } else {
                                         if (fGameSpace.Player.IsEnemy(creature)) {
-                                            screen.SetTextColor(BaseScreen.clRed, true);
+                                            screen.SetTextColor(Colors.Red, true);
                                         } else {
-                                            screen.SetTextColor(BaseScreen.clLime, true);
+                                            screen.SetTextColor(Colors.Lime, true);
                                         }
                                     }
 
@@ -1117,7 +1117,7 @@ namespace NWR.GUI
                 ExtRect tempRect;
                 if (!fHideLocMap) {
                     ExtRect mapRect = ExtRect.Create(-1, -1, StaticData.FieldWidth, StaticData.FieldHeight);
-                    screen.FillRect(fMV_Rect, BaseScreen.clBlack);
+                    screen.FillRect(fMV_Rect, Colors.Black);
 
                     tempRect = fMV_Rect;
                     tempRect.Inflate(2, 2);
@@ -1141,7 +1141,7 @@ namespace NWR.GUI
                                 if (field.FindCreature(px, py) != null) {
                                     int xx = fMV_Rect.Left + 8 * (px + 1);
                                     int yy = fMV_Rect.Top + 10 * (py + 1);
-                                    screen.DrawRectangle(ExtRect.Create(xx, yy, xx + 4, yy + 4), BaseScreen.clYellow, BaseScreen.clRed);
+                                    screen.DrawRectangle(ExtRect.Create(xx, yy, xx + 4, yy + 4), Colors.Yellow, Colors.Red);
                                 }
                             }
                         }
@@ -1154,7 +1154,7 @@ namespace NWR.GUI
                                 if (place != null && place.ScentTrail != null) {
                                     int xx = fMV_Rect.Left + 8 * (px + 1);
                                     int yy = fMV_Rect.Top + 10 * (py + 1);
-                                    screen.DrawRectangle(ExtRect.Create(xx, yy, xx + 4, yy + 4), BaseScreen.clYellow, BaseScreen.RGB((140 + (int)place.ScentAge), 0, 0));
+                                    screen.DrawRectangle(ExtRect.Create(xx, yy, xx + 4, yy + 4), Colors.Yellow, BaseScreen.RGB((140 + (int)place.ScentAge), 0, 0));
                                 }
                             }
                         }
@@ -1177,7 +1177,7 @@ namespace NWR.GUI
                     fViewer.BufferPaint(screen, fLV_Rect.Left, fLV_Rect.Top);
                 } else {
                     ExtRect mapRect = LocMapRect;
-                    screen.FillRect(fLV_Rect, BaseScreen.clBlack);
+                    screen.FillRect(fLV_Rect, Colors.Black);
 
                     for (int py = mapRect.Top; py <= mapRect.Bottom; py++) {
                         for (int px = mapRect.Left; px <= mapRect.Right; px++) {
@@ -1257,7 +1257,7 @@ namespace NWR.GUI
 
                 fGameSpace = new NWGameSpace(this);
 
-                Cursor = NWResourceManager.LoadImage(base.Screen, "itf/CursorMain.tga", BaseScreen.clBlack);
+                Cursor = NWResourceManager.LoadImage(base.Screen, "itf/CursorMain.tga", Colors.Black);
                 SysCursorVisible = false;
 
                 CtlCommon.InitCtlImages(base.Screen);
@@ -1568,23 +1568,23 @@ namespace NWR.GUI
                     crt.Bottom += IP_Top;
                     crt.Left = IP_Left;
                     crt.Right = IP_Right;
-                    ProgressBar.DrawGauge(screen, crt, player.HPCur, player.HPMax_Renamed, BaseScreen.clBlack, BaseScreen.clGray, 1476417);
+                    ProgressBar.DrawGauge(screen, crt, player.HPCur, player.HPMax_Renamed, Colors.Black, Colors.Gray, 1476417);
 
                     crt = StaticData.dbMainControls[(int)MainControl.mgMag].R;
                     crt.Top += IP_Top;
                     crt.Bottom += IP_Top;
                     crt.Left = IP_Left;
                     crt.Right = IP_Right;
-                    ProgressBar.DrawGauge(screen, crt, player.MPCur, player.MPMax, BaseScreen.clBlack, BaseScreen.clGray, 1476417);
+                    ProgressBar.DrawGauge(screen, crt, player.MPCur, player.MPMax, Colors.Black, Colors.Gray, 1476417);
 
                     crt = StaticData.dbMainControls[(int)MainControl.mgFood].R;
                     crt.Top += IP_Top;
                     crt.Bottom += IP_Top;
                     crt.Left = IP_Left;
                     crt.Right = IP_Right;
-                    ProgressBar.DrawGauge(screen, crt, (int)player.Satiety, Player.SatietyMax, BaseScreen.clBlack, BaseScreen.clGray, 1476417);
+                    ProgressBar.DrawGauge(screen, crt, (int)player.Satiety, Player.SatietyMax, Colors.Black, Colors.Gray, 1476417);
 
-                    screen.SetTextColor(BaseScreen.clGold, true);
+                    screen.SetTextColor(Colors.Gold, true);
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 8, IP_Right, player.LocationName, "");
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 24, IP_Right, fGameSpace.DayTimeInfo, "");
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 40, IP_Right, BaseLocale.GetStr(RS.rs_Turn), Convert.ToString(player.Turn));
@@ -1640,14 +1640,14 @@ namespace NWR.GUI
                 switch (fMainScreen) {
                     case GameScreen.gsStartup:
                         int ats = 550;
-                        screen.SetTextColor(BaseScreen.clGold, true);
+                        screen.SetTextColor(Colors.Gold, true);
                         screen.DrawText(8, ats, "Valhalla, Version 1.0, Copyright (c) 1992 by Norsehelm Productions", 0);
                         screen.DrawText(8, ats + 15, "Ragnarok, Version 2.5V, Copyright (c) 1992-1995 by Norsehelm Productions", 0);
                         screen.DrawText(8, ats + 30, (StaticData.Rs_GameName + ", " + StaticData.Rs_GameVersion + ", " + StaticData.Rs_GameCopyright), 0);
                         break;
 
                     case GameScreen.gsDead:
-                        screen.SetTextColor(BaseScreen.clRed, true);
+                        screen.SetTextColor(Colors.Red, true);
                         int num = fScoresList.ScoreCount;
                         for (int i = 0; i < num; i++) {
                             int atd = 20 + i * 18;
@@ -2427,7 +2427,7 @@ namespace NWR.GUI
                 string sf = StaticData.dbScreens[(int)value].gfx;
                 if (sf.CompareTo("") != 0) {
                     sf = "screens/" + sf + ".tga";
-                    fScrImage = NWResourceManager.LoadImage(base.Screen, sf, BaseScreen.clNone);
+                    fScrImage = NWResourceManager.LoadImage(base.Screen, sf, Colors.None);
                 }
             }
         }
