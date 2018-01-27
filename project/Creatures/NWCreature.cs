@@ -1042,10 +1042,10 @@ namespace NWR.Creatures
             }
         }
 
-        private void PostDeath_SetTile(int tileID)
+        private void PostDeath_SetTile(ushort tileID)
         {
             NWField map = (NWField)CurrentMap;
-            map.GetTile(PosX, PosY).Back = tileID;
+            map.GetTile(PosX, PosY).Background = tileID;
             map.Normalize();
         }
 
@@ -3518,7 +3518,7 @@ namespace NWR.Creatures
                     UseEffect(StaticData.dbPlaces[pFore].Effect, tile, InvokeMode.im_Use, null);
                     Space.DoEvent(EventID.event_Trap, this, null, tile);
                     if (StaticData.dbTraps[idx].Disposable) {
-                        tile.Fore = PlaceID.pid_Undefined;
+                        tile.Foreground = PlaceID.pid_Undefined;
                     } else {
                         tile.Trap_Discovered = true;
                     }

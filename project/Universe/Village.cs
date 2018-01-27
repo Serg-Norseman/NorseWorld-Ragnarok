@@ -129,7 +129,7 @@ namespace NWR.Universe
                         ft.Background = field.TranslateTile(TileType.ttGrass);
                         int fg = (int)ft.Foreground;
                         if (fg != field.TranslateTile(TileType.ttTree)) {
-                            ft.Fore = PlaceID.pid_Undefined;
+                            ft.Foreground = PlaceID.pid_Undefined;
                         }
                     }
                 }
@@ -160,7 +160,7 @@ namespace NWR.Universe
                     tile = field.GetTile(wpX, wpY);
                 } while (tile.BackBase != PlaceID.pid_Grass || tile.ForeBase != PlaceID.pid_Undefined);
 
-                field.GetTile(wpX, wpY).Fore = PlaceID.pid_Well;
+                field.GetTile(wpX, wpY).Foreground = PlaceID.pid_Well;
             }
         }
 

@@ -820,7 +820,7 @@ namespace NWR.Effects
                 if (!creature.IsNear(pt)) {
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(StaticData.dbEffectTarget[(int)EffectTarget.et_PlaceNear].Invalid));
                 } else {
-                    creature.CurrentMap.GetTile(pt.X, pt.Y).Fore = PlaceID.pid_PitTrap;
+                    creature.CurrentMap.GetTile(pt.X, pt.Y).Foreground = PlaceID.pid_PitTrap;
                 }
             }
         }
@@ -2016,7 +2016,7 @@ namespace NWR.Effects
                         for (int x = px - 3; x <= px + 3; x++) {
                             NWTile tile = (NWTile)f.GetTile(x, y);
                             if (tile != null && tile.ForeBase == PlaceID.pid_Tree) {
-                                tile.Fore = PlaceID.pid_Undefined;
+                                tile.Foreground = PlaceID.pid_Undefined;
                                 GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_TreeBursts));
                             }
 
@@ -3053,7 +3053,7 @@ namespace NWR.Effects
             int pX = creature.PosX + Directions.Data[dir].DX;
             int pY = creature.PosY + Directions.Data[dir].DY;
             NWTile tile = (NWTile)creature.CurrentMap.GetTile(pX, pY);
-            tile.Fore = PlaceID.pid_Undefined;
+            tile.Foreground = PlaceID.pid_Undefined;
         }
 
         public static void e_PitTrap(EffectID effectID, NWCreature creature, object source, ItemState state, InvokeMode invokeMode, EffectExt ext)
@@ -3202,7 +3202,7 @@ namespace NWR.Effects
                             int x = RandomHelper.GetRandom(StaticData.FieldWidth);
                             int y = RandomHelper.GetRandom(StaticData.FieldHeight);
                             if (!fld.IsBarrier(x, y)) {
-                                int pid = StaticData.dbTraps[RandomHelper.GetRandom(15)].TileID;
+                                ushort pid = StaticData.dbTraps[RandomHelper.GetRandom(15)].TileID;
                                 fld.AddTrap(x, y, pid, false);
                                 i--;
                                 if (i == 0) {
@@ -3263,7 +3263,7 @@ namespace NWR.Effects
             NWField fld = creature.CurrentField;
             NWTile tile = (NWTile)fld.GetTile(creature.PosX, creature.PosY);
             if (tile.ForeBase == PlaceID.pid_QuicksandTrap) {
-                tile.Back = PlaceID.pid_Quicksand;
+                tile.Background = PlaceID.pid_Quicksand;
                 fld.Normalize();
             }
             creature.AddEffect(EffectID.eid_Quicksand, state, EffectAction.ea_Persistent, true, BaseLocale.GetStr(RS.rs_YouSinkInQuicksand));
@@ -4145,7 +4145,7 @@ namespace NWR.Effects
                     for (int x = 0; x < StaticData.FieldWidth; x++) {
                         if (fld.IsTrap(x, y)) {
                             NWTile tile = (NWTile)fld.GetTile(x, y);
-                            tile.Fore = PlaceID.pid_Undefined;
+                            tile.Foreground = PlaceID.pid_Undefined;
                         }
                     }
                 }
@@ -4157,7 +4157,7 @@ namespace NWR.Effects
                 for (int y = py - 2; y <= py + 2; y++) {
                     for (int x = px - 2; x <= px + 2; x++) {
                         if (x != px && y != py && AuxUtils.Chance(40)) {
-                            int id = StaticData.dbTraps[RandomHelper.GetRandom(15)].TileID;
+                            ushort id = StaticData.dbTraps[RandomHelper.GetRandom(15)].TileID;
                             fld.AddTrap(x, y, id, true);
                         }
                     }
@@ -4293,10 +4293,10 @@ namespace NWR.Effects
                             int fg = tile.ForeBase;
                             if (fg != PlaceID.pid_Tree) {
                                 if (fg == PlaceID.pid_DeadTree) {
-                                    tile.Fore = PlaceID.pid_Undefined;
+                                    tile.Foreground = PlaceID.pid_Undefined;
                                 }
                             } else {
-                                tile.Fore = PlaceID.pid_DeadTree;
+                                tile.Foreground = PlaceID.pid_DeadTree;
                             }
 
                             NWCreature cr = (NWCreature)f.FindCreature(x, y);
@@ -4842,8 +4842,8 @@ namespace NWR.Effects
             bool res = false;
             object obj = ext.GetParam(EffectParams.ep_TileID);
 
-            int tile_id = ((int)obj);
-            int tile_id_inv = PlaceID.pid_Undefined;
+            ushort tile_id = ((ushort)obj);
+            ushort tile_id_inv = PlaceID.pid_Undefined;
 
             switch (tile_id) {
                 case PlaceID.pid_StairsDown:
@@ -4962,14 +4962,14 @@ namespace NWR.Effects
                 return;
             }
 
-            int tid = tile_id;
+            ushort tid = (ushort)tile_id;
             if ((StaticData.dbPlaces[tid].Signs.Contains(PlaceFlags.psBackground))) {
-                aTile.Back = tile_id;
+                aTile.Background = tid;
                 return;
             }
 
             if ((StaticData.dbPlaces[tid].Signs.Contains(PlaceFlags.psForeground))) {
-                aTile.Fore = tile_id;
+                aTile.Foreground = tid;
             }
         }
 
@@ -5045,7 +5045,7 @@ namespace NWR.Effects
         private static void CrushTile(AbstractMap map, int xx, int yy)
         {
             NWTile tile = (NWTile)map.GetTile(xx, yy);
-            tile.Fore = PlaceID.pid_Rubble;
+            tile.Foreground = PlaceID.pid_Rubble;
 
             NWCreature cr = (NWCreature)map.FindCreature(xx, yy);
             if (cr != null && cr.Effects.FindEffectByID(EffectID.eid_Phase) == null) {

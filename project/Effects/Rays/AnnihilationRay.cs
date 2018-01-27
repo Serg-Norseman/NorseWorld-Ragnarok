@@ -57,7 +57,7 @@ namespace NWR.Effects.Rays
                         break;
 
                     default:
-                        tile.Fore = PlaceID.pid_Rubble;
+                        tile.Foreground = PlaceID.pid_Rubble;
                         break;
                 }
 

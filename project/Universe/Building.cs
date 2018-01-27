@@ -35,11 +35,11 @@ namespace NWR.Universe
     {
         public static bool RuinsMode = false;
 
-        private static readonly int[,] dbDoorsState;
+        private static readonly ushort[,] dbDoorsState;
 
         static Building()
         {
-            dbDoorsState = new int[4, 2];
+            dbDoorsState = new ushort[4, 2];
             dbDoorsState[0, 0] = PlaceID.pid_DoorN_Closed;
             dbDoorsState[0, 1] = PlaceID.pid_DoorN;
             dbDoorsState[1, 0] = PlaceID.pid_DoorS_Closed;
@@ -259,17 +259,17 @@ namespace NWR.Universe
                 for (int y = r.Top; y <= r.Bottom; y++) {
                     NWTile tile = (NWTile)field.GetTile(x, y);
 
-                    int bpk = NWField.GetBuildPlaceKind(x, y, r, RuinsMode);
+                    ushort bpk = NWField.GetBuildPlaceKind(x, y, r, RuinsMode);
 
                     if (!RuinsMode) {
-                        tile.Back = PlaceID.pid_Floor;
+                        tile.Background = PlaceID.pid_Floor;
                     } else {
                         if (bpk == PlaceID.pid_Undefined) {
-                            tile.Back = NWField.GetVarTile(PlaceID.pid_RnFloor);
+                            tile.Background = NWField.GetVarTile(PlaceID.pid_RnFloor);
                         }
                     }
 
-                    tile.Fore = bpk;
+                    tile.Foreground = bpk;
                 }
             }
         }
@@ -286,7 +286,7 @@ namespace NWR.Universe
                         int num3 = DoorsCount;
                         for (int i = 0; i < num3; i++) {
                             Door door = GetDoor(i);
-                            fld.GetTile(door.X, door.Y).Fore = dbDoorsState[door.Dir - 1, door.State];
+                            fld.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, door.State];
                         }
                     }
                 }
@@ -393,7 +393,7 @@ namespace NWR.Universe
                             break;
                     }
 
-                    f.GetTile(door.X, door.Y).Fore = dbDoorsState[door.Dir - 1, door.State];
+                    f.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, door.State];
                 }
             }
         }

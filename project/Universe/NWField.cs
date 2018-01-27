@@ -43,8 +43,8 @@ namespace NWR.Universe
         private const int WS_VULCAN_NOT_EXISTS = 2;
 
         // other
-        public static readonly int[] Muspel_bgTiles;
-        public static readonly int[] Muspel_fgTiles;
+        public static readonly ushort[] Muspel_bgTiles;
+        public static readonly ushort[] Muspel_fgTiles;
 
         private readonly ExtPoint fCoords;
         private readonly CreaturesList fCreatures;
@@ -286,7 +286,7 @@ namespace NWR.Universe
             }
         }
 
-        public void SpreadTiles(int tileID, float density)
+        public void SpreadTiles(ushort tileID, float density)
         {
             try {
                 int tsz = 0;
@@ -328,21 +328,21 @@ namespace NWR.Universe
         }
 
         // FIXME: change total other functions for compatibiliy with this
-        private void ChangeTile(int x, int y, int tileID, bool fg)
+        private void ChangeTile(int x, int y, ushort tileID, bool fg)
         {
             BaseTile tile = GetTile(x, y);
             if (tile != null) {
                 if (!fg) {
-                    tile.Back = tileID;
+                    tile.Background = tileID;
                 } else {
-                    tile.Fore = tileID;
+                    tile.Foreground = tileID;
                 }
 
                 switch (tileID) {
                     case PlaceID.pid_Lava:
                         {
                             if (tile.ForeBase == PlaceID.pid_Tree) {
-                                tile.Fore = PlaceID.pid_DeadTree;
+                                tile.Foreground = PlaceID.pid_DeadTree;
                                 GlobalVars.nwrWin.ShowText(GlobalVars.nwrWin, BaseLocale.GetStr(RS.rs_TreeBursts));
                             }
 
@@ -424,13 +424,13 @@ namespace NWR.Universe
                 for (int x = 0; x < StaticData.FieldWidth; x++) {
                     NWTile tile = (NWTile)GetTile(x, y);
                     if (tile.ForeBase == PlaceID.pid_Mountain) {
-                        tile.Fore = GetVarTile(PlaceID.pid_Mountain);
+                        tile.Foreground = GetVarTile(PlaceID.pid_Mountain);
                     }
                 }
             }
         }
 
-        public void AddSeveralTraps(int[] kinds, int f)
+        public void AddSeveralTraps(ushort[] kinds, int f)
         {
             int cnt;
             if (f > 0) {
@@ -450,7 +450,7 @@ namespace NWR.Universe
 
                     bool ready = (FindBuilding(x, y) == null && tile.ForeBase == PlaceID.pid_Undefined);
                     if (ready) {
-                        int trapKind;
+                        ushort trapKind;
                         do {
                             trapKind = RandomHelper.GetRandomItem(kinds);
                             bool crt = (trapKind == PlaceID.pid_CrushRoofTrap);
@@ -469,11 +469,11 @@ namespace NWR.Universe
             }
         }
 
-        public void AddTrap(int aX, int aY, int trapTileID, bool aDiscovered)
+        public void AddTrap(int aX, int aY, ushort trapTileID, bool discovered)
         {
             NWTile tile = (NWTile)GetTile(aX, aY);
-            tile.Fore = trapTileID;
-            tile.Trap_Discovered = aDiscovered;
+            tile.Foreground = trapTileID;
+            tile.Trap_Discovered = discovered;
         }
 
         public override bool IsBlockLOS(int x, int y)
@@ -699,11 +699,6 @@ namespace NWR.Universe
 
         public void InitField()
         {
-            string entry_sign = fEntry.Sign;
-            if (GlobalVars.Debug_TestWorldGen) {
-                Logger.Write("NWField.initField().start >>>>> " + entry_sign);
-            }
-
             try {
                 NWLayer layer = Layer;
                 if (fEntry != null && fEntry.Source == FieldSource.fsTemplate) {
@@ -799,11 +794,7 @@ namespace NWR.Universe
                     UniverseBuilder.Gen_Traps(this, -2);
                 }
             } catch (Exception ex) {
-                Logger.Write("NWField.initField(" + DebugSign + "): " + ex.Message);
-            }
-
-            if (GlobalVars.Debug_TestWorldGen) {
-                Logger.Write("NWField.initField().finish >>>>> " + entry_sign);
+                Logger.Write("NWField.InitField(" + DebugSign + "): " + ex.Message);
             }
         }
 
@@ -814,10 +805,10 @@ namespace NWR.Universe
             }
         }
 
-        public void AddGate(int tileID, int posX, int posY, int targetLayer, ExtPoint targetField, ExtPoint targetPos)
+        public void AddGate(ushort tileID, int posX, int posY, int targetLayer, ExtPoint targetField, ExtPoint targetPos)
         {
             NWTile tile = (NWTile)GetTile(posX, posY);
-            tile.Fore = tileID;
+            tile.Foreground = tileID;
 
             Gate gate = new Gate(fSpace, this);
             gate.CLSID = tileID;
@@ -1011,9 +1002,9 @@ namespace NWR.Universe
             return UniverseBuilder.TranslateTile(defTile);
         }
 
-        public static int GetBuildPlaceKind(int x, int y, ExtRect r, bool isRuins)
+        public static ushort GetBuildPlaceKind(int x, int y, ExtRect r, bool isRuins)
         {
-            int res = PlaceID.pid_Undefined;
+            ushort res = PlaceID.pid_Undefined;
 
             if (x == r.Left && y == r.Top) {
                 res = PlaceID.pid_WallNW;
@@ -1090,7 +1081,7 @@ namespace NWR.Universe
                 @var = 0;
             }
 
-            return (ushort)AuxUtils.FitShort(@base, @var);
+            return BaseTile.GetVarID((byte)@base, (byte)@var);
         }
 
         public string DebugSign
@@ -1129,7 +1120,7 @@ namespace NWR.Universe
 
         static NWField()
         {
-            Muspel_bgTiles = new int[] {
+            Muspel_bgTiles = new ushort[] {
                 PlaceID.pid_Grass,
                 PlaceID.pid_Water,
                 PlaceID.pid_Quicksand,
@@ -1139,7 +1130,7 @@ namespace NWR.Universe
                 PlaceID.pid_Ground
             };
 
-            Muspel_fgTiles = new int[] {
+            Muspel_fgTiles = new ushort[] {
                 PlaceID.pid_Undefined,
                 PlaceID.pid_Tree,
                 PlaceID.pid_Undefined,

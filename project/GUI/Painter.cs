@@ -43,7 +43,7 @@ namespace NWR.GUI
                 ushort bg = place.Background;
                 ushort fg = place.Foreground;
 
-                fg = PtTransDoor(fg, place);
+                fg = PtTransDoor(place);
                 short op = space.GetTileBrightness(field, place, true);
                 symImages.DrawImage(screen, sx, sy, GetSymImageIndex(bg), op);
 
@@ -79,7 +79,7 @@ namespace NWR.GUI
                 int fog = place.FogID;
                 int fogExt = place.FogExtID;
 
-                fg = PtTransDoor((ushort)fg, place);
+                fg = PtTransDoor(place);
                 short op = space.GetTileBrightness(field, place, false);
                 resImages.DrawImage(screen, xx, yy, GetTileImageIndex((ushort)bg), op);
                 if (bgExt != PlaceID.pid_Undefined) {
@@ -167,13 +167,13 @@ namespace NWR.GUI
             return result;
         }
 
-        public static ushort PtTransDoor(ushort tid, BaseTile tile)
+        public static ushort PtTransDoor(BaseTile tile)
         {
             ushort result;
 
             if (!tile.HasState(BaseTile.TS_SEEN)) {
-                int @base = AuxUtils.GetShortLo(tid);
-                int @var = AuxUtils.GetShortHi(tid);
+                int @base = tile.ForeBase;
+                int @var = tile.ForeVar;
 
                 int p = (@base);
                 int res;
@@ -196,9 +196,9 @@ namespace NWR.GUI
                         break;
                 }
 
-                result = AuxUtils.FitShort(res, @var);
+                result = BaseTile.GetVarID((byte)res, (byte)@var);
             } else {
-                result = tid;
+                result = tile.Foreground;
             }
 
             return result;

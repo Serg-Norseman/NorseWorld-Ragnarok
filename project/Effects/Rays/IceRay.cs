@@ -38,7 +38,7 @@ namespace NWR.Effects.Rays
 
             if (f.IsBarrier(aX, aY)) {
                 if (tile.ForeBase == PlaceID.pid_Tree) {
-                    tile.Fore = PlaceID.pid_DeadTree;
+                    tile.Foreground = PlaceID.pid_DeadTree;
                     string tmp = BaseLocale.GetStr(StaticData.dbPlaces[5].NameRS);
                     GlobalVars.nwrWin.ShowText(Creature, BaseLocale.Format(RS.rs_TheXIsFrozen, new object[]{ tmp }));
                 }

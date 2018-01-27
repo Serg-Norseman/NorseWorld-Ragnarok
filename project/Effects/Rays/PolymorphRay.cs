@@ -36,7 +36,7 @@ namespace NWR.Effects.Rays
 
             if (fld.IsBarrier(aX, aY)) {
                 if (tile.ForeBase == PlaceID.pid_Tree) {
-                    tile.Fore = PlaceID.pid_Undefined;
+                    tile.Foreground = PlaceID.pid_Undefined;
                     fld.AddCreature(aX, aY, GlobalVars.nwrDB.FindEntryBySign("Faleryn").GUID);
                 }
                 aContinue = false;

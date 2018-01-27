@@ -27,19 +27,19 @@ namespace NWR.Game
 {
     public static class Hallucination
     {
-        private static readonly IDictionary<int, int[]> Hashmap;
+        private static readonly IDictionary<int, ushort[]> Hashmap;
 
         static Hallucination()
         {
-            Hashmap = new Dictionary<int, int[]>();
-            Hashmap[(int)PlaceID.pid_Grass] = new int[] {
+            Hashmap = new Dictionary<int, ushort[]>();
+            Hashmap[(int)PlaceID.pid_Grass] = new ushort[] {
                 PlaceID.pid_Grass,
                 PlaceID.pid_Water,
                 PlaceID.pid_Quicksand,
                 PlaceID.pid_Space,
                 PlaceID.pid_Floor
             };
-            Hashmap[(int)PlaceID.pid_Tree] = new int[] {
+            Hashmap[(int)PlaceID.pid_Tree] = new ushort[] {
                 PlaceID.pid_Tree,
                 PlaceID.pid_DeadTree,
                 PlaceID.pid_Mountain,
@@ -48,9 +48,9 @@ namespace NWR.Game
             };
         }
 
-        public static int GetPlaceID(int placeID)
+        public static ushort GetPlaceID(ushort placeID)
         {
-            int[] array = Hashmap.GetValueOrNull(placeID);
+            ushort[] array = Hashmap.GetValueOrNull(placeID);
             if (array == null) {
                 return placeID;
             } else {

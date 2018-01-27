@@ -348,6 +348,7 @@ namespace NWR.Universe
         public const int TSL_FORE_EXT = 3;
         public const int TSL_FOG = 4;
 
+        // FIXME: NWR dup
         public static int GetAdjacentMagic(AbstractMap map, int x, int y, int def, int check, int select)
         {
             int magic = 0;
@@ -361,10 +362,10 @@ namespace NWR.Universe
                 } else {
                     switch (select) {
                         case TSL_BACK:
-                            tid = AuxUtils.GetShortLo(tile.Background);
+                            tid = tile.BackBase;
                             break;
                         case TSL_FORE:
-                            tid = AuxUtils.GetShortLo(tile.Foreground);
+                            tid = tile.ForeBase;
                             break;
                         case TSL_BACK_EXT:
                             tid = AuxUtils.GetShortLo(tile.BackgroundExt);
@@ -385,6 +386,7 @@ namespace NWR.Universe
                     magic = BitHelper.SetBit(magic, i);
                 }
             }
+
             return magic;
         }
 
@@ -436,7 +438,7 @@ namespace NWR.Universe
                         int fore = tile.ForeBase;
                         bool isDoor = (fore == PlaceID.pid_DoorN || fore == PlaceID.pid_DoorS || fore == PlaceID.pid_DoorW || fore == PlaceID.pid_DoorE);
                         if (caves && isDoor) {
-                            tile.Fore = PlaceID.pid_Undefined;
+                            tile.Foreground = PlaceID.pid_Undefined;
                         }
 
                         if (!fog) {
@@ -523,13 +525,13 @@ namespace NWR.Universe
                     for (int x = 0; x < map.Width; x++) {
                         NWTile tile = (NWTile)map.GetTile(x, y);
 
-                        int fg = AuxUtils.GetShortLo(tile.Foreground);
+                        int fg = tile.ForeBase;
                         if (fg == roadTile) {
                             int magic = GetAdjacentMagic(map, x, y, PlaceID.pid_Undefined, roadTile, TSL_FORE);
                             if (magic != 0) {
                                 for (int offset = 0; offset < DbRoadMagics.Length; offset++) {
                                     if (DbRoadMagics[offset].Main.Contains(magic)) {
-                                        tile.Foreground = BaseTile.GetVarID((byte)roadTile, (byte)offset);
+                                        tile.SetFore(roadTile, offset);
                                         break;
                                     }
                                 }
@@ -578,7 +580,7 @@ namespace NWR.Universe
             }
         }
 
-        private static void GenAlfheimLiquidLake(NWField field, ExtRect area, int gran, int aTile, int Liquid)
+        private static void GenAlfheimLiquidLake(NWField field, ExtRect area, int gran, ushort aTile, int Liquid)
         {
             SetAlfheimTile(field, area.Left + (area.Right - area.Left) / 2, area.Top + (area.Bottom - area.Top) / 2, aTile, Liquid);
             int g = gran / 2;
@@ -601,7 +603,7 @@ namespace NWR.Universe
                 for (int y = area.Top; y <= area.Bottom; y += gran) {
                     for (int x = area.Left; x <= area.Right; x += gran) {
                         int num = RandomHelper.GetRandom(4) + 1;
-                        int c;
+                        ushort c;
                         if (num != 1) {
                             if (num != 2) {
                                 if (num != 3) {
@@ -624,9 +626,9 @@ namespace NWR.Universe
             }
         }
 
-        private static int GetAlfheimTileFull(NWField field, int x, int y, int placeID)
+        private static ushort GetAlfheimTileFull(NWField field, int x, int y, ushort placeID)
         {
-            int result = placeID;
+            ushort result = placeID;
             NWTile tile = (NWTile)field.GetTile(x, y);
             if (tile != null) {
                 result = tile.BackBase;
@@ -634,12 +636,12 @@ namespace NWR.Universe
             return result;
         }
 
-        private static void SetAlfheimTile(NWField field, int x, int y, int aTile, int Liquid)
+        private static void SetAlfheimTile(NWField field, int x, int y, ushort tileId, int liquid)
         {
             NWTile tile = (NWTile)field.GetTile(x, y);
             if (tile != null) {
-                tile.Back = aTile;
-                tile.Lake_LiquidID = Liquid;
+                tile.Background = tileId;
+                tile.Lake_LiquidID = liquid;
             }
         }
 
@@ -674,10 +676,6 @@ namespace NWR.Universe
                 field.FillBackground(PlaceID.pid_Grass);
                 field.FillForeground(PlaceID.pid_Undefined);
                 Gen_Valley(field, false, true, false);
-
-                if (GlobalVars.Debug_TestWorldGen) {
-                    Logger.Write("UniverseBuilder.build_Vanaheim().gen_Valley().ok");
-                }
 
                 ExtRect area = field.AreaRect;
 
@@ -725,7 +723,7 @@ namespace NWR.Universe
                     int num2 = field.Width;
                     for (int x = 0; x < num2; x++) {
                         NWTile tile = (NWTile)field.GetTile(x, y);
-                        tile.Fore = NWField.GetBuildPlaceKind(x, y, r, false);
+                        tile.Foreground = NWField.GetBuildPlaceKind(x, y, r, false);
                     }
                 }
 
@@ -934,10 +932,10 @@ namespace NWR.Universe
         public static void Build_Crossroads(NWField field)
         {
             try {
-                field.GetTile(37, 8).Back = PlaceID.pid_cr_yr;
-                field.GetTile(38, 8).Back = PlaceID.pid_cr_ba;
-                field.GetTile(37, 9).Back = PlaceID.pid_cr_gk;
-                field.GetTile(38, 9).Back = PlaceID.pid_cr_wl;
+                field.GetTile(37, 8).Background = PlaceID.pid_cr_yr;
+                field.GetTile(38, 8).Background = PlaceID.pid_cr_ba;
+                field.GetTile(37, 9).Background = PlaceID.pid_cr_gk;
+                field.GetTile(38, 9).Background = PlaceID.pid_cr_wl;
 
                 for (int y = 0; y < StaticData.FieldHeight; y++) {
                     for (int x = 0; x < StaticData.FieldWidth; x++) {
@@ -945,16 +943,16 @@ namespace NWR.Universe
 
                         if (x > 0 && x < StaticData.FieldWidth - 1) {
                             if (field.GetTile(x - 1, y).BackBase == PlaceID.pid_cr_y && field.GetTile(x + 1, y).BackBase == PlaceID.pid_cr_r) {
-                                tile.Back = PlaceID.pid_cr_yr;
+                                tile.Background = PlaceID.pid_cr_yr;
                             }
                             if (field.GetTile(x - 1, y).BackBase == PlaceID.pid_cr_b && field.GetTile(x + 1, y).BackBase == PlaceID.pid_cr_a) {
-                                tile.Back = PlaceID.pid_cr_ba;
+                                tile.Background = PlaceID.pid_cr_ba;
                             }
                             if (field.GetTile(x - 1, y).BackBase == PlaceID.pid_cr_g && field.GetTile(x + 1, y).BackBase == PlaceID.pid_cr_k) {
-                                tile.Back = PlaceID.pid_cr_gk;
+                                tile.Background = PlaceID.pid_cr_gk;
                             }
                             if (field.GetTile(x - 1, y).BackBase == PlaceID.pid_cr_w && field.GetTile(x + 1, y).BackBase == PlaceID.pid_cr_l) {
-                                tile.Back = PlaceID.pid_cr_wl;
+                                tile.Background = PlaceID.pid_cr_wl;
                             }
                         }
                     }
@@ -963,7 +961,7 @@ namespace NWR.Universe
                 for (int oct = 1; oct <= 8; oct++) {
                     int pX = (int)Octants[oct - 1].IX;
                     int pY = (int)Octants[oct - 1].IY;
-                    field.GetTile(pX, pY).Fore = PlaceID.pid_cr_Disk;
+                    field.GetTile(pX, pY).Foreground = PlaceID.pid_cr_Disk;
 
                     int num = (int)Octants[oct - 1].PathLen;
                     for (int i = 1; i <= num; i++) {
@@ -974,7 +972,7 @@ namespace NWR.Universe
 
                         pX += Directions.Data[newDir].DX;
                         pY += Directions.Data[newDir].DY;
-                        field.GetTile(pX, pY).Fore = PlaceID.pid_cr_Disk;
+                        field.GetTile(pX, pY).Foreground = PlaceID.pid_cr_Disk;
                     }
                 }
             } catch (Exception ex) {
@@ -1212,7 +1210,7 @@ namespace NWR.Universe
                     int fg = tile.ForeBase;
 
                     if (fg == PlaceID.pid_Undefined && bg != PlaceID.pid_Space && bg != PlaceID.pid_Water) {
-                        tile.Fore = PlaceID.pid_Mountain;
+                        tile.Foreground = PlaceID.pid_Mountain;
                     }
                 }
             } catch (Exception ex) {
@@ -1231,8 +1229,8 @@ namespace NWR.Universe
                     int num2 = field.Width;
                     for (int x = 0; x < num2; x++) {
                         NWTile tile = (NWTile)field.GetTile(x, y);
-                        tile.Back = NWField.Muspel_bgTiles[RandomHelper.GetBoundedRnd(0, 6)];
-                        tile.Fore = NWField.Muspel_fgTiles[RandomHelper.GetBoundedRnd(0, 5)];
+                        tile.Background = NWField.Muspel_bgTiles[RandomHelper.GetBoundedRnd(0, 6)];
+                        tile.Foreground = NWField.Muspel_fgTiles[RandomHelper.GetBoundedRnd(0, 5)];
                     }
                 }
 
@@ -1248,7 +1246,7 @@ namespace NWR.Universe
             try {
                 RandomHelper.Randomize();
 
-                int bg = RandomHelper.GetRandomItem(NWField.Muspel_bgTiles);
+                ushort bg = RandomHelper.GetRandomItem(NWField.Muspel_bgTiles);
                 //int fg = AuxUtils.getRandomArrayInt(NWField.Muspel_fgTiles);
 
                 field.SpreadTiles(bg, 0.25f);
@@ -1291,14 +1289,14 @@ namespace NWR.Universe
                     if (factor < 0) {
                         f = -2;
                     }
-                    field.AddSeveralTraps(new int[]{ PlaceID.pid_PitTrap, PlaceID.pid_TeleportTrap }, f);
+                    field.AddSeveralTraps(new ushort[]{ PlaceID.pid_PitTrap, PlaceID.pid_TeleportTrap }, f);
                 }
 
                 if (field.LandID == GlobalVars.Land_Forest) {
                     if (factor < 0) {
                         f = -3;
                     }
-                    field.AddSeveralTraps(new int[] {
+                    field.AddSeveralTraps(new ushort[] {
                         PlaceID.pid_PoisonSpikeTrap,
                         PlaceID.pid_WaterTrap,
                         PlaceID.pid_PitTrap
@@ -1309,7 +1307,7 @@ namespace NWR.Universe
                     if (factor < 0) {
                         f = -4;
                     }
-                    field.AddSeveralTraps(new int[] {
+                    field.AddSeveralTraps(new ushort[] {
                         PlaceID.pid_StunGasTrap,
                         PlaceID.pid_PoisonSpikeTrap,
                         PlaceID.pid_FrostTrap,
@@ -1322,14 +1320,14 @@ namespace NWR.Universe
                     if (factor < 0) {
                         f = -3;
                     }
-                    field.AddSeveralTraps(new int[]{ PlaceID.pid_FireTrap, PlaceID.pid_LavaTrap }, f);
+                    field.AddSeveralTraps(new ushort[]{ PlaceID.pid_FireTrap, PlaceID.pid_LavaTrap }, f);
                 }
 
                 if (field.LandID == GlobalVars.Land_Niflheim) {
                     if (factor < 0) {
                         f = -3;
                     }
-                    field.AddSeveralTraps(new int[] {
+                    field.AddSeveralTraps(new ushort[] {
                         PlaceID.pid_FrostTrap,
                         PlaceID.pid_FireTrap,
                         PlaceID.pid_PitTrap,
@@ -1343,14 +1341,14 @@ namespace NWR.Universe
                     if (factor < 0) {
                         f = -3;
                     }
-                    field.AddSeveralTraps(new int[]{ PlaceID.pid_FireTrap }, f);
+                    field.AddSeveralTraps(new ushort[]{ PlaceID.pid_FireTrap }, f);
                 }
 
                 if (field.LandID == GlobalVars.Land_Vanaheim) {
                     if (factor < 0) {
                         f = -7;
                     }
-                    field.AddSeveralTraps(new int[] {
+                    field.AddSeveralTraps(new ushort[] {
                         PlaceID.pid_PoisonSpikeTrap,
                         PlaceID.pid_QuicksandTrap,
                         PlaceID.pid_WaterTrap,
@@ -1367,12 +1365,12 @@ namespace NWR.Universe
             }
         }
 
-        private static void DrawWall(NWField field, int x, int pid)
+        private static void DrawWall(NWField field, int x, ushort pid)
         {
             for (int y = 0; y < StaticData.FieldHeight; y++) {
                 NWTile tile = (NWTile)field.GetTile(x, y);
-                tile.Back = PlaceID.pid_Floor;
-                tile.Fore = pid;
+                tile.Background = PlaceID.pid_Floor;
+                tile.Foreground = pid;
             }
         }
 
@@ -1380,24 +1378,24 @@ namespace NWR.Universe
         {
             try {
                 Building.DrawWalls(field, ExtRect.Create(33, 0, 64, 6));
-                field.GetTile(36, 6).Fore = PlaceID.pid_DoorS;
-                field.GetTile(37, 6).Fore = PlaceID.pid_DoorS;
-                field.GetTile(47, 6).Fore = PlaceID.pid_DoorS;
-                field.GetTile(48, 6).Fore = PlaceID.pid_DoorS;
-                field.GetTile(60, 6).Fore = PlaceID.pid_DoorS;
-                field.GetTile(61, 6).Fore = PlaceID.pid_DoorS;
+                field.GetTile(36, 6).Foreground = PlaceID.pid_DoorS;
+                field.GetTile(37, 6).Foreground = PlaceID.pid_DoorS;
+                field.GetTile(47, 6).Foreground = PlaceID.pid_DoorS;
+                field.GetTile(48, 6).Foreground = PlaceID.pid_DoorS;
+                field.GetTile(60, 6).Foreground = PlaceID.pid_DoorS;
+                field.GetTile(61, 6).Foreground = PlaceID.pid_DoorS;
 
                 Building.DrawWalls(field, ExtRect.Create(32, 10, 41, 17));
-                field.GetTile(36, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(37, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(36, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(37, 10).Foreground = PlaceID.pid_DoorN;
 
                 Building.DrawWalls(field, ExtRect.Create(43, 10, 52, 17));
-                field.GetTile(47, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(48, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(47, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(48, 10).Foreground = PlaceID.pid_DoorN;
 
                 Building.DrawWalls(field, ExtRect.Create(54, 10, 67, 17));
-                field.GetTile(60, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(61, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(60, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(61, 10).Foreground = PlaceID.pid_DoorN;
                 //
                 //
                 FillAreaItems(field, 33, 14, 40, 16, GlobalVars.iid_Rnd_Scroll);
@@ -1416,31 +1414,31 @@ namespace NWR.Universe
         {
             try {
                 DrawWall(field, 1, PlaceID.pid_WallW);
-                field.GetTile(1, 8).Fore = PlaceID.pid_DoorW;
-                field.GetTile(1, 9).Fore = PlaceID.pid_DoorW;
+                field.GetTile(1, 8).Foreground = PlaceID.pid_DoorW;
+                field.GetTile(1, 9).Foreground = PlaceID.pid_DoorW;
 
                 DrawWall(field, 72, PlaceID.pid_WallE);
-                field.GetTile(72, 8).Fore = PlaceID.pid_DoorE;
-                field.GetTile(72, 9).Fore = PlaceID.pid_DoorE;
+                field.GetTile(72, 8).Foreground = PlaceID.pid_DoorE;
+                field.GetTile(72, 9).Foreground = PlaceID.pid_DoorE;
                 //
                 Building.DrawWalls(field, ExtRect.Create(33, 0, 64, 6));
-                field.GetTile(33, 3).Fore = PlaceID.pid_DoorW;
+                field.GetTile(33, 3).Foreground = PlaceID.pid_DoorW;
 
                 Building.DrawWalls(field, ExtRect.Create(21, 10, 30, 17));
-                field.GetTile(25, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(26, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(25, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(26, 10).Foreground = PlaceID.pid_DoorN;
 
                 Building.DrawWalls(field, ExtRect.Create(32, 10, 41, 17));
-                field.GetTile(36, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(37, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(36, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(37, 10).Foreground = PlaceID.pid_DoorN;
 
                 Building.DrawWalls(field, ExtRect.Create(43, 10, 52, 17));
-                field.GetTile(47, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(48, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(47, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(48, 10).Foreground = PlaceID.pid_DoorN;
 
                 Building.DrawWalls(field, ExtRect.Create(54, 10, 67, 17));
-                field.GetTile(60, 10).Fore = PlaceID.pid_DoorN;
-                field.GetTile(61, 10).Fore = PlaceID.pid_DoorN;
+                field.GetTile(60, 10).Foreground = PlaceID.pid_DoorN;
+                field.GetTile(61, 10).Foreground = PlaceID.pid_DoorN;
                 //
                 field.AddCreature(-1, -1, GlobalVars.cid_Thor);
                 field.AddCreature(-1, -1, GlobalVars.cid_Tyr);

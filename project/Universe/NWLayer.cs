@@ -232,10 +232,6 @@ namespace NWR.Universe
             LayerEntry layer_entry = (LayerEntry)GlobalVars.nwrDB.GetEntry(EntryID);
             string entry_sign = layer_entry.Sign;
 
-            if (GlobalVars.Debug_TestWorldGen) {
-                Logger.Write("NWLayer.initLayer().start >>>>> " + entry_sign);
-            }
-
             try {
                 for (int y = 0; y < fH; y++) {
                     for (int x = 0; x < fW; x++) {
@@ -273,11 +269,7 @@ namespace NWR.Universe
                     }
                 }
             } catch (Exception ex) {
-                Logger.Write("NWLayer.initLayer(" + entry_sign + "): " + ex.Message);
-            }
-
-            if (GlobalVars.Debug_TestWorldGen) {
-                Logger.Write("NWLayer.initLayer().finish >>>>> " + entry_sign);
+                Logger.Write("NWLayer.InitLayer(" + entry_sign + "): " + ex.Message);
             }
         }
 

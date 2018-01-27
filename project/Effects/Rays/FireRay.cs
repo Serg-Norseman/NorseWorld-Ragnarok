@@ -34,7 +34,7 @@ namespace NWR.Effects.Rays
             Step(aX, aY);
             if (fld.IsBarrier(aX, aY)) {
                 if (tile.ForeBase == PlaceID.pid_Tree) {
-                    tile.Fore = PlaceID.pid_Undefined;
+                    tile.Foreground = PlaceID.pid_Undefined;
                 }
                 aContinue = false;
             } else {

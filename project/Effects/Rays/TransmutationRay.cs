@@ -27,7 +27,7 @@ namespace NWR.Effects.Rays
 {
     public sealed class TransmutationRay : EffectRay
     {
-        private static readonly int[] dbTransmutatedList = new int[] {
+        private static readonly ushort[] dbTransmutatedList = new ushort[] {
             PlaceID.pid_Mud,
             PlaceID.pid_Rubble
         };
@@ -41,9 +41,9 @@ namespace NWR.Effects.Rays
                 NWTile tile = (NWTile)f.GetTile(aX, aY);
                 int bg = tile.BackBase;
                 if (bg == PlaceID.pid_Mud || bg == PlaceID.pid_Rubble) {
-                    tile.Back = PlaceID.pid_Ground;
+                    tile.Background = PlaceID.pid_Ground;
                 } else {
-                    tile.Back = dbTransmutatedList[RandomHelper.GetRandom(2)];
+                    tile.Background = dbTransmutatedList[RandomHelper.GetRandom(2)];
                 }
 
                 NWCreature c = (NWCreature)f.FindCreature(aX, aY);

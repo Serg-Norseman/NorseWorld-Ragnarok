@@ -24,12 +24,12 @@ namespace NWR.Core.Types
 {
     public sealed class TrapRec
     {
-        public int TileID;
+        public ushort TileID;
         public Movements EscMovements;
         public bool Disposable;
         public int EscapeMsgRS;
 
-        public TrapRec(int tileID, Movements escMovements, bool disposable, int escapeMsg)
+        public TrapRec(ushort tileID, Movements escMovements, bool disposable, int escapeMsg)
         {
             TileID = tileID;
             EscMovements = escMovements;

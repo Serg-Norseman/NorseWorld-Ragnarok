@@ -67,7 +67,7 @@ namespace NWR.Effects.Rays
                     break;
 
                 default:
-                    tile.Fore = PlaceID.pid_Undefined;
+                    tile.Foreground = PlaceID.pid_Undefined;
                     break;
             }
         }

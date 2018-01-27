@@ -1509,22 +1509,22 @@ namespace NWR.Game
                 for (int xx = 0; xx <= rtx.Right; xx++) {
                     NWTile tile = (NWTile)fld.GetTile(aX + xx, aY + yy);
                     if (rtx.IsBorder(xx, yy)) {
-                        tile.Back = PlaceID.pid_Grass;
+                        tile.Background = PlaceID.pid_Grass;
                         if (yy == 5) {
-                            tile.Fore = PlaceID.pid_Tree;
+                            tile.Foreground = PlaceID.pid_Tree;
                         } else {
-                            tile.Fore = PlaceID.pid_Mountain;
+                            tile.Foreground = PlaceID.pid_Mountain;
                         }
                     } else {
-                        tile.Back = PlaceID.pid_Floor;
+                        tile.Background = PlaceID.pid_Floor;
                         if (Castle.IsBorder(xx, yy)) {
-                            tile.Fore = NWField.GetBuildPlaceKind(xx, yy, Castle, false);
+                            tile.Foreground = NWField.GetBuildPlaceKind(xx, yy, Castle, false);
                         }
                     }
                 }
             }
 
-            fld.GetTile(aX + 2, aY + 4).Fore = PlaceID.pid_DoorS;
+            fld.GetTile(aX + 2, aY + 4).Foreground = PlaceID.pid_DoorS;
             fld.AddCreature(aX + 2, aY + 3, GlobalVars.cid_Gymir);
 
             fld = GetField(GlobalVars.Layer_Midgard, 5, 3);
@@ -2517,7 +2517,7 @@ namespace NWR.Game
             if (field.LandID == GlobalVars.Land_GrynrHalls) {
                 NWTile tile = (NWTile)field.GetTile(tx, ty);
                 if (tile.ForeBase == PlaceID.pid_SmallPit && item.CLSID_Renamed == GlobalVars.iid_Amulet_SertrudEye) {
-                    tile.Fore = PlaceID.pid_Undefined;
+                    tile.Foreground = PlaceID.pid_Undefined;
                     item.Dispose();
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_EyeFitsIntoPit) + BaseLocale.GetStr(RS.rs_PitEnclosesEye));
                     if (CheckGrynrHalls(field)) {

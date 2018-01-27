@@ -25,6 +25,7 @@ using NWR.Core;
 using NWR.Core.Types;
 using NWR.Game;
 using ZRLib.Core;
+using ZRLib.Map;
 
 namespace NWR.Database
 {
@@ -192,8 +193,8 @@ namespace NWR.Database
                                     break;
                             }
 
-                            tile.BackGround = AuxUtils.FitShort(bg, bgv);
-                            tile.ForeGround = AuxUtils.FitShort(fg, fgv);
+                            tile.BackGround = BaseTile.GetVarID((byte)bg, (byte)bgv);
+                            tile.ForeGround = BaseTile.GetVarID((byte)fg, (byte)fgv);
                         }
                     }
 

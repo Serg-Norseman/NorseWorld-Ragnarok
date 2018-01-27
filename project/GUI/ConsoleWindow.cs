@@ -109,12 +109,7 @@ namespace NWR.GUI
                         } else {
                             if (token.Equals("set_fury")) {
                                 GlobalVars.Debug_Fury = !GlobalVars.Debug_Fury;
-                                string temp;
-                                if (GlobalVars.Debug_Fury) {
-                                    temp = "yes";
-                                } else {
-                                    temp = "no";
-                                }
+                                string temp = GlobalVars.Debug_Fury ? "yes" : "no";
                                 AddMessage(">> (fury = " + temp + ")");
                             } else {
                                 if (token.Equals("transform")) {

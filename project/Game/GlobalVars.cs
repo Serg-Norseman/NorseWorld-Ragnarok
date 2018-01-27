@@ -191,7 +191,6 @@ namespace NWR.Game
         public static bool Debug_Divinity = true;
         public static bool Debug_Fly = false;
         public static bool Debug_Swim = false;
-        public static bool Debug_TestWorldGen = false;
         public static bool Debug_Freeze = false;
         public static bool Debug_Fury = true;
         public static bool Debug_CheckCrPtr = false;

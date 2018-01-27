@@ -280,8 +280,8 @@ namespace NWR.Game
                     NWTile halTile = (NWTile)HalMap.GetTile(x, y);
                     halTile.Assign(tile);
 
-                    halTile.Back = Hallucination.GetPlaceID(tile.BackBase);
-                    halTile.Fore = Hallucination.GetPlaceID(tile.ForeBase);
+                    halTile.Background = Hallucination.GetPlaceID(tile.BackBase);
+                    halTile.Foreground = Hallucination.GetPlaceID(tile.ForeBase);
                 }
             }
 
@@ -630,7 +630,7 @@ namespace NWR.Game
 
                 if (field.LandID == GlobalVars.Land_Crossroads) {
                     if (tile.ForeBase == PlaceID.pid_cr_Disk) {
-                        tile.Fore = PlaceID.pid_cr_Disk_Pressed;
+                        tile.Foreground = PlaceID.pid_cr_Disk_Pressed;
                     } else {
                         int lid = -1;
                         int fx = 0;
@@ -741,7 +741,7 @@ namespace NWR.Game
                 if (field.LandID == GlobalVars.Land_Crossroads) {
                     int fg = tile.ForeBase;
                     if (fg == PlaceID.pid_cr_Disk || fg == PlaceID.pid_cr_Disk_Pressed) {
-                        tile.Fore = PlaceID.pid_Undefined;
+                        tile.Foreground = PlaceID.pid_Undefined;
                         GlobalVars.nwrWin.ShowText(this, BaseLocale.GetStr(RS.rs_DiskFalls));
                     }
                 }
