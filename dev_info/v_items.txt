@@ -1,0 +1,196 @@
+1	%	food ration
+2	%	urn
+3	%	clay lump
+4	%	strange herb
+5	%	magic cookie
+6	%	gnarled root
+7	%	speckled growth
+8	%	red mushroom
+9	%	white mushroom
+10	%	mottled mushroom
+11	%	black mushroom
+12	%	yellow mushroom
+13	%	spongy mass
+14	%	skeleton
+15	%	bleached root
+16	%	green lump
+17	%	green mushroom
+18	"	holding
+19	"	Eye of Sertrud
+20	"	quickening
+21	"	ethereality
+22	"	might
+23	"	infravision
+24	"	eternal life
+25	[	blazing cape
+26	[	plate mail
+27	[	scale mail
+28	[	chain mail
+29	[	banded mail
+30	[	helm of knowledge
+31	[	leather armor
+32	[	grey cloak
+33	[	iron shield
+34	[	gauntlets
+35	[	leather boots
+36	[	helmet
+37	[	mithril mail
+38	[	holocaust cloak
+39	[	silver mantle
+40	[	gorget
+41	[	greaves
+42	[	bracers
+43	[	norse boots
+44	[	war vest
+45	[	crystal gloves
+46	[	mirror shield
+47	[	disperser helm
+48	[	chin strap
+49	[	golden togs
+50	/	fire
+51	/	displacement
+52	/	armoring
+53	/	death
+54	/	evocation
+55	/	ice
+56	/	deanimation
+57	/	cancellation
+58	/	hastening
+59	/	transmutation
+60	/	polymorph
+61	/	wands
+62	/	healing
+63	/	annihilation
+64	/	stoning
+65	/	flaying
+66	/	sleep
+67	/	restoration
+68	/	light
+69	/	chaos
+70	/	tunneling
+71	/	trap detection
+72	/	wishing
+73	/	amusement
+74	$	gold piece
+75	)	mace
+76	)	runesword
+77	)	long bow
+78	)	throwing knife
+79	)	arrow
+80	)	shuriken
+81	)	spear
+82	)	trident
+83	)	Mimming
+84	)	crossbow
+85	)	bolt
+86	)	battle axe
+87	)	boomerang
+88	)	scythe
+89	)	flask
+90	)	sai
+91	)	phaseblade
+92	)	silver sword
+93	)	Mjollnir
+94	)	katana
+95	)	war hammer
+96	)	ivory staff
+97	)	barbed whip
+98	)	net
+99	)	black sword
+100	!	strength
+101	!	experience
+102	!	curing
+103	!	rejuvenation
+104	!	paralysis
+105	!	venom
+106	!	contamination
+107	!	holy water
+108	!	translucence
+109	!	speed
+110	!	mead
+111	!	phasing
+112	!	blindness
+113	!	constitution
+114	!	depredation
+115	!	soul seeking
+116	!	hallucination
+117	!	scaling
+118	!	endurance
+119	!	lycanthropy
+120	!	drinking water
+121	!	restore magic
+122	!	raise magic
+123	!	alchemy
+124	%	nonitem
+125	=	protection
+126	=	agility
+127	=	locus mastery
+128	=	ashes
+129	=	immunity
+130	=	insulation
+131	=	famine
+132	=	relocation
+133	=	regeneration
+134	=	third sight
+135	=	nonitem
+136	=	crystal skin
+137	=	genesis
+138	=	invisibility
+139	=	soul trapping
+140	=	draining
+141	=	delusion
+142	=	nonitem
+143	=	nonitem
+144	=	nonitem
+145	=	nonitem
+146	=	nonitem
+147	=	nonitem
+148	%	dead monster
+149	?	diary
+150	(	ocarina
+151	(	orb of imprisoning
+152	(	wooden flute
+153	(	anvil
+154	(	empty vial
+155	(	green stone
+156	(	pick axe
+157	(	disruption horn
+158	(	statue
+159	(	tongs
+160	(	Skidbladnir
+161	(	red bag
+162	(	lodestone
+163	(	chameleon
+164	)	Gungnir
+165	(	dwarven arm
+166	(	grappling hook
+167	(	diamond needle
+168	(	Lazlul's rope
+169	(	origami
+170	(	black gem
+171	(	Gjall
+172	(	nonitem
+173	(	stylus
+174	(	ingot
+175	?	blessing
+176	?	destruction
+177	?	twelve gates
+178	?	traveling
+179	?	extinction
+180	?	flame
+181	?	Odin
+182	?	dispel hex
+183	?	summoning
+184	?	identification
+185	?	time stop
+186	?	knowledge
+187	?	cartography
+188	?	trap generation
+189	?	pure evil
+190	?	transport
+191	?	lava strike
+192	?	recall
+193	?	recharging
+194	?	enchantment
+195	?	wonder
+196	?	alliance

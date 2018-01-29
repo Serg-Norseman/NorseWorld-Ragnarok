@@ -1,0 +1,138 @@
+Potions
+Scrolls
+Wands
+Rings
+Amulets
+
+Food
+
+black mushroom     lose some hit points, gain heat vision for a
+                   while
+bleached root      may increase constitution by 2-5 hit points
+clay lump          stops stoning if eaten in time
+food ration        bland but filling
+gnarled root       raises constitution; medicinal value
+green lump         high nutrition value
+green mushroom     raises your maximum hit points
+magic cookie       cures leglessness
+mottled mushroom   delicious, but makes you twist in pain later
+red mushroom       makes you blind
+skeleton           nothing
+speckled growth    you hallucinate, go berserk, do random things
+spongy mass        destroys your sixth sense
+strange herb       fills your belly
+urn (food)         food value
+urn (meat)         food value
+urn (green powder) gain strength
+urn (orange powder)     20% chance of gaining night vision (you can
+                        supposedly see better in mist)
+urn (smaller urn)  try again
+urn (nothing)      nothing
+white mushroom     makes you lose a lot of food, might even kill
+yellow mushroom    makes you lose strength
+
+
+Armor
+
+banded mail        6   torso   --
+blazing cape       -   body    lights your way
+bracers            1   wrist   --
+chain mail         5   torso   --
+chin strap         -   chin    greed with wand of wishing
+crystal gloves     -   hand    attack with bare hands
+disperser helm     1   head    mental attack protection
+gauntlets          2   hand    --
+golden togs        -   jewelry greed with wand of wishing
+gorget             1   neck    guards against iridorn's attack
+greaves            1   ankles  --
+grey cloak         1   body    --
+helm of knowledge  -   head    makes scrolls of knowledge more
+                               powerful
+helmet             1   head    --
+holocaust cloak    3   body    heat protection
+iron shield        3   arm     --
+leather armor      1   torso   --
+leather boots      1   feet    --
+mirror shield      5   arm     gaze attack protection
+mithril mail       10  torso   weightless
+norse boots        -   feet    nothing special, loser artifact
+plate mail         7   torso   --
+scale mail         3   torso   --
+silver mantle      0   body    magic protection
+war vest           -   torso   heals grevious wounds
+
+
+Tools
+
+anvil              blacksmith's tool
+black gem          throw at enemies to increase your maximum hit
+                   points (don't wear the ring of soul trapping)
+diamond needle     increases psychic powers
+diary              may contain useful information
+disruption horn    makes a roof collapse when blown
+dwarven arm        bring this arm to Tyr
+empty vial         to fill with some content when you are over
+                   water or on Azare's Plane
+Gjall              blow it to ward off lesser creatures, blow
+                   near Heimdall, on Bifrost
+glass ocarina      used for dimension travel from/to almost any
+                   location to/from the Crossroads
+grappling hook     throw this to pull yourself out of a pit or
+                   over rubble
+green stone        makes Skyld non-invulnerable
+ingot              blacksmith's raw material
+Lazlul's rope      can be used to climb up holes
+lodestone          weighs a lot, usually cursed
+ocarina            musical instrument, can be enchanted, moves
+                   you from Crossroads to forest and vice versa
+orb of imprisoning can trap an enemy or oneself
+origami            make a creature to fight for you
+pick axe           use it to dig out of peril
+red bag            this bag carries a lot, but weighs little
+Skidbladnir        this ship carries a crew, but weighs little
+statue             petrified creature: worth money in shops
+stylus             used to write scrolls
+tongs              blacksmith's tool
+wooden flute       musical instrument, can be enchanted
+
+
+Weapons
+
+arrow              fired with a long bow; good damage
+barbed whip        brutal weapon, designed to punish
+battle axe         two-headed weapon, slices through metal
+black sword        the black blade draws life from its victims,
+                   may turn upon its wielder
+bolt               fired with a crossbow; heavy damage
+boomerang          returns when thrown
+crossbow           wield it to fire bolts; heavy damage
+flask              liquid fire, explosive and deadly
+flint knife        low-damage weapon; may be wielded or thrown
+Gungnir            Odin's spear; there is a reward for the
+                   finder, you need strength 40 to wield it
+ivory staff        expensive weapon, good against undead
+katana             good, not too uncommon, weapon
+long bow           wield it to fire arrows; good gamage
+mace               heavy club, designed to smash
+Mimming            Freyr's sword; there is a reward for the
+                   finder, you need strenght 40 to wield it
+Mjollnir           bring 5 Eyes of Stertrud to the Halls of
+                   Grynr, good damage, returns when thrown,
+                   usually
+net                used to ensnare opponents
+phaseblace         you hit hardly anything if not wielding this
+                   when you are phasing
+runesword          best ordinary weapon: never misses, good
+                   damage
+sai                short weapon used to maim opponents
+scythe             Hela carries it, it does huge amounts of
+                   damage
+shuriken           high-damage throwing weapon
+silver sword       fine silver weapon, good against werecreatures
+spear              heavy, high-damage weapon
+throwing knife     low-damage last resort weapon
+trident            lethal thrusting pole-arm
+war hammer         good, heavy, weapon
+
+
+Monsters

@@ -1,0 +1,1693 @@
+
+{*** PROGRAM
+'You stop equipping yourself.'
+'You cannot set off a pit.'
+'splash'
+'You sink like a rock.'
+'You cannot reach the hole.'
+'You cannot surface carrying that much weight.'
+'Your pack is empty.'
+'You owe $'
+'You owe nothing.'
+'You cannot see.'
+'Nobody is here.'
+' has no use for used items.'
+
+'As a'
+' '
+' you cannot remove anything.'
+' you cannot wear anything.'
+
+'The '
+' plummets to '
+'his'
+'its'
+' death.'
+' escapes the net.'
+' rots with disease.'
+'auggh'
+}
+
+
+{*** rp_buttbox
+'Transfer out '
+'Transfer in '
+'The following items are here:'
+}
+
+
+{*** rp_explode
+'golem'
+'zombie'
+'dead human'
+'dead humanoid'
+'dead '
+'charred wraith'
+'dead zombie'
+'pulpy mass'
+}
+
+
+{*** rp_byemonster
+'n'
+'Destroyed with a'
+' '
+'demon'
+
+'The illusion'
+' fades.'
+'s fade.'
+
+' creates a new body.'
+'You hear ghosts.'
+}
+
+
+{*** rp_itemlist
+'You to stone.'
+'Petrified#'
+'There are many items here.'
+}
+
+
+{*** rp_putinpack
+'s'
+' gold piece'
+'.'
+'chameleo'
+'The '
+' is really a '
+'It teleports away in terror.'
+' is only an illusion.'
+' burrow'
+}
+
+
+{*** rp_putonground
+'The '
+'fall'
+'sink'
+' '
+'s.'
+'.'
+}
+
+
+{*** rp_mousemappick
+'Please pick a square on one of the maps.'
+}
+
+
+{*** rp_drop
+'The '
+' is '
+' are '
+'grafted onto your '
+'.'
+'You cannot sell something you do not own.'
+'You cannot drop your boat now.'
+'drop '
+'sell '
+'You cannot '
+'something you are wearing.'
+'an'
+'a'
+'Dropped '
+'Sold '
+' '
+' for '
+'s'
+' gold piece'
+'You now owe '
+'nothing.'
+' would rather kill you.'
+' cannot afford that.'
+}
+
+
+{*** sub_3534_3DA5
+'The doors close on you.'
+'Killed by a closing door'
+}
+
+
+{*** rp_closeshop
+'The doors close.'
+'on you'
+}
+
+
+{*** rp_dropgold
+'Dropped '
+' gold piece'
+'.'
+'s.'
+'dead'
+'gold piece'
+'You have no gold.'
+}
+
+
+{*** rp_flaming
+'Your flesh is burning.'
+'Cremated'
+'The flames do not affect you.'
+'is'
+'are'
+'Your '
+' '
+' damaged.'
+' destroyed.'
+'One of your '
+' is destroyed.'
+'The flames burn out.'
+}
+
+
+{*** rp_ungrab
+'the '
+'As the '
+' changes shape, you escape its grasp.'
+}
+
+
+{*** rp_grab
+'The '
+' begins to consume you.'
+' grabs you! '
+'You are grabbed! '
+}
+
+
+{*** rp_printstomach
+'Faint'
+'Hungry'
+'Full'
+'Crazed'
+}
+
+
+{*** rp_teleport
+'teleport'
+'Burrow'
+'Teleport'
+' to where? '
+'The shop walls hold you.'
+'You cannot '
+' there.'
+'Your control is blocked here.'
+'You cannot burrow here.'
+'You black out from overexertion.'
+}
+
+
+{*** rp_pickup
+'down '
+'You cannot carry the entire load.'
+'s'
+}
+
+
+{*** rp_chaosfun
+'The '
+' explodes messily.'
+'You hear an inhuman scream.'
+' is crisped.'
+'Sizzle...'
+}
+
+
+{*** rp_checks
+'n'
+'Became a'
+' '
+'$'
+
+'You are slowing down.'
+
+'You are stunned by powerful flashbacks and are unable'
+' to move.'
+
+'You fade into nothingness.'
+'Never existed^'
+'You are no longer invulnerable.'
+
+'You are turning grey.'
+'Your eye sockets pulsate.'
+
+'You feel weak.'
+
+'You begin to prowl.'
+'werewolf'
+'were-'
+'Suddenly, you transform into a '
+'.'
+': '
+'Removed '
+'You lose '
+
+'Dissolved by acid'
+'You have '
+' gold.'
+
+'You materialize in'
+'Solidified in a tree'
+'side a tree.'
+'Fused in stone'
+' solid stone.'
+
+'You have sustained fatal damage.'
+'Died after a killing spree'
+'Fused in green stone'
+'Mysteriously slain'
+
+'You need to surface very soon.'
+'Your vision blurs from lack of oxygen.'
+'You pass out. You drown.'
+'Drowned'
+
+'collapse'
+'Your amulet ceases to glow.'
+'charm'
+'Suddenly your stomach twists in pain! '
+'Killed by a delicious fungus'
+
+'Added to Hela',27h,'s forces by Odin'
+
+'You are up to your chin.'
+
+'You hear the terrifying cry of Heimdall: "O great heroes of the world!" '
+'"I must have Gjall to rally the forces of good." '
+'"Time begins to grow short. The sea rages with the anger of Jormungand." '
+'"The earth quakes mightily. Loki seems ready to burst his bonds." '
+'"The moon and sun shall soon be swallowed by the mighty wolves Fenrir and Garm." '
+'"Surtr is honing his sword of destruction. The evil ones are gathering their forces." '
+'"To speed you in your quest, I will use my powers over nature." '
+'"The lesser creatures of the realm shall grow weary and despair." '
+'"They shall no longer wish to battle against your might." '
+'You hear the crowing of the three cocks; the final battle is at hand.'
+
+'Odin projects his astral image to you and booms mightily:'
+'"Many days will the gods battle fiercely with the forces of death." '
+'"Make haste to reach Asgard, but take care as well." '
+'"You are the only hope that we have left." '
+'"Aid us and join the ranks of mortals who have been honored with greatness." '
+'"Fail and the universe shall perish." '
+'"First, take Gjall to Heimdall at Bifrost or we shall be overwhelmed. "'
+'"We await you at Vigrid." '
+
+'Your damaged body parts heal.'
+'y'
+'forward thru'
+'l'
+'backward thru'
+'thru space and'
+'You travel '
+' time.'
+'The cold dissipates.'
+'The cold stops you from moving.'
+}
+
+
+{*** rp_checks2
+'Fried by molten rock'
+'You drown! '
+'Drowned'
+'splash'
+'The weight you are carrying may drag you into the murky depths forever.'
+'The light burns you! '
+'Burnt by light'
+}
+
+
+{*** rp_checks3
+'The walls of the bazaar hurl you back inside.'
+'Your bill has been increased.'
+'chop'
+
+'You fall into quicksand.'
+'The Kroiten'
+' the trader'
+' welcomes you.'
+'You steal $'
+' worth of merchandise.'
+'There is a stairway down here.'
+}
+
+
+{*** rp_fightlast
+' reduces you to vapor.'
+'Wandered near '
+'his '
+
+'.'
+' destroys '
+' attacks '
+}
+
+
+{*** rp_fillvial
+'You fill the '
+'.'
+'existentialism'
+': '
+'You drop the potion.'
+}
+
+
+{*** rp_diagnosemonster
+'You see no life there.'
+}
+
+
+{*** rp_examine
+'You feel '
+'utterly repelled by'
+'afraid of'
+'extremely worried about'
+'worried about'
+'wary about'
+'cautious about'
+'neutral concerning'
+'fairly good about'
+'good about'
+'very good about'
+'quite pleased with'
+'very happy with'
+'extremely good about'
+'incredibly good about'
+'terrified of'
+
+'('
+'the '
+'.'
+'You see '
+
+'Freyr''s incredibly powerfurl sword.'
+'With it he is nearly invincible.'
+
+'Thor''s hammer.'
+'It returns when thrown and can hurl bolts of lighning'
+'.'
+'s boat.'
+'It weighs almost nothing yet can hold a large crew.'
+
+'Odin''s spear.'
+'It never misses.'
+
+'Lazlul''s magic rope.'
+'It always spirals upward.'
+
+'Heimdall''s horn.'
+'It',27h,'s sound signals the beginning of Ragnarok.'
+}
+
+
+{*** rp_psiblast
+'Psi blast where? '
+'You strain your mind.'
+'Became a mindless vegetable'
+
+'Your brain implodes from the force of your psionic blast.'
+'Psi blasted '
+'self'
+
+'Your psionic power needs to be recuperated.'
+}
+
+
+{*** rp_look
+'You see '
+'You sense '
+'a human named '
+' '
+'and '
+'a'
+
+'n'
+'ghost of '
+'the '
+' (immobilized)'
+', kneeling on a stump with his head in a noose'
+', lying down, speared through the shoulder to the ground'
+', tied up, with his head just above water'
+'.'
+'some items '
+'nothing'
+' and '
+'the following items: '
+
+'Touching the dead '
+' was fatal.'
+
+'Fossilized#'
+}
+
+
+{*** rp_pay
+' thanks you.'
+
+'You give '
+' all you can.'
+'You bought '
+' ($'
+') '
+'pay'
+'You cannot afford the rest.'
+'You owe nothing.'
+}
+
+
+{*** rp_dig
+'Your pick axe breaks.'
+'You cannot dig here.'
+'Only the sky is above.'
+'It hits your face.'
+'Struck by a falling object'
+'You cannot dig there.'
+'You cannot dig '
+'in a holy place.'
+'underwater.'
+'here.'
+}
+
+
+{*** rp_setoff
+'pitfall'
+
+'Fell into a pit'
+'You discover a pit.'
+'The ground below gives way.'
+}
+
+
+{*** rp_t1_trap_arrow
+'An arrow misses you.'
+'dead'
+'arrow'
+'Poof.'
+}
+
+
+{*** rp_t4_trap_stungas
+' a stun gas trap.'
+'You escape'
+'You set off'
+}
+
+
+{*** rp_t9_trap_panel
+'You step on a strange panel.'
+}
+
+
+{*** rp_t6_trap_spikes
+'oisoned spikes'
+'You escape a spike trap.'
+'P'
+' hit you.'
+'Hit by p'
+' miss you.'
+}
+
+
+{*** rp_t10_trap_fire
+'You are unhurt.'
+}
+
+
+{*** rp_t13_trap_door
+'You discover a trap door.'
+}
+
+
+{*** rp_t14_trap_ice
+'You are unhurt.'
+}
+
+
+{*** rp_finishfletch
+'You create some '
+'.'
+'dead'
+'As your pack is full, the '
+' fall to the ground.'
+}
+
+
+{*** rp_finishaction
+'You stop resting.'
+}
+
+
+{*** rp_finishdig
+'You dig a hole in the ceiling.'
+'You dig a hole.'
+'You dig a pit.'
+'fall1'
+'fall2'
+'You fell the tree.'
+'You finish digging.'
+}
+
+
+{*** rp_changelev
+'Your body is held by a mysterious force.'
+}
+
+
+{*** rp_die
+'Saved the world*'
+'stone adventurer'
+'You die.'
+' the '
+' werewolf'
+' were-'
+'scores'
+'Anon'
+'Unknown'
+'Saved'
+'Cheated'
+'+'
+'in '
+'in the '
+'at the '
+'on '
+'in a '
+'at a depth of '
+'dead'
+'Sorry, but you didn',27h,'t best your previous score.'
+' '
+}
+
+
+{*** rp_makenewlevel
+'You hear a fleeing banshee.'
+'You steal $'
+' worth of supplies.'
+}
+
+
+{*** rp_newlev
+'Asgard'
+'Niflheim'
+'This action will cause you'
+'to plummet to '
+'.'
+'This area is passable only to full-fledged (commercial) adventurers.'
+}
+
+
+{*** rp_empower
+' disintigrate'
+' - '
+'The wand sucks energy from the environment and grows '
+'warmer.'
+'The wand strains and explodes.'
+}
+
+
+{*** rp_s180_flame
+'the '
+'You burn '
+'.'
+'It '
+'He '
+'She '
+'is'
+' unaffected'
+'dies.'
+'You scorch the earth around you.'
+}
+
+
+{*** rp_s184_identification
+'You mask your identity.'
+}
+
+
+{*** rp_s189_pure_evil
+'You can no longer see.'
+'The air grows cold.'
+'evil'
+}
+
+
+{*** rp_s191_lava_strike
+'Something'
+' screams in mortal agony.'
+' basks in the flames.'
+'Steam rises.'
+'You hear a hissing sound.'
+'The rubble is turned to slag.'
+'You hear a gurgling noise.'
+}
+
+
+{*** rp_readscroll
+'Being confused, you choose to teleport to '
+'.'
+'You feel something evil lurking.'
+'denizen'
+'You may not leave until you pay.'
+'That scroll has no power in this realm.'
+'blue rock'
+'Suffocated beneath a pile of rocks'
+'Strewn about'
+'You see a vision of yourself being torn '
+'apart by rabid wolves.'
+' is'
+'Scrolls of such nature are not welcome here.'
+'scroll'
+}
+
+
+{*** rp_action
+'s'
+'As you go for your wand'
+', '
+' bleeds from its ears.'
+'Your wand'
+' feel'
+' limp.'
+' '
+'You do not have that object.'
+'You cannot drink '
+'.'
+'You cannot mix '
+'You cannot fennl '
+'Transfer is successful.'
+'They must be similar wands.'
+'You cannot read '
+'You deface the diary.'
+'You autograph '
+'You cannot zap '
+'That material is unsuitable for use.'
+'You cannot eat '
+'paper whale'
+'paper halcyon'
+'paper roc'
+'paper funnel'
+'You neatly fold a '
+'You cannot fold '
+'You cannot throw something you are wearing.'
+'You would drown.'
+'You are not yet powerful enough to hurl '
+}
+
+
+{*** rp_getfail
+'thing'
+' items to use'
+'thing to sell'
+' food'
+' potions'
+' scrolls'
+' to smelt'
+' wands'
+'You need two potions'
+'You need two wands'
+}
+
+
+{*** rp_getfailprefix
+'You have no'
+}
+
+
+{*** rp_eatoffground
+'are'
+'one'
+'is'
+'it'
+'There '
+' '
+' here.'
+'Eat '
+'?'
+}
+
+
+{*** rp_usemagicitem
+'You create the most amazing sound in the world.'
+'You bellow loudly.'
+'You hurtle through time.'
+'You cannot use that.'
+}
+
+
+{*** rp_wieldweapon
+'You are not yet powerful enough to wield '
+'.'
+'You need to remove it first.'
+'You would drown.'
+'You have no fingers.'
+'You already wield '
+' is '
+' are '
+'The '
+'grafted onto your '
+'Wield as'
+'secondary'
+'bow weapon?'
+'bow'
+'held'
+' - '
+'('
+') '
+' grafts itself '
+' graft themselves '
+'onto your '
+'! '
+'You now wield nothing.'
+'You are already empty handed.'
+}
+
+
+{*** rp_dgold
+'You only carry'
+'gold.'
+'Drop it?'
+}
+
+
+{*** rp_mousedig
+'The walls and floor are too tough.'
+}
+
+
+{*** rp_meltdown
+'Fashion which?'
+' - '
+'add to ingot'
+'smith'
+'You complete your task.'
+'You have some leftover slag.'
+'The leftover slag falls at your feet.'
+}
+
+
+{*** rp_breakage
+'The '
+' is damaged.'
+' is destroyed.'
+' breaks.'
+}
+
+
+{*** rp_useskill
+'a'
+'You no longer have that '
+'.'
+'Move which monster? '
+'Attempt to control which mind? '
+'Husband which? '
+'Your skill fades.'
+'You cannot currently teleport.'
+'You can only create arrows from trees.'
+'The '
+' avoids your piercing gaze.'
+'Your power is not great enough.'
+'Nothing is there.'
+'Move him which direction? '
+'That distance is too far.'
+'some'
+'s'
+'You fool '
+' pitifully stupid monster'
+'You have tampered with a great force.'
+'You have the feeling that punishment will soon be meted out.'
+'grange pawn'
+'Your mind is controlled instead! '
+'You are being held here.'
+'Pretending to be a god would not impress the true gods.'
+'Your heat fizzles out.'
+'cv'
+'ihd'
+'skills'
+'powers'
+}
+
+
+{*** rp_terraform
+'The terrain you create falls into space.'
+'afh',1Bh,0Dh,' '
+'The '
+' explodes.'
+'Thump.'
+' is burnt to death.'
+'Sizzle.'
+' suffocates.'
+'Gasp ... gasp.'
+'She'
+'He'
+' attempts to reflect your attack.'
+' succeeds.'
+'Crushed flat'
+' fails.'
+' '
+'Your skill fades.'
+}
+
+
+{*** rp_nuts
+' with '
+'You hit yourself'
+'.'
+'Slew '
+'self in a fit of madness'
+'n'
+'As a'
+' '
+' you cannot wear anything.'
+'You gibber mindlessly.'
+}
+
+
+{*** rp_bigdrop
+'$'
+'u'
+'Dropped '
+' gold.'
+'Drop the rest?'
+'n'
+'.'
+}
+
+
+{*** rp_wearring
+'You have too many rings on.'
+}
+
+
+{*** rp_wear
+'You now wield nothing.'
+'You are already wearing an amulet.'
+'You are already wearing similar armor.'
+}
+
+
+{*** rp_throw
+'Throw at which? '
+'0'
+'0- Overshoot all'
+'- '
+'arrowmis'
+'bow'
+' '
+' is unhurt.'
+'The '
+'hit'
+'kill'
+'s '
+'the '
+'.'
+'zombie'
+'Something'
+
+' is turned to stone.'
+'misses '
+'miss '
+'dead'
+}
+
+
+{*** rp_takeoff
+'un'
+'Removed '
+'.'
+'You cannot remove the '
+}
+
+
+{*** rp_sack
+'The bag is full.'
+'You have nothing to put in the bag.'
+}
+
+
+{*** rp_putinbag
+'You cannot let go of the '
+'.'
+'You would drown without '
+'You must remove the '
+' first.'
+'You must pay for items put in the bag.'
+}
+
+
+{*** rp_invbag
+'The bag is empty.'
+'That is not a bag of holding.'
+}
+
+
+{*** rp_unsack
+'The bag is empty.'
+}
+
+
+{*** rp_spemove
+' salutes you.'
+'raven'
+'The '
+' speaks.'
+
+' vanishes.'
+'s head rises above the waves.'
+'He begins to pursue you.'
+' gazes at you.'
+'The gaze is reflected.'
+'smooth shield'
+'Your mirror shield is blackened.'
+'You squirm mightily.'
+
+' awaits his gift.'
+'plat'
+'Something lands at your feet.'
+}
+
+
+{*** rp_mmoves2
+'The '
+' destroys something.'
+}
+
+
+{*** rp_matt
+'Your armor transforms! '
+'n'
+'.'
+'ung'
+'Killed by '
+'Stepped on by '
+'a'
+' '
+'ghost'
+' ghost'
+'s ghost'
+}
+
+
+{*** rp_montrap
+'The ground turns to quicksand.'
+'Recklessly prowled into a bog'
+'The '
+' is hit by an arrow.'
+'An arrow misses '
+'.'
+'dead'
+'arrow'
+' sets off a teleport trap.'
+'You set off a teleport trap.'
+'You escape a teleport trap.'
+' falls in a pit.'
+' sets off a stun gas trap.'
+' trips a switch.'
+'Poisoned spikes miss '
+'covered in frost'
+'engulfed in flames'
+' is '
+' savors the cold'
+' basks in the heat'
+'The ground below '
+}
+
+
+{*** rp_pspedef
+'The '
+'You are no longer protected by reflection.'
+' comes in contact with your acidic blood.'
+' is hypnotized by your gaze.'
+'You splash '
+'.'
+' is unaffected.'
+' is turned to stone.'
+}
+
+
+{*** rp_mspedef
+'the '
+'the '
+'The '
+' splashes '
+'.'
+' is unaffected.'
+}
+
+
+{*** rp_satt4
+'You are set ablaze! '
+' grows a new limb.'
+' gouts acid.'
+'You are hit by acid.'
+'s'
+'Your '
+' corrode'
+'! '
+' are'
+' is'
+' destroyed! '
+'You are melted! '
+'Melted'
+}
+
+
+{*** satt3
+'An eye gazes at you.'
+
+'It forces you to wield a new weapon.'
+'Your shield reflects the gaze.'
+
+'The '
+' summons help.'
+'Foul smoke comes from your pack.'
+
+'Blood trickles from your ears.'
+'You are stunned.'
+'You feel disoriented.'
+'Eaten by '
+'Even your system cannot withstand this much heat.'
+'Your skin burns.'
+'Your body is in flames.'
+'Your flesh is peeling off! '
+'Burnt to death'
+'The fireballs have no effect.'
+' mumbles'
+'You hear'
+'archmage'
+' a strange spell.'
+' everts his tongue.'
+
+' in your pack '
+'Something'
+'is '
+'Things'
+'are '
+'destroyed! '
+}
+
+
+{*** rp_satt2
+'Tiny fragments of your brain are destroyed! '
+'The '
+' sings an enthralling song.'
+' sings.'
+' collapses the ceiling.'
+'The ceiling collapses.'
+' burrows away.'
+
+'zzt'
+'Electricity surges through your body.'
+
+' explodes! '
+'You are bathed in frost.'
+'Particles of ice lacerate you.'
+'You are not affected.'
+' drains you.'
+'You are drained.'
+' are '
+' is '
+'Your '
+'damaged.'
+' gazes at you.'
+'The gaze is reflected.'
+'s sting was poisoned.'
+'Something'
+' rips out '
+'your last eye'
+'one of your eyes'
+'.'
+}
+
+
+{*** rp_satt1
+'You are stuck.'
+'His mace slams into your head.'
+'You black out.'
+'He rifles through your pockets.'
+'He steals your money.'
+'The '
+' sucks your blood.'
+' bites you.'
+'H'
+'Sh'
+' seduces you.'
+'e begins to remove '
+'.'
+'e steals '
+
+'s bite subdues you.'
+}
+
+
+{*** rp_grabandcrush
+'You are being crushed.'
+}
+
+
+{*** rp_mam
+' '
+' the '
+' a monster'
+'.'
+'The '
+' is killed.'
+}
+
+
+{*** sub_8177_921
+'flask'
+'A flask explodes! '
+'You hear an explosion.'
+'a poisoned '
+'The '
+' is '
+'hit by '
+'.'
+'killed by '
+' misses '
+'the '
+}
+
+
+{*** rp_mthrow
+'dragon'
+'turned to ash'
+'melted'
+'incinerated'
+'killed'
+'illegally killed'
+'destroyed'
+'rolling boulder'
+
+'A '
+'An '
+'arrowhit'
+'a poisoned '
+'flask'
+'You are hit by '
+'.'
+'A flask explodes! '
+'Something explodes! '
+'Killed by '
+'arrowmis'
+' misses you.'
+}
+
+
+{*** rp_mresult
+'.'
+'The '
+' hits'
+' misses'
+'You are hit.'
+}
+
+
+{*** rp_wolfen
+'You convulse.'
+'Died during transformation'
+}
+
+
+{*** rp_breathe
+'The '
+' breathes poison gas.'
+'Breathed on by a '
+}
+
+
+{*** rp_mitosis
+'The '
+' divides! '
+}
+
+
+{*** rp_psi
+'crushed'
+'squeezed'
+'Your mind is '
+' by a blast of pain.'
+'Your helm vibrates.'
+'Pulped by a psionic'
+'east'
+'west'
+'south'
+'north'
+'below you'
+'the '
+'It emanated from '
+'.'
+}
+
+
+{*** rp_monsterskill
+'You cannot divide at this moment.'
+'You explode! '
+'Exploded'
+'Drop the ceiling where? '
+'That is too far away.'
+
+'You cannot use your power here.'
+}
+
+
+{*** rp_gaze
+'Gaze at which? '
+'The '
+' is turned to stone.'
+'The tree is turned to stone.'
+' screams in pain.'
+' dies.'
+'Your gaze paralyzes the '
+'.'
+'Your attempts are useless.'
+'You cannot see there.'
+}
+
+
+{*** rp_dragonbreath
+'Breathe which direction? '
+'acid'
+'melted'
+'icy vapor'
+'frozen'
+'fire'
+'incinerated'
+'unholy water'
+'burned'
+'shimmering gas'
+'glopped'
+'pulsing vapor'
+'destroyed'
+'You spit a ball of '
+'.'
+'Fizzle.'
+}
+
+
+{*** rp_pmonstspeatt
+'the '
+'You drain '
+'.'
+'Your life-draining power fades.'
+'Your touch stuns '
+'You suck '
+'s vital juices.'
+'You burn '
+'Your fiery touch has no effect.'
+'You poison the '
+'You turn '
+' to stone.'
+'Droplets of acid fall on '
+' is unaffected.'
+'Even '
+' cannot withstand this much heat.'
+'Your fireballs have no effect.'
+
+'You smile as you tear the '
+'s '
+'head off.'
+'smother'
+'consume'
+'You '
+' '
+'zombie'
+}
+
+
+{*** rp_attack
+'Your evil weapon hits you! '
+'Slew '
+'self'
+' with your '
+' with '
+'your '
+'.'
+'You '
+'wound '
+'maim '
+'and maim '
+'hitfall'
+'whip'
+'clank'
+'huruh'
+'whiff'
+'and '
+'slay and devour '
+'destroy '
+'kill '
+'the '
+'You hit a monster'
+'zombie'
+'hit '
+'bite '
+'envelop '
+'You turn '
+' to stone.'
+'The '
+' submits.'
+'It'
+' gives you something.'
+'As your pack is full, '
+' drops it at your feet.'
+'dead'
+'dead '
+': '
+'You miss '
+'You miss a monster'
+}
+
+
+{*** rp_eatdead
+'dead '
+'was delicious.'
+'The dead human was quite enjoyable.'
+'Shouldn',27h,'t you be more wary of trichinosis? '
+'Eating lava is unhealthy.'
+'mouth'
+}
+
+
+{*** rp_eatfood
+'A '
+' tears out of your chest! '
+'Torn open by a '
+'.'
+'That was rotten.'
+'cookie.'
+'root.'
+'You can move again.'
+'Your innards roll.'
+'Your eye bleeds.'
+'The bones are too dry.'
+'That tasted strange.'
+}
+
+
+{*** rp_p102_curing
+'Your burns have healed.'
+}
+
+
+{*** rp_p123_alchemy
+'You can harness no more of this power.'
+
+''
+'You feel watched over.'
+'You shrink down to a height of three inches! '
+' the tiny'
+' the tiny '
+'Your pack falls off.'
+'Your stumps throb.'
+'You can now fennl.'
+'You envision wands as transferable.'
+}
+
+
+{*** rp_drinkpotion
+'That tasted like venom.'
+}
+
+
+{*** rp_wanddef
+'The '
+' reflects the ray! '
+' grows stronger.'
+' burns'
+' is dried'
+' up.'
+'The lava hardens.'
+'twisted rock'
+' splits into parts! '
+
+' is stopped.'
+' is'
+' unaffected'
+'.'
+}
+
+
+{*** rp_ray
+'The ray shoots off into the sky.'
+'The '
+' ray hits '
+'.'
+'dispelled'
+' is '
+'It crumbles into dust.'
+'pulpy mass'
+''
+' is hurtled away.'
+' is reformed.'
+'rodent'
+' resists the wand'
+'s magic .'
+' is rooted to the ground.'
+' is turned inside out.'
+' is unable to move.'
+' ray misses '
+'the '
+' ray'
+' hits you'
+'! '
+'You are '
+'Frozen solid'
+'Turned to ash'
+'Items in your pack are destroyed! '
+'The decrease in temperature destroys '
+'The air around you heats up again.'
+'Deanimated'
+'plain cloak'
+'Your silver mantle loses its shimmer.'
+'You are turned inside out.'
+'Transmuted'
+'You are turning to stone.'
+'The stream of acid burns you.'
+'s'
+'Your '
+' corrode'
+'are'
+'is'
+' '
+' destroyed! '
+'Melted'
+' ray misses you.'
+}
+
+
+{*** rp_hittree
+'The tree is incinerated. 1'
+'The tree is gone! 1'
+'The tree dies. 1'
+
+'The tree springs to life! 1'
+
+'The bolt of lightning mutilates the tree. 1'
+'A tree materializes on you.'
+'Killed by a tree'
+'The '
+' is destroyed by a tree.'
+'You hear a loud thump.'
+}
+
+
+{*** rp_firevision
+'An '
+'A '
+' ray comes out of your eye'
+'.'
+'s.'
+'incinerated'
+'The water extinguishes the blast.'
+'You have no eyes.'
+}
+
+
+{*** rp_zapwand
+'wand'
+'An '
+'A '
+
+'Lightning strikes from the hammer.'
+'fried'
+'blasted'
+'incinerated'
+'imploded'
+'destroyed'
+'Monsters appear.'
+'frozen'
+'drained'
+'The wand explodes! '
+'Annihilated'
+'petrified'
+'melted'
+
+'Killed by a blast of light'
+}
+
+
+{*** rp_givemessage
+'The world will end soon'
+}
+
+
+{*** rp_sproutmonster
+'The '
+' returns to life.'
+'The dead '
+' transforms! '
+}
+
+
+{*** rp_bigequip
+' are'
+' is'
+'Your '
+' grafted onto your '
+'.'
+'You cannot remove your cursed cloak to wear armor.'
+'You cannot remove your cursed cloak to remove your armor.'
+}
+
+
+{*** rp_speedup
+'Speed has no meaning in the absence of time.'
+'Sorry.. humans only.'
+}
+
+
+{*** rp_reborn
+'You die.'
+'Your life has come to an end.'
+'drowned'
+'solidified'
+'fused'
+'flat'
+'Turned to ice'
+'Consumed by fire'
+'Froze to death'
+'Still plummeting'
+'Drowned'
+}
+
+
+{*** rp_polymorph
+' the '
+' the chthony'
+'Crushed by '
+' armor'
+'You can no longer use a shield.'
+'all'
+'is'
+'are'
+' cut off by rings'
+'As you change form, '
+' of your fingers '
+'.'
+'s'
+'Your ring'
+' fall'
+' off.'
+'Your pack falls off.'
+'You go beserk.'
+}
+
+
+{*** rp_entomb
+'You hear the horrible grinding noise of a large '
+'iron door slowly closing.'
+}
+
+
+{*** rp_stoning
+'boulder'
+'stone '
+}
+
+
+{*** rp_getfist
+'pseudopod'
+'claw'
+'hoof'
+'tentacle'
+'mouth'
+'fist'
+'hand'
+}
+
+
+{*** rp_debris
+'F'
+'alling debris'
+'.'
+'Killed by f'
+' misses you.'
+'the '
+'Debris crushes '
+'Debris hits '
+'Debris misses '
+'You hear a crunch.'
+'lava'
+'quicksand'
+'water'
+'The pool of '
+' is filled by rubble.'
+}
+
+{*** rp_full
+'You cannot carry anything.'
+}
+
+{*** rp_checklevel
+'Killed by bad luck'
+}
+
+
+{*** rp_changehp
+'Killed by a '
+}
+
+
+{*** rp_poisoned
+'The strength of the poison overwhelms '
+'your body',27h,'s natural defense system.'
+
+'Poisoned'
+'Weakened by poison'
+}
+
+
+{*** rp_cloud
+'searing heat'
+'burns'
+'mist'
+'drains'
+'blinding wind'
+'tears into'
+'red smoke'
+'envelops'
+'the '
+'The '
+' from '
+'A cloud of '
+' '
+' you.'
+'Burnt to death'
+'Drained by mist'
+'Destroyed in a rockstorm'
+'Torn apart in a gale'
+' absorbs your strength.'
+'your body'
+' the'
+'.'
+}
+
+
+{*** rp_breakaction
+'You stop digging.'
+'You stop resting.'
+'You become distracted and ruin your handiwork.'
+}
+

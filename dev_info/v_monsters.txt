@@ -1,0 +1,147 @@
+1	t	Thokk
+2	j	stun jelly
+3	w	wight
+4	g	fire giant
+5	@	womera
+6	H	Harbard
+7		changeling
+8	P	phausq
+9	s	sentinel
+10	m	pale moss
+11	@	swordsman
+12	e	elgar
+13	@	guardian
+14	e	enchantress
+15	M	mudman
+16	f	faleryn
+17	s	shade
+18	b	bartok
+19	g	gas ball
+20	M	magician
+21	S	Scyld
+22	g	gibberer
+23	S	summoner
+24	g	hill giant
+25	m	moleman
+26	a	archer
+27	d	draugr
+28	@	berserker
+29	r	retchweed
+30	w	wizard
+31	d	shadow dog
+32	 	great being
+33	H	Hela
+34	z	zardon
+35	R	ranger
+36	J	jacchus
+37	S	sandiff
+38	y	yapok
+39	b	bloodslug
+40	B	god
+41	@	adventurer
+42	A	Aspenth
+43	@	breeder
+44	w	stun worm
+45	b	blur
+46	r	raven
+47	G	Gymir
+48	0	evil one
+49	h	hatchetfish
+50	g	gorm
+51	h	hrygar
+52	b	wild boar
+53	p	pyrta ath
+54	m	minion
+55	P	Plog
+56	j	jagrädin
+57	k	knell bird
+58	M	morph
+59	V	vanisher
+60	S	spirit
+61	l	lacunar
+62	S	shadow
+63	D	ice dragon
+64	@	shopkeeper
+65	S	serpent
+66	B	brown bat
+67	d	wood dwarf
+68	D	fire dragon
+69	A	anssk
+70	w	wyvern
+71	G	gnome
+72	b	bear
+73	I	ice sphere
+74	d	wild dog
+75	K	kobold
+76	s	stalker
+77	C	chameleon
+78	N	nymph
+79	O	orc
+80	E	Emanon
+81	F	frost bat
+82	F	fyleisch
+83	S	giant squid
+84	T	troll
+85	U	ull
+86	V	vampire
+87	W	wraith
+88	X	xyxort
+89	Y	yeti
+90	@	corpse
+91	W	wier
+92	S	phantom asp
+93	s	slinn
+94	B	basilisk
+95	R	ruxicon
+96	p	preden
+97	D	dreg
+98	k	knilb
+99	c	cockatrice
+100	d	dwarf
+101	g	rock giant
+102	f	weird fume
+103	@	warrior
+104	h	homunculus
+105	i	imp
+106	o	red ooze
+107	g	glard
+108	G	Gulveig
+109	m	migdnart
+110	K	Konr Rig
+111	o	ogre
+112	r	ramapith
+113	A	archmage
+114	r	rat
+115	s	sorcerer
+116	w	werewolf
+117	@	bandit
+118	K	kalvin
+119	w	were-us
+120	≈	ivy creeper
+121	Q	qivuit
+122	L	lorkesth
+123	E	Eitri
+124	U	Uorik
+125	g	ghost
+126	L	lower dwarf
+127	A	air ghola
+128	v	borgon vile
+129	g	elle giant
+130	i	iridorn
+131	i	changeling
+132	p	pelgrat
+133	A	Anxarcule
+134	D	hel dragon
+135	B	breleor
+136	V	Vanseril
+137	s	secitt
+138	w	whale
+139	t	terrain
+140	e	edgewort
+141	N	Nidhogg
+142	n	nidslacr
+143	r	roc
+144	h	halcyon
+145	@	illusion
+146	f	funnel
+147	S	slywert

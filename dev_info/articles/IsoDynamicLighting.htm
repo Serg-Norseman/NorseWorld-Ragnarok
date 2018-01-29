@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>GameDev.net - Razorblade's Isometric Dynamic Lighting Algorithm</title>
+  <link rel=stylesheet href="/css/reference.css" type="text/css">
+  <link rel="icon" href="/pics/gdicon.png" type="image/png">
+</head>
+<body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" bgcolor="#FFFFFF" background="/reference/pics/watermark.gif" text="#000000" link="#666699" alink="#000000" vlink="#666699">
+
+<table border=0 cellpadding=3 cellspacing=0 width=100%>
+  <tr>
+    <td class="tblhdr">Razorblade's Isometric Dynamic Lighting Algorithm</td>
+    <td class="tblhdr" nowrap align="right"><img src="/reference/pics/littleg.gif" align="absbottom" width="16" height="16">&nbsp;<a href="http://www.gamedev.net"><span style="color: white; text-decoration: none">GameDev.net</a></span></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+<!-- Begin Ban Man Pro Banner Code -  Zone: GameDev.net variable width -->
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=728 height=90 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<S'+'CRIPT src="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Get&Browser=NETSCAPE4">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<A HREF="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Click&Mode=HTML&PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Get&Mode=HTML&PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" width="728" height="90" border="0"></A>'); } }
+if (browName=='Microsoft Internet Explorer')
+     { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Get&X=' + browDateTime + '" width=728 height=90 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+</script>
+<noscript>
+    <a href="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Click&Mode=HTML&PageID=91795" target="_new">
+    <img src="http://www.gamedev.net/banman/banman.asp?ZoneID=13&Task=Get&Mode=HTML&PageID=91795" width="728" height="90" border="0"></a>
+</noscript>
+<!-- End Ban Man Pro Banner Code -  Zone: GameDev.net variable width --></td>
+  </tr>
+</table>
+<table cellpadding="5" cellspacing="0" border="0" width="100%"><tr><td>
+
+<FONT FACE="Verdana, Tahoma, Arial" SIZE="2">
+
+<CENTER><FONT COLOR="#003E98" SIZE="5"><B>Razorblade's Isometric Dynamic Lighting Algorithm</B></FONT>
+<BR><B>by Travis "Razorblade" Bemann</B></CENTER>
+
+<P>Isometric engines use 2D tiles masquerading as if they were in 3D, minus perspective. A problem with most isometric engines today is that they cannot have dynamic lighting with point light sources. This article does not explain isometric engines, but explains how to implement and use dynamic lighting in isometric engines.
+<P>In most isometric engines, the light source is directional and is permanently fixed when the tiles are created. At the time of writing, there is only one isometric game that I know of that has point light sources, which is Command & Conquer 2: Tiberian Sun, but it has not come out yet as of writing this.
+<P>The approach shown here uses specially made tiles in which each pixel has two values. The first value is a value which is the RGB color of the pixel, and the second value is a 8-bit value which designates the direction the pixel faces. The 8-bit value is actually a two 4 bit values, one which is the rotation of the normal of the pixel around the y axis in a right handed system, and the other being the elevation of the normal of the pixel. The rotation is from 0-15 with 0 designating 0 degrees, and 15 designating 360 degrees. The elevation is from 0-15 with 0 designation straight down and 15 straight up.
+<P>Before each tile is drawn while rendering, a table of lighting values (monochromatic or RGB) is calculated using the locations and distances of each light source. The rotation/elevation combination for each direction acts as an index in this table. Here is pseudocode for calculating this table in with simple monochromatic dynamic lighting as well as ambient lighting:
+
+<BLOCKQUOTE><PRE><FONT FACE="Courier New, fixedsys" SIZE=2 COLOR="#000088">
+calculate tile lighting table
+    zero out table
+        from i = 0 to i = 15
+            from j = 0 to j = 15
+                table[i][j] = 0
+
+    calculate point lighting
+        from i = 0 to i = number of light sources
+            distance = sqrt( ( tile.x - light[i].x )^2 +
+                ( tile.y - light[i].y )^2 + ( tile.z - light[i].z )^2 )
+            if distance^2 < light[i].intensity
+                received_light = light[i].intensity - distance^2
+                if abs( light[i].x - tile.x ) = 0
+                    if light[i].x - tile.x < 0
+                        rotation_angle = 0
+                    else
+                        rotation_angle = pi
+                else
+                    rotation_angle = atan( light[i].z - tile.z / light[i].x - tile.x )
+
+                if abs( light[i].z -tile.z ) = 0
+                    if light[i].z - tile.z < 0
+                        elevation_angle = 0
+                    else
+                        elevation_angle = pi
+                else
+                    elevation_angle = atan( light[i].y - tile.y / light[i].z - tile.z )
+
+                if elevation_angle > pi
+                    elevation_angle = elevation_angle - pi
+
+                from r = 0 to r = 15
+                    row_light = cos( rotation_angle - ( 2pi / 16 ) * r ) * received_light
+
+                    from e = 0 to e = 15
+                        table[r][e] = table[r][e] + cos( elevation_angle -
+                            ( pi / 16 ) * e ) * row_light
+
+    calculate ambient lighting
+        from r = 0 to r = 15
+            from e = 0 to e = 15
+                table[r][e] = table[r][e] + ambient.intensity
+
+</FONT></PRE></BLOCKQUOTE>
+
+<P>In the pseudocode, table[i][j] is the table of monochromatic lighting values, with the first index being the rotation of the normal around the y axis and the second index being the elevation of the normal. tile.x, tile.y, and tile.z indicate the location of the isometric tile the table is being generated for in 3D space. light[i].x, light[i].y, and light[i].z indicate the coordinates of each point light. light[i].intensity is the power of each point light. ambient.intensity is the power of the ambient light.
+<P>The direction value with each pixel is used as an index in the lighting table as if the lighting table had only one index, not two indexes. The lighting value is then extracted from the selected location in the table and is used in draw the selected pixel in the tile, but I will not discuss methods of doing this here because they are very dependent on whether the isometric uses indexed or RGB colors, monochromatic or RGB lighting, and other factors, such as quality vs. speed. All tiles must be assigned a location in 3D space in this engine, even if they are assumed to be on the ground do to the details of this engine. Unfortunately, tiles do not cast shadows with this engine.
+
+</FONT>
+<p align="center"><b><a href="/community/forums/topic.asp?key=featart&uid=749&forum_id=35&Topic_Title=Razorblade%27s+Isometric+Dynamic+Lighting+Algorithm">Discuss this article in the forums</a></b></p>
+<p>
+<br><span class="maintext-2">Date this article was posted to GameDev.net: <b>9/16/1999</b>
+<br>(Note that this date does not necessarily correspond to the date the article was written)</span>
+<p><b>See Also:</b><br>
+
+<a href="/reference/list.asp?categoryid=44#98">Isometric and Tile-based Games:General</a><br>
+
+<p align="center">&copy; 1999-2004 Gamedev.net. All rights reserved. <a href="/info/legal.htm#copyright"><u>Terms of Use</u></a> <a href="/info/legal.htm#privacy"><u>Privacy Policy</u></a>
+<br><span class="maintext-1">Comments? Questions? Feedback? <a href="mailto:webmaster@gamedev.net">Send us an e-mail!</a></span></p>
+
+</td></tr></table>
+</body>
+</html>
