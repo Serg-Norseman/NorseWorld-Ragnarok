@@ -34,26 +34,26 @@ to take part in final battle against powers of evil.
 - More than 15 dynamically generated different worlds and 110 levels.
 - Possibility to add new story branches, levels, creatures, items and artifacts.
 - Complex game database editor (all game space objects and their attributes are available).
-- Built-in script language, allowing write additional handlers on any game events.
-- Support operating systems MS Windows and Linux.
-- Flat tiles and ASCII views of design.
+- Built-in script language, allowing write additional handlers on any game events (after transfer from Java to C # temporarily does not work, need a replacement).
+- Support operating systems MS Windows and Linux (temporarily not worked out for C#).
+- Flat tiles and isometric views of design.
 - Support for Russian and English (the correctness of the English localization ~90%).
 - Possibility to change side for evil.
   
 ## Authors
 
 Project, coding and graphics processing:
-  - Serg V. Zhdanovskich (Alchemist)
+  - Sergey Zhdanovskih (aka Alchemist, aka Norseman)
 
 Manuals, graphics, audio, testing and support:
-  - Dmitry Olegovich Buzhinsky (Bu)
-  - Gleb Olegovich Buzhinsky (Quiet)
+  - Dmitry Buzhinsky (Bu)
+  - Gleb Buzhinsky (Quiet)
 
 Dungeons generator development, FOV algoritm debugging:
-  - Ruslan Nakipovich Garipov (Brigadir)
+  - Ruslan Garipov (Brigadir)
 
 FOV algoritm improvement:
-  - Dmitry Olegovich Buzhinsky (Bu)
+  - Dmitry Buzhinsky (Bu)
 
 Linux-release and GUI-engine improvements:
   - Aerton
