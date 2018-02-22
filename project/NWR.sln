@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# SharpDevelop 5.1
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWR", "NWR.csproj", "{6E912A66-571D-4847-A914-23B149068801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZRLib", "..\..\ZRLib\ZRLib\ZRLib.csproj", "{DA3CB263-9751-421B-8AE5-2915D3E26096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSLib", "..\..\BSLib\BSLib\BSLib.csproj", "{F657A1B7-C834-420A-B302-88460E3F6283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E912A66-571D-4847-A914-23B149068801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E912A66-571D-4847-A914-23B149068801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E912A66-571D-4847-A914-23B149068801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E912A66-571D-4847-A914-23B149068801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA3CB263-9751-421B-8AE5-2915D3E26096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3CB263-9751-421B-8AE5-2915D3E26096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3CB263-9751-421B-8AE5-2915D3E26096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3CB263-9751-421B-8AE5-2915D3E26096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F657A1B7-C834-420A-B302-88460E3F6283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F657A1B7-C834-420A-B302-88460E3F6283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F657A1B7-C834-420A-B302-88460E3F6283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F657A1B7-C834-420A-B302-88460E3F6283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

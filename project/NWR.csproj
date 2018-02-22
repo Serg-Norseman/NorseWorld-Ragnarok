@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>NWR</RootNamespace>
     <AssemblyName>NWR</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <TargetFrameworkProfile />
     <StartupObject>NWR.GUI.NWMainWindow</StartupObject>
@@ -332,11 +332,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BSLib\BSLib\BSLib.csproj">
+    <ProjectReference Include="..\..\BSLib\BSLib\BSLib.csproj">
       <Project>{f657a1b7-c834-420a-b302-88460e3f6283}</Project>
       <Name>BSLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ZRLib\project\ZRLib.csproj">
+    <ProjectReference Include="..\..\ZRLib\ZRLib\ZRLib.csproj">
       <Project>{da3cb263-9751-421b-8ae5-2915d3e26096}</Project>
       <Name>ZRLib</Name>
     </ProjectReference>
