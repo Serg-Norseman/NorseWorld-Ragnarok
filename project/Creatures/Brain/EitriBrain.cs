@@ -19,10 +19,10 @@
  */
 
 using BSLib;
-using ZRLib.Core;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Database;
+using NWR.Game;
+using NWR.Game.Types;
+using ZRLib.Core;
 
 namespace NWR.Creatures.Brain
 {
@@ -34,11 +34,6 @@ namespace NWR.Creatures.Brain
     public sealed class EitriBrain : SentientBrain
     {
         private static readonly DialogEntry SfDialog;
-
-        public EitriBrain(CreatureEntity owner)
-            : base(owner)
-        {
-        }
 
         public override Services AvailableServices
         {
@@ -74,6 +69,10 @@ namespace NWR.Creatures.Brain
             topic.Phrase = BaseLocale.GetStr(RS.rs_Eitri_No);
             topic.Answer = BaseLocale.GetStr(RS.rs_Eitri2);
         }
-    }
 
+        public EitriBrain(CreatureEntity owner)
+            : base(owner)
+        {
+        }
+    }
 }

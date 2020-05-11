@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -21,12 +21,11 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures.Brain;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Items;
 using NWR.Universe;
 using ZRLib.Core;
@@ -106,6 +105,22 @@ namespace NWR.Creatures
         public bool Prowling;
         public byte[] ProwlImage;
 
+
+        public NWField CurrentField
+        {
+            get {
+                return (fSpace == null) ? null : Space.GetField(LayerID, fField.X, fField.Y);
+            }
+        }
+
+        public new NWGameSpace Space
+        {
+            get {
+                return (NWGameSpace)fSpace;
+            }
+        }
+
+
         static NWCreature()
         {
             NotImprisonable = new string[] {
@@ -144,15 +159,15 @@ namespace NWR.Creatures
 
             // (am_Mask_Good..am_Mask_Evil)*(am_Mask_Good..am_Mask_Evil)
             Reaction[, ] array = new Reaction[3, 3];
-            array[0, 0] = Reaction.rAlly;
-            array[0, 1] = Reaction.rNeutral;
-            array[0, 2] = Reaction.rHostile;
-            array[1, 0] = Reaction.rNeutral;
-            array[1, 1] = Reaction.rAlly;
-            array[1, 2] = Reaction.rNeutral;
-            array[2, 0] = Reaction.rHostile;
-            array[2, 1] = Reaction.rNeutral;
-            array[2, 2] = Reaction.rAlly;
+            array[0, 0] = Reaction.Ally;
+            array[0, 1] = Reaction.Neutral;
+            array[0, 2] = Reaction.Hostile;
+            array[1, 0] = Reaction.Neutral;
+            array[1, 1] = Reaction.Ally;
+            array[1, 2] = Reaction.Neutral;
+            array[2, 0] = Reaction.Hostile;
+            array[2, 1] = Reaction.Neutral;
+            array[2, 2] = Reaction.Ally;
             Relations = array;
 
             ShootIsoTrans = new int[] {
@@ -256,9 +271,9 @@ namespace NWR.Creatures
                 }
 
                 if (entry.Flags.Contains(CreatureFlags.esUndead)) {
-                    State = CreatureState.csUndead;
+                    State = CreatureState.Undead;
                 } else {
-                    State = CreatureState.csAlive;
+                    State = CreatureState.Alive;
                 }
 
                 InitBody();
@@ -299,7 +314,7 @@ namespace NWR.Creatures
 
         public void Assign(NWCreature source, bool illusion)
         {
-            InitEx(source.CLSID_Renamed, true, true);
+            InitEx(source.CLSID, true, true);
 
             Level = source.Level;
             fExperience = source.fExperience;
@@ -369,13 +384,6 @@ namespace NWR.Creatures
             base.Dispose(disposing);
         }
 
-        public new NWGameSpace Space
-        {
-            get {
-                return (NWGameSpace)fSpace;
-            }
-        }
-
         public int DamageBase
         {
             set {
@@ -440,7 +448,7 @@ namespace NWR.Creatures
                 if (fIsTrader != value) {
                     fIsTrader = value;
                     if (!fIsTrader) {
-                        Init(CLSID_Renamed, true, false);
+                        Init(CLSID, true, false);
                     } else {
                         Init(GlobalVars.cid_Merchant, true, false);
                     }
@@ -463,7 +471,7 @@ namespace NWR.Creatures
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
                     Effect eff = fEffects.GetItem(i);
-                    EffectID effectID = (EffectID)eff.CLSID_Renamed;
+                    EffectID effectID = (EffectID)eff.CLSID;
     
                     switch (effectID) {
                         case EffectID.eid_Speedup:
@@ -490,6 +498,38 @@ namespace NWR.Creatures
                 }
     
                 return result;
+            }
+        }
+
+        public StringList Props
+        {
+            get {
+                StringList props = new StringList();
+    
+                int mpr;
+                if (MPMax == 0) {
+                    mpr = 0;
+                } else {
+                    mpr = (int)(Math.Round((MPCur / MPMax) * 100.0f));
+                }
+    
+                props.Add(Name);
+                props.Add(Race + ", " + BaseLocale.GetStr(StaticData.dbSex[(int)Sex].NameRS));
+                props.Add("  ");
+                props.Add(BaseLocale.GetStr(RS.rs_Level) + ": " + Convert.ToString(Level));
+                props.Add(BaseLocale.GetStr(RS.rs_Experience) + ": " + Convert.ToString(Experience));
+                props.Add(BaseLocale.GetStr(RS.rs_Perception) + ": " + Convert.ToString((int)Perception));
+                props.Add(BaseLocale.GetStr(RS.rs_Constitution) + ": " + Convert.ToString(Constitution));
+                props.Add(BaseLocale.GetStr(RS.rs_Strength) + ": " + Convert.ToString(Strength));
+                props.Add(BaseLocale.GetStr(RS.rs_Speed) + ": " + Convert.ToString(Speed));
+                props.Add(BaseLocale.GetStr(RS.rs_Luck) + ": " + Convert.ToString(Luck));
+                props.Add(BaseLocale.GetStr(RS.rs_Armor) + ": " + Convert.ToString(ArmorClass));
+                props.Add(BaseLocale.GetStr(RS.rs_HP) + ": " + Convert.ToString((int)(Math.Round(((float)HPCur / (float)HPMax_Renamed) * 100.0f))) + " %");
+                props.Add(BaseLocale.GetStr(RS.rs_MP) + ": " + Convert.ToString(mpr) + " %");
+                props.Add(BaseLocale.GetStr(RS.rs_Damage) + ": " + Convert.ToString(DBMin) + "-" + Convert.ToString(DBMax));
+                props.Add(BaseLocale.GetStr(RS.rs_Dexterity) + ": " + Convert.ToString((int)Dexterity));
+    
+                return props;
             }
         }
 
@@ -588,7 +628,7 @@ namespace NWR.Creatures
                 int num = fItems.Count;
                 for (int i = 0; i < num; i++) {
                     Item item = fItems.GetItem(i);
-                    if (item.CLSID_Renamed == GlobalVars.iid_Coin) {
+                    if (item.CLSID == GlobalVars.iid_Coin) {
                         result += (int)item.Count;
                     }
                 }
@@ -596,6 +636,236 @@ namespace NWR.Creatures
                 return result;
             }
         }
+
+        /// 
+        /// <summary>
+        /// <b>Need for scripting</b>.
+        /// @return
+        /// </summary>
+        public bool FieldCleared
+        {
+            get {
+                NWField field = CurrentField;
+                for (int i = 0; i < field.Creatures.Count; i++) {
+                    NWCreature creat = field.Creatures.GetItem(i);
+                    if (!Equals(creat) && IsEnemy(creat)) {
+                        return false;
+                    }
+                }
+    
+                return true;
+            }
+        }
+
+        public bool Stoning
+        {
+            get {
+                return (fEffects.FindEffectByID(EffectID.eid_Stoning) != null);
+            }
+        }
+
+        public virtual bool IsPlayer
+        {
+            get {
+                return false;
+            }
+        }
+
+        public bool IsMercenary
+        {
+            set {
+                if (fIsMercenary != value) {
+                    fIsMercenary = value;
+                    ResetMercenary(value);
+                }
+            }
+        }
+
+        public bool SeekInvisible
+        {
+            get {
+                return GetAbility(AbilityID.Ab_SixthSense) > 0 || GetAbility(AbilityID.Ab_Telepathy) > 0 || fEffects.FindEffectByID(EffectID.eid_ThirdSight) != null;
+            }
+        }
+
+        public CreatureState State
+        {
+            get {
+                return fState;
+            }
+            set {
+                fState = value;
+    
+                switch (fState) {
+                    case CreatureState.Alive:
+                    case CreatureState.Undead:
+                        CheckTile(true);
+                        break;
+    
+                    case CreatureState.Dead:
+                        CheckTile(false);
+                        break;
+                }
+            }
+        }
+
+        public virtual byte Survey
+        {
+            get {
+                return fSurvey;
+            }
+            set {
+                fSurvey = value;
+            }
+        }
+
+        public int Experience
+        {
+            get {
+                return fExperience;
+            }
+            set {
+                // TODO: отработать потерю уровня от проклятого зелья опыта
+    
+                try {
+                    fExperience = value;
+                    int exp = GetNextLevelExp();
+                    if (fExperience >= exp) {
+                        Level++;
+                        HPMax_Renamed += RandomHelper.GetBoundedRnd(7, 11);
+                        HPCur = HPMax_Renamed;
+    
+                        if (IsPlayer) {
+                            Space.DoEvent(EventID.event_LevelUp, this, null, null);
+                        }
+                    }
+                } catch (Exception ex) {
+                    Logger.Write("NWCreature.setExperience(): " + ex.Message);
+                }
+            }
+        }
+
+        public Item PrimaryWeapon
+        {
+            get {
+                return GetItemByEquipmentKind(BodypartType.bp_RHand);
+            }
+        }
+
+        public bool InWater
+        {
+            get {
+                BaseTile tile = CurrentField.GetTile(PosX, PosY);
+                bool isUnderwater = (tile.Background == PlaceID.pid_Water && LayerID != GlobalVars.Layer_MimerWell);
+    
+                if (isUnderwater) {
+                    Effect efSail = fEffects.FindEffectByID(EffectID.eid_Sail);
+                    return (isUnderwater && efSail == null);
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        public bool Confused
+        {
+            get {
+                return fEffects.FindEffectByID(EffectID.eid_Confusion) != null;
+            }
+        }
+
+        public bool Hallucinations
+        {
+            get {
+                return fEffects.FindEffectByID(EffectID.eid_Hallucination) != null || fEffects.FindEffectByID(EffectID.eid_Insanity) != null;
+            }
+        }
+
+        public bool Imprisonable
+        {
+            get {
+                bool Result = true;
+                int i = 0;
+                while (fEntry.Sign.CompareTo(NotImprisonable[i]) != 0) {
+                    i++;
+                    if (i == 31) {
+                        return Result;
+                    }
+                }
+                Result = false;
+                return Result;
+            }
+        }
+
+        public bool Blindness
+        {
+            get {
+                return (fEffects.FindEffectByID(EffectID.eid_Blindness) != null);
+            }
+        }
+
+        public short HirePrice
+        {
+            get {
+                float temp;
+    
+                if (CLSID == GlobalVars.cid_Guardsman) {
+                    Player player = Space.Player;
+    
+                    temp = (HPCur - (float)(fEntry.MaxHP - fEntry.MinHP) / 2);
+                    temp += (ArmorClass - fEntry.AC);
+                    temp += (ToHit - fEntry.ToHit);
+                    temp += (Attacks - fEntry.Attacks);
+                    temp += (fSpeed - fEntry.Speed);
+                    temp += (Constitution - fEntry.Constitution);
+                    temp += (Strength - fEntry.Strength);
+                    temp += (Dexterity - fEntry.Dexterity);
+                    temp += (((float)(DBMax - DBMin) / 2) - ((float)(fEntry.MaxDB - fEntry.MinDB) / 2));
+                    temp += (Survey - fEntry.Survey);
+    
+                    for (var i = AbilityID.Ab_First; i <= AbilityID.Ab_Last; i++) {
+                        temp = temp + (fAbilities.GetValue((int)i) - fEntry.Abilities.GetValue((int)i));
+                    }
+    
+                    for (var i = SkillID.Sk_First; i <= SkillID.Sk_Last; i++) {
+                        temp = temp + (fSkills.GetValue((int)i) - fEntry.Skills.GetValue((int)i));
+                    }
+    
+                    for (int i = 0; i < fItems.Count; i++) {
+                        Item item = fItems.GetItem(i);
+                        temp = temp + item.Price;
+                    }
+    
+                    float lev = (float)Level;
+                    float f = (lev / (lev + player.Level));
+    
+                    temp = temp * (1.0f + f);
+                } else {
+                    temp = 10000;
+                }
+    
+                return (short)Math.Round(temp);
+            }
+        }
+
+        public sbyte LightRadius
+        {
+            get {
+                sbyte result = 0;
+    
+                Item torch = GetItemByEquipmentKind(BodypartType.bp_LHand);
+                if (torch != null && torch.CLSID == GlobalVars.iid_Torch) {
+                    result = (sbyte)((int)result + torch.Bonus);
+                }
+                Effect eLight = fEffects.FindEffectByID(EffectID.eid_Light);
+                if (eLight != null) {
+                    result = (sbyte)((int)result + eLight.Magnitude);
+                }
+    
+                return result;
+            }
+        }
+
 
         public void Buy(Item item, NWCreature seller, bool inShop)
         {
@@ -670,7 +940,7 @@ namespace NWR.Creatures
         public bool CanTake(Item aItem, bool isBuy)
         {
             bool result;
-            if (aItem.CLSID_Renamed == GlobalVars.iid_Coin) {
+            if (aItem.CLSID == GlobalVars.iid_Coin) {
                 result = true;
             } else {
                 float mWeight;
@@ -764,7 +1034,7 @@ namespace NWR.Creatures
                     Space.ShowText(this, BaseLocale.GetStr(RS.rs_ItIsTooDeepHere));
                 } else {
                     Item fact_item;
-                    if (item.CLSID_Renamed == GlobalVars.iid_Coin) {
+                    if (item.CLSID == GlobalVars.iid_Coin) {
                         float possible = ((MaxItemsWeight - TotalWeight));
                         if (possible >= item.Weight) {
                             fact_item = item;
@@ -787,9 +1057,9 @@ namespace NWR.Creatures
             if (item != null) {
                 Space.PickupItem(CurrentField, this, item);
 
-                if (item.CLSID_Renamed == GlobalVars.iid_DiamondNeedle) {
+                if (item.CLSID == GlobalVars.iid_DiamondNeedle) {
                     SetSkill(SkillID.Sk_PsiBlast, GetSkill(SkillID.Sk_PsiBlast) + (int)item.Count);
-                    ApplyDamage(RandomHelper.GetBoundedRnd(21, 28) * (int)item.Count, DamageKind.dkPhysical, null, "");
+                    ApplyDamage(RandomHelper.GetBoundedRnd(21, 28) * (int)item.Count, DamageKind.Physical, null, "");
                     item.Dispose();
                     int num = RandomHelper.GetRandom(2);
                     if (num != 0) {
@@ -857,7 +1127,7 @@ namespace NWR.Creatures
                 }
             }
 
-            if (item.CLSID_Renamed == GlobalVars.iid_Amulet_Eternal_Life) {
+            if (item.CLSID == GlobalVars.iid_Amulet_Eternal_Life) {
                 Space.ShowText(this, BaseLocale.GetStr(RS.rs_YouCanNoLongerMove) + " " + BaseLocale.GetStr(RS.rs_YouMayNeverDie));
                 Death(BaseLocale.GetStr(RS.rs_BecameALivingStatue), null);
             } else {
@@ -876,7 +1146,7 @@ namespace NWR.Creatures
                     if (dummyItem == null) {
                         item.InUse = true;
                     } else {
-                        if (dummyItem.Compare(item) == ItemsCompareResult.icr_Better) {
+                        if (dummyItem.Compare(item) == ItemsCompareResult.Better) {
                             dummyItem.InUse = false;
                             item.InUse = true;
                         }
@@ -901,7 +1171,7 @@ namespace NWR.Creatures
 
             int num = Items.Count;
             for (int i = 0; i < num; i++) {
-                if (Items.GetItem(i).CLSID_Renamed == GlobalVars.iid_Coin) {
+                if (Items.GetItem(i).CLSID == GlobalVars.iid_Coin) {
                     idx = i;
                     break;
                 }
@@ -918,7 +1188,7 @@ namespace NWR.Creatures
 
         public void PickupAll()
         {
-            ExtList<LocatedEntity> items = ((NWField)CurrentMap).Items.SearchListByPos(PosX, PosY);
+            ExtList<LocatedEntity> items = CurrentField.Items.SearchListByPos(PosX, PosY);
             if (IsPlayer && items.Count < 1) {
                 Space.ShowText(this, BaseLocale.GetStr(RS.rs_NothingHere));
             }
@@ -926,7 +1196,7 @@ namespace NWR.Creatures
             int num = items.Count;
             for (int i = 0; i < num; i++) {
                 Item it = (Item)items[i];
-                if (it.CLSID_Renamed != GlobalVars.iid_DeadBody && it.CLSID_Renamed != GlobalVars.iid_Mummy) {
+                if (it.CLSID != GlobalVars.iid_DeadBody && it.CLSID != GlobalVars.iid_Mummy) {
                     PickupItem(it);
                 }
             }
@@ -1012,126 +1282,33 @@ namespace NWR.Creatures
             get {
                 NWCreature result = null;
     
-                if (CLSID_Renamed == GlobalVars.cid_Heimdall) {
+                if (CLSID == GlobalVars.cid_Heimdall) {
                     result = Space.FindCreature(GlobalVars.cid_Loki);
-                } else if (CLSID_Renamed == GlobalVars.cid_Thor) {
+                } else if (CLSID == GlobalVars.cid_Thor) {
                     result = Space.FindCreature(GlobalVars.cid_Jormungand);
-                } else if (CLSID_Renamed == GlobalVars.cid_Tyr) {
+                } else if (CLSID == GlobalVars.cid_Tyr) {
                     result = Space.FindCreature(GlobalVars.cid_Garm);
-                } else if (CLSID_Renamed == GlobalVars.cid_Freyr) {
+                } else if (CLSID == GlobalVars.cid_Freyr) {
                     result = Space.FindCreature(GlobalVars.cid_Surtr);
-                } else if (CLSID_Renamed == GlobalVars.cid_Odin) {
+                } else if (CLSID == GlobalVars.cid_Odin) {
                     result = Space.FindCreature(GlobalVars.cid_Fenrir);
-                } else if (CLSID_Renamed == GlobalVars.cid_Jormungand) {
+                } else if (CLSID == GlobalVars.cid_Jormungand) {
                     result = Space.FindCreature(GlobalVars.cid_Thor);
-                } else if (CLSID_Renamed == GlobalVars.cid_Garm) {
+                } else if (CLSID == GlobalVars.cid_Garm) {
                     result = Space.FindCreature(GlobalVars.cid_Tyr);
-                } else if (CLSID_Renamed == GlobalVars.cid_Loki) {
+                } else if (CLSID == GlobalVars.cid_Loki) {
                     result = Space.FindCreature(GlobalVars.cid_Heimdall);
-                } else if (CLSID_Renamed == GlobalVars.cid_Surtr) {
+                } else if (CLSID == GlobalVars.cid_Surtr) {
                     result = Space.FindCreature(GlobalVars.cid_Freyr);
-                } else if (CLSID_Renamed == GlobalVars.cid_Fenrir) {
+                } else if (CLSID == GlobalVars.cid_Fenrir) {
                     result = Space.FindCreature(GlobalVars.cid_Odin);
                 }
     
-                if (result != null && !CurrentMap.Equals(result.CurrentMap)) {
+                if (result != null && !CurrentField.Equals(result.CurrentField)) {
                     return null;
                 }
     
                 return result;
-            }
-        }
-
-        private void PostDeath_SetTile(ushort tileID)
-        {
-            NWField map = (NWField)CurrentMap;
-            map.GetTile(PosX, PosY).Background = tileID;
-            map.Normalize();
-        }
-
-        private void CheckHealth_Solve(EffectID effectID, string problem, ref bool  refTurnUsed)
-        {
-            Item item = CanCure(effectID);
-            if (item != null) {
-                refTurnUsed = true;
-                UseItem(item, null);
-            } else {
-                if (Mercenary) {
-                    string msg = BaseLocale.Format(RS.rs_MercenaryProblem, new object[]{ problem });
-                    Space.ShowText(this, msg);
-                }
-            }
-        }
-
-        private void Gout()
-        {
-            AuxUtils.ExStub("The ");
-            AuxUtils.ExStub(" spews liquid.");
-            AuxUtils.ExStub("The liquid burns you.");
-            AuxUtils.ExStub("Scalded by unholy water");
-            AuxUtils.ExStub("You dodge the stream.");
-        }
-
-        private void TakeItemDef(int iid, string message)
-        {
-            NWCreature cr = Space.Player;
-
-            Item it = (Item)cr.Items.FindByCLSID(iid);
-            if (MathHelper.Distance(Location, cr.Location) <= 3 && it != null) {
-                if (CLSID_Renamed == GlobalVars.cid_Hela && it.Bonus != GlobalVars.cid_Thokk) {
-                    Space.ShowText(this, BaseLocale.GetStr(RS.rs_HelaIsNotImpressed), new LogFeatures(LogFeatures.lfDialog));
-                } else {
-                    if (message.CompareTo("") == 0) {
-                        message = BaseLocale.Format(RS.rs_ItemTaked, new object[]{ base.Name, it.Name });
-                    }
-                    Space.ShowText(this, message, new LogFeatures(LogFeatures.lfDialog));
-
-                    it.InUse = false;
-                    cr.Items.Extract(it);
-                    fItems.Add(it, false);
-
-                    if (CLSID_Renamed == GlobalVars.cid_Hela) {
-                        Space.AddCreatureEx(GlobalVars.Layer_Asgard, 1, 0, RandomHelper.GetBoundedRnd(29, 68), RandomHelper.GetBoundedRnd(3, StaticData.FieldHeight - 4), GlobalVars.cid_Balder);
-                    } else {
-                        if (it.CLSID_Renamed == GlobalVars.iid_Gjall) {
-                            Space.ShowText(this, BaseLocale.GetStr(RS.rs_HeimdallUseGjall));
-                            UseItem(it, null);
-                        } else {
-                            it.InUse = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        protected void DoDefaultAction()
-        {
-            try {
-                if (CLSID_Renamed == GlobalVars.cid_Hela) {
-                    TakeItemDef(GlobalVars.iid_SoulTrapping_Ring, BaseLocale.GetStr(RS.rs_ThokkTaked));
-                } else {
-                    if (CLSID_Renamed == GlobalVars.cid_Heimdall) {
-                        TakeItemDef(GlobalVars.iid_Gjall, "");
-                    } else {
-                        if (CLSID_Renamed == GlobalVars.cid_Thor) {
-                            TakeItemDef(GlobalVars.iid_Mjollnir, "");
-                        } else {
-                            if (CLSID_Renamed == GlobalVars.cid_Tyr) {
-                                TakeItemDef(GlobalVars.iid_DwarvenArm, "");
-                            } else {
-                                if (CLSID_Renamed == GlobalVars.cid_Freyr) {
-                                    TakeItemDef(GlobalVars.iid_Mimming, "");
-                                } else {
-                                    if (CLSID_Renamed == GlobalVars.cid_Odin) {
-                                        TakeItemDef(GlobalVars.iid_Gungnir, "");
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.Write("NWCreature.doDefaultAction(): " + ex.Message);
             }
         }
 
@@ -1226,6 +1403,99 @@ namespace NWR.Creatures
             }
         }
 
+        private void PostDeath_SetTile(ushort tileID)
+        {
+            NWField map = CurrentField;
+            map.GetTile(PosX, PosY).Background = tileID;
+            map.Normalize();
+        }
+
+        private void CheckHealth_Solve(EffectID effectID, string problem, ref bool  refTurnUsed)
+        {
+            Item item = CanCure(effectID);
+            if (item != null) {
+                refTurnUsed = true;
+                UseItem(item, null);
+            } else {
+                if (Mercenary) {
+                    string msg = BaseLocale.Format(RS.rs_MercenaryProblem, new object[]{ problem });
+                    Space.ShowText(this, msg);
+                }
+            }
+        }
+
+        private void Gout()
+        {
+            AuxUtils.ExStub("The ");
+            AuxUtils.ExStub(" spews liquid.");
+            AuxUtils.ExStub("The liquid burns you.");
+            AuxUtils.ExStub("Scalded by unholy water");
+            AuxUtils.ExStub("You dodge the stream.");
+        }
+
+        private void TakeItemDef(int iid, string message)
+        {
+            NWCreature cr = Space.Player;
+
+            Item it = (Item)cr.Items.FindByCLSID(iid);
+            if (MathHelper.Distance(Location, cr.Location) <= 3 && it != null) {
+                if (CLSID == GlobalVars.cid_Hela && it.Bonus != GlobalVars.cid_Thokk) {
+                    Space.ShowText(this, BaseLocale.GetStr(RS.rs_HelaIsNotImpressed), new LogFeatures(LogFeatures.lfDialog));
+                } else {
+                    if (message.CompareTo("") == 0) {
+                        message = BaseLocale.Format(RS.rs_ItemTaked, new object[]{ base.Name, it.Name });
+                    }
+                    Space.ShowText(this, message, new LogFeatures(LogFeatures.lfDialog));
+
+                    it.InUse = false;
+                    cr.Items.Extract(it);
+                    fItems.Add(it, false);
+
+                    if (CLSID == GlobalVars.cid_Hela) {
+                        Space.AddCreatureEx(GlobalVars.Layer_Asgard, 1, 0, RandomHelper.GetBoundedRnd(29, 68), RandomHelper.GetBoundedRnd(3, StaticData.FieldHeight - 4), GlobalVars.cid_Balder);
+                    } else {
+                        if (it.CLSID == GlobalVars.iid_Gjall) {
+                            Space.ShowText(this, BaseLocale.GetStr(RS.rs_HeimdallUseGjall));
+                            UseItem(it, null);
+                        } else {
+                            it.InUse = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void DoDefaultAction()
+        {
+            try {
+                if (CLSID == GlobalVars.cid_Hela) {
+                    TakeItemDef(GlobalVars.iid_SoulTrapping_Ring, BaseLocale.GetStr(RS.rs_ThokkTaked));
+                } else {
+                    if (CLSID == GlobalVars.cid_Heimdall) {
+                        TakeItemDef(GlobalVars.iid_Gjall, "");
+                    } else {
+                        if (CLSID == GlobalVars.cid_Thor) {
+                            TakeItemDef(GlobalVars.iid_Mjollnir, "");
+                        } else {
+                            if (CLSID == GlobalVars.cid_Tyr) {
+                                TakeItemDef(GlobalVars.iid_DwarvenArm, "");
+                            } else {
+                                if (CLSID == GlobalVars.cid_Freyr) {
+                                    TakeItemDef(GlobalVars.iid_Mimming, "");
+                                } else {
+                                    if (CLSID == GlobalVars.cid_Odin) {
+                                        TakeItemDef(GlobalVars.iid_Gungnir, "");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.Write("NWCreature.doDefaultAction(): " + ex.Message);
+            }
+        }
+
         protected virtual void InitBody()
         {
             try {
@@ -1250,13 +1520,13 @@ namespace NWR.Creatures
                     return;
                 }
 
-                if (CLSID_Renamed == GlobalVars.cid_Agnar || CLSID_Renamed == GlobalVars.cid_Haddingr || CLSID_Renamed == GlobalVars.cid_Ketill) {
+                if (CLSID == GlobalVars.cid_Agnar || CLSID == GlobalVars.cid_Haddingr || CLSID == GlobalVars.cid_Ketill) {
                     Brain = new VictimBrain(this);
-                } else if (CLSID_Renamed == GlobalVars.cid_Eitri) {
+                } else if (CLSID == GlobalVars.cid_Eitri) {
                     Brain = new EitriBrain(this);
-                } else if (CLSID_Renamed == GlobalVars.cid_Raven) {
+                } else if (CLSID == GlobalVars.cid_Raven) {
                     Brain = new RavenBrain(this);
-                } else if (CLSID_Renamed == GlobalVars.cid_Guardsman || CLSID_Renamed == GlobalVars.cid_Jarl) {
+                } else if (CLSID == GlobalVars.cid_Guardsman || CLSID == GlobalVars.cid_Jarl) {
                     Brain = new WarriorBrain(this);
                 } else if (fEntry.Flags.Contains(CreatureFlags.esMind)) {
                     if (fIsTrader) {
@@ -1286,7 +1556,7 @@ namespace NWR.Creatures
 
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    if (fEffects.GetItem(i).CLSID_Renamed == (int)EffectID.eid_Regeneration) {
+                    if (fEffects.GetItem(i).CLSID == (int)EffectID.eid_Regeneration) {
                         mag += 60;
                     }
                 }
@@ -1301,28 +1571,6 @@ namespace NWR.Creatures
 
             if (MPCur < MPMax && GlobalVars.Debug_ManaRegen) {
                 //float temp = ((float) this.Perception);
-            }
-        }
-
-        public AbstractMap CurrentMap
-        {
-            get {
-                if (fSpace == null) {
-                    return null;
-                } else {
-                    return Space.GetField(LayerID, fField.X, fField.Y);
-                }
-            }
-        }
-
-        public NWField CurrentField
-        {
-            get {
-                if (fSpace == null) {
-                    return null;
-                } else {
-                    return Space.GetField(LayerID, fField.X, fField.Y);
-                }
             }
         }
 
@@ -1396,16 +1644,6 @@ namespace NWR.Creatures
             }
         }
 
-        public bool IsMercenary
-        {
-            set {
-                if (fIsMercenary != value) {
-                    fIsMercenary = value;
-                    ResetMercenary(value);
-                }
-            }
-        }
-
         private void ResetMercenary(bool value)
         {
             Player player = Space.Player;
@@ -1422,80 +1660,17 @@ namespace NWR.Creatures
             }
         }
 
-
-        public CreatureState State
+        private int GetNextLevelExp()
         {
-            get {
-                return fState;
+            int result;
+            try {
+                double lev = Level + 1;
+                result = (int)Math.Round((Math.Pow(2.0, lev) + Math.Pow(lev, 4.0)) + (25 * lev));
+            } catch (Exception ex) {
+                Logger.Write("NWCreature.GetNextLevelExp(): " + ex.Message);
+                result = 0;
             }
-            set {
-                fState = value;
-    
-                switch (fState) {
-                    case CreatureState.csAlive:
-                    case CreatureState.csUndead:
-                        CheckTile(true);
-                        break;
-    
-                    case CreatureState.csDead:
-                        CheckTile(false);
-                        break;
-                }
-            }
-        }
-
-
-        public virtual byte Survey
-        {
-            get {
-                return fSurvey;
-            }
-            set {
-                fSurvey = value;
-            }
-        }
-
-
-        public int Experience
-        {
-            get {
-                return fExperience;
-            }
-            set {
-                // TODO: отработать потерю уровня от проклятого зелья опыта
-    
-                try {
-                    fExperience = value;
-                    int exp = NextLevelExp;
-                    if (fExperience >= exp) {
-                        Level++;
-                        HPMax_Renamed += RandomHelper.GetBoundedRnd(7, 11);
-                        HPCur = HPMax_Renamed;
-    
-                        if (IsPlayer) {
-                            Space.DoEvent(EventID.event_LevelUp, this, null, null);
-                        }
-                    }
-                } catch (Exception ex) {
-                    Logger.Write("NWCreature.setExperience(): " + ex.Message);
-                }
-            }
-        }
-
-
-        private int NextLevelExp
-        {
-            get {
-                int result;
-                try {
-                    int lev = Level + 1;
-                    result = (int)((Math.Round((Math.Pow(2.0, (double)lev) + Math.Pow((double)lev, 4.0)))) + (25 * lev));
-                } catch (Exception ex) {
-                    result = 0;
-                    Logger.Write("NWCreature.getNextLevelExp(): " + ex.Message);
-                }
-                return result;
-            }
+            return result;
         }
 
         public void ApplyDamage(int damage, DamageKind damageKind, object source, string deathMsg)
@@ -1505,7 +1680,7 @@ namespace NWR.Creatures
                     return;
                 }
 
-                if (damageKind == DamageKind.dkRadiation && GetAbility(AbilityID.Ab_RayAbsorb) > 0) {
+                if (damageKind == DamageKind.Radiation && GetAbility(AbilityID.Ab_RayAbsorb) > 0) {
                     if (IsPlayer) {
                         Space.ShowText(this, BaseLocale.GetStr(RS.rs_YouAbsorbEnergy));
                     }
@@ -1528,7 +1703,7 @@ namespace NWR.Creatures
                     }
                 }
             } catch (Exception ex) {
-                Logger.Write("NWCreature.applyDamage(): " + ex.Message);
+                Logger.Write("NWCreature.ApplyDamage(): " + ex.Message);
                 throw ex;
             }
         }
@@ -1556,7 +1731,7 @@ namespace NWR.Creatures
                     UseEffect(EffectID.eid_Cube, it, InvokeMode.im_Use, null);
                 }
             } catch (Exception ex) {
-                Logger.Write("NWCreature.applySpecialItems(): " + ex.Message);
+                Logger.Write("NWCreature.ApplySpecialItems(): " + ex.Message);
             }
         }
 
@@ -1578,19 +1753,19 @@ namespace NWR.Creatures
                     if (projectile.Entry.Sign.CompareTo("FlintKnife") == 0) {
                         pHit += 5;
                     } else {
-                        if (projectile.CLSID_Renamed == GlobalVars.iid_Mjollnir) {
+                        if (projectile.CLSID == GlobalVars.iid_Mjollnir) {
                             pHit += 80 + projectile.Bonus * 3;
                         } else {
-                            if (projectile.CLSID_Renamed == GlobalVars.iid_Gungnir) {
+                            if (projectile.CLSID == GlobalVars.iid_Gungnir) {
                                 pHit += (int)(125 + (Math.Round(GetAbility(AbilityID.Ab_Spear) / 2.0)));
                             } else {
                                 if (projectile.Entry.Sign.CompareTo("CrudeSpear") == 0) {
                                     pHit += (int)(8 + (Math.Round((double)projectile.Bonus / 3.0)));
                                 } else {
-                                    if (projectile.CLSID_Renamed == GlobalVars.iid_Arrow && weapon.CLSID_Renamed == GlobalVars.iid_LongBow) {
+                                    if (projectile.CLSID == GlobalVars.iid_Arrow && weapon.CLSID == GlobalVars.iid_LongBow) {
                                         pHit += 15 + weapon.Bonus;
                                     } else {
-                                        if (projectile.CLSID_Renamed == GlobalVars.iid_Bolt && weapon.CLSID_Renamed == GlobalVars.iid_CrossBow) {
+                                        if (projectile.CLSID == GlobalVars.iid_Bolt && weapon.CLSID == GlobalVars.iid_CrossBow) {
                                             pHit += 25 + weapon.Bonus;
                                         }
                                     }
@@ -1624,7 +1799,7 @@ namespace NWR.Creatures
                 if (GlobalVars.Debug_Divinity && IsPlayer) {
                     pHit = 100;
                 }
-                if (enemy.CLSID_Renamed == GlobalVars.cid_Scyld && fItems.FindByCLSID(GlobalVars.iid_GreenStone) == null) {
+                if (enemy.CLSID == GlobalVars.cid_Scyld && fItems.FindByCLSID(GlobalVars.iid_GreenStone) == null) {
                     pHit = 0;
                 }
 
@@ -1643,17 +1818,10 @@ namespace NWR.Creatures
                 result.Parry = parry;
                 result.Action = act;
             } catch (Exception ex) {
-                Logger.Write("NWCreature.calcAttackInfo(): " + ex.Message);
+                Logger.Write("NWCreature.CalcAttackInfo(): " + ex.Message);
             }
 
             return result;
-        }
-
-        public Item PrimaryWeapon
-        {
-            get {
-                return GetItemByEquipmentKind(BodypartType.bp_RHand);
-            }
         }
 
         public virtual bool AttackTo(AttackKind attackKind, NWCreature enemy, Item weapon, Item projectile)
@@ -1676,7 +1844,7 @@ namespace NWR.Creatures
                 AttackInfo attackInfo = CalcAttackInfo(attackKind, enemy, weapon, projectile);
 
                 if (!AuxUtils.Chance(attackInfo.ToHit)) {
-                    if (enemy.CLSID_Renamed == GlobalVars.cid_Scyld) {
+                    if (enemy.CLSID == GlobalVars.cid_Scyld) {
                         Space.ShowText(this, BaseLocale.Format(RS.rs_YouTickle, new object[]{ enemy.GetDeclinableName(Number.nSingle, Case.cAccusative) }));
                     }
 
@@ -1705,13 +1873,13 @@ namespace NWR.Creatures
                         }
                     }
 
-                    enemy.ApplyDamage(attackInfo.Damage, DamageKind.dkPhysical, this, msg);
+                    enemy.ApplyDamage(attackInfo.Damage, DamageKind.Physical, this, msg);
 
-                    if (enemy.State == CreatureState.csDead) {
+                    if (enemy.State == CreatureState.Dead) {
                         int xp = GetAttackExp(enemy);
                         Experience = Experience + xp;
 
-                        KnowIt(enemy.CLSID_Renamed);
+                        KnowIt(enemy.CLSID);
                     }
 
                     CheckActionAbility(attackInfo.Action, weapon);
@@ -2188,7 +2356,7 @@ namespace NWR.Creatures
             bool result = (dist <= Survey);
 
             if (result && checkLOS) {
-                result = CurrentMap.LineOfSight(PosX, PosY, aX, aY);
+                result = CurrentField.LineOfSight(PosX, PosY, aX, aY);
             }
 
             return result;
@@ -2258,11 +2426,11 @@ namespace NWR.Creatures
                     if (ifs.HasIntersect(ItemFlags.if_MeleeWeapon, ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon)) {
                         bool onlyShootWeapon = (ifs.HasIntersect(ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon) && !ifs.Contains(ItemFlags.if_MeleeWeapon));
 
-                        if (!bwSigns.Contains(BestWeaponSigns.bwsCanShoot) && onlyShootWeapon) {
+                        if (!bwSigns.Contains(BestWeaponSigns.CanShoot) && onlyShootWeapon) {
                             continue;
                         }
 
-                        if (bwSigns.Contains(BestWeaponSigns.bwsOnlyShoot) && (!ifs.HasIntersect(ItemFlags.if_ShootWeapon, ItemFlags.if_ThrowWeapon))) {
+                        if (bwSigns.Contains(BestWeaponSigns.OnlyShoot) && (!ifs.HasIntersect(ItemFlags.if_ShootWeapon, ItemFlags.if_ThrowWeapon))) {
                             continue;
                         }
 
@@ -2294,11 +2462,11 @@ namespace NWR.Creatures
                     if (ifs.HasIntersect(ItemFlags.if_MeleeWeapon, ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon)) {
                         bool onlyShootWeapon = (ifs.HasIntersect(ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon) && !ifs.Contains(ItemFlags.if_MeleeWeapon));
 
-                        if (!bwSigns.Contains(BestWeaponSigns.bwsCanShoot) && onlyShootWeapon) {
+                        if (!bwSigns.Contains(BestWeaponSigns.CanShoot) && onlyShootWeapon) {
                             continue;
                         }
 
-                        if (bwSigns.Contains(BestWeaponSigns.bwsOnlyShoot) && (!ifs.HasIntersect(ItemFlags.if_ShootWeapon, ItemFlags.if_ThrowWeapon))) {
+                        if (bwSigns.Contains(BestWeaponSigns.OnlyShoot) && (!ifs.HasIntersect(ItemFlags.if_ShootWeapon, ItemFlags.if_ThrowWeapon))) {
                             continue;
                         }
 
@@ -2381,7 +2549,7 @@ namespace NWR.Creatures
 
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    int eff = fEffects.GetItem(i).CLSID_Renamed;
+                    int eff = fEffects.GetItem(i).CLSID;
                     EffectID eid = (EffectID)eff;
                     if (EffectsData.dbEffects[eff].Flags.Contains(EffectFlags.ek_Disease)) {
                         CheckHealth_Solve(eid, BaseLocale.GetStr(EffectsData.dbEffects[eff].NameRS), ref TurnUsed);
@@ -2438,7 +2606,7 @@ namespace NWR.Creatures
             int num = fEffects.Count;
             for (int i = 0; i < num; i++) {
                 Effect eff = fEffects.GetItem(i);
-                if (eff.Source.Equals(source) && eff.CLSID_Renamed == (int)effectID) {
+                if (eff.Source.Equals(source) && eff.CLSID == (int)effectID) {
                     fEffects.Delete(i);
                     break;
                 }
@@ -2450,11 +2618,11 @@ namespace NWR.Creatures
             try {
                 Space.ShowText(this, message);
 
-                State = CreatureState.csDead;
+                State = CreatureState.Dead;
                 Turn = -RandomHelper.GetBoundedRnd(10, 20);
 
                 if ((fEntry.Flags.Contains(CreatureFlags.esUnique)) && !fEntry.CorpsesPersist && !fEntry.Respawn) {
-                    Space.SetVolatileState(fEntry.GUID, VolatileState.vesDestroyed);
+                    Space.SetVolatileState(fEntry.GUID, VolatileState.Destroyed);
                 }
 
                 DropAll();
@@ -2502,7 +2670,7 @@ namespace NWR.Creatures
         public void CheckActionAbility(CreatureAction action, Item item)
         {
             var caRec = StaticData.dbCreatureActions[(int)action];
-            if (caRec.Flags.HasIntersect(ActionFlags.afWithItem, ActionFlags.afCheckAbility)) {
+            if (caRec.Flags.HasIntersect(ActionFlags.WithItem, ActionFlags.CheckAbility)) {
                 AbilityID ab = GetActionAbility(action, item);
                 if (ab != AbilityID.Ab_None) {
                     int val = GetAbility(ab);
@@ -2518,7 +2686,7 @@ namespace NWR.Creatures
             int num = fEffects.Count;
             for (int i = 0; i < num; i++) {
                 Effect effect = fEffects.GetItem(i);
-                EffectID eff = (EffectID)effect.CLSID_Renamed;
+                EffectID eff = (EffectID)effect.CLSID;
                 if (eff == EffectID.eid_Paralysis || eff == EffectID.eid_Sleep || eff == EffectID.eid_Stoning || eff == EffectID.eid_CaughtInNet) {
                     return false;
                 }
@@ -2662,7 +2830,7 @@ namespace NWR.Creatures
         public Building FindHouse()
         {
             if (fHouse == null) {
-                EntityList features = CurrentMap.Features;
+                EntityList features = CurrentField.Features;
                 int num = features.Count;
                 for (int i = 0; i < num; i++) {
                     GameEntity b = features.GetItem(i);
@@ -2683,14 +2851,14 @@ namespace NWR.Creatures
             int idx = -1;
             int dt = (int)(Survey + 1);
 
-            NWField fld = (NWField)CurrentMap;
+            NWField fld = CurrentField;
 
             int num = fld.Items.Count;
             for (int i = 0; i < num; i++) {
                 Item item = fld.Items.GetItem(i);
                 int dist = MathHelper.Distance(Location, item.Location);
                 Building b = fld.FindBuilding(item.PosX, item.PosY);
-                if ((b == null || b.Holder == null) && dist < dt && item.CLSID_Renamed != GlobalVars.iid_DeadBody && item.CLSID_Renamed != GlobalVars.iid_Mummy) {
+                if ((b == null || b.Holder == null) && dist < dt && item.CLSID != GlobalVars.iid_DeadBody && item.CLSID != GlobalVars.iid_Mummy) {
                     dt = dist;
                     idx = i;
                 }
@@ -2782,7 +2950,6 @@ namespace NWR.Creatures
                     aDamage = (int)((long)Math.Round((double)(EffectsData.dbEffects[e].Damage.Min + EffectsData.dbEffects[e].Damage.Max) / 2.0));
                 }
             } finally {
-                sks.Dispose();
             }
             return result;
         }
@@ -2815,48 +2982,48 @@ namespace NWR.Creatures
         public TrapResult GetEntrapRes(ref string  refMessage)
         {
             refMessage = "";
-            TrapResult result = TrapResult.tr_Absent;
+            TrapResult result = TrapResult.Absent;
 
             Effect eff = fEffects.FindEffectByID(EffectID.eid_PitTrap);
             if (eff != null) {
                 int chn = 100 - eff.Duration * 10;
                 if (!AuxUtils.Chance(chn)) {
                     refMessage = BaseLocale.GetStr(RandomHelper.GetBoundedRnd(541, 545));
-                    result = TrapResult.tr_EscapeBreak;
+                    result = TrapResult.EscapeBreak;
                 } else {
                     fEffects.Remove(eff);
                     refMessage = BaseLocale.GetStr(RS.rs_PitTrapGetoutOk);
-                    result = TrapResult.tr_EscapeOk;
+                    result = TrapResult.EscapeOk;
                 }
             } else {
                 eff = fEffects.FindEffectByID(EffectID.eid_Quicksand);
                 if (eff != null) {
                     if (eff.Duration == 1) {
                         refMessage = BaseLocale.GetStr(RS.rs_YouDrownedInQuicksand);
-                        result = TrapResult.tr_EscapeDeath;
+                        result = TrapResult.EscapeDeath;
                     } else {
                         if (eff.Duration == 2) {
                             refMessage = BaseLocale.GetStr(RS.rs_YouSinkToYourChin);
-                            result = TrapResult.tr_EscapeBreak;
+                            result = TrapResult.EscapeBreak;
                         } else {
                             refMessage = BaseLocale.GetStr(RS.rs_StrugglingIsUseless);
-                            result = TrapResult.tr_EscapeBreak;
+                            result = TrapResult.EscapeBreak;
                         }
                     }
                 } else {
                     eff = fEffects.FindEffectByID(EffectID.eid_PhaseTrap);
                     if (eff != null) {
                         if (fEffects.FindEffectByID(EffectID.eid_Phase) != null) {
-                            result = TrapResult.tr_Absent;
+                            result = TrapResult.Absent;
                         } else {
                             refMessage = BaseLocale.GetStr(RS.rs_YouInVeryConfinedSpace);
-                            result = TrapResult.tr_EscapeBreak;
+                            result = TrapResult.EscapeBreak;
                         }
                     } else {
-                        int bg = ((NWTile)CurrentMap.GetTile(PosX, PosY)).BackBase;
+                        int bg = ((NWTile)CurrentField.GetTile(PosX, PosY)).BackBase;
                         if (bg == PlaceID.pid_Mud && AuxUtils.Chance(50)) {
                             refMessage = BaseLocale.GetStr(RS.rs_YouSlipInMud);
-                            result = TrapResult.tr_EscapeBreak;
+                            result = TrapResult.EscapeBreak;
                         }
                     }
                 }
@@ -2865,71 +3032,9 @@ namespace NWR.Creatures
             return result;
         }
 
-        public short HirePrice
-        {
-            get {
-                float temp;
-    
-                if (CLSID_Renamed == GlobalVars.cid_Guardsman) {
-                    Player player = Space.Player;
-    
-                    temp = (HPCur - (float)(fEntry.MaxHP - fEntry.MinHP) / 2);
-                    temp += (ArmorClass - fEntry.AC);
-                    temp += (ToHit - fEntry.ToHit);
-                    temp += (Attacks - fEntry.Attacks);
-                    temp += (fSpeed - fEntry.Speed);
-                    temp += (Constitution - fEntry.Constitution);
-                    temp += (Strength - fEntry.Strength);
-                    temp += (Dexterity - fEntry.Dexterity);
-                    temp += (((float)(DBMax - DBMin) / 2) - ((float)(fEntry.MaxDB - fEntry.MinDB) / 2));
-                    temp += (Survey - fEntry.Survey);
-    
-                    for (var i = AbilityID.Ab_First; i <= AbilityID.Ab_Last; i++) {
-                        temp = temp + (fAbilities.GetValue((int)i) - fEntry.Abilities.GetValue((int)i));
-                    }
-    
-                    for (var i = SkillID.Sk_First; i <= SkillID.Sk_Last; i++) {
-                        temp = temp + (fSkills.GetValue((int)i) - fEntry.Skills.GetValue((int)i));
-                    }
-    
-                    for (int i = 0; i < fItems.Count; i++) {
-                        Item item = fItems.GetItem(i);
-                        temp = temp + item.Price;
-                    }
-    
-                    float lev = (float)Level;
-                    float f = (lev / (lev + player.Level));
-    
-                    temp = temp * (1.0f + f);
-                } else {
-                    temp = 10000;
-                }
-    
-                return (short)Math.Round(temp);
-            }
-        }
-
-        public sbyte LightRadius
-        {
-            get {
-                sbyte result = 0;
-    
-                Item torch = GetItemByEquipmentKind(BodypartType.bp_LHand);
-                if (torch != null && torch.CLSID_Renamed == GlobalVars.iid_Torch) {
-                    result = (sbyte)((int)result + torch.Bonus);
-                }
-                Effect eLight = fEffects.FindEffectByID(EffectID.eid_Light);
-                if (eLight != null) {
-                    result = (sbyte)((int)result + eLight.Magnitude);
-                }
-    
-                return result;
-            }
-        }
-
         public NWCreature GetNearestCreature(int aX, int aY, bool onlyAllies)
         {
-            NWField fld = (NWField)CurrentMap;
+            NWField fld = CurrentField;
             int num = fld.Creatures.Count;
             for (int i = 0; i < num; i++) {
                 NWCreature creat = fld.Creatures.GetItem(i);
@@ -2947,24 +3052,24 @@ namespace NWR.Creatures
 
         public ExtPoint GetNearestPlace(int radius, bool withoutLive)
         {
-            return CurrentMap.GetNearestPlace(PosX, PosY, radius, withoutLive, Movements);
+            return CurrentField.GetNearestPlace(PosX, PosY, radius, withoutLive, Movements);
         }
 
         public ExtPoint GetNearestPlace(int cx, int cy, int radius, bool withoutLive)
         {
-            return CurrentMap.GetNearestPlace(cx, cy, radius, withoutLive, Movements);
+            return CurrentField.GetNearestPlace(cx, cy, radius, withoutLive, Movements);
         }
 
         public ExtPoint GetNearestPlace(ExtPoint cpt, int radius, bool withoutLive)
         {
-            return CurrentMap.GetNearestPlace(cpt.X, cpt.Y, radius, withoutLive, Movements);
+            return CurrentField.GetNearestPlace(cpt.X, cpt.Y, radius, withoutLive, Movements);
         }
 
         public ExtPoint GetStep(ExtPoint target)
         {
             ExtPoint result = ExtPoint.Empty;
             try {
-                AbstractMap map = CurrentMap;
+                AbstractMap map = CurrentField;
                 ExtPoint src = Location;
 
                 if (!src.Equals(target) && map.IsValid(target.X, target.Y)) {
@@ -3015,10 +3120,10 @@ namespace NWR.Creatures
             Item result = null;
 
             int ammoID = -1;
-            if (aWeapon.CLSID_Renamed == GlobalVars.iid_LongBow) {
+            if (aWeapon.CLSID == GlobalVars.iid_LongBow) {
                 ammoID = GlobalVars.iid_Arrow;
             } else {
-                if (aWeapon.CLSID_Renamed == GlobalVars.iid_CrossBow) {
+                if (aWeapon.CLSID == GlobalVars.iid_CrossBow) {
                     ammoID = GlobalVars.iid_Bolt;
                 }
             }
@@ -3088,10 +3193,10 @@ namespace NWR.Creatures
         {
             if (projectile != null) {
                 int range = Math.Max(3, (int)((long)Math.Round((Strength - 9 - (double)projectile.Weight / 7.0))));
-                if (projectile.CLSID_Renamed == GlobalVars.iid_Mjollnir) {
+                if (projectile.CLSID == GlobalVars.iid_Mjollnir) {
                     range += 4;
                 } else {
-                    if (projectile.CLSID_Renamed == GlobalVars.iid_Arrow || projectile.CLSID_Renamed == GlobalVars.iid_Bolt) {
+                    if (projectile.CLSID == GlobalVars.iid_Arrow || projectile.CLSID == GlobalVars.iid_Bolt) {
                         range += 5;
                     }
                 }
@@ -3109,13 +3214,6 @@ namespace NWR.Creatures
             return GetAbility(resist) <= 0 && (!EffectsData.dbEffects[eid].Flags.Contains(EffectFlags.ef_Ray) || GetAbility(AbilityID.Resist_Ray) <= 0);
         }
 
-        public bool Blindness
-        {
-            get {
-                return (fEffects.FindEffectByID(EffectID.eid_Blindness) != null);
-            }
-        }
-
         public bool HasMovement(int kind)
         {
             return Movements.Contains(kind);
@@ -3131,80 +3229,14 @@ namespace NWR.Creatures
             Alignment = Alignment.Invert();
         }
 
-        public bool InWater
-        {
-            get {
-                BaseTile tile = CurrentField.GetTile(PosX, PosY);
-                bool isUnderwater = (tile.Background == PlaceID.pid_Water && LayerID != GlobalVars.Layer_MimerWell);
-    
-                if (isUnderwater) {
-                    Effect efSail = fEffects.FindEffectByID(EffectID.eid_Sail);
-                    return (isUnderwater && efSail == null);
-                } else {
-                    return false;
-                }
-            }
-        }
-
-        public bool Confused
-        {
-            get {
-                return fEffects.FindEffectByID(EffectID.eid_Confusion) != null;
-            }
-        }
-
-        public bool Hallucinations
-        {
-            get {
-                return fEffects.FindEffectByID(EffectID.eid_Hallucination) != null || fEffects.FindEffectByID(EffectID.eid_Insanity) != null;
-            }
-        }
-
         public bool IsEnemy(NWCreature aOther)
         {
-            return GetReaction(aOther) == Reaction.rHostile;
-        }
-
-        public bool Imprisonable
-        {
-            get {
-                bool Result = true;
-                int i = 0;
-                while (fEntry.Sign.CompareTo(NotImprisonable[i]) != 0) {
-                    i++;
-                    if (i == 31) {
-                        return Result;
-                    }
-                }
-                Result = false;
-                return Result;
-            }
-        }
-
-        public bool Stoning
-        {
-            get {
-                return (fEffects.FindEffectByID(EffectID.eid_Stoning) != null);
-            }
+            return GetReaction(aOther) == Reaction.Hostile;
         }
 
         public bool IsNear(ExtPoint point)
         {
             return MathHelper.Distance(PosX, PosY, point.X, point.Y) == 1;
-        }
-
-        public virtual bool IsPlayer
-        {
-            get {
-                return false;
-            }
-        }
-
-        public bool SeekInvisible
-        {
-            get {
-                return GetAbility(AbilityID.Ab_SixthSense) > 0 || GetAbility(AbilityID.Ab_Telepathy) > 0 || fEffects.FindEffectByID(EffectID.eid_ThirdSight) != null;
-            }
         }
 
         public virtual void KnowIt(int entityID)
@@ -3270,7 +3302,7 @@ namespace NWR.Creatures
 
         public void MoveRnd()
         {
-            AbstractMap map = CurrentMap;
+            AbstractMap map = CurrentField;
             ExtPoint pt = SearchRndLocation(map, map.AreaRect);
 
             CheckTile(false);
@@ -3296,23 +3328,23 @@ namespace NWR.Creatures
                 string msg = "";
                 TrapResult et_res = GetEntrapRes(ref msg);
                 switch (et_res) {
-                    case TrapResult.tr_Absent:
+                    case TrapResult.Absent:
                         // dummy
                         break;
 
-                    case TrapResult.tr_EscapeOk:
+                    case TrapResult.EscapeOk:
                         if (IsPlayer) {
                             Space.ShowText(this, msg);
                         }
                         break;
 
-                    case TrapResult.tr_EscapeBreak:
+                    case TrapResult.EscapeBreak:
                         if (IsPlayer) {
                             Space.ShowText(this, msg);
                         }
                         return;
 
-                    case TrapResult.tr_EscapeDeath:
+                    case TrapResult.EscapeDeath:
                         Death(msg, null);
                         return;
                 }
@@ -3323,7 +3355,7 @@ namespace NWR.Creatures
                 int px = newX;
                 int py = newY;
 
-                NWField fld = (NWField)CurrentMap;
+                NWField fld = CurrentField;
                 MoveSpecialEffect(fld, PosX, PosY);
 
                 bool gpChanged = false;
@@ -3349,7 +3381,7 @@ namespace NWR.Creatures
                         }
                     } else {
                         Gate gate = fld.FindGate(px, py);
-                        if (gate != null && gate.Kind == Gate.KIND_FIX) {
+                        if (gate != null && gate.Kind == GateKind.Fix) {
                             NWTile tile = (NWTile)fld.GetTile(px, py);
                             int fgp = tile.ForeBase;
                             if (fgp == PlaceID.pid_Vortex || fgp == PlaceID.pid_VortexStrange) {
@@ -3403,10 +3435,10 @@ namespace NWR.Creatures
                     NWCreature creature = (NWCreature)fld.FindCreature(px, py);
                     if (creature != null) {
                         if (!gpChanged && IsEnemy(creature)) {
-                            AttackTo(AttackKind.akMelee, creature, null, null);
+                            AttackTo(AttackKind.Melee, creature, null, null);
                             res = false;
                         } else {
-                            res = creature.Request(this, RequestKind.rk_PlaceYield);
+                            res = creature.Request(this, RequestKind.PlaceYield);
                         }
                     }
 
@@ -3437,7 +3469,7 @@ namespace NWR.Creatures
         private void MoveToGate(bool aUp)
         {
             if (CheckMove(new Movements(Movements.mkWalk, Movements.mkFly))) {
-                NWField fld = (NWField)CurrentMap;
+                NWField fld = CurrentField;
                 int px = PosX;
                 int py = PosY;
 
@@ -3539,7 +3571,7 @@ namespace NWR.Creatures
                     InFog = true;
 
                     if (tile.FogAge > 0 && GetAbility(AbilityID.Resist_Acid) <= 0) {
-                        ApplyDamage(RandomHelper.GetBoundedRnd(1, 40), DamageKind.dkPhysical, null, BaseLocale.GetStr(RS.rs_YourBodyIsCoveredWithAcid));
+                        ApplyDamage(RandomHelper.GetBoundedRnd(1, 40), DamageKind.Physical, null, BaseLocale.GetStr(RS.rs_YourBodyIsCoveredWithAcid));
                     }
                 } else {
                     InFog = false;
@@ -3584,7 +3616,7 @@ namespace NWR.Creatures
         public virtual void CheckTile(bool aHere)
         {
             try {
-                NWField map = (NWField)CurrentMap;
+                NWField map = CurrentField;
                 if (map == null) {
                     return;
                 }
@@ -3628,7 +3660,7 @@ namespace NWR.Creatures
                 fProwlSource = effectID;
                 Prowling = true;
                 if (IsPlayer) {
-                    Space.TurnState = TurnState.gtsSkip;
+                    Space.TurnState = TurnState.Skip;
                 }
 
                 if (effectID == EffectID.eid_Lycanthropy) {
@@ -3658,7 +3690,7 @@ namespace NWR.Creatures
                     } else {
                         Space.ShowText(this, BaseLocale.GetStr(RS.rs_Insanity_End));
                     }
-                    Space.TurnState = TurnState.gtsDone;
+                    Space.TurnState = TurnState.Done;
                 }
                 Prowling = false;
                 fProwlSource = EffectID.eid_None;
@@ -3682,7 +3714,7 @@ namespace NWR.Creatures
 
         public Reaction GetReaction(NWCreature aCreature)
         {
-            Reaction result = Reaction.rNeutral;
+            Reaction result = Reaction.Neutral;
 
             Alignment a1 = Alignment;
             int lc1 = a1.GetLC();
@@ -3695,7 +3727,7 @@ namespace NWR.Creatures
                 int ge2 = a2.GetGE();
                 result = Relations[ge - 1, ge2 - 1];
             } else if (lc1 == AlignmentEx.am_Mask_Evil) {
-                result = (Reaction)(RandomHelper.GetRandom((int)Reaction.rAlly + 1));
+                result = (Reaction)(RandomHelper.GetRandom((int)Reaction.Ally + 1));
             }
 
             return result;
@@ -3708,9 +3740,9 @@ namespace NWR.Creatures
                 return result;
             }
 
-            if (aKind == RequestKind.rk_PlaceYield) {
+            if (aKind == RequestKind.PlaceYield) {
                 if (!fEntry.Flags.Contains(CreatureFlags.esPlant)) {
-                    NWField fld = (NWField)CurrentMap;
+                    NWField fld = CurrentField;
                     int nX;
                     int nY;
 
@@ -3729,8 +3761,6 @@ namespace NWR.Creatures
 
             return result;
         }
-
-
 
         public override void LoadFromStream(BinaryReader  stream, FileVersion version)
         {
@@ -3803,7 +3833,7 @@ namespace NWR.Creatures
                     ResetMercenary(fIsMercenary);
                 }
 
-                if (fState != CreatureState.csDead) {
+                if (fState != CreatureState.Dead) {
                     CheckTile(true);
                 }
             } catch (Exception ex) {
@@ -3812,8 +3842,6 @@ namespace NWR.Creatures
                 throw ex;
             }
         }
-
-
 
         public override void SaveToStream(BinaryWriter stream, FileVersion version)
         {
@@ -3896,14 +3924,14 @@ namespace NWR.Creatures
             try {
                 Item projectile = null;
                 ItemFlags wks = weapon.Flags;
-                AttackKind kind = AttackKind.akMelee;
+                AttackKind kind = AttackKind.Melee;
 
                 if (wks.Contains(ItemFlags.if_ShootWeapon)) {
-                    kind = AttackKind.akShoot;
+                    kind = AttackKind.Shoot;
                     projectile = GetItemByEquipmentKind(BodypartType.bp_Back);
                 } else {
                     if (wks.Contains(ItemFlags.if_ThrowWeapon)) {
-                        kind = AttackKind.akThrow;
+                        kind = AttackKind.Throw;
                         projectile = weapon;
                     }
                 }
@@ -3939,7 +3967,7 @@ namespace NWR.Creatures
                         /*if (!this.isPlayer()) {
                          throw new RuntimeException("not implemented");
                          }*/
-                        kind = AttackKind.akShoot;
+                        kind = AttackKind.Shoot;
 
                         projectile = GetItemByEquipmentKind(BodypartType.bp_Back);
                         if (projectile == null) {
@@ -3953,7 +3981,7 @@ namespace NWR.Creatures
                             }
                         }
                     } else if (wfs.Contains(ItemFlags.if_ThrowWeapon)) {
-                        kind = AttackKind.akThrow;
+                        kind = AttackKind.Throw;
                         projectile = weapon;
                     } else {
                         Space.ShowText(this, BaseLocale.GetStr(RS.rs_WeaponNotChoosed));
@@ -3981,7 +4009,7 @@ namespace NWR.Creatures
             bool result = false;
 
             try {
-                NWField fld = (NWField)CurrentMap;
+                NWField fld = CurrentField;
 
                 ItemFlags pfs = projectile.Flags;
                 if (pfs.HasIntersect(ItemFlags.if_ThrowWeapon, ItemFlags.if_Projectile)) {
@@ -4020,7 +4048,7 @@ namespace NWR.Creatures
 
         public void SwitchBody(NWCreature target)
         {
-            base.CLSID = target.CLSID_Renamed;
+            base.CLSID = target.CLSID;
             State = target.State;
             Alignment = target.Alignment;
             Sex = target.Sex;
@@ -4120,7 +4148,7 @@ namespace NWR.Creatures
                                 } else {
                                     Space.ShowText(this, BaseLocale.Format(RS.rs_Unsavoury, new object[]{ dead.GetDeclinableName(Number.nSingle, Case.cGenitive) }));
                                 }
-                                bool cannibalism = (fEntry.Race == RaceID.crDefault && CLSID_Renamed == dead.CLSID_Renamed) || fEntry.Race == dead.fEntry.Race;
+                                bool cannibalism = (fEntry.Race == RaceID.crDefault && CLSID == dead.CLSID) || fEntry.Race == dead.fEntry.Race;
                                 if (cannibalism) {
                                     Space.ShowText(this, BaseLocale.GetStr(RS.rs_CannibalismIsImmoral));
                                     ((Player)this).Morality = (sbyte)((int)((Player)this).Morality - 25);
@@ -4260,38 +4288,6 @@ namespace NWR.Creatures
             return result;
         }
 
-        public StringList Props
-        {
-            get {
-                StringList props = new StringList();
-    
-                int mpr;
-                if (MPMax == 0) {
-                    mpr = 0;
-                } else {
-                    mpr = (int)(Math.Round((MPCur / MPMax) * 100.0f));
-                }
-    
-                props.Add(Name);
-                props.Add(Race + ", " + BaseLocale.GetStr(StaticData.dbSex[(int)Sex].NameRS));
-                props.Add("  ");
-                props.Add(BaseLocale.GetStr(RS.rs_Level) + ": " + Convert.ToString(Level));
-                props.Add(BaseLocale.GetStr(RS.rs_Experience) + ": " + Convert.ToString(Experience));
-                props.Add(BaseLocale.GetStr(RS.rs_Perception) + ": " + Convert.ToString((int)Perception));
-                props.Add(BaseLocale.GetStr(RS.rs_Constitution) + ": " + Convert.ToString(Constitution));
-                props.Add(BaseLocale.GetStr(RS.rs_Strength) + ": " + Convert.ToString(Strength));
-                props.Add(BaseLocale.GetStr(RS.rs_Speed) + ": " + Convert.ToString(Speed));
-                props.Add(BaseLocale.GetStr(RS.rs_Luck) + ": " + Convert.ToString(Luck));
-                props.Add(BaseLocale.GetStr(RS.rs_Armor) + ": " + Convert.ToString(ArmorClass));
-                props.Add(BaseLocale.GetStr(RS.rs_HP) + ": " + Convert.ToString((int)(Math.Round(((float)HPCur / (float)HPMax_Renamed) * 100.0f))) + " %");
-                props.Add(BaseLocale.GetStr(RS.rs_MP) + ": " + Convert.ToString(mpr) + " %");
-                props.Add(BaseLocale.GetStr(RS.rs_Damage) + ": " + Convert.ToString(DBMin) + "-" + Convert.ToString(DBMax));
-                props.Add(BaseLocale.GetStr(RS.rs_Dexterity) + ": " + Convert.ToString((int)Dexterity));
-    
-                return props;
-            }
-        }
-
         /// <summary>
         /// Check availability of the Item from the signature.
         /// <b>Need for scripting</b>. </summary>
@@ -4345,13 +4341,13 @@ namespace NWR.Creatures
         {
             Player player = Space.Player;
 
-            Space.SetVolatileState(CLSID_Renamed, VolatileState.vesDestroyed);
+            Space.SetVolatileState(CLSID, VolatileState.Destroyed);
             Death(BaseLocale.Format(RS.rs_VictimKill, new object[]{ Name }), null);
 
             VolatileState a = Space.GetVolatileState(GlobalVars.cid_Agnar);
             VolatileState h = Space.GetVolatileState(GlobalVars.cid_Haddingr);
             VolatileState k = Space.GetVolatileState(GlobalVars.cid_Ketill);
-            if (a == VolatileState.vesDestroyed && h == VolatileState.vesDestroyed && k == VolatileState.vesDestroyed) {
+            if (a == VolatileState.Destroyed && h == VolatileState.Destroyed && k == VolatileState.Destroyed) {
                 Space.AddItemEx(GlobalVars.Layer_Svartalfheim3, 1, 2, player.PosX, player.PosY, GlobalVars.iid_Gungnir);
             }
 
@@ -4370,7 +4366,7 @@ namespace NWR.Creatures
             InitEx(GlobalVars.cid_Norseman, true, false);
             player.RecruitMercenary(null, this, false);
 
-            if (Space.GetVolatileState(GlobalVars.cid_Vidur) == VolatileState.vesNone) {
+            if (Space.GetVolatileState(GlobalVars.cid_Vidur) == VolatileState.None) {
                 ExtPoint pt = player.GetNearestPlace(5, true);
                 Space.AddCreatureEx(GlobalVars.Layer_Svartalfheim3, 1, 2, pt.X, pt.Y, GlobalVars.cid_Vidur);
                 Space.ShowText(player, BaseLocale.GetStr(RS.rs_Vidur_IsAngered));
@@ -4378,26 +4374,5 @@ namespace NWR.Creatures
 
             return true;
         }
-
-        /// 
-        /// <summary>
-        /// <b>Need for scripting</b>.
-        /// @return
-        /// </summary>
-        public bool FieldCleared
-        {
-            get {
-                NWField field = CurrentField;
-                for (int i = 0; i < field.Creatures.Count; i++) {
-                    NWCreature creat = field.Creatures.GetItem(i);
-                    if (!Equals(creat) && IsEnemy(creat)) {
-                        return false;
-                    }
-                }
-    
-                return true;
-            }
-        }
     }
-
 }

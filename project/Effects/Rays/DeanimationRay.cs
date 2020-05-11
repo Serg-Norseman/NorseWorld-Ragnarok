@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using ZRLib.Map;
-using NWR.Core.Types;
 using NWR.Creatures;
+using NWR.Game.Types;
 using NWR.Universe;
+using ZRLib.Map;
 
 namespace NWR.Effects.Rays
 {
@@ -39,22 +39,24 @@ namespace NWR.Effects.Rays
                 BaseTile tile = f.GetTile(aX, aY);
                 NWCreature c = (NWCreature)f.FindCreature(aX, aY);
                 if (c != null) {
-                    if (c.Entry.Sign.Equals("Mudman") || c.Entry.Sign.Equals("MudFlow")) {
+                    string cSign = c.Entry.Sign;
+
+                    if (cSign.Equals("Mudman") || cSign.Equals("MudFlow")) {
                         EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Mud);
                     } else {
-                        if (c.Entry.Sign.Equals("LavaFlow")) {
+                        if (cSign.Equals("LavaFlow")) {
                             EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Lava);
                         } else {
-                            if (c.Entry.Sign.Equals("Jagredin") || c.Entry.Sign.Equals("LiveRock")) {
+                            if (cSign.Equals("Jagredin") || cSign.Equals("LiveRock")) {
                                 EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Rubble);
                             } else {
-                                if (c.Entry.Sign.Equals("SandForm")) {
+                                if (cSign.Equals("SandForm")) {
                                     EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Quicksand);
                                 } else {
-                                    if (c.Entry.Sign.Equals("WateryForm")) {
+                                    if (cSign.Equals("WateryForm")) {
                                         EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Water);
                                     } else {
-                                        if (c.State == CreatureState.csUndead) {
+                                        if (c.State == CreatureState.Undead) {
                                             c.Death("", null);
                                         }
                                     }

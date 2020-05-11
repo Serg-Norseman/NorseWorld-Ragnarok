@@ -40,7 +40,5 @@ namespace NWR.Creatures.Brain
         public const int gk_DebtTake = 12;
         public const int gk_WareReturn = 13;
         public const int gk_Stalk = 14;
-
     }
-
 }

@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using ZRLib.Core;
-using NWR.Core;
-using NWR.Core.Types;
+using NWR.Game;
+using NWR.Game.Types;
 using NWR.Universe;
+using ZRLib.Core;
 
 namespace NWR.Items
 {

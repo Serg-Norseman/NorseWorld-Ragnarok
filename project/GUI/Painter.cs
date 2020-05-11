@@ -19,10 +19,9 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using NWR.Universe;
 using ZRLib.Core;

@@ -18,10 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using ZRLib.Core;
-using NWR.Core;
 using NWR.Database;
 using NWR.Game;
+using ZRLib.Core;
 
 namespace NWR.Universe
 {
@@ -43,7 +42,7 @@ namespace NWR.Universe
         public override string Name
         {
             get {
-                DataEntry entry = Space.GetDataEntry(CLSID_Renamed);
+                DataEntry entry = Space.GetDataEntry(CLSID);
                 return (entry == null) ? BaseLocale.GetStr(RS.rs_Unknown) : entry.Name;
             }
         }

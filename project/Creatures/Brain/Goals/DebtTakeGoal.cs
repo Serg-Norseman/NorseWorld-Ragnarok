@@ -20,7 +20,6 @@
 
 using System;
 using BSLib;
-using NWR.Core;
 using NWR.Game;
 using ZRLib.Core;
 using ZRLib.Core.Brain;

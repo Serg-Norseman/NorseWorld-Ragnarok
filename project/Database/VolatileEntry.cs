@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core.Types;
+using NWR.Game.Types;
 
 namespace NWR.Database
 {
@@ -29,7 +29,7 @@ namespace NWR.Database
         public VolatileEntry(object owner)
             : base(owner)
         {
-            RuntimeState = VolatileState.vesNone;
+            RuntimeState = VolatileState.None;
         }
     }
 }

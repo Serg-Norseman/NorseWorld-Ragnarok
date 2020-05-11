@@ -27,16 +27,15 @@ namespace NWR.Creatures.Brain
 {
     public abstract class NWBrainEntity : BrainEntity, ISerializable
     {
-        protected NWBrainEntity(CreatureEntity owner)
-            : base(owner)
-        {
-        }
-
         public byte SerializeKind
         {
             get {
                 return 0;
             }
+        }
+
+        protected NWBrainEntity(CreatureEntity owner) : base(owner)
+        {
         }
 
         public void LoadFromStream(BinaryReader  stream, FileVersion version)

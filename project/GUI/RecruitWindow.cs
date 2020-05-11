@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -57,7 +57,7 @@ namespace NWR.GUI
         private bool CanRecruit()
         {
             Player player = GlobalVars.nwrGame.Player;
-            int membCount = ((LeaderBrain)player.Brain).MembersCount - 1;
+            int membCount = ((LeaderBrain)player.Brain).Members.Count - 1;
 
             return (membCount < LeaderBrain.PartyMax);
         }
@@ -76,18 +76,18 @@ namespace NWR.GUI
         {
             fMercenariesList.Items.BeginUpdate();
             fMercenariesList.Items.Clear();
-            if (fCollocutor.CLSID_Renamed == GlobalVars.cid_Jarl) {
-                NWField fld = (NWField)fCollocutor.CurrentMap;
+            if (fCollocutor.CLSID == GlobalVars.cid_Jarl) {
+                NWField fld = fCollocutor.CurrentField;
 
                 int num = fld.Creatures.Count;
                 for (int i = 0; i < num; i++) {
                     NWCreature j = fld.Creatures.GetItem(i);
-                    if (j.CLSID_Renamed == GlobalVars.cid_Guardsman && !j.Mercenary) {
+                    if (j.CLSID == GlobalVars.cid_Guardsman && !j.Mercenary) {
                         AddCandidate(j);
                     }
                 }
             } else {
-                if (fCollocutor.CLSID_Renamed == GlobalVars.cid_Merchant) {
+                if (fCollocutor.CLSID == GlobalVars.cid_Merchant) {
                     AddCandidate(fCollocutor);
                 }
             }

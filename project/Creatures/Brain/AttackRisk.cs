@@ -22,10 +22,10 @@ namespace NWR.Creatures.Brain
 {
     public enum AttackRisk
     {
-        ar_RunAway,
-        ar_Evade,
-        ar_Wait,
-        ar_Wary,
-        ar_Immediately
+        RunAway,
+        Evade,
+        Wait,
+        Wary,
+        Immediately
     }
 }

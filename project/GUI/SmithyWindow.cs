@@ -20,10 +20,9 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Database;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using NWR.Items;
 using ZRLib.Core;
@@ -81,7 +80,7 @@ namespace NWR.GUI
             for (int i = 0; i < num; i++) {
                 Item item = (Item)items.GetItem(i);
                 mat = item.Entry.Material;
-                if (mat != MaterialKind.mk_None && fIngredients.FindByGUID(item.UID_Renamed) == null) {
+                if (mat != MaterialKind.mk_None && fIngredients.FindByGUID(item.UID) == null) {
                     AddListItem(fPackList, GetItemFullName(item), item, true);
                 }
             }
@@ -137,7 +136,7 @@ namespace NWR.GUI
             accept = (source.Equals(fPackList) && idx >= 0 && idx < fPackList.Items.Count);
             if (accept) {
                 Item item = (Item)fPackList.Items.GetItem(idx).Data;
-                accept = (fIngredients.FindByGUID(item.UID_Renamed) == null);
+                accept = (fIngredients.FindByGUID(item.UID) == null);
             }
         }
 
@@ -185,7 +184,7 @@ namespace NWR.GUI
             int idx = fPackList.SelIndex;
             if (idx >= 0 && idx < fPackList.Items.Count) {
                 Item item = (Item)fPackList.Items.GetItem(idx).Data;
-                if (fIngredients.FindByGUID(item.UID_Renamed) == null) {
+                if (fIngredients.FindByGUID(item.UID) == null) {
                     dragObject = new InventoryObject();
                     ((InventoryObject)dragObject).InvItem = item;
                 } else {

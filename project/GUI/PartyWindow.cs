@@ -19,7 +19,6 @@
  */
 
 using BSLib;
-using NWR.Core;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Game;
@@ -99,7 +98,7 @@ namespace NWR.GUI
         {
             int idx = fMercenariesList.SelIndex;
             LeaderBrain party = (LeaderBrain)GlobalVars.nwrGame.Player.Brain;
-            NWCreature member = (NWCreature)party.GetMember(idx + 1);
+            NWCreature member = party.Members[idx + 1];
 
             if (member != null) {
                 GlobalVars.nwrWin.ShowTeachWin(member);
@@ -110,7 +109,7 @@ namespace NWR.GUI
         {
             int idx = fMercenariesList.SelIndex;
             LeaderBrain party = (LeaderBrain)GlobalVars.nwrGame.Player.Brain;
-            NWCreature member = (NWCreature)party.GetMember(idx + 1);
+            NWCreature member = party.Members[idx + 1];
 
             if (member != null) {
                 GlobalVars.nwrWin.ShowExchangeWin(member);
@@ -144,9 +143,9 @@ namespace NWR.GUI
 
             LeaderBrain party = (LeaderBrain)GlobalVars.nwrGame.Player.Brain;
 
-            int num = party.MembersCount;
+            int num = party.Members.Count;
             for (int i = 1; i < num; i++) {
-                NWCreature j = (NWCreature)party.GetMember(i);
+                NWCreature j = party.Members[i];
                 fMercenariesList.Items.Add(j.Name, j);
             }
 

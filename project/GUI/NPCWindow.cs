@@ -19,13 +19,12 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Database;
 using NWR.Game;
 using NWR.Game.Story;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using ZRLib.Core;
 using ZRLib.Engine;
@@ -146,7 +145,7 @@ namespace NWR.GUI
                         Message = qst;
                         Message = BaseLocale.GetStr(RS.rs_AlreadyHired);
                     } else {
-                        if (fCollocutor.CLSID_Renamed == GlobalVars.cid_Guardsman) {
+                        if (fCollocutor.CLSID == GlobalVars.cid_Guardsman) {
                             Message = qst;
                             Message = BaseLocale.GetStr(RS.rs_DoNotHired);
                         } else {

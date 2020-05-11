@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -20,11 +20,10 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using NWR.Items;
 using NWR.Universe;
@@ -306,7 +305,7 @@ namespace NWR.GUI
         private void DropInvItem(Item aItem, bool aUnequip)
         {
             if (aUnequip) {
-                GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemRemove, aItem.UID_Renamed);
+                GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemRemove, aItem.UID);
             }
             Player player = GlobalVars.nwrGame.Player;
             if (!aItem.Equipment || !aItem.InUse) {
@@ -315,7 +314,7 @@ namespace NWR.GUI
                         Collocutor.Buy(aItem, player, fMode == IWMODE_INSHOP);
                     }
                 } else {
-                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemDrop, aItem.UID_Renamed);
+                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemDrop, aItem.UID);
                 }
             }
         }
@@ -329,7 +328,7 @@ namespace NWR.GUI
 
                 bool onlyIcons = GlobalVars.nwrWin.InventoryOnlyIcons;
                 Player player = GlobalVars.nwrGame.Player;
-                NWField fld = (NWField)player.CurrentMap;
+                NWField fld = player.CurrentField;
                 bool blindness = player.Blindness;
 
                 int debt = 0;
@@ -412,9 +411,9 @@ namespace NWR.GUI
                             Building house = fld.FindBuilding(player.PosX, player.PosY);
                             if (house != null) {
                                 if (debt > 0) {
-                                    house.SwitchDoors(Door.STATE_CLOSED);
+                                    house.SwitchDoors(DoorState.Closed);
                                 } else {
-                                    house.SwitchDoors(Door.STATE_OPENED);
+                                    house.SwitchDoors(DoorState.Opened);
                                 }
                                 ExtList<LocatedEntity> groundItems = fld.Items.SearchListByArea(house.Area);
 
@@ -498,7 +497,7 @@ namespace NWR.GUI
             if (idx >= 0 && idx < fEquipList.Items.Count) {
                 Item item = (Item)fEquipList.Items.GetItem(idx).Data;
                 if (fContainer == null) {
-                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemRemove, item.UID_Renamed);
+                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemRemove, item.UID);
                 } else {
                     GetFromBag(item, GlobalVars.nwrGame.Player.Items);
                 }
@@ -544,7 +543,7 @@ namespace NWR.GUI
                 Item item = (Item)fPackList.Items.GetItem(idx).Data;
                 if (!item.Equals(fContainer)) {
                     if (fContainer == null) {
-                        GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemWear, item.UID_Renamed);
+                        GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemWear, item.UID);
                     } else {
                         PutToBag(item, GlobalVars.nwrGame.Player.Items);
                     }
@@ -610,13 +609,13 @@ namespace NWR.GUI
                         result = false;
                     }
                 } else {
-                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemPickup, aItem.UID_Renamed);
+                    GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemPickup, aItem.UID);
                 }
             } else {
                 result = false;
             }
             if (result & aEquip) {
-                GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemWear, aItem.UID_Renamed);
+                GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemWear, aItem.UID);
             }
             return result;
         }
@@ -640,7 +639,7 @@ namespace NWR.GUI
                     } else {
                         HideWin();
 
-                        GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemUse, item.UID_Renamed);
+                        GlobalVars.nwrGame.DoPlayerAction(CreatureAction.caItemUse, item.UID);
                     }
                 }
             } else {

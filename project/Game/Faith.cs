@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -20,12 +20,11 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Items;
 using NWR.Universe;
 using ZRLib.Grammar;
@@ -113,7 +112,7 @@ namespace NWR.Game
             bool result = true;
 
             CreatureEntry deity = (CreatureEntry)GlobalVars.nwrDB.GetEntry(deityID);
-            NWField fld = (NWField)fPlayer.CurrentMap;
+            NWField fld = fPlayer.CurrentField;
             if ((deity.Race == RaceID.crAesir && (fld.LandID == GlobalVars.Land_Muspelheim || fld.LandID == GlobalVars.Land_Niflheim || fld.LandID == GlobalVars.Land_Jotenheim)) || (deity.Race == RaceID.crEvilGod && (fld.LandID == GlobalVars.Land_Valhalla || fld.LandID == GlobalVars.Land_Vigrid || fld.LandID == GlobalVars.Land_Bifrost))) {
                 LandEntry land = (LandEntry)GlobalVars.nwrDB.GetEntry(fld.LandID);
                 ShowText(Locale.Format(RS.rs_WontHelp, new object[] {
@@ -172,7 +171,7 @@ namespace NWR.Game
             ShowText(msg);
 
             int sacrificeValue;
-            if (item.CLSID_Renamed == GlobalVars.iid_DeadBody) {
+            if (item.CLSID == GlobalVars.iid_DeadBody) {
                 NWCreature victim = (NWCreature)item.Contents.GetItem(0);
                 sacrificeValue = victim.Level;
                 if (victim.Alignment.GetGE() == god.Alignment.GetGE()) {
@@ -281,8 +280,8 @@ namespace NWR.Game
             } else if (deityID == GlobalVars.cid_Odin) {
                 if (isSacrilege) {
                     ShowText(Locale.GetStr(RS.rs_OdinThunderbolt));
-                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.dkPhysical, null, Locale.GetStr(RS.rs_OdinWrath));
-                    if (fPlayer.State != CreatureState.csDead) {
+                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.Physical, null, Locale.GetStr(RS.rs_OdinWrath));
+                    if (fPlayer.State != CreatureState.Dead) {
                         ShowText(Locale.GetStr(RS.rs_BoltWarpsYourBody));
                         fPlayer.Constitution /= 2;
                         fPlayer.Strength /= 2;
@@ -349,7 +348,7 @@ namespace NWR.Game
             } else if (deityID == GlobalVars.cid_Surtr) {
                 if (isSacrilege) {
                     ShowText(Locale.GetStr(RS.rs_YouAreBlastedByShaftOfBlackFire));
-                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.dkPhysical, null, Locale.GetStr(RS.rs_SurtrAnger));
+                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.Physical, null, Locale.GetStr(RS.rs_SurtrAnger));
                     if (fPlayer.HPCur > 0) {
                         ShowText(Locale.GetStr(RS.rs_YouAreWreathedInCloudsOfSmoke));
                         for (int i = fPlayer.Items.Count - 1; i >= 0; i--) {
@@ -372,7 +371,7 @@ namespace NWR.Game
             } else if (deityID == GlobalVars.cid_Hela) {
                 if (isSacrilege) {
                     ShowText(Locale.GetStr(RS.rs_YouAreZappedByDarkMoonbeams));
-                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.dkPhysical, null, Locale.GetStr(RS.rs_HelaMalice));
+                    fPlayer.ApplyDamage(fPlayer.Level * 5, DamageKind.Physical, null, Locale.GetStr(RS.rs_HelaMalice));
                     if (fPlayer.HPCur > 0) {
                         ShowText(Locale.GetStr(RS.rs_BeamsLeachYouMagicalPower));
                         fPlayer.MPCur = fPlayer.MPMax / 5;

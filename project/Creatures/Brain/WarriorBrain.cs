@@ -38,7 +38,7 @@ namespace NWR.Creatures.Brain
         {
             NWCreature self = ((NWCreature)fSelf);
             if ((Townsman) && !self.Mercenary) {
-                Emitters.AddEmitter(EmitterKind.ek_GuardAlarm, self.UID_Renamed, self.Location, 10f, 2, true);
+                Emitters.AddEmitter(EmitterKind.ek_GuardAlarm, self.UID, self.Location, 10f, 2, true);
             }
         }
 
@@ -59,7 +59,7 @@ namespace NWR.Creatures.Brain
             if (emitter.EmitterKind == EmitterKind.ek_GuardAlarm) {
                 TravelGoal goal = (TravelGoal)CreateGoal(GoalKind.gk_Travel);
                 goal.Position = emitter.Position;
-                goal.EmitterID = emitter.UID_Renamed;
+                goal.EmitterID = emitter.UID;
                 goal.Duration = (int)Math.Round(MathHelper.Distance(emitter.Position, fSelf.Location) * 1.5f);
             }
         }

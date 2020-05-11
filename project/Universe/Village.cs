@@ -22,10 +22,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using BSLib;
+using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Map;
-using NWR.Core;
-using NWR.Core.Types;
 
 namespace NWR.Universe
 {
@@ -34,8 +34,13 @@ namespace NWR.Universe
         // only for road generation
         public List<ExtPoint> Gates;
 
-        public Village(GameSpace space, object owner)
-            : base(space, owner)
+        public override byte SerializeKind
+        {
+            get { return StaticData.SID_VILLAGE; }
+        }
+
+
+        public Village(GameSpace space, object owner) : base(space, owner)
         {
             NWField fld = (NWField)owner;
             ExtRect v = fld.AreaRect;
@@ -162,11 +167,6 @@ namespace NWR.Universe
 
                 field.GetTile(wpX, wpY).Foreground = PlaceID.pid_Well;
             }
-        }
-
-        public override byte SerializeKind
-        {
-            get { return StaticData.SID_VILLAGE; }
         }
 
         public override void LoadFromStream(BinaryReader  stream, FileVersion version)

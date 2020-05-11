@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core;
+using NWR.Game;
 
 namespace NWR.Creatures
 {

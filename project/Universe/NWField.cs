@@ -22,12 +22,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Items;
 using ZRLib.Core;
 using ZRLib.Core.Brain;
@@ -925,8 +924,6 @@ namespace NWR.Universe
 
         public void LoadFromStream(BinaryReader stream, FileVersion version)
         {
-            //Logger.LogWrite("TField.avail: " + String.valueOf(stream.available()));
-
             try {
                 for (int y = 0; y < StaticData.FieldHeight; y++) {
                     for (int x = 0; x < StaticData.FieldWidth; x++) {
@@ -947,7 +944,7 @@ namespace NWR.Universe
 
                 Visited = StreamUtils.ReadBoolean(stream);
             } catch (Exception ex) {
-                Logger.Write("NWField.loadFromStream(): " + ex.Message);
+                Logger.Write("NWField.loadFromStream(): " + ex.Message, ex);
                 throw ex;
             }
         }
@@ -968,7 +965,7 @@ namespace NWR.Universe
 
                 StreamUtils.WriteBoolean(stream, Visited);
             } catch (Exception ex) {
-                Logger.Write("NWField.saveToStream(): " + ex.Message);
+                Logger.Write("NWField.saveToStream(): " + ex.Message, ex);
                 throw ex;
             }
         }

@@ -21,10 +21,9 @@
 using System;
 using System.Xml;
 using BSLib;
-using ZRLib.Core;
-using NWR.Core.Types;
-using NWR.Creatures;
 using NWR.Effects;
+using NWR.Game.Types;
+using ZRLib.Core;
 
 namespace NWR.Database
 {
@@ -213,5 +212,4 @@ namespace NWR.Database
             }
         }
     }
-
 }

@@ -42,5 +42,4 @@ namespace NWR.Creatures.Brain.Goals
             IsComplete = false;
         }
     }
-
 }

@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -21,13 +21,13 @@
 using System;
 using System.Collections.Generic;
 using BSLib;
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 
 namespace NWR.Creatures.Specials
 {
-    public sealed class IvyCreeper : ArticulateCreature
+    public sealed class IvyCreeper : SegmentedCreature
     {
         public class IvyBranches : FlagSet
         {
@@ -41,7 +41,7 @@ namespace NWR.Creatures.Specials
             }
         }
 
-        public class IvySegment : ArticulateSegment
+        public class IvySegment : Segment
         {
             public int Id;
             public int EntryDir;
@@ -61,6 +61,45 @@ namespace NWR.Creatures.Specials
         }
 
         private static readonly IvyBranchRec[] dbIvyBranches;
+
+        public override SymbolID Symbol
+        {
+            get { return SymbolID.sid_Ivy; }
+        }
+
+        static IvyCreeper()
+        {
+            dbIvyBranches = new IvyBranchRec[15];
+            dbIvyBranches[0] = new IvyBranchRec(IvyBranches.ibkRoot, new Directions(Directions.DtNorth, Directions.DtEast, Directions.DtSouth, Directions.DtWest));
+            dbIvyBranches[1] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtSouth));
+            dbIvyBranches[2] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtWest));
+            dbIvyBranches[3] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtNorth));
+            dbIvyBranches[4] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtEast));
+            dbIvyBranches[5] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtNorth, Directions.DtSouth));
+            dbIvyBranches[6] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtWest));
+            dbIvyBranches[7] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtSouth, Directions.DtEast, Directions.DtWest));
+            dbIvyBranches[8] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtNorth, Directions.DtSouth));
+            dbIvyBranches[9] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtNorth, Directions.DtEast, Directions.DtWest));
+            dbIvyBranches[10] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtNorth, Directions.DtSouth));
+            dbIvyBranches[11] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtSouth));
+            dbIvyBranches[12] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtSouth));
+            dbIvyBranches[13] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtNorth));
+            dbIvyBranches[14] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtNorth));
+        }
+
+        public IvyCreeper(NWGameSpace space, object owner, int creatureID, bool total, bool setName)
+            : base(space, owner, creatureID, total, setName)
+        {
+            IvyBranchRec rec = dbIvyBranches[0];
+
+            IvySegment seg = (IvySegment)Add();
+            seg.X = -1;
+            seg.Y = -1;
+            seg.Id = 0;
+            seg.EntryDir = Directions.DtNone;
+            seg.AvailableEntries = new Directions(rec.Entries);
+            seg.ImageIndex = 0;
+        }
 
         private static int GetBranchByDir(int dir, IvyBranches possible)
         {
@@ -90,14 +129,9 @@ namespace NWR.Creatures.Specials
             return result;
         }
 
-        protected override ArticulateSegment CreateSegment()
+        protected override Segment CreateSegment()
         {
             return new IvySegment();
-        }
-
-        public override SymbolID Symbol
-        {
-            get { return SymbolID.sid_Ivy; }
         }
 
         public override void DoTurn()
@@ -152,7 +186,7 @@ namespace NWR.Creatures.Specials
 
                     int i = FindByPos(nx, ny);
 
-                    if (!CurrentMap.IsBarrier(nx, ny) && i < 0) {
+                    if (!CurrentField.IsBarrier(nx, ny) && i < 0) {
                         int opposite = Directions.Data[bdir].Opposite;
                         idx = GetBranchByDir(opposite, new IvyBranches(IvyBranches.ibkBranch, IvyBranches.ibkLeaf));
                         if (idx >= 0) {
@@ -179,43 +213,9 @@ namespace NWR.Creatures.Specials
         public override void SetPos(int aPosX, int aPosY)
         {
             base.SetPos(aPosX, aPosY);
-            ArticulateSegment h = Head;
+            Segment h = Head;
             h.X = aPosX;
             h.Y = aPosY;
-        }
-
-        static IvyCreeper()
-        {
-            dbIvyBranches = new IvyBranchRec[15];
-            dbIvyBranches[0] = new IvyBranchRec(IvyBranches.ibkRoot, new Directions(Directions.DtNorth, Directions.DtEast, Directions.DtSouth, Directions.DtWest));
-            dbIvyBranches[1] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtSouth));
-            dbIvyBranches[2] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtWest));
-            dbIvyBranches[3] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtNorth));
-            dbIvyBranches[4] = new IvyBranchRec(IvyBranches.ibkLeaf, new Directions(Directions.DtEast));
-            dbIvyBranches[5] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtNorth, Directions.DtSouth));
-            dbIvyBranches[6] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtWest));
-            dbIvyBranches[7] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtSouth, Directions.DtEast, Directions.DtWest));
-            dbIvyBranches[8] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtNorth, Directions.DtSouth));
-            dbIvyBranches[9] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtNorth, Directions.DtEast, Directions.DtWest));
-            dbIvyBranches[10] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtNorth, Directions.DtSouth));
-            dbIvyBranches[11] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtSouth));
-            dbIvyBranches[12] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtSouth));
-            dbIvyBranches[13] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtWest, Directions.DtNorth));
-            dbIvyBranches[14] = new IvyBranchRec(IvyBranches.ibkBranch, new Directions(Directions.DtEast, Directions.DtNorth));
-        }
-
-        public IvyCreeper(NWGameSpace space, object owner, int creatureID, bool total, bool setName)
-            : base(space, owner, creatureID, total, setName)
-        {
-            IvyBranchRec rec = dbIvyBranches[0];
-
-            IvySegment seg = (IvySegment)Add();
-            seg.X = -1;
-            seg.Y = -1;
-            seg.Id = 0;
-            seg.EntryDir = Directions.DtNone;
-            seg.AvailableEntries = new Directions(rec.Entries);
-            seg.ImageIndex = 0;
         }
     }
 }

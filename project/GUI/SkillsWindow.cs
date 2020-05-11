@@ -20,11 +20,10 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using ZRLib.Core;
 using ZRLib.Engine;
@@ -164,7 +163,7 @@ namespace NWR.GUI
                                 if (player.GetSkill(sk) > 0) {
                                     string s = BaseLocale.GetStr(skRec.Name) + " (" + BaseLocale.GetStr(RS.rs_Level) + " " + Convert.ToString(player.GetSkill(sk)) + ")";
                                     int imageIndex;
-                                    if (skRec.Kinds == SkillKind.ssInnatePower) {
+                                    if (skRec.Kinds == SkillKind.InnatePower) {
                                         imageIndex = skRec.ImageIndex;
                                     } else {
                                         imageIndex = skRec.ImageIndex;

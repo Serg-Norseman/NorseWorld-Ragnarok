@@ -20,13 +20,12 @@
 
 using System;
 using BSLib;
-using ZRLib.Core;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Database;
-using NWR.Items;
 using NWR.Game;
+using NWR.Game.Types;
+using NWR.Items;
+using ZRLib.Core;
 
 namespace NWR.Game
 {
@@ -171,7 +170,7 @@ namespace NWR.Game
 
                                 if (AuxUtils.Chance(5)) {
                                     ShowText(BaseLocale.GetStr(RS.rs_Boom));
-                                    fPlayer.ApplyDamage(RandomHelper.GetBoundedRnd(25, 50), DamageKind.dkPhysical, null, BaseLocale.GetStr(RS.rs_KilledByExperiment));
+                                    fPlayer.ApplyDamage(RandomHelper.GetBoundedRnd(25, 50), DamageKind.Physical, null, BaseLocale.GetStr(RS.rs_KilledByExperiment));
                                 }
                             }
                             result = vial;

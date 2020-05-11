@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -21,13 +21,12 @@
 using System;
 using System.IO;
 using BSLib;
-using ZRLib.Core;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
-using NWR.Items;
 using NWR.Game;
+using NWR.Game.Types;
+using NWR.Items;
 using NWR.Universe;
+using ZRLib.Core;
 
 namespace NWR.Effects
 {
@@ -58,7 +57,7 @@ namespace NWR.Effects
         public override string Name
         {
             get {
-                int eid = CLSID_Renamed;
+                int eid = CLSID;
                 return BaseLocale.GetStr(EffectsData.dbEffects[eid].NameRS);
             }
         }
@@ -80,7 +79,7 @@ namespace NWR.Effects
         {
             Effect eff = (Effect)entity;
 
-            bool result = (EffectsData.dbEffects[eff.CLSID_Renamed].Flags.Contains(EffectFlags.ef_Cumulative)) && Source == null && eff.Source == null;
+            bool result = (EffectsData.dbEffects[eff.CLSID].Flags.Contains(EffectFlags.ef_Cumulative)) && Source == null && eff.Source == null;
 
             if (result) {
                 Duration += eff.Duration;
@@ -120,14 +119,14 @@ namespace NWR.Effects
                 }
 
                 if (exec) {
-                    EffectID eid = (EffectID)CLSID_Renamed;
+                    EffectID eid = (EffectID)CLSID;
 
                     if (this is MapEffect) {
                         EffectExt ext = ((MapEffect)this).Ext;
                         InvokeEffect(eid, null, Source, mode, EffectAction.ea_Instant, ext);
                     } else {
                         NWCreature creature = (NWCreature)Owner;
-                        int lid = ((NWField)creature.CurrentMap).LandID;
+                        int lid = (creature.CurrentField).LandID;
                         bool LocusValid = (eid == EffectID.eid_Relocation) && creature.IsPlayer && creature.Effects.FindEffectByID(EffectID.eid_LocusMastery) != null && lid != GlobalVars.Land_Valhalla && lid != GlobalVars.Land_Vigrid && lid != GlobalVars.Land_Bifrost && lid != GlobalVars.Land_Nidavellir && lid != GlobalVars.Land_Niflheim && lid != GlobalVars.Land_Ocean;
                         if (LocusValid) {
                             EffectExt ext = new EffectExt();
@@ -241,5 +240,4 @@ namespace NWR.Effects
             }
         }
     }
-
 }

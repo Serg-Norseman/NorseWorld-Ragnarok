@@ -18,7 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using BSLib;
+using System.Collections.Generic;
 using ZRLib.Core;
 using ZRLib.Map;
 
@@ -26,20 +26,13 @@ namespace NWR.Universe
 {
     public class BaseRoom : AreaEntity
     {
-        private readonly ExtList<Door> fDoorList;
+        private readonly List<Door> fDoorList;
 
-        public BaseRoom(GameSpace space, object owner)
-            : base(space, owner)
+        public IList<Door> Doors
         {
-            fDoorList = new ExtList<Door>(true);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fDoorList.Dispose();
+            get {
+                return fDoorList;
             }
-            base.Dispose(disposing);
         }
 
         public virtual AbstractMap Map
@@ -49,29 +42,13 @@ namespace NWR.Universe
             }
         }
 
-        public Door GetDoor(int index)
+
+        public BaseRoom(GameSpace space, object owner) : base(space, owner)
         {
-            Door result = null;
-            if (index >= 0 && index < fDoorList.Count) {
-                result = fDoorList[index];
-            }
-            return result;
+            fDoorList = new List<Door>();
         }
 
-        public int DoorsCount
-        {
-            get {
-                return fDoorList.Count;
-            }
-        }
-
-        /// 
-        /// <param name="dx"> </param>
-        /// <param name="dy"> </param>
-        /// <param name="dir"> </param>
-        /// <param name="state"> value of {@code DoorState}
-        /// @return </param>
-        public Door AddDoor(int dx, int dy, int dir, int state)
+        public Door AddDoor(int dx, int dy, int dir, DoorState state)
         {
             Door result = new Door();
             result.X = dx;
@@ -80,16 +57,6 @@ namespace NWR.Universe
             result.State = state;
             fDoorList.Add(result);
             return result;
-        }
-
-        public void ClearDoors()
-        {
-            fDoorList.Clear();
-        }
-
-        public void DeleteDoor(int index)
-        {
-            fDoorList.Delete(index);
         }
     }
 }

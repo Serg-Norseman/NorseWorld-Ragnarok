@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using NWR.Game.Types;
 using ZRLib.Core;
-using NWR.Core.Types;
 
 namespace NWR.Effects
 {
@@ -65,16 +65,15 @@ namespace NWR.Effects
                 AnimationKind result;
     
                 if (Flags.Contains(EffectFlags.ef_DirAnim)) {
-                    result = AnimationKind.akByDirection;
+                    result = AnimationKind.Direction;
                 } else if (Flags.Contains(EffectFlags.ef_RotAnim)) {
-                    result = AnimationKind.akByRotation;
+                    result = AnimationKind.Rotation;
                 } else {
-                    result = AnimationKind.akNone;
+                    result = AnimationKind.None;
                 }
     
                 return result;
             }
         }
     }
-
 }

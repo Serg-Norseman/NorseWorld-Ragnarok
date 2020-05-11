@@ -21,9 +21,8 @@
 using System;
 using System.IO;
 using System.Xml;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Map;
 
@@ -204,5 +203,4 @@ namespace NWR.Database
             }
         }
     }
-
 }

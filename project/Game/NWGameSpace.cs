@@ -1,6 +1,6 @@
 ﻿/*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -23,8 +23,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Creatures.Brain.Goals;
@@ -35,6 +33,7 @@ using NWR.Game;
 using NWR.Game.Ghosts;
 using NWR.Game.Quests;
 using NWR.Game.Story;
+using NWR.Game.Types;
 using NWR.Items;
 using NWR.Universe;
 using ZRLib.Core;
@@ -133,7 +132,7 @@ namespace NWR.Game
 
                 PrepareWares();
 
-                fTurnState = TurnState.gtsWait;
+                fTurnState = TurnState.Wait;
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.Create(): " + ex.Message);
             }
@@ -244,27 +243,13 @@ namespace NWR.Game
             for (int i = 0; i < num; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
                 if (entry is VolatileEntry) {
-                    ((VolatileEntry)entry).RuntimeState = VolatileState.vesNone;
+                    ((VolatileEntry)entry).RuntimeState = VolatileState.None;
                 }
             }
         }
 
         private void DoneData()
         {
-            GlobalVars.dbItems.Dispose();
-            GlobalVars.dbLayers.Dispose();
-            GlobalVars.dbCreatures.Dispose();
-            GlobalVars.dbRings.Dispose();
-            GlobalVars.dbPotions.Dispose();
-            GlobalVars.dbScrolls.Dispose();
-            GlobalVars.dbWands.Dispose();
-            GlobalVars.dbAmulets.Dispose();
-            GlobalVars.dbArmor.Dispose();
-            GlobalVars.dbFoods.Dispose();
-            GlobalVars.dbTools.Dispose();
-            GlobalVars.dbWeapon.Dispose();
-            GlobalVars.dbScripts.Dispose();
-            GlobalVars.dbKnowledges.Dispose();
             GlobalVars.nwrDB.Dispose();
         }
 
@@ -404,7 +389,7 @@ namespace NWR.Game
                     }
 
                     fPlayer.DoTurn();
-                    NWField playerField = (NWField)fPlayer.CurrentMap;
+                    NWField playerField = fPlayer.CurrentField;
 
                     bool timeStop = TimeStop;
                     if (!timeStop) {
@@ -423,7 +408,7 @@ namespace NWR.Game
                         PrepareFieldTurn(fld, true);
                     }
 
-                    if (fPlayer.State == CreatureState.csDead) {
+                    if (fPlayer.State == CreatureState.Dead) {
                         GlobalVars.nwrWin.DoEvent(EventID.event_Dead, null, null, null);
                     }
 
@@ -442,17 +427,17 @@ namespace NWR.Game
         {
             try {
                 if (IsRagnarok) {
-                    bool isGodsLose = GetVolatileState(GlobalVars.cid_Heimdall) == VolatileState.vesDestroyed;
-                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Thor) == VolatileState.vesDestroyed);
-                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Tyr) == VolatileState.vesDestroyed);
-                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Freyr) == VolatileState.vesDestroyed);
-                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Odin) == VolatileState.vesDestroyed);
+                    bool isGodsLose = GetVolatileState(GlobalVars.cid_Heimdall) == VolatileState.Destroyed;
+                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Thor) == VolatileState.Destroyed);
+                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Tyr) == VolatileState.Destroyed);
+                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Freyr) == VolatileState.Destroyed);
+                    isGodsLose = (isGodsLose && GetVolatileState(GlobalVars.cid_Odin) == VolatileState.Destroyed);
 
-                    bool isGodsWin = (GetVolatileState(GlobalVars.cid_Jormungand) == VolatileState.vesDestroyed);
-                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Garm) == VolatileState.vesDestroyed);
-                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Loki) == VolatileState.vesDestroyed);
-                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Surtr) == VolatileState.vesDestroyed);
-                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Fenrir) == VolatileState.vesDestroyed);
+                    bool isGodsWin = (GetVolatileState(GlobalVars.cid_Jormungand) == VolatileState.Destroyed);
+                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Garm) == VolatileState.Destroyed);
+                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Loki) == VolatileState.Destroyed);
+                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Surtr) == VolatileState.Destroyed);
+                    isGodsWin = (isGodsWin && GetVolatileState(GlobalVars.cid_Fenrir) == VolatileState.Destroyed);
 
                     if (isGodsWin) {
                         DoEvent(EventID.event_Victory, null, null, null);
@@ -588,7 +573,7 @@ namespace NWR.Game
             int num = GlobalVars.nwrDB.EntriesCount;
             for (int i = 0; i < num; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
-                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.vesNone) {
+                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.None) {
                     count++;
                 }
             }
@@ -598,7 +583,7 @@ namespace NWR.Game
             int num2 = GlobalVars.nwrDB.EntriesCount;
             for (int i = 0; i < num2; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
-                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.vesNone) {
+                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.None) {
                     StreamUtils.WriteInt(stream, entry.GUID);
                     StreamUtils.WriteByte(stream, (byte)((VolatileEntry)entry).RuntimeState);
                 }
@@ -610,7 +595,7 @@ namespace NWR.Game
             try {
                 for (int i = List.Count - 1; i >= 0; i--) {
                     Item item = List.GetItem(i);
-                    if (item.CLSID_Renamed == GlobalVars.iid_DeadBody) {
+                    if (item.CLSID == GlobalVars.iid_DeadBody) {
                         NWCreature creature = (NWCreature)item.Contents.GetItem(0);
                         creature.IncTurn();
 
@@ -666,7 +651,7 @@ namespace NWR.Game
 
                 CreatureEntry crEntry = (CreatureEntry)GetDataEntry(creatureID);
                 if (crEntry.Flags.Contains(CreatureFlags.esUnique)) {
-                    SetVolatileState(creatureID, VolatileState.vesCreated);
+                    SetVolatileState(creatureID, VolatileState.Created);
                 }
 
                 result = res;
@@ -708,13 +693,13 @@ namespace NWR.Game
         {
             NWCreature townsman = new NWCreature(this, null, creatureID, true, true);
             townsman.TransferTo(field.Layer.EntryID, field.Coords.X, field.Coords.Y, -1, -1, village, true, false);
-            ((WarriorBrain)townsman.Brain).AreaGuardGoal = village;
+            ((WarriorBrain)townsman.Brain).SetAreaGuardGoal(village);
             return townsman;
         }
 
         public bool CanCreate(int id)
         {
-            return GetVolatileState(id) == VolatileState.vesNone;
+            return GetVolatileState(id) == VolatileState.None;
         }
 
         public void ClearEvents(object aBy)
@@ -770,15 +755,15 @@ namespace NWR.Game
         {
             try {
                 switch (fTurnState) {
-                    case TurnState.gtsWait:
+                    case TurnState.Wait:
                         break;
 
-                    case TurnState.gtsDone:
-                        TurnState = TurnState.gtsWait;
+                    case TurnState.Done:
+                        TurnState = TurnState.Wait;
                         DoGameTurn();
                         break;
 
-                    case TurnState.gtsSkip:
+                    case TurnState.Skip:
                         BaseSystem.Sleep(1000);
                         DoGameTurn();
                         break;
@@ -790,7 +775,7 @@ namespace NWR.Game
 
         public void DoPlayerAction(CreatureAction action, int aExt)
         {
-            NWField fld = (NWField)fPlayer.CurrentMap;
+            NWField fld = fPlayer.CurrentField;
             switch (action) {
                 case CreatureAction.caWait:
                     {
@@ -823,7 +808,7 @@ namespace NWR.Game
 
                         NWCreature enemy = (NWCreature)fld.FindCreature(NewX, NewY);
                         if (enemy != null) {
-                            fPlayer.AttackTo(AttackKind.akMelee, enemy, null, null);
+                            fPlayer.AttackTo(AttackKind.Melee, enemy, null, null);
                         } else {
                             DoPlayerAction(CreatureAction.caMove, aExt);
                         }
@@ -909,8 +894,8 @@ namespace NWR.Game
                     }
             }
 
-            if (fTurnState == TurnState.gtsWait) {
-                TurnState = TurnState.gtsDone;
+            if (fTurnState == TurnState.Wait) {
+                TurnState = TurnState.Done;
             }
         }
 
@@ -1032,10 +1017,9 @@ namespace NWR.Game
                                     int id = oldExtincted[i];
                                     DataEntry entry = GetDataEntry(id);
                                     if (entry is VolatileEntry) {
-                                        ((VolatileEntry)entry).RuntimeState = VolatileState.vesExtincted;
+                                        ((VolatileEntry)entry).RuntimeState = VolatileState.Extincted;
                                     }
                                 }
-                                oldExtincted.Dispose();
                             } else {
                                 LoadVolatiles(dis, header.Version);
                             }
@@ -1063,8 +1047,8 @@ namespace NWR.Game
                             NWField fld = layer.GetField(fx, fy);
                             GameScreen scr = fld.LandEntry.Splash;
                             var srcRec = StaticData.dbScreens[(int)scr];
-                            if (fld.Visited && srcRec.status == ScreenStatus.ssOnce) {
-                                srcRec.status = ScreenStatus.ssAlready;
+                            if (fld.Visited && srcRec.Status == ScreenStatus.Once) {
+                                srcRec.Status = ScreenStatus.Already;
                             }
                         }
                     }
@@ -1158,7 +1142,7 @@ namespace NWR.Game
                     case EventID.event_Intro:
                         {
                             Player player = (Player)sender;
-                            result = string.Format(BaseLocale.GetStr(RS.rs_IntroMsg), Convert.ToString((int)Time.Year), GetDataEntry(player.CLSID_Renamed).Name + " " + player.Name);
+                            result = string.Format(BaseLocale.GetStr(RS.rs_IntroMsg), Convert.ToString((int)Time.Year), GetDataEntry(player.CLSID).Name + " " + player.Name);
                             break;
                         }
 
@@ -1193,7 +1177,7 @@ namespace NWR.Game
                             }
 
                             if (eventID == EventID.event_Killed && fPlayer.Equals(data)) {
-                                fJournal.Killed(_sender.CLSID_Renamed);
+                                fJournal.Killed(_sender.CLSID);
                             }
                             break;
                         }
@@ -1229,14 +1213,13 @@ namespace NWR.Game
                 int num = GlobalVars.nwrDB.EntriesCount;
                 for (int k = 0; k < num; k++) {
                     DataEntry entry = GlobalVars.nwrDB.GetEntry(k);
-                    if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState == VolatileState.vesExtincted) {
+                    if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState == VolatileState.Extincted) {
                         list.Add(entry.GUID);
                     }
                 }
                 
                 int i = RandomHelper.GetRandom(list.Count);
                 int result = list[i];
-                list.Dispose();
                 
                 return result;
             }
@@ -1307,7 +1290,7 @@ namespace NWR.Game
             }
 
             LeaderBrain party = (LeaderBrain)fPlayer.Brain;
-            float f = (1.0f + (float)party.MembersCount / 10.0f) * (1.0f + (curLev + 1) / 5.0f);
+            float f = (1.0f + (float)party.Members.Count / 10.0f) * (1.0f + (curLev + 1) / 5.0f);
             return (short)(Math.Round(price * f));
         }
 
@@ -1340,7 +1323,6 @@ namespace NWR.Game
                         result.AddObject(GetDataEntry(id).Name, id);
                     }
                 } finally {
-                    lands.Dispose();
                 }
                 result.Sort();
                 return result;
@@ -1355,7 +1337,7 @@ namespace NWR.Game
             if (entry is VolatileEntry) {
                 result = ((VolatileEntry)entry).RuntimeState;
             } else {
-                result = VolatileState.vesNone;
+                result = VolatileState.None;
             }
 
             return result;
@@ -1432,7 +1414,7 @@ namespace NWR.Game
                 int y = RandomHelper.GetBoundedRnd(brt.Top, brt.Bottom);
                 NWCreature oldman = AddCreatureEx(fldFB.Layer.EntryID, fldFB.Coords.X, fldFB.Coords.Y, x, y, GlobalVars.cid_Oldman);
                 house.Holder = oldman;
-                ((SentientBrain)oldman.Brain).AreaGuardGoal = brt;
+                ((SentientBrain)oldman.Brain).SetAreaGuardGoal(brt);
             } else {
                 house.Dispose();
                 house = null;
@@ -1440,7 +1422,7 @@ namespace NWR.Game
 
             ExtPoint bd = ExtPoint.Empty;
             if (house != null) {
-                Door door = house.GetDoor(0);
+                Door door = house.Doors[0];
                 bd = fldFB.GetLayerTileCoords(door.X, door.Y);
             }
 
@@ -1492,7 +1474,7 @@ namespace NWR.Game
             ExtPoint pt = new ExtPoint(63, 8);
 
             NWCreature h = fld.AddCreature(pt.X, pt.Y, GlobalVars.cid_Harbard);
-            ((SentientBrain)h.Brain).PointGuardGoal = pt;
+            ((SentientBrain)h.Brain).SetPointGuardGoal(pt);
 
             UniverseBuilder.Gen_GiollFog(fld, pt.X, pt.Y);
         }
@@ -1775,7 +1757,7 @@ namespace NWR.Game
                 gst.Ghost = true;
                 gst.GhostIdx = i;
 
-                ((BeastBrain)gst.Brain).PointGuardGoal = pt;
+                ((BeastBrain)gst.Brain).SetPointGuardGoal(pt);
             }
         }
 
@@ -1835,7 +1817,7 @@ namespace NWR.Game
             int id = GlobalVars.nwrDB.FindEntryBySign(paSign).GUID;
             fPlayer.InitEx(id, true, false);
             fPlayer.Name = pName;
-            fPlayer.State = CreatureState.csAlive;
+            fPlayer.State = CreatureState.Alive;
             fPlayer.Turn = 0;
             fPlayer.SetSourceForm();
 
@@ -2005,7 +1987,7 @@ namespace NWR.Game
                         rest = 0;
                         for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
                             NWCreature cr = fld.Creatures.GetItem(i);
-                            if (!cr.IsPlayer && cr.State != CreatureState.csDead) {
+                            if (!cr.IsPlayer && cr.State != CreatureState.Dead) {
                                 cr.DoTurn();
 
                                 if (cr.Stamina >= fPlayer.Speed) {
@@ -2016,7 +1998,7 @@ namespace NWR.Game
 
                         for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
                             NWCreature cr = fld.Creatures.GetItem(i);
-                            if (!cr.Equals(fPlayer) && cr.State == CreatureState.csDead) {
+                            if (!cr.Equals(fPlayer) && cr.State == CreatureState.Dead) {
                                 cr = (NWCreature)fld.Creatures.Extract(cr);
 
                                 ClearEvents(cr);
@@ -2076,9 +2058,9 @@ namespace NWR.Game
             cr.SetPos(rpt.X, rpt.Y);
 
             if (cr.Entry.Flags.Contains(CreatureFlags.esUndead)) {
-                cr.State = CreatureState.csUndead;
+                cr.State = CreatureState.Undead;
             } else {
-                cr.State = CreatureState.csAlive;
+                cr.State = CreatureState.Alive;
             }
 
             cr.EnterField(field);
@@ -2095,12 +2077,12 @@ namespace NWR.Game
             try {
                 RaceID race = creature.Entry.Race;
 
-                if (creature.CLSID_Renamed != GlobalVars.cid_Hela) {
+                if (creature.CLSID != GlobalVars.cid_Hela) {
                     if (race == RaceID.crDefault || race == RaceID.crHuman) {
                         if (creature.LastAttacker != null && creature.LastAttacker.IsPlayer) {
                             Item item = (Item)fPlayer.Items.FindByCLSID(GlobalVars.iid_SoulTrapping_Ring);
                             if (item != null && item.InUse) {
-                                item.Bonus = creature.CLSID_Renamed;
+                                item.Bonus = creature.CLSID;
                                 ShowText(fPlayer, BaseLocale.GetStr(RS.rs_NewSoul));
                             }
                         }
@@ -2148,7 +2130,7 @@ namespace NWR.Game
             GameEvent result = null;
             for (int idx = 0; idx < fEventsQueue.Count; idx++) {
                 GameEvent @event = (GameEvent)fEventsQueue[idx];
-                if (@event.Receiver.Equals(receiver) && (eventID == EventID.event_Nothing || (eventID != EventID.event_Nothing && @event.CLSID_Renamed == (int)eventID))) {
+                if (@event.Receiver.Equals(receiver) && (eventID == EventID.event_Nothing || (eventID != EventID.event_Nothing && @event.CLSID == (int)eventID))) {
                     result = @event;
                     if (remove) {
                         fEventsQueue.Extract(@event);
@@ -2188,7 +2170,7 @@ namespace NWR.Game
                 if (fPlayer.IsSeen(aX, aY, false)) {
                     string s = "";
 
-                    NWField fld = (NWField)fPlayer.CurrentMap;
+                    NWField fld = fPlayer.CurrentField;
                     NWTile tile = (NWTile)fld.GetTile(aX, aY);
 
                     bool unseen = fPlayer.Effects.FindEffectByID(EffectID.eid_Blindness) != null;
@@ -2516,7 +2498,7 @@ namespace NWR.Game
 
             if (field.LandID == GlobalVars.Land_GrynrHalls) {
                 NWTile tile = (NWTile)field.GetTile(tx, ty);
-                if (tile.ForeBase == PlaceID.pid_SmallPit && item.CLSID_Renamed == GlobalVars.iid_Amulet_SertrudEye) {
+                if (tile.ForeBase == PlaceID.pid_SmallPit && item.CLSID == GlobalVars.iid_Amulet_SertrudEye) {
                     tile.Foreground = PlaceID.pid_Undefined;
                     item.Dispose();
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_EyeFitsIntoPit) + BaseLocale.GetStr(RS.rs_PitEnclosesEye));
@@ -2552,15 +2534,15 @@ namespace NWR.Game
         {
             NWCreature target = FindCreature(targetID);
             if (target != null && target.Items.FindByCLSID(iid) != null) {
-                return QuestItemState.qisComplete;
+                return QuestItemState.Completed;
             }
 
             target = Player;
             if (target != null && target.Items.FindByCLSID(iid) != null) {
-                return QuestItemState.qisFounded;
+                return QuestItemState.Founded;
             }
 
-            return QuestItemState.qisNone;
+            return QuestItemState.None;
         }
 
 

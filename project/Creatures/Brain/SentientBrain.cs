@@ -19,13 +19,13 @@
  */
 
 using BSLib;
-using ZRLib.Core;
-using ZRLib.Core.Brain;
-using NWR.Core.Types;
 using NWR.Creatures.Brain.Goals;
 using NWR.Database;
-using NWR.Items;
 using NWR.Game;
+using NWR.Game.Types;
+using NWR.Items;
+using ZRLib.Core;
+using ZRLib.Core.Brain;
 
 namespace NWR.Creatures.Brain
 {
@@ -33,6 +33,30 @@ namespace NWR.Creatures.Brain
 
     public class SentientBrain : BeastBrain
     {
+        public virtual Services AvailableServices
+        {
+            get {
+                return Services.Create(Service.ds_Teach, Service.ds_Trade, Service.ds_Exchange, Service.ds_Recruit);
+            }
+        }
+
+        public virtual DialogEntry Dialog
+        {
+            get {
+                NWCreature sf = (NWCreature)fSelf;
+                DialogEntry dlg = sf.Entry.Dialog;
+                return dlg;
+            }
+        }
+
+        protected bool Townsman
+        {
+            get {
+                int id = fSelf.CLSID;
+                return (id == GlobalVars.cid_Guardsman || id == GlobalVars.cid_Jarl);
+            }
+        }
+
         public SentientBrain(CreatureEntity owner)
             : base(owner)
         {
@@ -84,22 +108,6 @@ namespace NWR.Creatures.Brain
             }
         }
 
-        public virtual Services AvailableServices
-        {
-            get {
-                return Services.Create(Service.ds_Teach, Service.ds_Trade, Service.ds_Exchange, Service.ds_Recruit);
-            }
-        }
-
-        public virtual DialogEntry Dialog
-        {
-            get {
-                NWCreature sf = (NWCreature)fSelf;
-                DialogEntry dlg = sf.Entry.Dialog;
-                return dlg;
-            }
-        }
-
         public TopicEntry GetTopic(CreatureEntity collocutor, int conversationIndex, TopicEntry parentTopic, string phrase)
         {
             TopicEntry result = null;
@@ -120,14 +128,6 @@ namespace NWR.Creatures.Brain
             }
 
             return result;
-        }
-
-        protected bool Townsman
-        {
-            get {
-                int id = fSelf.CLSID_Renamed;
-                return (id == GlobalVars.cid_Guardsman || id == GlobalVars.cid_Jarl);
-            }
         }
     }
 }

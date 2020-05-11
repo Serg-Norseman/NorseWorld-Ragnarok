@@ -19,9 +19,9 @@
  */
 
 using BSLib;
-using ZRLib.Map;
-using NWR.Core.Types;
+using NWR.Game.Types;
 using NWR.Universe;
+using ZRLib.Map;
 
 namespace NWR.Effects
 {

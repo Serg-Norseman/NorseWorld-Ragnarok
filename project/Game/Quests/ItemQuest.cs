@@ -38,7 +38,7 @@ namespace NWR.Game.Quests
 
         protected override bool OnPickupItem(Item item)
         {
-            return (item.CLSID_Renamed == ItemID);
+            return (item.CLSID == ItemID);
         }
 
         public override void Announce()

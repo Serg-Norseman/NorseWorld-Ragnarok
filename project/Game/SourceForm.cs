@@ -20,7 +20,7 @@
 
 using System.IO;
 using ZRLib.Core;
-using NWR.Core;
+
 namespace NWR.Game
 {
     public class SourceForm : MemoryEntry
@@ -64,5 +64,4 @@ namespace NWR.Game
         {
         }
     }
-
 }

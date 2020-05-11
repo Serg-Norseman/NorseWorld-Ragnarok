@@ -21,7 +21,6 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Core;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
@@ -45,7 +44,6 @@ namespace NWR.Universe
         public NWLayer(NWGameSpace space, int layerID)
             : base(0, 0)
         {
-
             fSpace = space;
 
             fEntry = (LayerEntry)GlobalVars.nwrDB.GetEntry(layerID);

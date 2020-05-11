@@ -47,7 +47,7 @@ namespace NWR.Creatures.Brain.Goals
                 } else {
                     int chn = RandomHelper.GetRandom(5); // 20% chance
                     if (chn == 0) {
-                        if (Risk == AttackRisk.ar_Evade) {
+                        if (Risk == AttackRisk.Evade) {
                             Brain.Attack(Enemy, true);
                         }
                     } else {

@@ -39,14 +39,14 @@ namespace NWR.Creatures.Brain.Goals
 
             int min = beastBrain.fNearKinsfolkDist;
             CreatureEntity nearKinsfolk = beastBrain.fNearKinsfolk;
-            int cnt = beastBrain.fKinsfolks.Count;
             int cohX = 0;
             int cohY = 0;
             int algX = 0;
             int algY = 0;
 
+            int cnt = beastBrain.Kinsfolks.Count;
             for (int i = 0; i < cnt; i++) {
-                NWCreature cr = (NWCreature)beastBrain.fKinsfolks.GetItem(i);
+                NWCreature cr = beastBrain.Kinsfolks[i];
                 int dir = cr.LastDir;
                 cohX += cr.PosX;
                 cohY += cr.PosY;
@@ -91,5 +91,4 @@ namespace NWR.Creatures.Brain.Goals
             }
         }
     }
-
 }

@@ -19,10 +19,9 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Database;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 
 namespace NWR.Creatures.Brain
@@ -55,11 +54,11 @@ namespace NWR.Creatures.Brain
             get {
                 NWCreature sf = (NWCreature)fSelf;
     
-                if (sf.CLSID_Renamed == GlobalVars.cid_Agnar) {
+                if (sf.CLSID == GlobalVars.cid_Agnar) {
                     return SfAgnarDialog;
-                } else if (sf.CLSID_Renamed == GlobalVars.cid_Haddingr) {
+                } else if (sf.CLSID == GlobalVars.cid_Haddingr) {
                     return SfHaddingrDialog;
-                } else if (sf.CLSID_Renamed == GlobalVars.cid_Ketill) {
+                } else if (sf.CLSID == GlobalVars.cid_Ketill) {
                     return SfKetillDialog;
                 } else {
                     return null;
@@ -89,7 +88,7 @@ namespace NWR.Creatures.Brain
             topic3.Phrase = BaseLocale.GetStr(RS.rs_DoNothing);
             topic3.Answer = "";
 
-            /// *** ///
+
             SfHaddingrDialog = new DialogEntry();
             defConvers = SfHaddingrDialog.AddConversation(BaseLocale.GetStr(RS.rs_Sacrifice));
 
@@ -110,7 +109,7 @@ namespace NWR.Creatures.Brain
             topic3.Phrase = BaseLocale.GetStr(RS.rs_DoNothing);
             topic3.Answer = "";
 
-            /// *** ///
+
             SfKetillDialog = new DialogEntry();
             defConvers = SfKetillDialog.AddConversation(BaseLocale.GetStr(RS.rs_Sacrifice));
 
@@ -132,5 +131,4 @@ namespace NWR.Creatures.Brain
             topic3.Answer = "";
         }
     }
-
 }

@@ -21,16 +21,15 @@
 using System;
 using System.Collections.Generic;
 using BSLib;
+using NWR.Creatures;
+using NWR.Database;
+using NWR.Game;
+using NWR.Game.Types;
+using NWR.Items;
 using ZRLib.Core;
 using ZRLib.Map;
 using ZRLib.Map.Builders;
 using ZRLib.Map.Dungeons;
-using NWR.Core;
-using NWR.Core.Types;
-using NWR.Creatures;
-using NWR.Database;
-using NWR.Items;
-using NWR.Game;
 
 namespace NWR.Universe
 {
@@ -324,7 +323,7 @@ namespace NWR.Universe
                                         break;
                                     case DungeonMark.Ms_AreaGenerator:
                                     case DungeonMark.Ms_PointToOtherArea:
-                                        dunRoom.AddDoor(mark.Location.X, mark.Location.Y, mark.Direction, Door.STATE_OPENED);
+                                        dunRoom.AddDoor(mark.Location.X, mark.Location.Y, mark.Direction, DoorState.Opened);
                                         break;
                                 }
                             }
@@ -1188,7 +1187,7 @@ namespace NWR.Universe
 
             Region region = new Region(field.Space, field);
             region.Area = area;
-            region.CLSID_Renamed = field.Space.FindDataEntry("iJarnvidr").GUID;
+            region.CLSID = field.Space.FindDataEntry("iJarnvidr").GUID;
             field.Features.Add(region);
         }
 

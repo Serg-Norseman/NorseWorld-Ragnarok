@@ -19,10 +19,9 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Universe;
 using ZRLib.Core;
 
@@ -39,7 +38,7 @@ namespace NWR.Effects.Rays
             } else {
                 NWCreature c = (NWCreature)f.FindCreature(aX, aY);
                 if (c != null) {
-                    c.ApplyDamage(RandomHelper.GetBoundedRnd(9, 17), DamageKind.dkPhysical, null, "");
+                    c.ApplyDamage(RandomHelper.GetBoundedRnd(9, 17), DamageKind.Physical, null, "");
                 } else {
                     self.CheckTile(false);
                     self.SetPos(aX, aY);

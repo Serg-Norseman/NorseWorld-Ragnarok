@@ -20,8 +20,8 @@
 
 using System.Collections.Generic;
 using BSLib;
+using NWR.Game.Types;
 using ZRLib.Core;
-using NWR.Core.Types;
 
 namespace NWR.Game
 {

@@ -21,8 +21,8 @@
 using System;
 using System.Xml;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
+using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 
 namespace NWR.Database
@@ -79,28 +79,6 @@ namespace NWR.Database
         public int ImageIndex;
         public int GrayImageIndex;
 
-        public CreatureEntry(object owner)
-            : base(owner)
-        {
-            Lands = new string[0];
-            Inventory = new InventoryEntry[0];
-            Abilities = new AttributeList();
-            Skills = new AttributeList();
-            Dialog = new DialogEntry();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                Abilities.Dispose();
-                Skills.Dispose();
-                Dialog.Dispose();
-                Inventory = null;
-                Lands = null;
-            }
-            base.Dispose(disposing);
-        }
-
         public bool Respawn
         {
             get {
@@ -127,6 +105,29 @@ namespace NWR.Database
             get {
                 return Flags.Contains(CreatureFlags.esRemains);
             }
+        }
+
+
+        public CreatureEntry(object owner)
+            : base(owner)
+        {
+            Lands = new string[0];
+            Inventory = new InventoryEntry[0];
+            Abilities = new AttributeList();
+            Skills = new AttributeList();
+            Dialog = new DialogEntry();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) {
+                Abilities.Dispose();
+                Skills.Dispose();
+                Dialog.Dispose();
+                Inventory = null;
+                Lands = null;
+            }
+            base.Dispose(disposing);
         }
 
         public override void LoadXML(XmlNode element, FileVersion version)
@@ -261,5 +262,4 @@ namespace NWR.Database
             }
         }
     }
-
 }

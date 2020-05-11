@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core.Types;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI;
 using NWR.Items;
 using NWR.Universe;

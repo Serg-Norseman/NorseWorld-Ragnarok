@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Database;
 using NWR.Game.Story;
+using NWR.Game.Types;
 using NWR.Items;
 using ZRLib.Grammar;
 
@@ -41,7 +41,7 @@ namespace NWR.Game.Quests
         {
             ArtefactID = artefactID;
             DeityID = deityID;
-            Stage = QuestItemState.qisNone;
+            Stage = QuestItemState.None;
         }
 
         public override string Description
@@ -62,13 +62,13 @@ namespace NWR.Game.Quests
                 }
     
                 switch (Stage) {
-                    case QuestItemState.qisNone:
+                    case QuestItemState.None:
                         st = ": задание получено";
                         break;
-                    case QuestItemState.qisFounded:
+                    case QuestItemState.Founded:
                         st = ": предмет найден";
                         break;
-                    case QuestItemState.qisComplete:
+                    case QuestItemState.Completed:
                         st = ": предмет найден и передан " + target.GetNounDeclension(Number.nSingle, Case.cDative);
                         break;
                 }
@@ -81,18 +81,18 @@ namespace NWR.Game.Quests
 
         protected override bool OnPickupItem(Item item)
         {
-            bool res = (item.CLSID_Renamed == ArtefactID);
+            bool res = (item.CLSID == ArtefactID);
             if (res) {
-                Stage = QuestItemState.qisFounded;
+                Stage = QuestItemState.Founded;
             }
             return false; // quest not complete
         }
 
         protected override bool OnGiveupItem(Item item, NWCreature target)
         {
-            bool res = (item.CLSID_Renamed == ArtefactID && target.CLSID_Renamed == DeityID);
+            bool res = (item.CLSID == ArtefactID && target.CLSID == DeityID);
             if (res) {
-                Stage = QuestItemState.qisComplete;
+                Stage = QuestItemState.Completed;
             }
             return res; // quest completed
         }

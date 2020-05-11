@@ -21,10 +21,9 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Items;
 using ZRLib.Core;
 using ZRLib.Map;
@@ -56,12 +55,6 @@ namespace NWR.Universe
 
         public CreatureEntity Holder;
 
-        public Building(GameSpace space, object owner)
-            : base(space, owner)
-        {
-            fID = BuildingID.bid_None;
-        }
-
         public new NWGameSpace Space
         {
             get { return (NWGameSpace)fSpace; }
@@ -73,6 +66,31 @@ namespace NWR.Universe
             set { fID = value; }
         }
 
+        public override string Name
+        {
+            get {
+                string result = BaseLocale.GetStr(StaticData.dbBuildings[(int)fID].Name);
+                if (Holder != null) {
+                    result = BaseLocale.Format(RS.rs_BuildingName, new object[] {
+                        result,
+                        Holder.Name
+                    });
+                }
+                return result;
+            }
+        }
+
+        public override byte SerializeKind
+        {
+            get { return StaticData.SID_BUILDING; }
+        }
+
+
+        public Building(GameSpace space, object owner)
+            : base(space, owner)
+        {
+            fID = BuildingID.bid_None;
+        }
 
         private bool CanBuild(ExtRect br, ExtRect area)
         {
@@ -119,25 +137,6 @@ namespace NWR.Universe
             } else {
                 return false;
             }
-        }
-
-        public override string Name
-        {
-            get {
-                string result = BaseLocale.GetStr(StaticData.dbBuildings[(int)fID].Name);
-                if (Holder != null) {
-                    result = BaseLocale.Format(RS.rs_BuildingName, new object[] {
-                        result,
-                        Holder.Name
-                    });
-                }
-                return result;
-            }
-        }
-
-        public override byte SerializeKind
-        {
-            get { return StaticData.SID_BUILDING; }
         }
 
         private void IsPassableDoor(int dx, int dy)
@@ -227,7 +226,7 @@ namespace NWR.Universe
                         }
 
                         if (!IsExistDoor(dx, dy)) {
-                            AddDoor(dx, dy, side, Door.STATE_OPENED);
+                            AddDoor(dx, dy, side, DoorState.Opened);
                             IsPassableDoor(dx, dy);
                             break;
                         }
@@ -242,9 +241,9 @@ namespace NWR.Universe
 
         public bool IsExistDoor(int ax, int ay)
         {
-            int num = DoorsCount;
+            int num = Doors.Count;
             for (int i = 0; i < num; i++) {
-                Door dr = GetDoor(i);
+                Door dr = Doors[i];
                 if ((dr.X == ax && dr.Y == ay) || MathHelper.Distance(ax, ay, dr.X, dr.Y) == 1) {
                     return true;
                 }
@@ -283,10 +282,10 @@ namespace NWR.Universe
                     DrawWalls(fld, rt);
 
                     if (!RuinsMode) {
-                        int num3 = DoorsCount;
+                        int num3 = Doors.Count;
                         for (int i = 0; i < num3; i++) {
-                            Door door = GetDoor(i);
-                            fld.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, door.State];
+                            Door door = Doors[i];
+                            fld.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, (int)door.State];
                         }
                     }
                 }
@@ -306,9 +305,9 @@ namespace NWR.Universe
             int idx = -1;
             int min_d = StaticData.FieldWidth;
 
-            int num = DoorsCount;
+            int num = Doors.Count;
             for (int i = 0; i < num; i++) {
-                Door door = GetDoor(i);
+                Door door = Doors[i];
                 int d = MathHelper.Distance(cx, cy, door.X, door.Y);
                 if (d < min_d) {
                     min_d = d;
@@ -318,7 +317,7 @@ namespace NWR.Universe
 
             if (idx >= 0) {
                 outside = !Area.Contains(cx, cy);
-                aDoor = GetDoor(idx);
+                aDoor = Doors[idx];
                 dist = min_d;
                 result = true;
             }
@@ -326,19 +325,19 @@ namespace NWR.Universe
             return result;
         }
 
-        public override void LoadFromStream(BinaryReader  stream, FileVersion version)
+        public override void LoadFromStream(BinaryReader stream, FileVersion version)
         {
             try {
                 fID = (BuildingID)StreamUtils.ReadInt(stream);
                 Area = StreamUtils.ReadRect(stream);
 
-                ClearDoors();
+                Doors.Clear();
                 sbyte count = (sbyte)StreamUtils.ReadByte(stream);
                 for (int i = 0; i < count; i++) {
                     int dx = StreamUtils.ReadInt(stream);
                     int dy = StreamUtils.ReadInt(stream);
                     int dir = StreamUtils.ReadByte(stream);
-                    int st = StreamUtils.ReadByte(stream);
+                    DoorState st = (DoorState)StreamUtils.ReadByte(stream);
                     AddDoor(dx, dy, dir, st);
                 }
 
@@ -356,10 +355,10 @@ namespace NWR.Universe
                 StreamUtils.WriteInt(stream, (int)fID);
                 StreamUtils.WriteRect(stream, Area);
 
-                int count = DoorsCount;
+                int count = Doors.Count;
                 StreamUtils.WriteByte(stream, (byte)count);
                 for (int i = 0; i < count; i++) {
-                    Door dr = GetDoor(i);
+                    Door dr = Doors[i];
                     StreamUtils.WriteInt(stream, dr.X);
                     StreamUtils.WriteInt(stream, dr.Y);
                     StreamUtils.WriteByte(stream, (byte)dr.Dir);
@@ -374,26 +373,26 @@ namespace NWR.Universe
             }
         }
 
-        public void SwitchDoors(int ds)
+        public void SwitchDoors(DoorState ds)
         {
             NWField f = (NWField)Owner;
 
-            int num = DoorsCount;
+            int num = Doors.Count;
             for (int i = 0; i < num; i++) {
-                Door door = GetDoor(i);
+                Door door = Doors[i];
                 if (door.State != ds) {
                     door.State = ds;
 
                     switch (ds) {
-                        case Door.STATE_CLOSED:
+                        case DoorState.Closed:
                             Space.DoEvent(EventID.event_DoorOpen, door, null, null);
                             break;
-                        case Door.STATE_OPENED:
+                        case DoorState.Opened:
                             Space.DoEvent(EventID.event_DoorClose, door, null, null);
                             break;
                     }
 
-                    f.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, door.State];
+                    f.GetTile(door.X, door.Y).Foreground = dbDoorsState[door.Dir - 1, (int)door.State];
                 }
             }
         }

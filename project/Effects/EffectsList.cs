@@ -37,7 +37,7 @@ namespace NWR.Effects
 
         public int Add(Effect effect)
         {
-            Effect ef = FindEffectByID((EffectID)effect.CLSID_Renamed);
+            Effect ef = FindEffectByID((EffectID)effect.CLSID);
             int result;
             if (ef == null || !ef.Assign(effect)) {
                 result = base.Add(effect);
@@ -53,7 +53,7 @@ namespace NWR.Effects
             int num = Count;
             for (int i = 0; i < num; i++) {
                 Effect ef = GetItem(i);
-                if (ef.CLSID_Renamed == (int)eid) {
+                if (ef.CLSID == (int)eid) {
                     return ef;
                 }
             }
@@ -84,7 +84,7 @@ namespace NWR.Effects
                     if (eff.Action != EffectAction.ea_Instant) {
                         if (eff.Duration > 0) {
                             int oldDuration = eff.Duration;
-                            EffectID eid = (EffectID)eff.CLSID_Renamed;
+                            EffectID eid = (EffectID)eff.CLSID;
 
                             EffectFlags flags = EffectsData.dbEffects[(int)eid].Flags;
                             if (flags.Contains(EffectFlags.ep_Decrease)) {

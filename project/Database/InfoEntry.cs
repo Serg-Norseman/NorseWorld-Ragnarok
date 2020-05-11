@@ -17,6 +17,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace NWR.Database
 {
     public sealed class InfoEntry : DataEntry
@@ -26,5 +27,4 @@ namespace NWR.Database
         {
         }
     }
-
 }

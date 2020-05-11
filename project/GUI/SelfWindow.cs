@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -20,9 +20,8 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using ZRLib.Core;
 using ZRLib.Engine;
@@ -47,8 +46,8 @@ namespace NWR.GUI
             CreatureState state = player.State;
 
             string ps = "";
-            if (state != CreatureState.csAlive) {
-                if (state == CreatureState.csUndead) {
+            if (state != CreatureState.Alive) {
+                if (state == CreatureState.Undead) {
                     ps = BaseLocale.GetStr(RS.rs_Undead);
                 }
             } else {
@@ -68,7 +67,7 @@ namespace NWR.GUI
             screen.DrawText(x, 40, BaseLocale.GetStr(RS.rs_Sex) + ": " + BaseLocale.GetStr(StaticData.dbSex[(int)player.Sex].NameRS), 0);
             screen.DrawText(x, 56, BaseLocale.GetStr(RS.rs_Level) + ": " + Convert.ToString(player.Level), 0);
             screen.DrawText(x, 72, BaseLocale.GetStr(RS.rs_Experience) + ": " + Convert.ToString(player.Experience), 0);
-            screen.DrawText(x, 88, BaseLocale.GetStr(RS.rs_Morality) + ": " + player.MoralityName, 0);
+            screen.DrawText(x, 88, BaseLocale.GetStr(RS.rs_Morality) + ": " + player.GetMoralityName(), 0);
             screen.DrawText(x, 104, BaseLocale.GetStr(RS.rs_Perception) + ": " + Convert.ToString((int)player.Perception), 0);
             screen.DrawText(x2, 8, ps, 0);
             screen.DrawText(x2, 24, BaseLocale.GetStr(RS.rs_Constitution) + ": " + Convert.ToString(player.Constitution), 0);

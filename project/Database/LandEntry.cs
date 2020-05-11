@@ -20,8 +20,8 @@
 
 using System;
 using System.Xml;
+using NWR.Game.Types;
 using ZRLib.Core;
-using NWR.Core.Types;
 
 namespace NWR.Database
 {

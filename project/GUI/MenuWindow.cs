@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Engine;
 
 namespace NWR.GUI

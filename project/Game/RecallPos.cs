@@ -21,7 +21,6 @@
 using System.IO;
 using BSLib;
 using ZRLib.Core;
-using NWR.Core;
 
 namespace NWR.Game
 {

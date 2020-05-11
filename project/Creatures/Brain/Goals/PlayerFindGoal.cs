@@ -19,9 +19,8 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Core.Brain;
 
@@ -44,7 +43,7 @@ namespace NWR.Creatures.Brain.Goals
                 string s = BaseLocale.Format(RS.rs_RavenSaid, BaseLocale.GetStr(idx));
                 GlobalVars.nwrWin.ShowText(self, s, new LogFeatures(LogFeatures.lfDialog));
 
-                self.State = CreatureState.csDead;
+                self.State = CreatureState.Dead;
                 IsComplete = true;
             } else {
                 ExtPoint next = self.GetStep(playerPt);
@@ -54,5 +53,4 @@ namespace NWR.Creatures.Brain.Goals
             }
         }
     }
-
 }

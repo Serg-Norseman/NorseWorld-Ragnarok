@@ -31,6 +31,14 @@ namespace NWR.Creatures.Brain
 {
     public sealed class TraderBrain : SentientBrain
     {
+        public Item WareReturnGoal
+        {
+            set {
+                WareReturnGoal wrGoal = (WareReturnGoal)CreateGoal(GoalKind.gk_WareReturn);
+                wrGoal.Ware = value;
+            }
+        }
+
         public TraderBrain(CreatureEntity owner)
             : base(owner)
         {
@@ -133,25 +141,17 @@ namespace NWR.Creatures.Brain
             }
         }
 
-        public Item WareReturnGoal
-        {
-            set {
-                WareReturnGoal wrGoal = (WareReturnGoal)CreateGoal(GoalKind.gk_WareReturn);
-                wrGoal.Ware = value;
-            }
-        }
-
         public override void StepTo(int aX, int aY)
         {
             try {
                 Building house = (Building)((NWCreature)fSelf).FindHouse();
 
                 if (house.Area.Contains(aX, aY)) {
-                    house.SwitchDoors(Door.STATE_OPENED);
+                    house.SwitchDoors(DoorState.Opened);
                     base.StepTo(aX, aY);
                 } else {
                     base.StepTo(aX, aY);
-                    house.SwitchDoors(Door.STATE_CLOSED);
+                    house.SwitchDoors(DoorState.Closed);
                 }
             } catch (Exception ex) {
                 Logger.Write("TraderBrain.stepTo(): " + ex.Message);

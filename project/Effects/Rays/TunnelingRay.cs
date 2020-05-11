@@ -18,9 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Game;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Map;
 

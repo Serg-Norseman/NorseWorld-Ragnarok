@@ -20,7 +20,7 @@
 
 using System;
 using System.IO;
-using NWR.Core.Types;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Core.Body;
 
@@ -28,6 +28,13 @@ namespace NWR.Creatures
 {
     public class CustomBody : AbstractBody, ISerializable
     {
+        public byte SerializeKind
+        {
+            get {
+                return 0;
+            }
+        }
+
         public CustomBody(object owner)
             : base(owner)
         {
@@ -37,13 +44,6 @@ namespace NWR.Creatures
         {
             for (int i = 1; i <= stdCount; i++) {
                 AddPart((int)part);
-            }
-        }
-
-        public byte SerializeKind
-        {
-            get {
-                return 0;
             }
         }
 

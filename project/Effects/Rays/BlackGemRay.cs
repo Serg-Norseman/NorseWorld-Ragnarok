@@ -21,8 +21,8 @@
 using BSLib;
 using NWR.Creatures;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Universe;
-using NWR.Core.Types;
 
 namespace NWR.Effects.Rays
 {
@@ -43,7 +43,7 @@ namespace NWR.Effects.Rays
                     if (c.HPCur - val < 0) {
                         val = c.HPCur;
                     }
-                    c.ApplyDamage(val, DamageKind.dkPhysical, null, "");
+                    c.ApplyDamage(val, DamageKind.Physical, null, "");
                     if (Creature.Items.FindByCLSID(GlobalVars.iid_SoulTrapping_Ring) == null) {
                         Creature.HPCur = Creature.HPCur + val;
                     }

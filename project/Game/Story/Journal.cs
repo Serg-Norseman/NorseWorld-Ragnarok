@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using BSLib;
-using NWR.Core;
 using NWR.Database;
 using NWR.Game;
 using ZRLib.Core;
@@ -162,7 +161,7 @@ namespace NWR.Game.Story
             lines.AddObject("    " + BaseLocale.GetStr(RS.rs_Killed), new JournalItem(JournalItem.SIT_KILLED, "", Colors.Red, JournalItem.DEFAULT_TURN));
 
             for (int i = 0; i < num; i++) {
-                Core.Attribute attr = fEnemies.GetItem(i);
+                Attribute attr = fEnemies.GetItem(i);
                 int id = attr.AID;
                 int val = attr.AValue;
 

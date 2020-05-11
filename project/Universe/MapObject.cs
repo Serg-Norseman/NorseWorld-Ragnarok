@@ -18,10 +18,10 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using ZRLib.Core;
-using NWR.Core.Types;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
+using ZRLib.Core;
 
 namespace NWR.Universe
 {
@@ -52,7 +52,7 @@ namespace NWR.Universe
             : base(space, owner)
         {
             Loops = 1;
-            AnimKind = AnimationKind.akNone;
+            AnimKind = AnimationKind.None;
         }
 
         public virtual void SetPos(int ax, int ay)
@@ -98,11 +98,11 @@ namespace NWR.Universe
         public void NextSprite(int aX, int aY)
         {
             switch (AnimKind) {
-                case AnimationKind.akByDirection:
+                case AnimationKind.Direction:
                     ImageIndex = ImagesOrigin + (Dir - 1);
                     break;
 
-                case AnimationKind.akByRotation:
+                case AnimationKind.Rotation:
                     {
                         int fnum;
                         if (ImageIndex == 0) {

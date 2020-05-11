@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -19,53 +19,53 @@
  */
 
 using System;
+using System.Collections.Generic;
 using BSLib;
-using ZRLib.Core;
-using ZRLib.Core.Brain;
-using ZRLib.Map;
-using NWR.Core.Types;
 using NWR.Creatures.Brain.Goals;
 using NWR.Database;
 using NWR.Effects;
-using NWR.Items;
 using NWR.Game;
+using NWR.Game.Types;
+using NWR.Items;
 using NWR.Universe;
+using ZRLib.Core;
+using ZRLib.Core.Brain;
+using ZRLib.Map;
 
 namespace NWR.Creatures.Brain
 {
     public class BeastBrain : NWBrainEntity
     {
-        public LocatedEntityList fKinsfolks;
         public CreatureEntity fNearKinsfolk;
         public int fNearKinsfolkDist;
 
         public bool Flock;
         public bool IsLeader;
         public bool IsShipSail;
+        public List<NWCreature> Kinsfolks;
 
-        public BeastBrain(CreatureEntity owner)
-            : base(owner)
+
+        protected override EmitterList Emitters
         {
-            fKinsfolks = new LocatedEntityList(null, false);
+            get {
+                return (((NWCreature)fSelf).CurrentField).Emitters;
+            }
         }
 
-        protected override void Dispose(bool disposing)
+
+        public BeastBrain(CreatureEntity owner) : base(owner)
         {
-            if (disposing) {
-                fKinsfolks.Dispose();
-                fKinsfolks = null;
-            }
-            base.Dispose(disposing);
+            Kinsfolks = new List<NWCreature>();
         }
 
         private void PrepareFlock()
         {
             try {
                 IsLeader = true;
-                fKinsfolks.Clear();
+                Kinsfolks.Clear();
 
                 NWCreature self = (NWCreature)fSelf;
-                NWField fld = (NWField)self.CurrentMap;
+                NWField fld = self.CurrentField;
 
                 fNearKinsfolk = null;
                 fNearKinsfolkDist = AuxUtils.MaxInt;
@@ -74,8 +74,8 @@ namespace NWR.Creatures.Brain
                 for (int i = 0; i < num; i++) {
                     NWCreature cr = fld.Creatures.GetItem(i);
                     int dist = MathHelper.Distance(cr.Location, self.Location);
-                    if (!cr.Equals(self) && dist <= self.Survey && cr.CLSID_Renamed == self.CLSID_Renamed && fld.LineOfSight(self.PosX, self.PosY, cr.PosX, cr.PosY)) {
-                        fKinsfolks.Add(cr);
+                    if (!cr.Equals(self) && dist <= self.Survey && cr.CLSID == self.CLSID && fld.LineOfSight(self.PosX, self.PosY, cr.PosX, cr.PosY)) {
+                        Kinsfolks.Add(cr);
                         if (fNearKinsfolkDist > dist) {
                             fNearKinsfolkDist = dist;
                             fNearKinsfolk = cr;
@@ -97,7 +97,7 @@ namespace NWR.Creatures.Brain
         {
             try {
                 NWCreature self = (NWCreature)fSelf;
-                AbstractMap map = self.CurrentMap;
+                AbstractMap map = self.CurrentField;
 
                 if (self.Entry.Sign.Equals("WildDog")) {
                     NWTile tile = (NWTile)map.GetTile(self.PosX, self.PosY);
@@ -180,7 +180,7 @@ namespace NWR.Creatures.Brain
                     goal.Position = self.GetNearestPlace(goal.Leader.Location, 3, true);
                 } else {
                     LeaderBrain leaderBrain = (LeaderBrain)goal.Leader.Brain;
-                    goal.Position = leaderBrain.GetMemberPosition(fSelf);
+                    goal.Position = leaderBrain.GetMemberPosition(self);
                 }
             }
         }
@@ -210,8 +210,7 @@ namespace NWR.Creatures.Brain
                 case GoalKind.gk_EnemyEvade:
                     goal.Value = 0.75f;
                     if (Flock && !IsLeader) {
-                        int kins = fKinsfolks.Count;
-                        goal.Value = ((0.75f - 0.1f * (float)kins));
+                        goal.Value = ((0.75f - 0.1f * Kinsfolks.Count));
                     }
                     break;
 
@@ -233,21 +232,13 @@ namespace NWR.Creatures.Brain
                 case GoalKind.gk_Flock:
                     goal.Value = 0.22f;
                     if (Flock && !IsLeader) {
-                        int kins = fKinsfolks.Count;
-                        goal.Value = ((0.22f + 0.01f * (float)kins));
+                        goal.Value = ((0.22f + 0.01f * Kinsfolks.Count));
                     }
                     break;
 
                 case GoalKind.gk_Stalk:
                     goal.Value = 0.55f;
                     break;
-            }
-        }
-
-        protected override EmitterList Emitters
-        {
-            get {
-                return (((NWCreature)fSelf).CurrentField).Emitters;
             }
         }
 
@@ -321,7 +312,7 @@ namespace NWR.Creatures.Brain
 
                 if (enemy != null) {
                     if (IsShipSail) {
-                        PrepareChase(enemy, AttackRisk.ar_Wary, false);
+                        PrepareChase(enemy, AttackRisk.Wary, false);
                         return;
                     }
 
@@ -329,29 +320,29 @@ namespace NWR.Creatures.Brain
 
                     RaceID race = self.Entry.Race;
                     if (GlobalVars.Debug_Fury || race == RaceID.crAesir || race == RaceID.crEvilGod || race == RaceID.crDaemon) {
-                        ar = AttackRisk.ar_Immediately;
+                        ar = AttackRisk.Immediately;
                     } else {
                         bool vent = self.Effects.FindEffectByID(EffectID.eid_Ventriloquism) != null;
                         if (vent) {
-                            ar = AttackRisk.ar_Wait;
+                            ar = AttackRisk.Wait;
                         } else {
-                            float arVal = self.GetAttackRate(enemy, fKinsfolks.Count);
+                            float arVal = self.GetAttackRate(enemy, Kinsfolks.Count);
                             ar = GetRiskKind(arVal);
                         }
                     }
 
                     switch (ar) {
-                        case AttackRisk.ar_RunAway:
-                        case AttackRisk.ar_Evade:
+                        case AttackRisk.RunAway:
+                        case AttackRisk.Evade:
                             PrepareEvade(enemy, ar, true);
                             break;
 
-                        case AttackRisk.ar_Wait:
+                        case AttackRisk.Wait:
                             // dummy
                             break;
 
-                        case AttackRisk.ar_Wary:
-                        case AttackRisk.ar_Immediately:
+                        case AttackRisk.Wary:
+                        case AttackRisk.Immediately:
                             PrepareChase(enemy, ar, true);
                             break;
                     }
@@ -393,21 +384,21 @@ namespace NWR.Creatures.Brain
 
         public static AttackRisk GetRiskKind(float risk)
         {
-            AttackRisk result = AttackRisk.ar_Wait;
+            AttackRisk result = AttackRisk.Wait;
             if (risk < 1f) {
-                result = AttackRisk.ar_RunAway;
+                result = AttackRisk.RunAway;
             }
             if (risk < 0.75f) {
-                result = AttackRisk.ar_Evade;
+                result = AttackRisk.Evade;
             }
             if (risk < 0.6f) {
-                result = AttackRisk.ar_Wait;
+                result = AttackRisk.Wait;
             }
             if (risk < 0.4f) {
-                result = AttackRisk.ar_Wary;
+                result = AttackRisk.Wary;
             }
             if (risk < 0.25f) {
-                result = AttackRisk.ar_Immediately;
+                result = AttackRisk.Immediately;
             }
             return result;
         }
@@ -429,10 +420,10 @@ namespace NWR.Creatures.Brain
 
                     BestWeaponSigns bw = new BestWeaponSigns();
                     if (canShoot) {
-                        bw.Include(BestWeaponSigns.bwsCanShoot);
+                        bw.Include(BestWeaponSigns.CanShoot);
                     }
                     if (onlyRemote) {
-                        bw.Include(BestWeaponSigns.bwsOnlyShoot);
+                        bw.Include(BestWeaponSigns.OnlyShoot);
                     }
 
                     highestDamage = self.CheckEquipment((float)dist, bw);
@@ -459,7 +450,7 @@ namespace NWR.Creatures.Brain
                     } else {
                         if (!onlyRemote) {
                             if (dist == 1) {
-                                self.AttackTo(AttackKind.akMelee, enemy, null, null);
+                                self.AttackTo(AttackKind.Melee, enemy, null, null);
                             } else {
                                 ExtPoint next = self.GetStep(aEnemy.Location);
                                 if (!next.IsEmpty) {
@@ -482,7 +473,7 @@ namespace NWR.Creatures.Brain
             if (Flock && fNearKinsfolk != null) {
                 int epX = fNearKinsfolk.PosX;
                 int epY = fNearKinsfolk.PosY;
-                bool res = self.CanMove(self.CurrentMap, epX, epY);
+                bool res = self.CanMove(self.CurrentField, epX, epY);
                 if (res) {
                     return new ExtPoint(epX, epY);
                 }
@@ -521,7 +512,7 @@ namespace NWR.Creatures.Brain
                     int epX = self.PosX + Directions.Data[dir].DX;
                     int epY = self.PosY + Directions.Data[dir].DY;
 
-                    if (self.CanMove(self.CurrentMap, epX, epY)) {
+                    if (self.CanMove(self.CurrentField, epX, epY)) {
                         return new ExtPoint(epX, epY);
                     }
                 }
@@ -580,20 +571,16 @@ namespace NWR.Creatures.Brain
             fSelf.MoveTo(aX, aY);
         }
 
-        public ExtPoint PointGuardGoal
+        public void SetPointGuardGoal(ExtPoint value)
         {
-            set {
-                PointGuardGoal goal = (PointGuardGoal)CreateGoal(GoalKind.gk_PointGuard);
-                goal.Position = value;
-            }
+            PointGuardGoal goal = (PointGuardGoal)CreateGoal(GoalKind.gk_PointGuard);
+            goal.Position = value;
         }
 
-        public ExtRect AreaGuardGoal
+        public void SetAreaGuardGoal(ExtRect value)
         {
-            set {
-                AreaGuardGoal goal = (AreaGuardGoal)CreateGoal(GoalKind.gk_AreaGuard);
-                goal.Area = value;
-            }
+            AreaGuardGoal goal = (AreaGuardGoal)CreateGoal(GoalKind.gk_AreaGuard);
+            goal.Area = value;
         }
 
         public void SetEscortGoal(CreatureEntity leader, bool isParty)
@@ -603,5 +590,4 @@ namespace NWR.Creatures.Brain
             goal.NotParty = !isParty;
         }
     }
-
 }

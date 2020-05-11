@@ -25,20 +25,20 @@ namespace NWR.Game
 {
     public abstract class MemoryEntry : BaseEntity, ISerializable
     {
-        public abstract void SaveToStream(BinaryWriter stream, FileVersion version);
-        public abstract void LoadFromStream(BinaryReader stream, FileVersion version);
-
-        public abstract byte SerializeKind { get; }
-
         public string Sign;
 
         public abstract string Desc { get; }
 
         public abstract string Name { get; }
 
-        protected MemoryEntry(object owner)
-            : base(owner)
+        public abstract byte SerializeKind { get; }
+
+
+        protected MemoryEntry(object owner) : base(owner)
         {
         }
+
+        public abstract void LoadFromStream(BinaryReader stream, FileVersion version);
+        public abstract void SaveToStream(BinaryWriter stream, FileVersion version);
     }
 }

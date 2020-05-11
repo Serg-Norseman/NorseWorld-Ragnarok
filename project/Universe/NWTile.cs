@@ -65,7 +65,7 @@ namespace NWR.Universe
 
             // extData begin
             FogID = StreamUtils.ReadWord(stream);
-            FogAge = (sbyte)StreamUtils.ReadByte(stream);
+            FogAge = StreamUtils.ReadSByte(stream);
 
             Trap_Discovered = StreamUtils.ReadBoolean(stream);
             Lake_LiquidID = StreamUtils.ReadInt(stream);
@@ -88,7 +88,7 @@ namespace NWR.Universe
 
             // extData begin
             StreamUtils.WriteWord(stream, FogID);
-            StreamUtils.WriteByte(stream, (byte)FogAge);
+            StreamUtils.WriteSByte(stream, FogAge);
 
             StreamUtils.WriteBoolean(stream, Trap_Discovered);
             StreamUtils.WriteInt(stream, Lake_LiquidID);

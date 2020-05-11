@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -19,10 +19,9 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Database;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using NWR.Universe;
 using ZRLib.Core;
@@ -38,8 +37,8 @@ namespace NWR.GUI
         private string fMapHint;
         private long fPrevTime;
 
-        public MapWindow(BaseControl owner)
-            : base(owner)
+
+        public MapWindow(BaseControl owner) : base(owner)
         {
             Font = CtlCommon.SmFont;
             Width = 656;
@@ -130,7 +129,6 @@ namespace NWR.GUI
             base.DoMouseMoveEvent(eventArgs);
 
             fMapHint = "";
-
             SearchResult res = SearchMapLocation(eventArgs.X, eventArgs.Y);
             if (res != null) {
                 LayerEntry eLayer = (LayerEntry)GlobalVars.nwrDB.GetEntry(res.LID);
@@ -179,14 +177,13 @@ namespace NWR.GUI
             LayerEntry layerEntry = ((LayerEntry)GlobalVars.nwrDB.GetEntry(player.LayerID));
 
             if (fMapCursor) {
-                NWField fld = (NWField)player.CurrentMap;
-                ExtPoint f = fld.Coords;
+                ExtPoint f = player.CurrentField.Coords;
                 GlobalVars.nwrWin.Resources.DrawImage(screen, 
                     ax + layerEntry.MSX + (f.X << 5), ay + layerEntry.MSY + f.Y * 30,
                     StaticData.dbItfElements[(int)ItfElement.id_Cursor].ImageIndex, 255);
             }
 
-            if (fMapHint.CompareTo("") != 0) {
+            if (!string.IsNullOrEmpty(fMapHint)) {
                 int tw = CtlCommon.SmFont.GetTextWidth(fMapHint);
                 CtlCommon.SmFont.Color = Colors.Navy;
 

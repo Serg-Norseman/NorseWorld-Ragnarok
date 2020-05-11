@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -21,8 +21,6 @@
 using System;
 using System.Text;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Creatures.Specials;
@@ -32,6 +30,7 @@ using NWR.Game;
 using NWR.Game.Ghosts;
 using NWR.Game.Scores;
 using NWR.Game.Story;
+using NWR.Game.Types;
 using NWR.GUI;
 using NWR.GUI.Controls;
 using NWR.Items;
@@ -328,7 +327,7 @@ namespace NWR.GUI
                 if (player.Hallucinations) {
                     fld = player.HalMap;
                 } else {
-                    fld = (NWField)player.CurrentMap;
+                    fld = player.CurrentField;
                 }
 
                 NWTile nwTile = (NWTile)fld.GetTile(X, Y);
@@ -638,8 +637,8 @@ namespace NWR.GUI
                 for (var sk = SkillID.Sk_First; sk <= SkillID.Sk_Last; sk++) {
                     SkillRec skRec = StaticData.dbSkills[(int)sk];
 
-                    if (skRec.Kinds != SkillKind.ssInnatePower && skRec.gfx != "") {
-                        string s = dir + skRec.gfx + ".tga";
+                    if (skRec.Kinds != SkillKind.InnatePower && skRec.Gfx != "") {
+                        string s = dir + skRec.Gfx + ".tga";
                         skRec.ImageIndex = Resources.AddImage(s, Colors.White, false);
                     }
 
@@ -657,7 +656,7 @@ namespace NWR.GUI
                 for (var sym = SymbolID.sid_First; sym <= SymbolID.sid_Last; sym++) {
                     SymbolRec sid = StaticData.dbSymbols[(int)sym];
 
-                    string s = sid.gfx;
+                    string s = sid.Gfx;
                     sid.ImageIndex = Symbols.AddImage(dir + s + ".tga", Colors.White, false);
 
                     int num8 = sid.SubCount;
@@ -804,12 +803,12 @@ namespace NWR.GUI
                 int px = creature.PosX;
                 int py = creature.PosY;
 
-                if (creature is ArticulateCreature) {
-                    ArticulateCreature art = (ArticulateCreature)creature;
+                if (creature is SegmentedCreature) {
+                    SegmentedCreature art = (SegmentedCreature)creature;
 
                     int num2 = art.Size;
                     for (int k = 0; k < num2; k++) {
-                        ArticulateSegment seg = art.GetSegment(k);
+                        SegmentedCreature.Segment seg = art.GetSegment(k);
                         DrawCreatureInt(screen, field, creature, mode, seg.X, seg.Y, seg.ImageIndex);
                     }
                 } else {
@@ -1591,7 +1590,7 @@ namespace NWR.GUI
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 56, IP_Right, BaseLocale.GetStr(RS.rs_HP), Convert.ToString(player.HPCur) + " (" + Convert.ToString(player.HPMax_Renamed) + ")");
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 82, IP_Right, BaseLocale.GetStr(RS.rs_MP), Convert.ToString(player.MPCur) + " (" + Convert.ToString(player.MPMax) + ")");
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 108, IP_Right, BaseLocale.GetStr(RS.rs_Satiety), "");
-                    Painter.DrawProperty(screen, IP_Left, IP_Top + 134, IP_Right, BaseLocale.GetStr(RS.rs_Morality), player.MoralityName);
+                    Painter.DrawProperty(screen, IP_Left, IP_Top + 134, IP_Right, BaseLocale.GetStr(RS.rs_Morality), player.GetMoralityName());
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 150, IP_Right, BaseLocale.GetStr(RS.rs_Armor), Convert.ToString(player.ArmorClass));
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 166, IP_Right, BaseLocale.GetStr(RS.rs_Damage), Convert.ToString(player.DBMin) + "-" + Convert.ToString(player.DBMax));
                     Painter.DrawProperty(screen, IP_Left, IP_Top + 182, IP_Right, BaseLocale.GetStr(RS.rs_ToHit), Convert.ToString(player.ToHit) + "%");
@@ -1627,9 +1626,9 @@ namespace NWR.GUI
                     return;
                 }
 
-                NWField fld = (NWField)player.CurrentMap;
+                NWField fld = player.CurrentField;
                 ScreenRec scr = StaticData.dbScreens[(int)fMainScreen];
-                if (fScrImage != null && scr.gfx != "") {
+                if (fScrImage != null && scr.Gfx != "") {
                     screen.DrawImage(0, 0, 0, 0, (int)fScrImage.Width, (int)fScrImage.Height, fScrImage, 255);
                 }
 
@@ -1704,8 +1703,8 @@ namespace NWR.GUI
             for (var gs = GameScreen.gsFirst; gs <= GameScreen.gsLast; gs++) {
                 ScreenRec scr = StaticData.dbScreens[(int)gs];
 
-                if (scr.status == ScreenStatus.ssAlready) {
-                    scr.status = ScreenStatus.ssOnce;
+                if (scr.Status == ScreenStatus.Already) {
+                    scr.Status = ScreenStatus.Once;
                 }
             }
         }
@@ -1773,7 +1772,7 @@ namespace NWR.GUI
             }
 
             NWField crField = creat.CurrentField;
-            if (!creat.IsPlayer && crField != null && player.CurrentMap.Equals(crField)) {
+            if (!creat.IsPlayer && crField != null && player.CurrentField.Equals(crField)) {
                 int dist = MathHelper.Distance(creat.Location, player.Location);
                 if (dist <= (int)player.Hear && AuxUtils.Chance(5) && crField.LandID != GlobalVars.Land_Village) {
                     ShowText(player, BaseLocale.GetStr(RS.rs_YouHearNoise));
@@ -1785,7 +1784,7 @@ namespace NWR.GUI
         {
             Item item = (Item)extData;
 
-            int id = item.CLSID_Renamed;
+            int id = item.CLSID;
             string itKind = "";
             MaterialKind matKind = item.Material;
             switch (item.Kind) {
@@ -1830,10 +1829,10 @@ namespace NWR.GUI
                     if (item.Flags.Contains(ItemFlags.if_Projectile)) {
                         itKind = "Quiver";
                     } else {
-                        if (item.CLSID_Renamed == GlobalVars.iid_LongBow) {
+                        if (item.CLSID == GlobalVars.iid_LongBow) {
                             itKind = "Bow";
                         } else {
-                            if (item.CLSID_Renamed == GlobalVars.iid_CrossBow) {
+                            if (item.CLSID == GlobalVars.iid_CrossBow) {
                                 itKind = "Crossbow";
                             }
                         }
@@ -1957,11 +1956,11 @@ namespace NWR.GUI
                     return;
                 }
 
-                if (evtRec.Flags.Contains(EventFlags.efInQueue)) {
+                if (evtRec.Flags.Contains(EventFlags.InQueue)) {
                     fGameSpace.SendEvent(eventID, evtRec.Priority, sender, receiver);
                 }
 
-                if (evtRec.Flags.Contains(EventFlags.efInJournal)) {
+                if (evtRec.Flags.Contains(EventFlags.InJournal)) {
                     string msg = fGameSpace.GetEventMessage(eventID, sender, receiver, extData);
                     ShowText(sender, msg);
                 }
@@ -2041,9 +2040,9 @@ namespace NWR.GUI
                             }
                             GameScreen scr = eLand.Splash;
                             var srcRec = StaticData.dbScreens[(int)scr];
-                            if (scr != GameScreen.gsNone && srcRec.status != ScreenStatus.ssAlready) {
-                                if (srcRec.status == ScreenStatus.ssOnce) {
-                                    srcRec.status = ScreenStatus.ssAlready;
+                            if (scr != GameScreen.gsNone && srcRec.Status != ScreenStatus.Already) {
+                                if (srcRec.Status == ScreenStatus.Once) {
+                                    srcRec.Status = ScreenStatus.Already;
                                 }
                             } else {
                                 scr = GameScreen.gsMain;
@@ -2157,7 +2156,7 @@ namespace NWR.GUI
                     case EventID.event_EffectSound:
                         {
                             GameEvent effectEvent = (GameEvent)extData;
-                            int eid = effectEvent.CLSID_Renamed;
+                            int eid = effectEvent.CLSID;
                             PlaySound("effects\\" + EffectsData.dbEffects[eid].SFX, SoundEngine.sk_Sound, effectEvent.PosX, effectEvent.PosY);
                             break;
                         }
@@ -2365,7 +2364,7 @@ namespace NWR.GUI
         {
             if (collocutor == null) {
                 Player player = fGameSpace.Player;
-                Building b = ((NWField)player.CurrentMap).FindBuilding(player.PosX, player.PosY);
+                Building b = player.CurrentField.FindBuilding(player.PosX, player.PosY);
                 if (b != null) {
                     collocutor = ((NWCreature)b.Holder);
                 }
@@ -2424,7 +2423,7 @@ namespace NWR.GUI
                 ScreenInternal = true;
                     
                 UpdateView();
-                string sf = StaticData.dbScreens[(int)value].gfx;
+                string sf = StaticData.dbScreens[(int)value].Gfx;
                 if (sf.CompareTo("") != 0) {
                     sf = "screens/" + sf + ".tga";
                     fScrImage = NWResourceManager.LoadImage(base.Screen, sf, Colors.None);
@@ -2477,8 +2476,8 @@ namespace NWR.GUI
         {
             for (var i = GameScreen.gsFirst; i <= GameScreen.gsLast; i++) {
                 ScreenRec scr = StaticData.dbScreens[(int)i];
-                if (scr.status == ScreenStatus.ssAlready) {
-                    scr.status = ScreenStatus.ssOnce;
+                if (scr.Status == ScreenStatus.Already) {
+                    scr.Status = ScreenStatus.Once;
                 }
             }
 
@@ -2576,7 +2575,7 @@ namespace NWR.GUI
         private void ClickTarget(ShiftStates shift)
         {
             Player player = fGameSpace.Player;
-            NWField fld = (NWField)player.CurrentMap;
+            NWField fld = player.CurrentField;
 
             if (fTargetData == null) {
                 int dir = Directions.GetDirByCoords(player.PosX, player.PosY, fMouseMapX, fMouseMapY);
@@ -2586,7 +2585,7 @@ namespace NWR.GUI
                 } else {
                     if (GlobalVars.Debug_Divinity) {
                         player.MoveTo(fMouseMapX, fMouseMapY);
-                        fGameSpace.TurnState = TurnState.gtsDone;
+                        fGameSpace.TurnState = TurnState.Done;
                     }
                 }
             } else {
@@ -2708,7 +2707,7 @@ namespace NWR.GUI
                             return;
 
                         case EffectParams.ep_ScrollID:
-                            if (fGameSpace.Player.ScrollsCount == 0) {
+                            if (fGameSpace.Player.GetScrollsCount() == 0) {
                                 ShowTextAux(BaseLocale.GetStr(RS.rs_YouMayWriteNoScrolls));
                             } else {
                                 fSkillsWindow.Mode = SkillsWindow.SWM_SCROLLS;

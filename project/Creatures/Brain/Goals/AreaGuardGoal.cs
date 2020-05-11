@@ -20,12 +20,19 @@
 
 using BSLib;
 using ZRLib.Core.Brain;
-using NWR.Core;
+using NWR.Game;
 
 namespace NWR.Creatures.Brain.Goals
 {
     public class AreaGuardGoal : AreaGoal
     {
+        public override byte SerializeKind
+        {
+            get {
+                return StaticData.SID_AREAGUARD_GOAL;
+            }
+        }
+
         public AreaGuardGoal(BrainEntity owner)
             : base(owner)
         {
@@ -50,13 +57,6 @@ namespace NWR.Creatures.Brain.Goals
 
             IsComplete = false;
             //refComplete.argValue = this.Area.Contains(self.getPosX(), self.getPosY());
-        }
-
-        public override byte SerializeKind
-        {
-            get {
-                return StaticData.SID_AREAGUARD_GOAL;
-            }
         }
     }
 }

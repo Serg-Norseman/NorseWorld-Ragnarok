@@ -37,7 +37,7 @@ namespace NWR.Game.Quests
 
         protected override bool OnKillMonster(NWCreature monster)
         {
-            if (monster.CLSID_Renamed == EnemyID) {
+            if (monster.CLSID == EnemyID) {
                 Remains--;
 
                 if (Remains > 0) {

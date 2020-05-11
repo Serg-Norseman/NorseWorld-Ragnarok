@@ -20,10 +20,9 @@
 
 using System;
 using BSLib;
+using NWR.Game;
 using ZRLib.Core;
 using ZRLib.Core.Brain;
-using NWR.Core;
-using NWR.Game;
 
 namespace NWR.Creatures.Brain
 {
@@ -70,75 +69,16 @@ namespace NWR.Creatures.Brain
         public const int PartyMax = 4;
 
         private int fDir;
-        private ExtList<CreatureEntity> fList;
+        private ExtList<NWCreature> fList;
         private PMPos[] fOffsets;
 
         public PartyFormation Formation;
 
-        public LeaderBrain(CreatureEntity owner)
-            : base(owner)
-        {
-            fDir = Directions.DtNone;
-            fList = new ExtList<CreatureEntity>();
-            Formation = PartyFormation.pfWedge;
-            AddMember(owner);
-
-            fOffsets = new PMPos[PartyMax + 1];
-            for (int i = 0; i <= PartyMax; i++) {
-                fOffsets[i] = new PMPos();
-            }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fList.Dispose();
-                fList = null;
-            }
-            base.Dispose(disposing);
-        }
-
-        public CreatureEntity GetMember(int index)
-        {
-            return (CreatureEntity)fList[index];
-        }
-
-        public int MembersCount
+        public ExtList<NWCreature> Members
         {
             get {
-                return fList.Count;
+                return fList;
             }
-        }
-
-        public bool AddMember(CreatureEntity member)
-        {
-            bool result = false;
-            if (member != null && fList.Count < 10 && IndexOfMember(member) < 0) {
-                fList.Add(member);
-                result = true;
-            }
-            return result;
-        }
-
-        public ExtPoint GetMemberPosition(CreatureEntity member)
-        {
-            int idx = fList.IndexOf(member);
-            return new ExtPoint(fSelf.PosX + (int)fOffsets[idx].RX, fSelf.PosY + (int)fOffsets[idx].RY);
-        }
-
-        public int IndexOfMember(CreatureEntity member)
-        {
-            return fList.IndexOf(member);
-        }
-
-        public bool RemoveMember(CreatureEntity member)
-        {
-            bool result = false;
-            if (member != null) {
-                fList.Remove(member);
-                result = true;
-            }
-            return result;
         }
 
         public int Dir
@@ -210,6 +150,59 @@ namespace NWR.Creatures.Brain
             }
         }
 
+
+        public LeaderBrain(NWCreature owner) : base(owner)
+        {
+            fDir = Directions.DtNone;
+            fList = new ExtList<NWCreature>();
+            Formation = PartyFormation.pfWedge;
+            AddMember(owner);
+
+            fOffsets = new PMPos[PartyMax + 1];
+            for (int i = 0; i <= PartyMax; i++) {
+                fOffsets[i] = new PMPos();
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) {
+                fList.Dispose();
+                fList = null;
+            }
+            base.Dispose(disposing);
+        }
+
+        public bool AddMember(NWCreature member)
+        {
+            bool result = false;
+            if (member != null && fList.Count < 10 && IndexOfMember(member) < 0) {
+                fList.Add(member);
+                result = true;
+            }
+            return result;
+        }
+
+        public ExtPoint GetMemberPosition(NWCreature member)
+        {
+            int idx = fList.IndexOf(member);
+            return new ExtPoint(fSelf.PosX + (int)fOffsets[idx].RX, fSelf.PosY + (int)fOffsets[idx].RY);
+        }
+
+        public int IndexOfMember(NWCreature member)
+        {
+            return fList.IndexOf(member);
+        }
+
+        public bool RemoveMember(NWCreature member)
+        {
+            bool result = false;
+            if (member != null) {
+                fList.Remove(member);
+                result = true;
+            }
+            return result;
+        }
 
         private static int[, ] SelectMask(PartyFormation formation, int dir)
         {
@@ -496,5 +489,4 @@ namespace NWR.Creatures.Brain
             };
         }
     }
-
 }

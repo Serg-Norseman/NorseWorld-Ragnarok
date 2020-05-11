@@ -21,8 +21,8 @@
 using System;
 using System.IO;
 using BSLib;
+using NWR.Game;
 using ZRLib.Core;
-using NWR.Core;
 
 namespace NWR.Game.Scores
 {

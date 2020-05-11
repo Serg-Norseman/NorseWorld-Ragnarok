@@ -18,8 +18,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using NWR.Game;
 using ZRLib.Core.Brain;
-using NWR.Core;
 
 namespace NWR.Creatures.Brain.Goals
 {
@@ -28,16 +28,16 @@ namespace NWR.Creatures.Brain.Goals
     /// </summary>
     public class PointGuardGoal : TravelGoal
     {
-        public PointGuardGoal(BrainEntity owner)
-            : base(owner)
-        {
-        }
-
         public override byte SerializeKind
         {
             get {
                 return StaticData.SID_POINTGUARD_GOAL;
             }
+        }
+
+        public PointGuardGoal(BrainEntity owner)
+            : base(owner)
+        {
         }
 
         public override void Execute()

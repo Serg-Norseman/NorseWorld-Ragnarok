@@ -19,7 +19,6 @@
  */
 
 using System.IO;
-using NWR.Core;
 using ZRLib.Core;
 using ZRLib.Engine;
 

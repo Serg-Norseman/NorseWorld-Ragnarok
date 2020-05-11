@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -27,18 +27,14 @@ namespace NWR.Creatures
         public NWCreature ACreature;
         public NWCreature AEnemy;
 
-        public void LineProc(int aX, int aY, ref bool aContinue)
+        public void LineProc(int x, int y, ref bool isContinue)
         {
-            NWField f = (NWField)ACreature.CurrentMap;
-            if (f.IsBarrier(aX, aY)) {
-                aContinue = false;
+            NWField f = ACreature.CurrentField;
+            if (f.IsBarrier(x, y)) {
+                isContinue = false;
             } else {
-                NWCreature cr = (NWCreature)f.FindCreature(aX, aY);
-                if (cr == null) {
-                    aContinue = true;
-                } else {
-                    aContinue = (cr.Equals(AEnemy) || cr.Equals(ACreature));
-                }
+                NWCreature cr = (NWCreature)f.FindCreature(x, y);
+                isContinue = (cr == null) || (cr.Equals(AEnemy) || cr.Equals(ACreature));
             }
         }
     }

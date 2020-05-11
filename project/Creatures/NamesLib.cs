@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using BSLib;
-using NWR.Core;
 using NWR.Game;
 using ZRLib.Core;
 using ZRLib.Grammar;

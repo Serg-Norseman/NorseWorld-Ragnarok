@@ -19,7 +19,7 @@
  */
 
 using BSLib;
-using NWR.Core.Types;
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Core.Brain;
 
@@ -32,8 +32,14 @@ namespace NWR.Creatures.Brain
     /// </summary>
     public sealed class RavenBrain : SentientBrain
     {
-        public RavenBrain(CreatureEntity owner)
-            : base(owner)
+        public override Services AvailableServices
+        {
+            get {
+                return new Services();
+            }
+        }
+
+        public RavenBrain(CreatureEntity owner) : base(owner)
         {
         }
 
@@ -53,13 +59,6 @@ namespace NWR.Creatures.Brain
                 default:
                     base.EvaluateGoal(goal);
                     break;
-            }
-        }
-
-        public override Services AvailableServices
-        {
-            get {
-                return new Services();
             }
         }
     }

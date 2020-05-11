@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -18,10 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using NWR.Game.Types;
 using ZRLib.Core;
 using ZRLib.Core.Brain;
-using NWR.Core.Types;
-using NWR.Universe;
 
 namespace NWR.Creatures.Brain.Goals
 {
@@ -44,19 +43,19 @@ namespace NWR.Creatures.Brain.Goals
             NWCreature self = (NWCreature)Self;
             NWCreature enemy = (NWCreature)Enemy;
 
-            bool ex = ((NWField)self.CurrentMap).Creatures.IndexOf(enemy) >= 0;
+            bool ex = (self.CurrentField).Creatures.IndexOf(enemy) >= 0;
             RaceID race = self.Entry.Race;
             bool los = (race == RaceID.crDefault || race == RaceID.crHuman);
 
-            IsComplete = (!ex || enemy.State == CreatureState.csDead || !self.IsAvailable(enemy, los));
+            IsComplete = (!ex || enemy.State == CreatureState.Dead || !self.IsAvailable(enemy, los));
             if (!IsComplete) {
                 if (!CanMove) {
                     Brain.Attack(enemy, true);
                 } else {
-                    Brain.Attack(enemy, Risk == AttackRisk.ar_Wary);
+                    Brain.Attack(enemy, Risk == AttackRisk.Wary);
                 }
 
-                IsComplete = (enemy.State == CreatureState.csDead);
+                IsComplete = (enemy.State == CreatureState.Dead);
             }
         }
     }

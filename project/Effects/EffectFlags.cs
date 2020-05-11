@@ -18,14 +18,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using ZRLib.Core;
+
 namespace NWR.Effects
 {
-    public sealed class EffectFlags : ZRLib.Core.FlagSet
+    public sealed class EffectFlags : FlagSet
     {
         public const int ef_Ray = 0;
         public const int ef_Cumulative = 1;
-        public const int ef_DirAnim = 2; // animation by direction
-        public const int ef_RotAnim = 3; // animation by rotation
+        public const int ef_DirAnim = 2; // animation subsprites by direction
+        public const int ef_RotAnim = 3; // animation subsprites by rotation
 
         // Effect Progression
         public const int ep_Decrease = 4;

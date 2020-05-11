@@ -21,6 +21,7 @@
 using ZRLib.Map;
 using NWR.Creatures;
 using NWR.Items;
+
 namespace NWR.Game.Story
 {
     public class Quest

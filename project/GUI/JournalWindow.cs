@@ -19,7 +19,6 @@
  */
 
 using BSLib;
-using NWR.Core;
 using NWR.Game;
 using NWR.Game.Story;
 using NWR.GUI.Controls;

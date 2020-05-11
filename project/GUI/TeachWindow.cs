@@ -20,10 +20,9 @@
 
 using System;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.GUI.Controls;
 using ZRLib.Core;
 using ZRLib.Engine;

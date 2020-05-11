@@ -21,12 +21,11 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Universe;
 using ZRLib.Core;
 using ZRLib.Grammar;
@@ -86,7 +85,7 @@ namespace NWR.Items
                 if (fIdentified != value) {
                     fIdentified = value;
                     if (fIdentified && Owner != null && Owner is NWCreature) {
-                        ((NWCreature)Owner).KnowIt(CLSID_Renamed);
+                        ((NWCreature)Owner).KnowIt(CLSID);
                     }
                 }
             }
@@ -174,7 +173,7 @@ namespace NWR.Items
         {
             get {
                 int Result = fEntry.ImageIndex;
-                if (CLSID_Renamed == GlobalVars.iid_Torch && !InUse) {
+                if (CLSID == GlobalVars.iid_Torch && !InUse) {
                     Result++;
                 }
                 if (Frame > 0 && Frame <= fEntry.FramesLoaded) {
@@ -194,7 +193,7 @@ namespace NWR.Items
         public bool Container
         {
             get {
-                return CLSID_Renamed == GlobalVars.iid_SoulTrapping_Ring || fEntry.Flags.Contains(ItemFlags.if_IsContainer);
+                return CLSID == GlobalVars.iid_SoulTrapping_Ring || fEntry.Flags.Contains(ItemFlags.if_IsContainer);
             }
         }
 
@@ -328,7 +327,7 @@ namespace NWR.Items
         {
             get {
                 short result;
-                if (CLSID_Renamed == GlobalVars.iid_DeadBody) {
+                if (CLSID == GlobalVars.iid_DeadBody) {
                     result = ((NWCreature)fContents.GetItem(0)).Entry.FleshSatiety;
                 } else {
                     result = fEntry.Satiety;
@@ -429,7 +428,7 @@ namespace NWR.Items
         {
             get {
                 float result;
-                if (CLSID_Renamed == GlobalVars.iid_DeadBody) {
+                if (CLSID == GlobalVars.iid_DeadBody) {
                     result = ((NWCreature)fContents.GetItem(0)).Weight;
                 } else {
                     result = (((float)fWeight * Count));
@@ -531,7 +530,7 @@ namespace NWR.Items
         public override bool Assign(GameEntity item)
         {
             Item otherItem = (Item)item;
-            bool result = (CLSID_Renamed == item.CLSID) && Countable && (Bonus == otherItem.Bonus);
+            bool result = (CLSID == item.CLSID) && Countable && (Bonus == otherItem.Bonus);
 
             if (result) {
                 Count = (ushort)(Count + otherItem.Count);
@@ -562,7 +561,7 @@ namespace NWR.Items
         /// <returns> Value of ItemsCompareResult enumeration </returns>
         public int Compare(Item otherItem)
         {
-            int result = ItemsCompareResult.icr_NotComparable;
+            int result = ItemsCompareResult.NotComparable;
 
             if (Kind == otherItem.Kind && Identified && otherItem.Identified) {
                 switch (Kind) {
@@ -583,8 +582,8 @@ namespace NWR.Items
                     case ItemKind.ik_Scroll:
                     case ItemKind.ik_Amulet:
                         {
-                            if (CLSID_Renamed != otherItem.CLSID_Renamed) {
-                                result = ItemsCompareResult.icr_NotComparable;
+                            if (CLSID != otherItem.CLSID) {
+                                result = ItemsCompareResult.NotComparable;
                             } else {
                                 result = CompareInternal(Bonus + StaticData.dbItemStates[(int)State].CompareValue, otherItem.Bonus + StaticData.dbItemStates[(int)otherItem.State].CompareValue);
                             }
@@ -631,7 +630,7 @@ namespace NWR.Items
 
         public void GenCount()
         {
-            if (CLSID_Renamed == GlobalVars.iid_Arrow || CLSID_Renamed == GlobalVars.iid_Bolt) {
+            if (CLSID == GlobalVars.iid_Arrow || CLSID == GlobalVars.iid_Bolt) {
                 Count = (ushort)RandomHelper.GetBoundedRnd(2, 25);
             } else {
                 Count = 1;
@@ -676,7 +675,7 @@ namespace NWR.Items
         {
             string result = "";
 
-            if (CLSID_Renamed == GlobalVars.iid_DeadBody || CLSID_Renamed == GlobalVars.iid_Mummy) {
+            if (CLSID == GlobalVars.iid_DeadBody || CLSID == GlobalVars.iid_Mummy) {
                 if (Contents.Count == 1) {
                     NWCreature mon = (NWCreature)Contents.GetItem(0);
                     string dbstr;
@@ -697,17 +696,17 @@ namespace NWR.Items
                     }
                 } else {
                     if (fIdentified && !uncondUnknown) {
-                        if (CLSID_Renamed == GlobalVars.iid_Ring_Delusion) {
+                        if (CLSID == GlobalVars.iid_Ring_Delusion) {
                             if (Bonus > 0) {
                                 result = GlobalVars.nwrDB.GetEntry(Bonus).Name;
                             } else {
                                 result = fEntry.Name;
                             }
                         } else {
-                            if (CLSID_Renamed == GlobalVars.iid_SoulTrapping_Ring && Bonus > 0) {
+                            if (CLSID == GlobalVars.iid_SoulTrapping_Ring && Bonus > 0) {
                                 result = fEntry.Name + " (" + ((CreatureEntry)GlobalVars.nwrDB.GetEntry(Bonus)).Name + ")";
                             } else {
-                                if (CLSID_Renamed == GlobalVars.iid_Ring_Protection) {
+                                if (CLSID == GlobalVars.iid_Ring_Protection) {
                                     result = fEntry.Name + " (" + Convert.ToString(Bonus) + "%)";
                                 } else {
                                     if (Kind == ItemKind.ik_Wand) {
@@ -723,7 +722,7 @@ namespace NWR.Items
                     }
                 }
 
-                if (CLSID_Renamed != GlobalVars.iid_Coin) {
+                if (CLSID != GlobalVars.iid_Coin) {
                     result += StateSym;
                 }
             }
@@ -826,7 +825,7 @@ namespace NWR.Items
             if (Countable && Count != 1 && aCount < (int)Count) {
                 Count = (ushort)(Count - aCount);
                 Result = new Item(fSpace, null);
-                Result.CLSID = CLSID_Renamed;
+                Result.CLSID = CLSID;
                 Result.Count = (ushort)aCount;
                 Result.Identified = Identified;
             }
@@ -1050,5 +1049,4 @@ namespace NWR.Items
             return res;
         }
     }
-
 }

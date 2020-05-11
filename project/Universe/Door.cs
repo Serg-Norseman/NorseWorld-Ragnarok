@@ -20,14 +20,17 @@
 
 namespace NWR.Universe
 {
+    public enum DoorState
+    {
+        Closed,
+        Opened
+    }
+
     public sealed class Door
     {
-        public const int STATE_CLOSED = 0;
-        public const int STATE_OPENED = 1;
-
         public int X;
         public int Y;
         public int Dir;
-        public int State;
+        public DoorState State;
     }
 }

@@ -22,7 +22,6 @@ using System;
 using System.IO;
 using System.Xml;
 using BSLib;
-using NWR.Core;
 using NWR.Game;
 using ZRLib.Core;
 

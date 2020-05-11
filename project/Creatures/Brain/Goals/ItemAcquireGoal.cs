@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -36,7 +36,7 @@ namespace NWR.Creatures.Brain.Goals
             NWCreature self = (NWCreature)Self;
             ExtPoint iPos = Position;
 
-            if (self.IsSeen(iPos.X, iPos.Y, true) && !(self.CurrentMap.FindItem(iPos.X, iPos.Y) is Item)) {
+            if (self.IsSeen(iPos.X, iPos.Y, true) && !(self.CurrentField.FindItem(iPos.X, iPos.Y) is Item)) {
                 IsComplete = true;
             } else {
                 if (MathHelper.Distance(self.Location, iPos) == 0) {
@@ -53,5 +53,4 @@ namespace NWR.Creatures.Brain.Goals
             }
         }
     }
-
 }

@@ -19,10 +19,9 @@
  */
 
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
 using NWR.Creatures;
 using NWR.Game;
+using NWR.Game.Types;
 using NWR.Universe;
 using ZRLib.Core;
 
@@ -47,7 +46,7 @@ namespace NWR.Effects.Rays
             } else {
                 NWCreature c = (NWCreature)f.FindCreature(aX, aY);
                 if (c != null && c.HasAffect(EffectID.eid_Flaying)) {
-                    c.ApplyDamage(RandomHelper.GetBoundedRnd(13, 36), DamageKind.dkRadiation, null, BaseLocale.Format(RS.rs_TheXIsMelted, new object[]{ c.Name }));
+                    c.ApplyDamage(RandomHelper.GetBoundedRnd(13, 36), DamageKind.Radiation, null, BaseLocale.Format(RS.rs_TheXIsMelted, new object[]{ c.Name }));
                 }
             }
         }

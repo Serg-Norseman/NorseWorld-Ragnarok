@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -21,8 +21,7 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Core;
-using NWR.Core.Types;
+using NWR.Game.Types;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Effects;
@@ -60,6 +59,13 @@ namespace NWR.Game
             }
         }
 
+        public override bool IsPlayer
+        {
+            get {
+                return true;
+            }
+        }
+
         public Memory Memory
         {
             get {
@@ -67,12 +73,86 @@ namespace NWR.Game
             }
         }
 
+        public override bool Mercenary
+        {
+            get {
+                return false;
+            }
+        }
+
+        public override Movements Movements
+        {
+            get {
+                Movements result = base.Movements;
+    
+                if (GlobalVars.Debug_Fly) {
+                    result.Include(Movements.mkFly);
+                }
+                if (GlobalVars.Debug_Swim) {
+                    result.Include(Movements.mkSwim);
+                }
+    
+                return result;
+            }
+        }
+
+        public short Satiety
+        {
+            get {
+                return fSatiety;
+            }
+            set {
+                if (fSatiety != value) {
+                    if ((int)value > SatietyMax) {
+                        fSatiety = (short)SatietyMax;
+                    } else {
+                        fSatiety = value;
+                    }
+                }
+            }
+        }
+
+        public override byte SerializeKind
+        {
+            get {
+                return 0;
+            }
+        }
+
+        public override byte Survey
+        {
+            get {
+                DayTime dayTime = Space.DayTime;
+                int bonus;
+                if (dayTime < DayTime.dt_DayFH || dayTime >= DayTime.dt_Dusk) {
+                    bonus = (int)LightRadius;
+                } else {
+                    bonus = 0;
+                }
+    
+                NWField fld = CurrentField;
+                float f;
+                if (fld != null) {
+                    if (fld.Dark) {
+                        f = 0.33f;
+                    } else {
+                        var dt = GameTime.DayTimes[(int)Space.DayTime];
+                        f = dt.RadMod;
+                    }
+                } else {
+                    f = 1f;
+                }
+    
+                return (byte)((Math.Round(((int)base.Survey * f))) + bonus);
+            }
+        }
+
         public string DeathReason;
         public int DivinePatron;
         public NWField HalMap;
+        public int LandID;
         public sbyte Morality;
 
-        public int LandID;
 
         public Player(NWGameSpace space, object owner)
             : base(space, owner)
@@ -101,7 +181,7 @@ namespace NWR.Game
         {
             int rad = (int)LightRadius;
             if (rad > 0) {
-                CreaturesList crList = ((NWField)CurrentMap).Creatures;
+                CreaturesList crList = CurrentField.Creatures;
                 int num = crList.Count;
                 for (int i = 0; i < num; i++) {
                     NWCreature cr = crList.GetItem(i);
@@ -113,23 +193,6 @@ namespace NWR.Game
                 // TODO: message for player: \"The light burns you!\"
             }
         }
-
-        public short Satiety
-        {
-            get {
-                return fSatiety;
-            }
-            set {
-                if (fSatiety != value) {
-                    if ((int)value > SatietyMax) {
-                        fSatiety = (short)SatietyMax;
-                    } else {
-                        fSatiety = value;
-                    }
-                }
-            }
-        }
-
 
         /// <summary>
         /// Attack the enemy using chosen weapon. </summary>
@@ -153,64 +216,6 @@ namespace NWR.Game
             }
         }
 
-        public override bool Mercenary
-        {
-            get {
-                return false;
-            }
-        }
-
-        public override Movements Movements
-        {
-            get {
-                Movements result = base.Movements;
-    
-                if (GlobalVars.Debug_Fly) {
-                    result.Include(Movements.mkFly);
-                }
-                if (GlobalVars.Debug_Swim) {
-                    result.Include(Movements.mkSwim);
-                }
-    
-                return result;
-            }
-        }
-
-        public override byte SerializeKind
-        {
-            get {
-                return 0;
-            }
-        }
-
-        public override byte Survey
-        {
-            get {
-                DayTime dayTime = Space.DayTime;
-                int bonus;
-                if (dayTime < DayTime.dt_DayFH || dayTime >= DayTime.dt_Dusk) {
-                    bonus = (int)LightRadius;
-                } else {
-                    bonus = 0;
-                }
-    
-                NWField fld = (NWField)CurrentMap;
-                float f;
-                if (fld != null) {
-                    if (fld.Dark) {
-                        f = 0.33f;
-                    } else {
-                        var dt = GameTime.DayTimes[(int)Space.DayTime];
-                        f = dt.RadMod;
-                    }
-                } else {
-                    f = 1f;
-                }
-    
-                return (byte)((Math.Round(((int)base.Survey * f))) + bonus);
-            }
-        }
-
         protected override void InitBody()
         {
             base.InitBody();
@@ -231,8 +236,8 @@ namespace NWR.Game
             if (fBrain is LeaderBrain) {
                 LeaderBrain leader = ((LeaderBrain)fBrain);
 
-                for (int i = leader.MembersCount - 1; i >= 1; i--) {
-                    CreatureEntity member = leader.GetMember(i);
+                for (int i = leader.Members.Count - 1; i >= 1; i--) {
+                    CreatureEntity member = leader.Members[i];
                     ((NWCreature)member).IsMercenary = false;
                 }
             }
@@ -295,7 +300,7 @@ namespace NWR.Game
 
                 fSatiety -= 1;
 
-                NWField map = (NWField)CurrentMap;
+                NWField map = CurrentField;
                 if (Hallucinations) {
                     PrepareHallucinations();
                 }
@@ -316,7 +321,7 @@ namespace NWR.Game
                         rest = 0;
                         for (int i = members.Count - 1; i >= 0; i--) {
                             NWCreature cr = (NWCreature)members.GetItem(i);
-                            if (cr.State != CreatureState.csDead) {
+                            if (cr.State != CreatureState.Dead) {
 
                                 Effect ef1 = cr.Effects.FindEffectByID(EffectID.eid_Sail);
                                 if (ef1 == null) {
@@ -397,43 +402,39 @@ namespace NWR.Game
             }
         }
 
-        public string MoralityName
+        public string GetMoralityName()
         {
-            get {
-                string result = "";
-                if (Morality >= 50) {
-                    result = BaseLocale.GetStr(RS.rs_MoralityHigh);
+            string result = "";
+            if (Morality >= 50) {
+                result = BaseLocale.GetStr(RS.rs_MoralityHigh);
+            } else {
+                if (Morality < 50) {
+                    result = BaseLocale.GetStr(RS.rs_MoralityAverage);
                 } else {
-                    if (Morality < 50) {
-                        result = BaseLocale.GetStr(RS.rs_MoralityAverage);
+                    if (Morality <= 0) {
+                        result = BaseLocale.GetStr(RS.rs_MoralityLow);
                     } else {
-                        if (Morality <= 0) {
-                            result = BaseLocale.GetStr(RS.rs_MoralityLow);
-                        } else {
-                            if (Morality <= -50) {
-                                result = BaseLocale.GetStr(RS.rs_MoralityAbsent);
-                            }
+                        if (Morality <= -50) {
+                            result = BaseLocale.GetStr(RS.rs_MoralityAbsent);
                         }
                     }
                 }
-                return result;
             }
+            return result;
         }
 
-        public int ScrollsCount
+        public int GetScrollsCount()
         {
-            get {
-                int result = 0;
+            int result = 0;
     
-                int num = Items.Count;
-                for (int i = 0; i < num; i++) {
-                    if (Items.GetItem(i).Kind == ItemKind.ik_Scroll) {
-                        result++;
-                    }
+            int num = Items.Count;
+            for (int i = 0; i < num; i++) {
+                if (Items.GetItem(i).Kind == ItemKind.ik_Scroll) {
+                    result++;
                 }
-    
-                return result;
             }
+
+            return result;
         }
 
         public override void Init(int creatureID, bool total, bool setName)
@@ -445,11 +446,11 @@ namespace NWR.Game
                 fSatiety = 2250;
                 Morality = 100;
 
-                if (CLSID_Renamed == GlobalVars.cid_Conjurer) {
+                if (CLSID == GlobalVars.cid_Conjurer) {
                     MPMax = 5;
                     MPCur = 5;
                     SetSkill(SkillID.Sk_Spellcasting, 1);
-                } else if (CLSID_Renamed == GlobalVars.cid_Woodsman) {
+                } else if (CLSID == GlobalVars.cid_Woodsman) {
                     SetAbility(AbilityID.Ab_LongBow, 50);
                     SetAbility(AbilityID.Ab_CrossBow, 30);
                 }
@@ -553,13 +554,6 @@ namespace NWR.Game
             } catch (Exception ex) {
                 Logger.Write("Player.init(): " + ex.Message);
                 throw ex;
-            }
-        }
-
-        public override bool IsPlayer
-        {
-            get {
-                return true;
             }
         }
 
@@ -844,7 +838,7 @@ namespace NWR.Game
                     ((LeaderBrain)fBrain).Dir = LastDir;
                 }
 
-                AbstractMap fld = CurrentMap;
+                AbstractMap fld = CurrentField;
                 FOV.FOV_Prepare(fld, false);
                 if (Effects.FindEffectByID(EffectID.eid_Blindness) == null && !InFog) {
                     int dir;
@@ -906,7 +900,7 @@ namespace NWR.Game
              }*/
 
             SourceForm sf = new SourceForm(this);
-            sf.SfID = CLSID_Renamed;
+            sf.SfID = CLSID;
             fMemory.Add("SourceForm", sf);
         }
 
@@ -948,9 +942,9 @@ namespace NWR.Game
                     {
                         SetAbility((AbilityID)id, curLev + 1);
 
-                        int num2 = party.MembersCount;
+                        int num2 = party.Members.Count;
                         for (int i = 1; i < num2; i++) {
-                            NWCreature j = (NWCreature)party.GetMember(i);
+                            NWCreature j = party.Members[i];
                             j.SetAbility((AbilityID)id, curLev + 1);
                         }
                     }
@@ -960,9 +954,9 @@ namespace NWR.Game
                     {
                         SetSkill((SkillID)id, curLev + 1);
 
-                        int num = party.MembersCount;
+                        int num = party.Members.Count;
                         for (int i = 1; i < num; i++) {
-                            NWCreature j = (NWCreature)party.GetMember(i);
+                            NWCreature j = party.Members[i];
                             j.SetSkill((SkillID)id, curLev + 1);
                         }
                     }
@@ -995,9 +989,9 @@ namespace NWR.Game
                 if (partyMove) {
                     try {
                         LeaderBrain party = (LeaderBrain)fBrain;
-                        int num = party.MembersCount;
+                        int num = party.Members.Count;
                         for (int i = 1; i < num; i++) {
-                            NWCreature member = (NWCreature)party.GetMember(i);
+                            NWCreature member = party.Members[i];
 
                             ExtPoint pt = member.GetNearestPlace(Location, 4, true);
                             if (!pt.IsEmpty) {
@@ -1029,7 +1023,7 @@ namespace NWR.Game
 
         public void WaitTurn()
         {
-            AbstractMap fld = CurrentMap;
+            AbstractMap fld = CurrentField;
 
             FOV.FOV_Prepare(fld, false);
             if (Effects.FindEffectByID(EffectID.eid_Blindness) == null) {
@@ -1049,5 +1043,4 @@ namespace NWR.Game
             }
         }
     }
-
 }

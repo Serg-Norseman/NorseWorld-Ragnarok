@@ -19,8 +19,8 @@
  */
 
 using BSLib;
-using NWR.Core.Types;
 using NWR.Creatures;
+using NWR.Game.Types;
 using NWR.Universe;
 
 namespace NWR.Effects.Rays
