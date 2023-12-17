@@ -32,7 +32,7 @@ namespace NWR.GUI
 {
     public sealed class SmithyWindow : NWWindow
     {
-        private readonly EntityList fIngredients;
+        private readonly EntityList<Item> fIngredients;
         private readonly ListBox fIngredientsList;
         private readonly ListBox fPackList;
         private readonly ListBox fResList;
@@ -74,11 +74,11 @@ namespace NWR.GUI
             fIngredientsList.Items.Clear();
             fResList.Items.Clear();
 
-            EntityList items = GlobalVars.nwrGame.Player.Items;
+            var items = GlobalVars.nwrGame.Player.Items;
             MaterialKind mat = MaterialKind.mk_None;
             int num = items.Count;
             for (int i = 0; i < num; i++) {
-                Item item = (Item)items.GetItem(i);
+                Item item = items[i];
                 mat = item.Entry.Material;
                 if (mat != MaterialKind.mk_None && fIngredients.FindByGUID(item.UID) == null) {
                     AddListItem(fPackList, GetItemFullName(item), item, true);
@@ -87,7 +87,7 @@ namespace NWR.GUI
 
             int num2 = fIngredients.Count;
             for (int i = 0; i < num2; i++) {
-                Item item = (Item)fIngredients.GetItem(i);
+                Item item = fIngredients[i];
                 AddListItem(fIngredientsList, GetItemFullName(item), item, true);
             }
 
@@ -169,7 +169,8 @@ namespace NWR.GUI
         {
             int idx = fIngredientsList.SelIndex;
             if (source.Equals(fIngredientsList) && idx >= 0 && idx < fIngredientsList.Items.Count) {
-                fIngredients.Remove((GameEntity)((fIngredientsList.Items.GetItem(idx).Data is GameEntity) ? fIngredientsList.Items.GetItem(idx).Data : null));
+                var item = fIngredientsList.Items.GetItem(idx).Data as Item;
+                fIngredients.Remove(item);
                 UpdateView();
             }
         }
@@ -315,7 +316,7 @@ namespace NWR.GUI
             btnClose.LangResID = 8;
             btnClose.ImageFile = "itf/DlgBtn.tga";
 
-            fIngredients = new EntityList(null, false);
+            fIngredients = new EntityList<Item>(null);
         }
 
         protected override void Dispose(bool disposing)

@@ -172,7 +172,7 @@ namespace NWR.Game
 
             int sacrificeValue;
             if (item.CLSID == GlobalVars.iid_DeadBody) {
-                NWCreature victim = (NWCreature)item.Contents.GetItem(0);
+                NWCreature victim = (NWCreature)item.Contents[0];
                 sacrificeValue = victim.Level;
                 if (victim.Alignment.GetGE() == god.Alignment.GetGE()) {
                     sacrificeValue = -sacrificeValue;
@@ -262,7 +262,7 @@ namespace NWR.Game
 
                                 int num2 = fPlayer.Items.Count;
                                 for (int i = 0; i < num2; i++) {
-                                    fPlayer.Items.GetItem(i).State = ItemState.is_Cursed;
+                                    fPlayer.Items[i].State = ItemState.is_Cursed;
                                 }
                             }
                             break;
@@ -352,8 +352,8 @@ namespace NWR.Game
                     if (fPlayer.HPCur > 0) {
                         ShowText(Locale.GetStr(RS.rs_YouAreWreathedInCloudsOfSmoke));
                         for (int i = fPlayer.Items.Count - 1; i >= 0; i--) {
-                            if (fPlayer.Items.GetItem(i).State == ItemState.is_Blessed) {
-                                fPlayer.DeleteItem(fPlayer.Items.GetItem(i));
+                            if (fPlayer.Items[i].State == ItemState.is_Blessed) {
+                                fPlayer.DeleteItem(fPlayer.Items[i]);
                             }
                         }
                         ShowText(Locale.GetStr(RS.rs_YouFeelSurtrBlackHand));

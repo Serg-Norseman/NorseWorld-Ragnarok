@@ -342,7 +342,7 @@ namespace NWR.Universe
                 }
 
                 int idx = StreamUtils.ReadInt(stream);
-                Holder = ((idx == -1) ? null : (CreatureEntity)((NWField)Owner).Creatures.GetItem(idx));
+                Holder = ((idx == -1) ? null : (CreatureEntity)((NWField)Owner).Creatures[idx]);
             } catch (Exception ex) {
                 Logger.Write("Building.loadFromStream(): " + ex.Message);
                 throw ex;
@@ -365,7 +365,7 @@ namespace NWR.Universe
                     StreamUtils.WriteByte(stream, (byte)dr.State);
                 }
 
-                int idx = ((Holder == null) ? -1 : ((NWField)Owner).Creatures.IndexOf(Holder));
+                int idx = ((Holder == null) ? -1 : ((NWField)Owner).Creatures.IndexOf((NWCreature)Holder));
                 StreamUtils.WriteInt(stream, idx);
             } catch (Exception ex) {
                 Logger.Write("Building.saveToStream(): " + ex.Message);

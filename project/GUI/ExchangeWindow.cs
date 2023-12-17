@@ -72,7 +72,7 @@ namespace NWR.GUI
 
             int num = pack.Count;
             for (int i = 0; i < num; i++) {
-                Item item = pack.GetItem(i);
+                Item item = pack[i];
                 string nm = item.Name;
                 if (item.InUse) {
                     nm += " (*)";
@@ -84,7 +84,7 @@ namespace NWR.GUI
 
             int num2 = pack.Count;
             for (int i = 0; i < num2; i++) {
-                Item item = pack.GetItem(i);
+                Item item = pack[i];
                 string nm = item.Name;
                 if (item.InUse) {
                     nm += " (*)";

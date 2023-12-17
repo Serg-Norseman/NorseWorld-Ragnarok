@@ -594,9 +594,9 @@ namespace NWR.Game
         {
             try {
                 for (int i = List.Count - 1; i >= 0; i--) {
-                    Item item = List.GetItem(i);
+                    Item item = List[i];
                     if (item.CLSID == GlobalVars.iid_DeadBody) {
-                        NWCreature creature = (NWCreature)item.Contents.GetItem(0);
+                        NWCreature creature = (NWCreature)item.Contents[0];
                         creature.IncTurn();
 
                         CreatureEntry entry = creature.Entry;
@@ -1979,14 +1979,14 @@ namespace NWR.Game
 
                 if (!GlobalVars.Debug_Freeze) {
                     for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
-                        fld.Creatures.GetItem(i).ResetStamina();
+                        fld.Creatures[i].ResetStamina();
                     }
 
                     int rest;
                     do {
                         rest = 0;
                         for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
-                            NWCreature cr = fld.Creatures.GetItem(i);
+                            NWCreature cr = fld.Creatures[i];
                             if (!cr.IsPlayer && cr.State != CreatureState.Dead) {
                                 cr.DoTurn();
 
@@ -1997,7 +1997,7 @@ namespace NWR.Game
                         }
 
                         for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
-                            NWCreature cr = fld.Creatures.GetItem(i);
+                            NWCreature cr = fld.Creatures[i];
                             if (!cr.Equals(fPlayer) && cr.State == CreatureState.Dead) {
                                 cr = (NWCreature)fld.Creatures.Extract(cr);
 
@@ -2037,7 +2037,7 @@ namespace NWR.Game
 
         public NWCreature RespawnDeadBody(NWField field, ExtPoint pos, Item deadBody)
         {
-            NWCreature cr = (NWCreature)deadBody.Contents.GetItem(0);
+            NWCreature cr = (NWCreature)deadBody.Contents[0];
 
             ExtPoint rpt;
             if (field.FindCreature(pos.X, pos.Y) == null) {
@@ -2196,7 +2196,7 @@ namespace NWR.Game
                             }
                         }
 
-                        ExtList<LocatedEntity> its = fld.Items.SearchListByPos(aX, aY);
+                        var its = fld.Items.SearchListByPos(aX, aY);
                         if (its != null && (!unseen || (unseen & pnear))) {
                             if (s.CompareTo("") != 0 && its.Count > 0) {
                                 s += "; ";

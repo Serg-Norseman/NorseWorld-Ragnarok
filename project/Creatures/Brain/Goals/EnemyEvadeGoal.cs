@@ -39,7 +39,7 @@ namespace NWR.Creatures.Brain.Goals
         {
             NWCreature self = (NWCreature)Self;
 
-            bool ex = (self.CurrentField).Creatures.IndexOf(Enemy) >= 0;
+            bool ex = (self.CurrentField).Creatures.IndexOf((NWCreature)Enemy) >= 0;
 
             if (ex) {
                 if (!CanMove) {

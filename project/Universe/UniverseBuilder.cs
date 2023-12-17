@@ -1473,7 +1473,7 @@ namespace NWR.Universe
 
                 int num = field.Features.Count;
                 for (int i = 0; i < num; i++) {
-                    GameEntity entry = field.Features.GetItem(i);
+                    GameEntity entry = field.Features[i];
                     if (entry is Building) {
                         ((Building)entry).Prepare();
                     }

@@ -81,7 +81,7 @@ namespace NWR.GUI
 
                 int num = fld.Creatures.Count;
                 for (int i = 0; i < num; i++) {
-                    NWCreature j = fld.Creatures.GetItem(i);
+                    NWCreature j = fld.Creatures[i];
                     if (j.CLSID == GlobalVars.cid_Guardsman && !j.Mercenary) {
                         AddCandidate(j);
                     }

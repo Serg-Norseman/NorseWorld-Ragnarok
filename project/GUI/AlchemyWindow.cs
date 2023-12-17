@@ -40,11 +40,11 @@ namespace NWR.GUI
 
         private void OnBtnAlchemy(object sender)
         {
-            EntityList ingredients = new EntityList(null, false);
+            var ingredients = new EntityList<Item>(null);
             try {
                 int num = fIngredientsList.Items.Count;
                 for (int i = 0; i < num; i++) {
-                    GameEntity ing = (GameEntity)fIngredientsList.Items.GetItem(i).Data;
+                    var ing = (Item)fIngredientsList.Items.GetItem(i).Data;
                     ingredients.Add(ing);
                 }
 
@@ -66,10 +66,10 @@ namespace NWR.GUI
             fIngredientsList.Items.Clear();
             fResList.Items.Clear();
 
-            EntityList items = GlobalVars.nwrGame.Player.Items;
+            var items = GlobalVars.nwrGame.Player.Items;
             int num = items.Count;
             for (int i = 0; i < num; i++) {
-                Item item = (Item)items.GetItem(i);
+                Item item = items[i];
                 if (item.Ingredient) {
                     AddListItem(fPackList, item.Name, item, false);
                 }

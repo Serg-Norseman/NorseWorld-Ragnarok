@@ -111,7 +111,7 @@ namespace NWR.GUI
 
             int num = GlobalVars.nwrGame.Player.Effects.Count;
             for (int i = 0; i < num; i++) {
-                fDiagnosisCtl.Items.Add(GlobalVars.nwrGame.Player.Effects.GetItem(i).Name, null);
+                fDiagnosisCtl.Items.Add(GlobalVars.nwrGame.Player.Effects[i].Name, null);
             }
 
             StringList body_diag = new StringList();

@@ -383,7 +383,7 @@ namespace NWR.GUI
 
                         int num = fld.Items.Count;
                         for (int i = 0; i < num; i++) {
-                            Item it = fld.Items.GetItem(i);
+                            Item it = fld.Items[i];
                             if (it.PosX == X && it.PosY == Y) {
                                 int idx = it.ImageIndex;
                                 BaseImage img = Resources.GetImage(idx);
@@ -799,7 +799,7 @@ namespace NWR.GUI
         {
             int num1 = field.Creatures.Count;
             for (int i = 0; i < num1; i++) {
-                NWCreature creature = field.Creatures.GetItem(i);
+                NWCreature creature = field.Creatures[i];
                 int px = creature.PosX;
                 int py = creature.PosY;
 
@@ -824,7 +824,7 @@ namespace NWR.GUI
 
             int num = field.Items.Count;
             for (int i = 0; i < num; i++) {
-                Item item = field.Items.GetItem(i);
+                Item item = field.Items[i];
                 int px = item.PosX;
                 int py = item.PosY;
 
@@ -863,10 +863,10 @@ namespace NWR.GUI
         {
             Player player = fGameSpace.Player;
 
-            EntityList features = field.Features;
+            var features = field.Features;
             int num = features.Count;
             for (int i = 0; i < num; i++) {
-                GameEntity he = features.GetItem(i);
+                GameEntity he = features[i];
 
                 if (he is MapObject) {
                     MapObject mf = (MapObject)he;
@@ -890,9 +890,9 @@ namespace NWR.GUI
             Player player = fGameSpace.Player;
             NWField field = player.CurrentField;
 
-            EntityList features = field.Features;
+            var features = field.Features;
             for (int i = features.Count - 1; i >= 0; i--) {
-                GameEntity he = features.GetItem(i);
+                GameEntity he = features[i];
 
                 if (he is MapObject) {
                     MapObject mf = (MapObject)he;
@@ -2507,7 +2507,7 @@ namespace NWR.GUI
                     bool res = sender.Equals(this) || sender.Equals(fGameSpace.Player) || (sender is NWCreature && fGameSpace.Player.IsAvailable((NWCreature)sender, true));
                     if (res) {
                         string temp = text;
-                        temp = ConvertHelper.UniformName(temp);
+                        temp = StringHelper.UniformName(temp);
 
                         string resText = "   " + temp;
                         fTextBox.Lines.Add(resText);

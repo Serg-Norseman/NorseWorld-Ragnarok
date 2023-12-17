@@ -23,19 +23,14 @@ using ZRLib.Core;
 
 namespace NWR.Effects
 {
-    public sealed class EffectsList : EntityList
+    public sealed class EffectsList : EntityList<Effect>
     {
         public EffectsList(object owner, bool ownsObjects)
-            : base(owner, ownsObjects)
+            : base(owner)
         {
         }
 
-        public new Effect GetItem(int index)
-        {
-            return (Effect)base.GetItem(index);
-        }
-
-        public int Add(Effect effect)
+        public override int Add(Effect effect)
         {
             Effect ef = FindEffectByID((EffectID)effect.CLSID);
             int result;
@@ -52,7 +47,7 @@ namespace NWR.Effects
         {
             int num = Count;
             for (int i = 0; i < num; i++) {
-                Effect ef = GetItem(i);
+                Effect ef = this[i];
                 if (ef.CLSID == (int)eid) {
                     return ef;
                 }
@@ -65,7 +60,7 @@ namespace NWR.Effects
         {
             int num = Count;
             for (int i = 0; i < num; i++) {
-                if (GetItem(i).Source == source) {
+                if (this[i].Source == source) {
                     return i;
                 }
             }
@@ -77,7 +72,7 @@ namespace NWR.Effects
         {
             try {
                 for (int i = Count - 1; i >= 0; i--) {
-                    Effect eff = GetItem(i);
+                    Effect eff = this[i];
 
                     eff.Execute();
 
@@ -99,7 +94,7 @@ namespace NWR.Effects
                                 // e_Prowling has change effects list, 
                                 // so we need check current effect
                                 // its hack and bad code!
-                                if (GetItem(i) == eff) {
+                                if (this[i] == eff) {
                                     Delete(i);
                                 }
                             }
@@ -109,16 +104,6 @@ namespace NWR.Effects
             } catch (Exception ex) {
                 Logger.Write("EffectsList.execute(): " + ex.Message);
             }
-        }
-
-        public override void Delete(int index)
-        {
-            base.Delete(index);
-        }
-
-        public override int Remove(GameEntity entity)
-        {
-            return base.Remove(entity);
         }
     }
 }

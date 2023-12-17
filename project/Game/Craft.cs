@@ -71,7 +71,7 @@ namespace NWR.Game
             fPlayer.Space.ShowText(text);
         }
 
-        private static int FindAlchemyResult(EntityList ingredients, EntityList ready, ref bool refExact)
+        private static int FindAlchemyResult(EntityList<Item> ingredients, EntityList<Item> ready, ref bool refExact)
         {
             for (int i = 1; i < dbRecipes.Length; i++) {
                 RecipeRec recipe = dbRecipes[i];
@@ -91,7 +91,7 @@ namespace NWR.Game
 
                     if (f == '_') {
                         Item item = (Item)ingredients.FindByCLSID(GlobalVars.iid_DeadBody);
-                        NWCreature db = (NWCreature)item.Contents.GetItem(0);
+                        NWCreature db = (NWCreature)item.Contents[0];
                         if (db.Entry.Sign.CompareTo(tok) == 0) {
                             finded++;
                             ready.Add(item);
@@ -116,7 +116,7 @@ namespace NWR.Game
             return -1;
         }
 
-        public Item Alchemy(EntityList ingredients)
+        public Item Alchemy(EntityList<Item> ingredients)
         {
             Item result = null;
 
@@ -132,13 +132,13 @@ namespace NWR.Game
                         return null;
                     } else {
                         //int alchemySkill = this.getSkill(TSkillID.Sk_Alchemy);
-                        EntityList ready = new EntityList(null, false);
+                        EntityList<Item> ready = new EntityList<Item>(null);
                         try {
                             bool exact = false;
                             int rec = FindAlchemyResult(ingredients, ready, ref exact);
 
                             if (rec >= 0) {
-                                EntityList list;
+                                EntityList<Item> list;
                                 string p;
 
                                 if (exact) {
@@ -151,7 +151,7 @@ namespace NWR.Game
 
                                 int num = list.Count;
                                 for (int i = 0; i < num; i++) {
-                                    Item item = (Item)list.GetItem(i);
+                                    Item item = list[i];
                                     ItemKind kind = item.Kind;
                                     if (kind == ItemKind.ik_Potion) {
                                         item.State = ItemState.is_Normal;
@@ -197,7 +197,7 @@ namespace NWR.Game
             fPlayer.Items.Add(res, res.Countable);
         }
 
-        public int CheckForgeIngredients(EntityList ingredients, ref float  sum, ref MaterialKind  mat)
+        public int CheckForgeIngredients(EntityList<Item> ingredients, ref float  sum, ref MaterialKind  mat)
         {
             sum = 0f;
             mat = MaterialKind.mk_None;
@@ -207,7 +207,7 @@ namespace NWR.Game
 
             int num = ingredients.Count;
             for (int i = 0; i < num; i++) {
-                Item item = (Item)ingredients.GetItem(i);
+                Item item = ingredients[i];
                 sum = sum + item.Weight;
 
                 if (mat == MaterialKind.mk_None) {
@@ -222,7 +222,7 @@ namespace NWR.Game
             return RC_Ok;
         }
 
-        public int ForgeItem(EntityList ingredients, int itemID)
+        public int ForgeItem(EntityList<Item> ingredients, int itemID)
         {
             float sum = 0F;
             MaterialKind i = MaterialKind.mk_None;
@@ -235,7 +235,7 @@ namespace NWR.Game
             } else {
                 int num = ingredients.Count;
                 for (int j = 0; j < num; j++) {
-                    Item item = (Item)ingredients.GetItem(j);
+                    Item item = ingredients[j];
                     fPlayer.DeleteItem(item);
                 }
 

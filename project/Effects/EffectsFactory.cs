@@ -93,7 +93,7 @@ namespace NWR.Effects
             }
 
             ExtRect r = ExtRect.Create(creature.PosX - 1, creature.PosY - 1, creature.PosX + 1, creature.PosY + 1);
-            ExtList<LocatedEntity> list = creature.CurrentField.Creatures.SearchListByArea(r);
+            var list = creature.CurrentField.Creatures.SearchListByArea(r);
 
             int num = list.Count;
             for (int i = 0; i < num; i++) {
@@ -291,7 +291,7 @@ namespace NWR.Effects
             if (creature.Confused) {
                 int num = creature.Items.Count;
                 for (int idx = 0; idx < num; idx++) {
-                    Item item = creature.Items.GetItem(idx);
+                    Item item = creature.Items[idx];
                     AuxUtils.ExStub("todo: //if (aExtItem = aItem) then Continue; вставить везде");
                     if (AuxUtils.Chance(60) && state != ItemState.is_Cursed) {
                         IntBlessing(creature, item);
@@ -427,7 +427,7 @@ namespace NWR.Effects
                     {
                         // none original messages
                         while (creature.Items.Count > 0) {
-                            Item aExtItem = creature.Items.GetItem(0);
+                            Item aExtItem = creature.Items[0];
                             creature.Items.Extract(aExtItem);
                             aExtItem.InUse = false;
 
@@ -697,7 +697,7 @@ namespace NWR.Effects
                 GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_ScrollWasDestroyAllItems));
                 for (int i = list.Count - 1; i >= 0; i--) {
                     if (AuxUtils.Chance(45)) {
-                        Item item = list.GetItem(i);
+                        Item item = list[i];
                         item.InUse = false;
                         list.Remove(item);
                     }
@@ -757,7 +757,7 @@ namespace NWR.Effects
 
             int num = fld.Creatures.Count;
             for (int i = 0; i < num; i++) {
-                NWCreature creat = fld.Creatures.GetItem(i);
+                NWCreature creat = fld.Creatures[i];
                 if (!creat.Equals(creature)) {
                     int dist = MathHelper.Distance(creature.Location, creat.Location);
                     if (dist == 1) {
@@ -853,7 +853,7 @@ namespace NWR.Effects
 
             int num = creature.Items.Count;
             for (int idx = 0; idx < num; idx++) {
-                Item item = creature.Items.GetItem(idx);
+                Item item = creature.Items[idx];
                 if (confused) {
                     item.State = ItemState.is_Cursed;
                 } else {
@@ -929,7 +929,7 @@ namespace NWR.Effects
             if (aExtItem.CLSID != GlobalVars.iid_DeadBody) {
                 GlobalVars.nwrWin.ShowText(GlobalVars.nwrWin, BaseLocale.GetStr(RS.rs_ThisNotDeadbody));
             } else {
-                NWCreature mon = (NWCreature)aExtItem.Contents.GetItem(0);
+                NWCreature mon = (NWCreature)aExtItem.Contents[0];
                 aExtItem.CLSID = GlobalVars.iid_Mummy;
                 aExtItem.Weight = (((float)mon.Weight * 0.1f));
                 string cs = mon.GetDeclinableName(Number.nSingle, Case.cGenitive);
@@ -1189,7 +1189,7 @@ namespace NWR.Effects
             Item wand2 = null;
             int num = creature.Items.Count;
             for (int i = 0; i < num; i++) {
-                Item it = creature.Items.GetItem(i);
+                Item it = creature.Items[i];
 
                 if (it.Kind == ItemKind.ik_Wand && !it.Equals(wand)) {
                     wand2 = it;
@@ -1316,7 +1316,7 @@ namespace NWR.Effects
 
                 ItemsList list = creature.Items;
                 for (int i = list.Count - 1; i >= 0; i--) {
-                    Item it = list.GetItem(i);
+                    Item it = list[i];
                     if (it.Kind == ItemKind.ik_Scroll && AuxUtils.Chance(35)) {
                         list.Remove(it);
                         scrBurns = true;
@@ -1387,7 +1387,7 @@ namespace NWR.Effects
 
             if (creature.Confused) {
                 ExtRect r = ExtRect.Create(creature.PosX - 1, creature.PosY - 1, creature.PosX + 1, creature.PosY + 1);
-                ExtList<LocatedEntity> list = creature.CurrentField.Creatures.SearchListByArea(r);
+                var list = creature.CurrentField.Creatures.SearchListByArea(r);
 
                 int num = list.Count;
                 for (int i = 0; i < num; i++) {
@@ -1450,7 +1450,7 @@ namespace NWR.Effects
             }
 
             ExtRect r = ExtRect.Create(creature.PosX - 3, creature.PosY - 3, creature.PosX + 3, creature.PosY + 3);
-            ExtList<LocatedEntity> list = (creature.CurrentField).Creatures.SearchListByArea(r);
+            var list = (creature.CurrentField).Creatures.SearchListByArea(r);
 
             int num = list.Count;
             for (int i = 0; i < num; i++) {
@@ -1602,7 +1602,7 @@ namespace NWR.Effects
                     }
                 }
             } else {
-                NWCreature dead = (NWCreature)item.Contents.GetItem(0);
+                NWCreature dead = (NWCreature)item.Contents[0];
                 if (dead == null) {
                     throw new Exception("Assertion failure #1");
                 }
@@ -1807,7 +1807,7 @@ namespace NWR.Effects
                 bool brk = false;
                 int num = list.Count;
                 for (int i = 0; i < num; i++) {
-                    Item it = list.GetItem(i);
+                    Item it = list[i];
                     if (it.Kind == ItemKind.ik_Potion && AuxUtils.Chance(51)) {
                         list.Remove(it);
                         brk = true;
@@ -2069,7 +2069,7 @@ namespace NWR.Effects
             if (creature.Confused || state == ItemState.is_Cursed) {
                 int num = creature.Items.Count;
                 for (int i = 0; i < num; i++) {
-                    creature.Items.GetItem(i).Identified = false;
+                    creature.Items[i].Identified = false;
                 }
             } else {
                 if (state != ItemState.is_Normal) {
@@ -2078,7 +2078,7 @@ namespace NWR.Effects
 
                         int num2 = creature.Items.Count;
                         for (int i = 0; i < num2; i++) {
-                            creature.Items.GetItem(i).Identified = true;
+                            creature.Items[i].Identified = true;
                         }
                     }
                 } else {
@@ -2458,7 +2458,7 @@ namespace NWR.Effects
                 case 2:
                     {
                         int i = RandomHelper.GetRandom(creature.Items.Count);
-                        creature.DeleteItem(creature.Items.GetItem(i));
+                        creature.DeleteItem(creature.Items[i]);
                         AuxUtils.ExStub("todo: message");
                         break;
                     }
@@ -3189,7 +3189,7 @@ namespace NWR.Effects
                     {
                         int num = creature.Items.Count;
                         for (int i = 0; i < num; i++) {
-                            creature.Items.GetItem(i).State = ItemState.is_Cursed;
+                            creature.Items[i].State = ItemState.is_Cursed;
                         }
                         break;
                     }
@@ -3328,7 +3328,7 @@ namespace NWR.Effects
 
                 int num = creature.Items.Count;
                 for (int i = 0; i < num; i++) {
-                    Item item = creature.Items.GetItem(i);
+                    Item item = creature.Items[i];
                     if (item.Kind == ItemKind.ik_Wand || (item.Entry.Sign.Equals("BarbedWhip")) || (item.Entry.Sign.Equals("WoodenFlute"))) {
                         item.Bonus = 0;
                     }
@@ -3739,7 +3739,7 @@ namespace NWR.Effects
             if (creature.Confused) {
                 if (AuxUtils.Chance(93)) {
                     for (int i = field.Creatures.Count - 1; i >= 0; i--) {
-                        NWCreature cr = field.Creatures.GetItem(i);
+                        NWCreature cr = field.Creatures[i];
                         RaceID race = cr.Entry.Race;
                         if ((race == RaceID.crDefault || race == RaceID.crHuman) && !cr.Equals(creature)) {
                             int id = GlobalVars.dbLayers[RandomHelper.GetBoundedRnd(0, GlobalVars.dbLayers.Count - 1)];
@@ -3789,7 +3789,7 @@ namespace NWR.Effects
         public static void e_SwitchBodies(EffectID effectID, NWCreature creature, object source, ItemState state, InvokeMode invokeMode, EffectExt ext)
         {
             if (creature.IsPlayer) {
-                EntityList cs = creature.CurrentField.Creatures;
+                var cs = creature.CurrentField.Creatures;
 
                 if (cs.Count == 1) {
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_NoCreatureExists));
@@ -3801,7 +3801,7 @@ namespace NWR.Effects
 
                     int num = cs.Count;
                     for (int i = 0; i < num; i++) {
-                        NWCreature c = (NWCreature)cs.GetItem(i);
+                        NWCreature c = (NWCreature)cs[i];
 
                         RaceID race = c.Entry.Race;
                         if (race == RaceID.crDefault || race == RaceID.crHuman) {
@@ -4533,13 +4533,13 @@ namespace NWR.Effects
                 }
             }
 
-            EntityList cs = f.Creatures;
+            var cs = f.Creatures;
             for (int i = 0; i < cs.Count; i++) {
-                NWCreature creat = (NWCreature)cs.GetItem(i);
+                NWCreature creat = (NWCreature)cs[i];
 
                 int num4 = creat.Items.Count;
                 for (int j = 0; j < num4; j++) {
-                    Item it = creat.Items.GetItem(j);
+                    Item it = creat.Items[j];
                     if (it.Kind == ItemKind.ik_Potion) {
                         it.CLSID = GlobalVars.iid_Vial;
                     }
@@ -4548,7 +4548,7 @@ namespace NWR.Effects
 
             int num5 = f.Items.Count;
             for (int i = 0; i < num5; i++) {
-                Item it = f.Items.GetItem(i);
+                Item it = f.Items[i];
                 if (it.Kind == ItemKind.ik_Potion) {
                     it.CLSID = GlobalVars.iid_Vial;
                 }
@@ -4616,7 +4616,7 @@ namespace NWR.Effects
                         {
                             int num3 = fld.Creatures.Count;
                             for (int k = 0; k < num3; k++) {
-                                fld.Creatures.GetItem(k).InvertHostility();
+                                fld.Creatures[k].InvertHostility();
                             }
                             break;
                         }
@@ -4655,7 +4655,7 @@ namespace NWR.Effects
                         {
                             int num7 = fld.Creatures.Count;
                             for (i = 0; i < num7; i++) {
-                                NWCreature creat = fld.Creatures.GetItem(i);
+                                NWCreature creat = fld.Creatures[i];
                                 if (!creat.Equals(creature)) {
                                     e_Speedup(EffectID.eid_Speedup, creat, source, state, InvokeMode.im_ItSelf, ext);
                                 }
@@ -4803,7 +4803,7 @@ namespace NWR.Effects
                                     NWField f = layer.GetField(fx, fy);
 
                                     for (int j = f.Creatures.Count - 1; j >= 0; j--) {
-                                        NWCreature cr = f.Creatures.GetItem(j);
+                                        NWCreature cr = f.Creatures[j];
                                         if (cr.CLSID == id) {
                                             cr.DropAll();
                                             cr.CheckTile(false);

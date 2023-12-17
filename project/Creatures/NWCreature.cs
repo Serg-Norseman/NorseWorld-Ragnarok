@@ -470,7 +470,7 @@ namespace NWR.Creatures
     
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    Effect eff = fEffects.GetItem(i);
+                    Effect eff = fEffects[i];
                     EffectID effectID = (EffectID)eff.CLSID;
     
                     switch (effectID) {
@@ -627,7 +627,7 @@ namespace NWR.Creatures
     
                 int num = fItems.Count;
                 for (int i = 0; i < num; i++) {
-                    Item item = fItems.GetItem(i);
+                    Item item = fItems[i];
                     if (item.CLSID == GlobalVars.iid_Coin) {
                         result += (int)item.Count;
                     }
@@ -647,7 +647,7 @@ namespace NWR.Creatures
             get {
                 NWField field = CurrentField;
                 for (int i = 0; i < field.Creatures.Count; i++) {
-                    NWCreature creat = field.Creatures.GetItem(i);
+                    NWCreature creat = field.Creatures[i];
                     if (!Equals(creat) && IsEnemy(creat)) {
                         return false;
                     }
@@ -832,7 +832,7 @@ namespace NWR.Creatures
                     }
     
                     for (int i = 0; i < fItems.Count; i++) {
-                        Item item = fItems.GetItem(i);
+                        Item item = fItems[i];
                         temp = temp + item.Price;
                     }
     
@@ -961,7 +961,7 @@ namespace NWR.Creatures
         public void DropAll()
         {
             while (fItems.Count > 0) {
-                Item it = fItems.GetItem(0);
+                Item it = fItems[0];
                 it.InUse = false;
                 DropItem(it);
             }
@@ -974,7 +974,7 @@ namespace NWR.Creatures
     
                 int num = fItems.Count;
                 for (int i = 0; i < num; i++) {
-                    result = ((result + fItems.GetItem(i).Weight));
+                    result = ((result + fItems[i].Weight));
                 }
     
                 return result;
@@ -985,7 +985,7 @@ namespace NWR.Creatures
         {
             int num = fItems.Count;
             for (int idx = 0; idx < num; idx++) {
-                Item item = fItems.GetItem(idx);
+                Item item = fItems[idx];
                 if (item.InUse && item.EquipmentKind == kind) {
                     return item;
                 }
@@ -1139,7 +1139,7 @@ namespace NWR.Creatures
         {
             int num = fItems.Count;
             for (int i = 0; i < num; i++) {
-                Item item = fItems.GetItem(i);
+                Item item = fItems[i];
                 BodypartType ek = item.EquipmentKind;
                 if (ek != BodypartType.bp_None && !item.InUse) {
                     Item dummyItem = GetItemByEquipmentKind(ek);
@@ -1171,14 +1171,14 @@ namespace NWR.Creatures
 
             int num = Items.Count;
             for (int i = 0; i < num; i++) {
-                if (Items.GetItem(i).CLSID == GlobalVars.iid_Coin) {
+                if (Items[i].CLSID == GlobalVars.iid_Coin) {
                     idx = i;
                     break;
                 }
             }
 
             if (idx > -1) {
-                Item item = Items.GetItem(idx);
+                Item item = Items[idx];
                 item.Count = (ushort)(item.Count - aCount);
                 if (item.Count <= 0) {
                     DeleteItem(item);
@@ -1188,7 +1188,7 @@ namespace NWR.Creatures
 
         public void PickupAll()
         {
-            ExtList<LocatedEntity> items = CurrentField.Items.SearchListByPos(PosX, PosY);
+            var items = CurrentField.Items.SearchListByPos(PosX, PosY);
             if (IsPlayer && items.Count < 1) {
                 Space.ShowText(this, BaseLocale.GetStr(RS.rs_NothingHere));
             }
@@ -1556,7 +1556,7 @@ namespace NWR.Creatures
 
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    if (fEffects.GetItem(i).CLSID == (int)EffectID.eid_Regeneration) {
+                    if (fEffects[i].CLSID == (int)EffectID.eid_Regeneration) {
                         mag += 60;
                     }
                 }
@@ -2421,7 +2421,7 @@ namespace NWR.Creatures
 
                 int num = fItems.Count;
                 for (int i = 0; i < num; i++) {
-                    Item item = fItems.GetItem(i);
+                    Item item = fItems[i];
                     ItemFlags ifs = item.Flags;
                     if (ifs.HasIntersect(ItemFlags.if_MeleeWeapon, ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon)) {
                         bool onlyShootWeapon = (ifs.HasIntersect(ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon) && !ifs.Contains(ItemFlags.if_MeleeWeapon));
@@ -2457,7 +2457,7 @@ namespace NWR.Creatures
                 float bestWeight = 0f;
 
                 for (int i = 0; i < num; i++) {
-                    Item item = fItems.GetItem(i);
+                    Item item = fItems[i];
                     ItemFlags ifs = item.Flags;
                     if (ifs.HasIntersect(ItemFlags.if_MeleeWeapon, ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon)) {
                         bool onlyShootWeapon = (ifs.HasIntersect(ItemFlags.if_ThrowWeapon, ItemFlags.if_ShootWeapon) && !ifs.Contains(ItemFlags.if_MeleeWeapon));
@@ -2549,7 +2549,7 @@ namespace NWR.Creatures
 
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    int eff = fEffects.GetItem(i).CLSID;
+                    int eff = fEffects[i].CLSID;
                     EffectID eid = (EffectID)eff;
                     if (EffectsData.dbEffects[eff].Flags.Contains(EffectFlags.ek_Disease)) {
                         CheckHealth_Solve(eid, BaseLocale.GetStr(EffectsData.dbEffects[eff].NameRS), ref TurnUsed);
@@ -2605,7 +2605,7 @@ namespace NWR.Creatures
         {
             int num = fEffects.Count;
             for (int i = 0; i < num; i++) {
-                Effect eff = fEffects.GetItem(i);
+                Effect eff = fEffects[i];
                 if (eff.Source.Equals(source) && eff.CLSID == (int)effectID) {
                     fEffects.Delete(i);
                     break;
@@ -2685,7 +2685,7 @@ namespace NWR.Creatures
         {
             int num = fEffects.Count;
             for (int i = 0; i < num; i++) {
-                Effect effect = fEffects.GetItem(i);
+                Effect effect = fEffects[i];
                 EffectID eff = (EffectID)effect.CLSID;
                 if (eff == EffectID.eid_Paralysis || eff == EffectID.eid_Sleep || eff == EffectID.eid_Stoning || eff == EffectID.eid_CaughtInNet) {
                     return false;
@@ -2749,7 +2749,7 @@ namespace NWR.Creatures
         {
             int num = fItems.Count;
             for (int i = 0; i < num; i++) {
-                Item item = fItems.GetItem(i);
+                Item item = fItems[i];
                 ItemEntry.EffectEntry[] effects = item.Entry.Effects;
                 if (((effects != null) ? effects.Length : 0) >= 1) {
                     EffectID eid = effects[0].EffID;
@@ -2802,7 +2802,7 @@ namespace NWR.Creatures
             CreaturesList crt = fld.Creatures;
             int num = crt.Count;
             for (int i = 0; i < num; i++) {
-                NWCreature cr = crt.GetItem(i);
+                NWCreature cr = crt[i];
                 if (!cr.Equals(this)) {
                     int dt = MathHelper.Distance(Location, cr.Location);
                     if (dt < Survey) {
@@ -2830,10 +2830,10 @@ namespace NWR.Creatures
         public Building FindHouse()
         {
             if (fHouse == null) {
-                EntityList features = CurrentField.Features;
+                var features = CurrentField.Features;
                 int num = features.Count;
                 for (int i = 0; i < num; i++) {
-                    GameEntity b = features.GetItem(i);
+                    GameEntity b = features[i];
 
                     if (b is Building && Equals(((Building)b).Holder)) {
                         fHouse = ((Building)b);
@@ -2855,7 +2855,7 @@ namespace NWR.Creatures
 
             int num = fld.Items.Count;
             for (int i = 0; i < num; i++) {
-                Item item = fld.Items.GetItem(i);
+                Item item = fld.Items[i];
                 int dist = MathHelper.Distance(Location, item.Location);
                 Building b = fld.FindBuilding(item.PosX, item.PosY);
                 if ((b == null || b.Holder == null) && dist < dt && item.CLSID != GlobalVars.iid_DeadBody && item.CLSID != GlobalVars.iid_Mummy) {
@@ -2865,7 +2865,7 @@ namespace NWR.Creatures
             }
 
             if (idx >= 0) {
-                result = fld.Items.GetItem(idx);
+                result = fld.Items[idx];
             }
 
             return result;
@@ -3037,7 +3037,7 @@ namespace NWR.Creatures
             NWField fld = CurrentField;
             int num = fld.Creatures.Count;
             for (int i = 0; i < num; i++) {
-                NWCreature creat = fld.Creatures.GetItem(i);
+                NWCreature creat = fld.Creatures[i];
 
                 if (!creat.Equals(this)) {
                     int dx = Math.Abs(aX - creat.PosX);
@@ -3796,13 +3796,13 @@ namespace NWR.Creatures
                 fEffects.LoadFromStream(stream, version);
                 int num = fEffects.Count;
                 for (int i = 0; i < num; i++) {
-                    fEffects.GetItem(i).Owner = this;
+                    fEffects[i].Owner = this;
                 }
 
                 fItems.LoadFromStream(stream, version);
                 int num2 = fItems.Count;
                 for (int i = 0; i < num2; i++) {
-                    fItems.GetItem(i).Owner = this;
+                    fItems[i].Owner = this;
                 }
 
                 fAbilities.LoadFromStream(stream, version);
@@ -4073,7 +4073,6 @@ namespace NWR.Creatures
             fAbilities.Assign(target.fAbilities, AttributeList.Lao_Or);
             fSkills.Assign(target.fSkills, AttributeList.Lao_Or);
             DropAll();
-            target.Items.OwnsObjects = false;
             Items.Assign(target.Items);
             PrepareItems();
         }
@@ -4142,7 +4141,7 @@ namespace NWR.Creatures
                             UseEffect(EffectID.eid_FoodEat, item, InvokeMode.im_Use, null);
 
                             if (item.Kind == ItemKind.ik_DeadBody) {
-                                NWCreature dead = (NWCreature)item.Contents.GetItem(0);
+                                NWCreature dead = (NWCreature)item.Contents[0];
                                 if (dead.Turn > -5) {
                                     Space.ShowText(this, BaseLocale.GetStr(RS.rs_MeatWasOld));
                                 } else {
@@ -4306,7 +4305,7 @@ namespace NWR.Creatures
         public Item FindItem(string sign)
         {
             for (int i = 0; i < fItems.Count; i++) {
-                Item item = fItems.GetItem(i);
+                Item item = fItems[i];
                 if (item.Entry.Sign.Equals(sign)) {
                     return item;
                 }

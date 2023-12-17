@@ -184,7 +184,7 @@ namespace NWR.Game
                 CreaturesList crList = CurrentField.Creatures;
                 int num = crList.Count;
                 for (int i = 0; i < num; i++) {
-                    NWCreature cr = crList.GetItem(i);
+                    NWCreature cr = crList[i];
                     if (MathHelper.Distance(Location, cr.Location) <= rad && cr.Entry.Sign.Equals("Phausq")) {
                         cr.Death(BaseLocale.GetStr(RS.rs_MonsterDestroyedByLight), null);
                     }
@@ -248,9 +248,9 @@ namespace NWR.Game
             int eyes = 0;
             int fingers = 0;
 
-            int num = Body.PartsCount;
+            int num = Body.Parts.Count;
             for (int i = 0; i < num; i++) {
-                Bodypart entry = Body.GetPart(i);
+                Bodypart entry = Body.Parts[i];
 
                 if (entry.Type == (int)BodypartType.bp_Eye && entry.State == Bodypart.STATE_NORMAL) {
                     eyes++;
@@ -309,10 +309,10 @@ namespace NWR.Game
                 Effect ef = Effects.FindEffectByID(EffectID.eid_Sail);
                 if (ef != null) {
                     Item ship = FindItem("Skidbladnir");
-                    EntityList members = ship.Contents;
+                    var members = ship.Contents;
 
                     for (int i = members.Count - 1; i >= 0; i--) {
-                        NWCreature cr = (NWCreature)members.GetItem(i);
+                        NWCreature cr = (NWCreature)members[i];
                         cr.ResetStamina();
                     }
 
@@ -320,7 +320,7 @@ namespace NWR.Game
                     do {
                         rest = 0;
                         for (int i = members.Count - 1; i >= 0; i--) {
-                            NWCreature cr = (NWCreature)members.GetItem(i);
+                            NWCreature cr = (NWCreature)members[i];
                             if (cr.State != CreatureState.Dead) {
 
                                 Effect ef1 = cr.Effects.FindEffectByID(EffectID.eid_Sail);
@@ -429,7 +429,7 @@ namespace NWR.Game
     
             int num = Items.Count;
             for (int i = 0; i < num; i++) {
-                if (Items.GetItem(i).Kind == ItemKind.ik_Scroll) {
+                if (Items[i].Kind == ItemKind.ik_Scroll) {
                     result++;
                 }
             }
@@ -854,13 +854,13 @@ namespace NWR.Game
                 Effect ef = Effects.FindEffectByID(EffectID.eid_Sail);
                 if (ef != null) {
                     Item ship = FindItem("Skidbladnir");
-                    EntityList members = ship.Contents;
+                    var members = ship.Contents;
 
                     int fx = Field.X;
                     int fy = Field.Y;
 
                     for (int i = members.Count - 1; i >= 0; i--) {
-                        NWCreature cr = (NWCreature)members.GetItem(i);
+                        NWCreature cr = (NWCreature)members[i];
                         cr.SetGlobalPos(LayerID, fx, fy, true);
                         cr.SetPos(posX, posY);
                     }

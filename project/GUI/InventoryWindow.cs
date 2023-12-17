@@ -355,11 +355,11 @@ namespace NWR.GUI
                 switch (fMode) {
                     case IWMODE_GROUND:
                         {
-                            EntityList items = player.Items;
+                            var items = player.Items;
 
                             int num5 = items.Count;
                             for (int i = 0; i < num5; i++) {
-                                Item item = (Item)items.GetItem(i);
+                                Item item = items[i];
                                 if (!item.Identified && player.Memory.Find(item.Entry.Sign) != null) {
                                     item.Identified = true;
                                 }
@@ -371,7 +371,7 @@ namespace NWR.GUI
                                 }
                             }
 
-                            ExtList<LocatedEntity> groundItems = fld.Items.SearchListByPos(player.PosX, player.PosY);
+                            var groundItems = fld.Items.SearchListByPos(player.PosX, player.PosY);
 
                             int num6 = groundItems.Count;
                             for (int i = 0; i < num6; i++) {
@@ -388,11 +388,11 @@ namespace NWR.GUI
                     case IWMODE_TRADER:
                     case IWMODE_INSHOP:
                         {
-                            EntityList items = player.Items;
+                            var items = player.Items;
 
                             int num3 = items.Count;
                             for (int i = 0; i < num3; i++) {
-                                Item item = (Item)items.GetItem(i);
+                                Item item = items[i];
                                 if (!item.Identified && player.Memory.Find(item.Entry.Sign) != null) {
                                     item.Identified = true;
                                 }
@@ -415,7 +415,7 @@ namespace NWR.GUI
                                 } else {
                                     house.SwitchDoors(DoorState.Opened);
                                 }
-                                ExtList<LocatedEntity> groundItems = fld.Items.SearchListByArea(house.Area);
+                                var groundItems = fld.Items.SearchListByArea(house.Area);
 
                                 int num4 = groundItems.Count;
                                 for (int i = 0; i < num4; i++) {
@@ -431,11 +431,11 @@ namespace NWR.GUI
 
                     case IWMODE_MERCENARY:
                         {
-                            EntityList items = player.Items;
+                            var items = player.Items;
 
                             int num = items.Count;
                             for (int i = 0; i < num; i++) {
-                                Item item = (Item)items.GetItem(i);
+                                Item item = items[i];
                                 if (!item.Identified && player.Memory.Find(item.Entry.Sign) != null) {
                                     item.Identified = true;
                                 }
@@ -453,7 +453,7 @@ namespace NWR.GUI
 
                             int num2 = items.Count;
                             for (int i = 0; i < num2; i++) {
-                                Item item = (Item)items.GetItem(i);
+                                Item item = items[i];
                                 AddListItem(fOutList, item.GetName(blindness) + " (" + Convert.ToString(item.Price) + "$)", item, onlyIcons);
                             }
                         }
@@ -461,11 +461,11 @@ namespace NWR.GUI
                 }
 
                 if (fContainer != null) {
-                    EntityList items = fContainer.Contents;
+                    var items = fContainer.Contents;
 
                     int num7 = items.Count;
                     for (int i = 0; i < num7; i++) {
-                        Item item = (Item)items.GetItem(i);
+                        Item item = (Item)items[i];
                         if (!item.Identified && player.Memory.Find(item.Entry.Sign) != null) {
                             item.Identified = true;
                         }
@@ -505,7 +505,7 @@ namespace NWR.GUI
             }
         }
 
-        private void GetFromBag(Item aItem, EntityList aToList)
+        private void GetFromBag(Item aItem, EntityList<Item> aToList)
         {
             fContainer.Contents.Extract(aItem);
             aToList.Add(aItem);
@@ -564,7 +564,7 @@ namespace NWR.GUI
             }
         }
 
-        private void PutToBag(Item aItem, EntityList aFromList)
+        private void PutToBag(Item aItem, EntityList<Item> aFromList)
         {
             aItem.InUse = false;
             aFromList.Extract(aItem);

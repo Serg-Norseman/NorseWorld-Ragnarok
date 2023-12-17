@@ -593,7 +593,7 @@ namespace NWR.Universe
                 if (LandID == GlobalVars.Land_Village && AuxUtils.Chance(10) && FindBuilding(player.PosX, player.PosY) == null) {
                     int num = Features.Count;
                     for (int i = 0; i < num; i++) {
-                        GameEntity entry = Features.GetItem(i);
+                        GameEntity entry = Features[i];
                         if (entry is Building) {
                             ((Building)entry).Refresh();
                         }
@@ -608,7 +608,7 @@ namespace NWR.Universe
         {
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
-                GameEntity feat = Features.GetItem(i);
+                GameEntity feat = Features[i];
                 if (feat is Building && ((Building)feat).Area.Contains(aX, aY)) {
                     return ((Building)feat);
                 }
@@ -620,7 +620,7 @@ namespace NWR.Universe
         {
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
-                object feat = Features.GetItem(i);
+                object feat = Features[i];
                 if (feat is DungeonRoom) {
                     DungeonRoom dr = ((DungeonRoom)feat);
                     if (dr.InArea(aX, aY)) {
@@ -636,7 +636,7 @@ namespace NWR.Universe
         {
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
-                object feat = Features.GetItem(i);
+                object feat = Features[i];
                 if (feat is Village) {
                     return ((Village)feat);
                 }
@@ -820,10 +820,10 @@ namespace NWR.Universe
 
         public Gate FindGate(int tx, int ty)
         {
-            EntityList features = Features;
+            var features = Features;
             int num = features.Count;
             for (int i = 0; i < num; i++) {
-                GameEntity feat = features.GetItem(i);
+                GameEntity feat = features[i];
                 if (feat is Gate) {
                     Gate gate = (Gate)feat;
                     if (gate.Location.Equals(tx, ty)) {
@@ -871,10 +871,10 @@ namespace NWR.Universe
                 }
 
                 for (int i = 0; i < fItems.Count; i++) {
-                    Item it1 = fItems.GetItem(i);
+                    Item it1 = fItems[i];
 
                     for (int k = fItems.Count - 1; k >= i + 1; k--) {
-                        Item it2 = fItems.GetItem(k);
+                        Item it2 = fItems[k];
                         if (it1.PosX == it2.PosX && it1.PosY == it2.PosY && it1.Assign(it2)) {
                             fItems.Delete(k);
                         }
@@ -937,7 +937,7 @@ namespace NWR.Universe
 
                 int num3 = fItems.Count;
                 for (int i = 0; i < num3; i++) {
-                    fItems.GetItem(i).Owner = this;
+                    fItems[i].Owner = this;
                 }
 
                 Features.LoadFromStream(stream, version);
@@ -1103,7 +1103,7 @@ namespace NWR.Universe
         {
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
-                GameEntity entry = Features.GetItem(i);
+                GameEntity entry = Features[i];
                 if (entry is Region) {
                     Region region = ((Region)entry);
                     if (region.InArea(ax, ay)) {

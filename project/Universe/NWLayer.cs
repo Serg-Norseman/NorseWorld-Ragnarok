@@ -197,7 +197,7 @@ namespace NWR.Universe
         {
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
-                object feat = Features.GetItem(i);
+                object feat = Features[i];
                 if (feat is DungeonRoom) {
                     DungeonRoom dr = (DungeonRoom)feat;
                     if (dr.InArea(aX, aY)) {

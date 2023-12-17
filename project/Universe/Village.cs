@@ -63,7 +63,7 @@ namespace NWR.Universe
 
                 int num = field.Features.Count;
                 for (int i = 0; i < num; i++) {
-                    GameEntity feat = field.Features.GetItem(i);
+                    GameEntity feat = field.Features[i];
                     if (feat is Building) {
                         Building b = (Building)feat;
                         ExtRect area = b.Area;

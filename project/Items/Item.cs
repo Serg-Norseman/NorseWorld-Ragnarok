@@ -34,7 +34,7 @@ namespace NWR.Items
 {
     public class Item : LocatedEntity
     {
-        private EntityList fContents;
+        private EntityList<LocatedEntity> fContents;
         private ItemEntry fEntry;
         private bool fIdentified;
         private bool fInUse;
@@ -146,15 +146,15 @@ namespace NWR.Items
             return result;
         }
 
-        public EntityList Contents
+        public EntityList<LocatedEntity> Contents
         {
             get {
-                EntityList result;
+                EntityList<LocatedEntity> result;
                 if (!Container) {
                     result = null;
                 } else {
                     if (fContents == null) {
-                        fContents = new EntityList(null, true);
+                        fContents = new EntityList<LocatedEntity>(null);
                     }
                     result = fContents;
                 }
@@ -328,7 +328,7 @@ namespace NWR.Items
             get {
                 short result;
                 if (CLSID == GlobalVars.iid_DeadBody) {
-                    result = ((NWCreature)fContents.GetItem(0)).Entry.FleshSatiety;
+                    result = ((NWCreature)fContents[0]).Entry.FleshSatiety;
                 } else {
                     result = fEntry.Satiety;
                 }
@@ -429,7 +429,7 @@ namespace NWR.Items
             get {
                 float result;
                 if (CLSID == GlobalVars.iid_DeadBody) {
-                    result = ((NWCreature)fContents.GetItem(0)).Weight;
+                    result = ((NWCreature)fContents[0]).Weight;
                 } else {
                     result = (((float)fWeight * Count));
                 }
@@ -677,7 +677,7 @@ namespace NWR.Items
 
             if (CLSID == GlobalVars.iid_DeadBody || CLSID == GlobalVars.iid_Mummy) {
                 if (Contents.Count == 1) {
-                    NWCreature mon = (NWCreature)Contents.GetItem(0);
+                    NWCreature mon = (NWCreature)Contents[0];
                     string dbstr;
                     if (mon.Entry.Remains) {
                         dbstr = BaseLocale.GetStr(RS.rs_Remains);
@@ -946,7 +946,7 @@ namespace NWR.Items
                 id = itemID;
             }
 
-            EntityList list = null;
+            EntityList<Item> list = null;
             if (owner is NWCreature) {
                 list = ((NWCreature)owner).Items;
             } else if (owner is NWField) {
@@ -986,7 +986,7 @@ namespace NWR.Items
             string res;
             res = Name + AuxUtils.CRLF;
 
-            res = ConvertHelper.UniformName(res);
+            res = StringHelper.UniformName(res);
             if (!Identified) {
                 res = res + AuxUtils.CRLF + BaseLocale.GetStr(RS.rs_IsNotIdentified);
             } else {

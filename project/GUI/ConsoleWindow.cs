@@ -145,7 +145,7 @@ namespace NWR.GUI
                                         if (token.Equals("kill_all")) {
                                             NWField fld = player.CurrentField;
                                             for (int i = fld.Creatures.Count - 1; i >= 0; i--) {
-                                                NWCreature cr = fld.Creatures.GetItem(i);
+                                                NWCreature cr = fld.Creatures[i];
                                                 if (!cr.IsPlayer && !cr.Mercenary) {
                                                     cr.Death("", null);
                                                 }
@@ -299,11 +299,11 @@ namespace NWR.GUI
         private void ShowGoals()
         {
             NWField fld = GlobalVars.nwrGame.Player.CurrentField;
-            LocatedEntityList cl = (fld).Creatures;
+            var cl = (fld).Creatures;
 
             int num = cl.Count;
             for (int i = 0; i < num; i++) {
-                NWCreature c = (NWCreature)cl.GetItem(i);
+                NWCreature c = cl[i];
                 AddMessage(c.Name + ": " + Convert.ToString(c.Brain.GoalsCount));
             }
         }

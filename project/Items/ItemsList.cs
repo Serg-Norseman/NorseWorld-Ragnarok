@@ -25,16 +25,11 @@ using ZRLib.Core;
 
 namespace NWR.Items
 {
-    public sealed class ItemsList : LocatedEntityList
+    public sealed class ItemsList : LocatedEntityList<Item>
     {
         public ItemsList(object owner, bool ownsObjects)
-            : base(owner, ownsObjects)
+            : base(owner)
         {
-        }
-
-        public new Item GetItem(int index)
-        {
-            return (Item)base.GetItem(index);
         }
 
         public int Add(Item item, bool assign)
@@ -45,7 +40,7 @@ namespace NWR.Items
 
                 int num = Count;
                 for (int i = 0; i < num; i++) {
-                    Item dummy = GetItem(i);
+                    Item dummy = this[i];
                     bool res = Owner == null || !(Owner is NWField) || (dummy.PosX == item.PosX && dummy.PosY == item.PosY);
                     if (res && dummy.Assign(item)) {
                         item.Dispose();
@@ -59,8 +54,8 @@ namespace NWR.Items
             int num2 = Count;
             for (int i = 0; i < num2; i++) {
                 for (int j = i + 1; j < num2; j++) {
-                    ItemKind ik = GetItem(i).Kind;
-                    ItemKind ik2 = GetItem(j).Kind;
+                    ItemKind ik = this[i].Kind;
+                    ItemKind ik2 = this[j].Kind;
                     if (StaticData.dbItemKinds[(int)ik].Order > StaticData.dbItemKinds[(int)ik2].Order) {
                         Exchange(i, j);
                     }

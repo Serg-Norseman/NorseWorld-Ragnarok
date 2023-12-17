@@ -50,7 +50,7 @@ namespace NWR.Creatures
         public void LoadFromStream(BinaryReader  stream, FileVersion version)
         {
             try {
-                Clear();
+                Parts.Clear();
 
                 int count = StreamUtils.ReadByte(stream);
                 for (int i = 0; i < count; i++) {
@@ -72,7 +72,7 @@ namespace NWR.Creatures
                 StreamUtils.WriteByte(stream, (byte)count);
 
                 for (int i = 0; i < count; i++) {
-                    Bodypart entry = GetPart(i);
+                    Bodypart entry = Parts[i];
                     StreamUtils.WriteByte(stream, (byte)entry.Type);
                     StreamUtils.WriteByte(stream, (byte)entry.State);
                 }

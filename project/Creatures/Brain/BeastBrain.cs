@@ -72,7 +72,7 @@ namespace NWR.Creatures.Brain
 
                 int num = fld.Creatures.Count;
                 for (int i = 0; i < num; i++) {
-                    NWCreature cr = fld.Creatures.GetItem(i);
+                    NWCreature cr = fld.Creatures[i];
                     int dist = MathHelper.Distance(cr.Location, self.Location);
                     if (!cr.Equals(self) && dist <= self.Survey && cr.CLSID == self.CLSID && fld.LineOfSight(self.PosX, self.PosY, cr.PosX, cr.PosY)) {
                         Kinsfolks.Add(cr);

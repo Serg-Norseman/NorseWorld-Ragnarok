@@ -35,7 +35,7 @@ namespace NWR.Creatures
 
         private void InitBody()
         {
-            Clear();
+            Parts.Clear();
             AddPart(BodypartType.bp_Body, new BodypartAbilities(BodypartAbilities.bpa_HasMetabolism), 1);
             AddPart(BodypartType.bp_Head, new BodypartAbilities(), 1);
             AddPart(BodypartType.bp_Neck, new BodypartAbilities(), 1);

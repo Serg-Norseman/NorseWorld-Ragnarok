@@ -22,15 +22,10 @@ using ZRLib.Core;
 
 namespace NWR.Creatures
 {
-    public sealed class CreaturesList : LocatedEntityList
+    public sealed class CreaturesList : LocatedEntityList<NWCreature>
     {
-        public new NWCreature GetItem(int index)
-        {
-            return (NWCreature)base.GetItem(index);
-        }
-
         public CreaturesList(object owner, bool ownsObjects)
-            : base(owner, ownsObjects)
+            : base(owner)
         {
         }
     }
