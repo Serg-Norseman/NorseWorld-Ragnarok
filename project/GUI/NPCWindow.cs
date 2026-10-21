@@ -68,7 +68,7 @@ namespace NWR.GUI
             SentientBrain colBrain = (SentientBrain)fCollocutor.Brain;
             Services avail = colBrain.AvailableServices;
             for (var si = Service.ds_First; si <= Service.ds_Last; si++) {
-                Service srv = (Service)(si);
+                Service srv = si;
                 if (avail.Contains(srv)) {
                     fServices.Items.Add(BaseLocale.GetStr(StaticData.dbDialogServices[(int)srv].NameRes), srv);
                 }
@@ -109,7 +109,7 @@ namespace NWR.GUI
         {
             NWCreature p = GlobalVars.nwrGame.Player;
 
-            Service serv = ((Service)item.Data);
+            Service serv = (Service)item.Data;
             string qst = BaseLocale.GetStr(StaticData.dbDialogServices[(int)serv].QuestionRes);
 
             switch (serv) {

@@ -29,7 +29,7 @@ namespace NWR.GUI.Controls
     public sealed class Marquee : TextControl
     {
         private bool fActiveScroll;
-        private float fSpeed;
+        private readonly float fSpeed;
         private long fStartTime;
         private int fY;
 
@@ -71,9 +71,7 @@ namespace NWR.GUI.Controls
         private void DoDone(ref bool refRepeat)
         {
             refRepeat = true;
-            if (OnMarqueeDone != null) {
-                OnMarqueeDone.Invoke(this, ref refRepeat);
-            }
+            OnMarqueeDone?.Invoke(this, ref refRepeat);
         }
 
         protected override void DoHideEvent()
@@ -133,7 +131,7 @@ namespace NWR.GUI.Controls
                     first = false;
                 }
 
-                float y = (float)IntRect.Bottom - fSpeed * (time - fStartTime);
+                float y = IntRect.Bottom - fSpeed * (time - fStartTime);
                 if ((y + (fLines.Count * fLineHeight)) < (double)IntRect.Top) {
                     if (!first) {
                         bool repeat = true;

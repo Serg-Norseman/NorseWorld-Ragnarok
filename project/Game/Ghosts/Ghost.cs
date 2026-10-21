@@ -38,7 +38,7 @@ namespace NWR.Game.Ghosts
                 base.LoadFromStream(stream, version);
             } catch (Exception ex) {
                 Logger.Write("Ghost.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -48,7 +48,7 @@ namespace NWR.Game.Ghosts
                 base.SaveToStream(stream, version);
             } catch (Exception ex) {
                 Logger.Write("Ghost.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

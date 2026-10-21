@@ -117,14 +117,14 @@ namespace NWR.Creatures.Brain
                     case GoalKind.gk_PointGuard:
                         {
                             int dist = MathHelper.Distance(self.Location, ((PointGuardGoal)goal).Position);
-                            goal.Value = (goal.Value + dist / 10.0f * 0.75f);
+                            goal.Value += dist / 10.0f * 0.75f;
                             break;
                         }
 
                     case GoalKind.gk_AreaGuard:
                         {
                             int dist = AuxUtils.CalcDistanceToArea(self.Location, ((AreaGuardGoal)goal).Area);
-                            goal.Value = ((goal.Value + dist / 100.0f));
+                            goal.Value += dist / 100.0f;
                             break;
                         }
 

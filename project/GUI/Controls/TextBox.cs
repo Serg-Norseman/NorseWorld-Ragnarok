@@ -121,13 +121,13 @@ namespace NWR.GUI.Controls
             switch (eventArgs.Key) {
                 case Keys.GK_UP:
                     if (fTopIndex > 0) {
-                        TopIndex = TopIndex - 1;
+                        TopIndex--;
                     }
                     break;
 
                 case Keys.GK_DOWN:
                     if (fTopIndex < fLines.Count - 1 && fTopIndex + fVisibleLines < fLines.Count) {
-                        TopIndex = TopIndex + 1;
+                        TopIndex++;
                     }
                     break;
 
@@ -148,7 +148,7 @@ namespace NWR.GUI.Controls
                     if (fTopIndex - fVisibleLines < 0) {
                         TopIndex = 0;
                     } else {
-                        TopIndex = TopIndex - fVisibleLines;
+                        TopIndex -= fVisibleLines;
                     }
                     break;
 
@@ -159,7 +159,7 @@ namespace NWR.GUI.Controls
                             TopIndex = idx;
                         }
                     } else {
-                        TopIndex = TopIndex + fVisibleLines;
+                        TopIndex += fVisibleLines;
                     }
                     break;
             }
@@ -174,13 +174,13 @@ namespace NWR.GUI.Controls
             switch (eventArgs.WheelDelta) {
                 case -1:
                     if (fTopIndex > 0) {
-                        TopIndex = TopIndex - 1;
+                        TopIndex--;
                     }
                     break;
 
                 case +1:
                     if (fTopIndex < fLines.Count - 1 && fTopIndex + fVisibleLines < fLines.Count) {
-                        TopIndex = TopIndex + 1;
+                        TopIndex++;
                     }
                     break;
             }

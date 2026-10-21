@@ -65,7 +65,7 @@ namespace NWR.GUI.Controls
             Color = Colors.Gold;
             Checked = false;
             Data = null;
-            fLevel = (int)level;
+            fLevel = level;
             fOwner = owner;
             fParent = null;
             fSubItems = new LBItemList(fOwner, this);

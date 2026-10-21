@@ -30,9 +30,9 @@ namespace NWR.GUI
     {
         private sealed class KeyCapInfo
         {
-            public string Sign;
-            public Keys Key;
-            public ShiftStates Shift;
+            public readonly string Sign;
+            public readonly Keys Key;
+            public readonly ShiftStates Shift;
 
             public KeyCapInfo(string sign, Keys key, ShiftStates shift)
             {
@@ -350,7 +350,7 @@ namespace NWR.GUI
                     fFrameCount += 1;
                     long now = BaseSystem.TickCount;
                     if (now > fFrameStartTime + 1000) {
-                        FPS = ((1000 * fFrameCount / (now - fFrameStartTime)));
+                        FPS = (1000 * fFrameCount / (now - fFrameStartTime));
                         fFrameStartTime = now;
                         fFrameCount = 0;
                     }

@@ -51,22 +51,22 @@ namespace NWR.Creatures
         private static readonly Reaction[, ] Relations;
         public static readonly int[] ShootIsoTrans;
 
-        private AttributeList fAbilities;
+        private readonly AttributeList fAbilities;
         private AbstractBody fBody;
         private int fDamageBase;
-        private EffectsList fEffects;
+        private readonly EffectsList fEffects;
         private CreatureEntry fEntry;
         private int fExperience;
         private ExtPoint fField;
         private Building fHouse;
         private bool fInFog;
         private bool fIsMercenary;
-        private ItemsList fItems;
+        private readonly ItemsList fItems;
         //private bool FItemsEnlarged;
         private bool fIsTrader;
         private string fName;
         private EffectID fProwlSource;
-        private AttributeList fSkills;
+        private readonly AttributeList fSkills;
         private int fSpeed;
         private CreatureState fState;
         private byte fSurvey;
@@ -308,7 +308,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.init(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -377,9 +377,7 @@ namespace NWR.Creatures
                 fSkills.Dispose();
                 fAbilities.Dispose();
 
-                if (fBody != null) {
-                    fBody.Dispose();
-                }
+                fBody?.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -434,7 +432,7 @@ namespace NWR.Creatures
                     }
                 } catch (Exception ex) {
                     Logger.Write("NWCreature.setInFog(): " + ex.Message);
-                    throw ex;
+                    throw;
                 }
             }
         }
@@ -510,7 +508,7 @@ namespace NWR.Creatures
                 if (MPMax == 0) {
                     mpr = 0;
                 } else {
-                    mpr = (int)(Math.Round((MPCur / MPMax) * 100.0f));
+                    mpr = (int)Math.Round((MPCur / MPMax) * 100.0f);
                 }
     
                 props.Add(Name);
@@ -590,7 +588,7 @@ namespace NWR.Creatures
         public float Leadership
         {
             get {
-                return (((float)(Strength + ArmorClass + Attacks + fSpeed) / 4.0f));
+                return ((Strength + ArmorClass + Attacks + fSpeed) / 4.0f);
             }
             set {
             }
@@ -613,9 +611,7 @@ namespace NWR.Creatures
                 return fBody;
             }
             set {
-                if (fBody != null) {
-                    fBody.Dispose();
-                }
+                fBody?.Dispose();
                 fBody = value;
             }
         }
@@ -824,22 +820,22 @@ namespace NWR.Creatures
                     temp += (Survey - fEntry.Survey);
     
                     for (var i = AbilityID.Ab_First; i <= AbilityID.Ab_Last; i++) {
-                        temp = temp + (fAbilities.GetValue((int)i) - fEntry.Abilities.GetValue((int)i));
+                        temp += (fAbilities.GetValue((int)i) - fEntry.Abilities.GetValue((int)i));
                     }
     
                     for (var i = SkillID.Sk_First; i <= SkillID.Sk_Last; i++) {
-                        temp = temp + (fSkills.GetValue((int)i) - fEntry.Skills.GetValue((int)i));
+                        temp += (fSkills.GetValue((int)i) - fEntry.Skills.GetValue((int)i));
                     }
     
                     for (int i = 0; i < fItems.Count; i++) {
                         Item item = fItems[i];
-                        temp = temp + item.Price;
+                        temp += item.Price;
                     }
     
-                    float lev = (float)Level;
+                    float lev = Level;
                     float f = (lev / (lev + player.Level));
     
-                    temp = temp * (1.0f + f);
+                    temp *= (1.0f + f);
                 } else {
                     temp = 10000;
                 }
@@ -855,11 +851,11 @@ namespace NWR.Creatures
     
                 Item torch = GetItemByEquipmentKind(BodypartType.bp_LHand);
                 if (torch != null && torch.CLSID == GlobalVars.iid_Torch) {
-                    result = (sbyte)((int)result + torch.Bonus);
+                    result = (sbyte)(result + torch.Bonus);
                 }
                 Effect eLight = fEffects.FindEffectByID(EffectID.eid_Light);
                 if (eLight != null) {
-                    result = (sbyte)((int)result + eLight.Magnitude);
+                    result = (sbyte)(result + eLight.Magnitude);
                 }
     
                 return result;
@@ -871,7 +867,7 @@ namespace NWR.Creatures
         {
             Space.DoEvent(EventID.event_Trade, null, null, null);
 
-            int price = (int)item.GetTradePrice(this, seller);
+            int price = item.GetTradePrice(this, seller);
 
             if (IsPlayer && seller.fIsTrader) {
                 ((Player)this).AddDebt(seller.Name, price);
@@ -928,7 +924,7 @@ namespace NWR.Creatures
         {
             bool result = false;
             if (!IsEnemy(aSeller)) {
-                if (Money >= (int)aItem.GetTradePrice(this, aSeller)) {
+                if (Money >= aItem.GetTradePrice(this, aSeller)) {
                     result = true;
                 } else {
                     Space.ShowText(this, BaseLocale.GetStr(RS.rs_NoMoney));
@@ -948,7 +944,7 @@ namespace NWR.Creatures
                     mWeight = 0f;
                 } else {
                     ItemEntry coinEntry = (ItemEntry)GlobalVars.nwrDB.FindEntryBySign("Coin");
-                    mWeight = ((aItem.Price * (float)coinEntry.Weight));
+                    mWeight = (aItem.Price * coinEntry.Weight);
                 }
                 result = ((TotalWeight + aItem.Weight - mWeight) <= MaxItemsWeight);
                 if (!result) {
@@ -974,7 +970,7 @@ namespace NWR.Creatures
     
                 int num = fItems.Count;
                 for (int i = 0; i < num; i++) {
-                    result = ((result + fItems[i].Weight));
+                    result += fItems[i].Weight;
                 }
     
                 return result;
@@ -1508,7 +1504,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.initBody(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1538,19 +1534,19 @@ namespace NWR.Creatures
                     Brain = new BeastBrain(this);
                 }
 
-                if (fBrain is BeastBrain && (fEntry.Flags.Contains(CreatureFlags.esCohorts))) {
-                    ((BeastBrain)fBrain).Flock = true;
+                if (fBrain is BeastBrain beastBrain && (fEntry.Flags.Contains(CreatureFlags.esCohorts))) {
+                    beastBrain.Flock = true;
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.initBrain(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
         protected void Recovery()
         {
             if (HPCur < HPMax_Renamed && fEffects.FindEffectByID(EffectID.eid_Withered) == null) {
-                float str = ((float)Strength);
+                float str = Strength;
                 float life_recovery = 0.25f;
                 int mag = 0;
 
@@ -1561,7 +1557,7 @@ namespace NWR.Creatures
                     }
                 }
 
-                float res = (((str - 8.0f) * life_recovery * (1.0f + (float)mag / 100.0f)));
+                float res = ((str - 8.0f) * life_recovery * (1.0f + mag / 100.0f));
                 if ((HPCur + (double)res) > HPMax_Renamed) {
                     HPCur = HPMax_Renamed;
                 } else {
@@ -1578,7 +1574,10 @@ namespace NWR.Creatures
         {
             try {
                 if (LayerID != layerID || fField.X != fieldX || fField.Y != fieldY || obligatory) {
-                    LayerEntry eLayer = (LayerEntry)GlobalVars.nwrDB.GetEntry(layerID);
+                    var eLayer = GlobalVars.nwrDB.GetEntry<LayerEntry>(layerID);
+                    if (eLayer == null) {
+                        throw new Exception("Layer entry not found: " + layerID);
+                    }
 
                     if (fieldX >= eLayer.W) {
                         fieldX = 0;
@@ -1591,6 +1590,10 @@ namespace NWR.Creatures
                     LayerID = layerID;
                     fField = new ExtPoint(fieldX, fieldY);
                     NWField fld = Space.GetField(LayerID, fField.X, fField.Y);
+                    if (fld == null) {
+                        throw new Exception("Field not found: " + layerID + " " + fieldX + "," + fieldY);
+                    }
+
                     EnterField(fld);
 
                     if (IsPlayer) {
@@ -1602,7 +1605,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.setGlobalPos(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1632,16 +1635,14 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.enterField(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
         public void LeaveField()
         {
             NWField field = CurrentField;
-            if (field != null) {
-                field.Creatures.Extract(this);
-            }
+            field?.Creatures.Extract(this);
         }
 
         private void ResetMercenary(bool value)
@@ -1704,7 +1705,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.ApplyDamage(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1877,7 +1878,7 @@ namespace NWR.Creatures
 
                     if (enemy.State == CreatureState.Dead) {
                         int xp = GetAttackExp(enemy);
-                        Experience = Experience + xp;
+                        Experience += xp;
 
                         KnowIt(enemy.CLSID);
                     }
@@ -2339,8 +2340,7 @@ namespace NWR.Creatures
         public bool IsAvailable(LocatedEntity entity, bool checkLOS)
         {
             bool result;
-            if (entity is NWCreature) {
-                NWCreature cr = (NWCreature)entity;
+            if (entity is NWCreature cr) {
                 result = (LayerID == cr.LayerID && fField.X == cr.fField.X && fField.Y == cr.fField.Y);
                 if (!result) {
                     return result;
@@ -2447,7 +2447,7 @@ namespace NWR.Creatures
 
                 float fDam = 0.0f;
                 if (highestDamage > 0) {
-                    fDam = ((1.0f / (float)highestDamage));
+                    fDam = (1.0f / highestDamage);
                 }
 
                 float highestArmor = 0f;
@@ -2474,14 +2474,14 @@ namespace NWR.Creatures
                             continue;
                         }
 
-                        float Val = (((float)dist - (float)GetWeaponRange(item)));
+                        float Val = (float)dist - GetWeaponRange(item);
                         if (Val < 1f) {
                             Val = 1f;
                         } else {
                             Val = ((1.0f / Val));
                         }
 
-                        float weight = ((fDam * (float)GetWeaponDamage(item) + Val));
+                        float weight = (fDam * GetWeaponDamage(item) + Val);
                         if (weight > bestWeight) {
                             bestWeight = weight;
                             bestWeapon = item;
@@ -2489,7 +2489,7 @@ namespace NWR.Creatures
                     } else {
                         if (item.Kind == ItemKind.ik_Shield && item.GetAttribute(ItemAttribute.ia_Defense) > (double)highestArmor) {
                             bestShield = item;
-                            highestArmor = ((float)item.GetAttribute(ItemAttribute.ia_Defense));
+                            highestArmor = item.GetAttribute(ItemAttribute.ia_Defense);
                         }
                     }
                 }
@@ -2531,7 +2531,7 @@ namespace NWR.Creatures
                 return highestDamage;
             } catch (Exception ex) {
                 Logger.Write("NWCreature.checkEquipment(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -2627,7 +2627,7 @@ namespace NWR.Creatures
 
                 DropAll();
                 if (fIsTrader) {
-                    Building house = (Building)FindHouse();
+                    Building house = FindHouse();
                     if (house != null) {
                         house.Holder = null;
                     }
@@ -2636,7 +2636,7 @@ namespace NWR.Creatures
                 PostDeath();
             } catch (Exception ex) {
                 Logger.Write("NWCreature.death(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -2722,9 +2722,7 @@ namespace NWR.Creatures
                             // FIXME: move to goal!
                             DoDefaultAction();
 
-                            if (fBrain != null) {
-                                fBrain.Think();
-                            }
+                            fBrain?.Think();
                         }
                     }
 
@@ -2835,8 +2833,8 @@ namespace NWR.Creatures
                 for (int i = 0; i < num; i++) {
                     GameEntity b = features[i];
 
-                    if (b is Building && Equals(((Building)b).Holder)) {
-                        fHouse = ((Building)b);
+                    if (b is Building building && Equals(building.Holder)) {
+                        fHouse = building;
                         break;
                     }
                 }
@@ -2975,7 +2973,7 @@ namespace NWR.Creatures
                 return result;
             } catch (Exception ex) {
                 Logger.Write("NWCreature.getDeclinableName(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3296,7 +3294,7 @@ namespace NWR.Creatures
                 return ExtPoint.Empty;
             } catch (Exception ex) {
                 Logger.Write("NWCreature.searchLocation(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3537,7 +3535,7 @@ namespace NWR.Creatures
                 AuxUtils.ExStub("todo: on go down in space -  rs_YouDescendThroughSpace");
             } catch (Exception ex) {
                 Logger.Write("NWCreature.enterSpace(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3554,13 +3552,13 @@ namespace NWR.Creatures
                     } else {
                         tile.Trap_Discovered = true;
                     }
-                } else {
+                } else if (idx >= 0) {
                     string msg = BaseLocale.GetStr(StaticData.dbTraps[idx].EscapeMsgRS);
                     Space.ShowText(this, msg);
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.enterTrap(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3578,7 +3576,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.enterFog(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3605,7 +3603,7 @@ namespace NWR.Creatures
                 EnterFog(field, tile);
             } catch (Exception ex) {
                 Logger.Write("NWCreature.enterPlace(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3635,7 +3633,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.checkTile(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3676,7 +3674,7 @@ namespace NWR.Creatures
                 Logger.Write("NWCreature.ProwlingBegin.io(): " + ex.Message);
             } catch (Exception ex) {
                 Logger.Write("NWCreature.ProwlingBegin(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3708,7 +3706,7 @@ namespace NWR.Creatures
                 Logger.Write("NWCreature.ProwlingEnd.io(): " + ex.Message);
             } catch (Exception ex) {
                 Logger.Write("NWCreature.ProwlingEnd(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3820,9 +3818,7 @@ namespace NWR.Creatures
                 InitBrain();
 
                 NWBrainEntity brain = (NWBrainEntity)fBrain;
-                if (brain != null) {
-                    brain.LoadFromStream(stream, version);
-                }
+                brain?.LoadFromStream(stream, version);
 
                 if (fBody != null) {
                     ((CustomBody)fBody).LoadFromStream(stream, version);
@@ -3839,7 +3835,7 @@ namespace NWR.Creatures
             } catch (Exception ex) {
                 Logger.Write("NWCreature.loadFromStream(): " + ex.Message);
                 Logger.Write("NWCreature.avail: " + Convert.ToString((stream.BaseStream.Length - stream.BaseStream.Position)));
-                throw ex;
+                throw;
             }
         }
 
@@ -3888,16 +3884,14 @@ namespace NWR.Creatures
                 StreamUtils.WriteByte(stream, (byte)(LastDir));
 
                 NWBrainEntity brain = (NWBrainEntity)fBrain;
-                if (brain != null) {
-                    brain.SaveToStream(stream, version);
-                }
+                brain?.SaveToStream(stream, version);
 
                 if (fBody != null) {
                     ((CustomBody)fBody).SaveToStream(stream, version);
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3908,7 +3902,7 @@ namespace NWR.Creatures
                 base.SetPos(posX, posY);
             } catch (Exception ex) {
                 Logger.Write("NWCreature.setPos(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3942,7 +3936,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.shootTo(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -4000,7 +3994,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.shootToDir(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -4035,7 +4029,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("NWCreature.shootToInternal(): " + ex.Message);
-                throw ex;
+                throw;
             }
 
             return result;
@@ -4115,7 +4109,7 @@ namespace NWR.Creatures
                 CheckTile(true);
             } catch (Exception ex) {
                 Logger.Write("NWCreature.transferTo(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -4278,7 +4272,7 @@ namespace NWR.Creatures
                 } else {
                     t_af = ((HPCur / (float)t_daf));
                 }
-                float kf = ((1.0f / ((float)kinsfolks * 0.6f + 1.0f)));
+                float kf = (1.0f / (kinsfolks * 0.6f + 1.0f));
                 result = ((s_af / (s_af + t_af) / kf));
             } catch (Exception ex) {
                 result = 0.5f;

@@ -208,7 +208,7 @@ namespace NWR.Game
             int num = ingredients.Count;
             for (int i = 0; i < num; i++) {
                 Item item = ingredients[i];
-                sum = sum + item.Weight;
+                sum += item.Weight;
 
                 if (mat == MaterialKind.mk_None) {
                     mat = item.Material;
@@ -243,7 +243,7 @@ namespace NWR.Game
                 if (itemID == GlobalVars.iid_Ingot) {
                     AddForgeItem(GlobalVars.iid_Ingot, sum, i);
                 } else {
-                    ItemEntry iEntry = (ItemEntry)GlobalVars.nwrDB.GetEntry(itemID);
+                    var iEntry = GlobalVars.nwrDB.GetEntry<ItemEntry>(itemID);
                     AddForgeItem(itemID, iEntry.Weight, i);
                     float rem = ((sum - iEntry.Weight));
                     if (rem > 0f) {

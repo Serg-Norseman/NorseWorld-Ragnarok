@@ -836,7 +836,7 @@ namespace NWR.Game
                 return result;
             } catch (Exception ex) {
                 Logger.Write("StaticData.morphCompNoun(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -864,7 +864,7 @@ namespace NWR.Game
                 return result;
             } catch (Exception ex) {
                 Logger.Write("StaticData.getVerbRes(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

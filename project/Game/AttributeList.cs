@@ -196,7 +196,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("AttributeList.LoadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -216,7 +216,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("AttributeList.SaveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

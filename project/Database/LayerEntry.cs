@@ -63,7 +63,7 @@ namespace NWR.Database
                 IconsName = ReadElement(element, "IconsName");
             } catch (Exception ex) {
                 Logger.Write("LayerEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

@@ -33,9 +33,9 @@ namespace NWR.GUI
     {
         private sealed class TeachItem
         {
-            public int Index;
-            public int CurLev;
-            public int Price;
+            public readonly int Index;
+            public readonly int CurLev;
+            public readonly int Price;
 
             public TeachItem(int index, int curLev, int price)
             {

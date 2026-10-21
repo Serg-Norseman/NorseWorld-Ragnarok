@@ -48,16 +48,12 @@ namespace NWR.GUI.Controls
 
         private void Changed()
         {
-            if (OnChange != null) {
-                OnChange.Invoke(this);
-            }
+            OnChange?.Invoke(this);
         }
 
         private void Changing()
         {
-            if (OnChanging != null) {
-                OnChanging.Invoke(this);
-            }
+            OnChanging?.Invoke(this);
         }
 
         public LBColumnTitles()

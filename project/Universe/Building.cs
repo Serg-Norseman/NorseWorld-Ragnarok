@@ -195,7 +195,7 @@ namespace NWR.Universe
                 if (maxDoors == 1) {
                     dCnt = 1;
                 } else {
-                    dCnt = RandomHelper.GetBoundedRnd((int)maxDoors - 1, (int)((int)maxDoors + 1));
+                    dCnt = RandomHelper.GetBoundedRnd(maxDoors - 1, maxDoors + 1);
                 }
 
                 int dx = 0;
@@ -256,7 +256,7 @@ namespace NWR.Universe
         {
             for (int x = r.Left; x <= r.Right; x++) {
                 for (int y = r.Top; y <= r.Bottom; y++) {
-                    NWTile tile = (NWTile)field.GetTile(x, y);
+                    var tile = field.GetTile(x, y);
 
                     ushort bpk = NWField.GetBuildPlaceKind(x, y, r, RuinsMode);
 
@@ -342,10 +342,10 @@ namespace NWR.Universe
                 }
 
                 int idx = StreamUtils.ReadInt(stream);
-                Holder = ((idx == -1) ? null : (CreatureEntity)((NWField)Owner).Creatures[idx]);
+                Holder = (idx == -1) ? null : ((NWField)Owner).Creatures[idx];
             } catch (Exception ex) {
                 Logger.Write("Building.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -365,11 +365,11 @@ namespace NWR.Universe
                     StreamUtils.WriteByte(stream, (byte)dr.State);
                 }
 
-                int idx = ((Holder == null) ? -1 : ((NWField)Owner).Creatures.IndexOf((NWCreature)Holder));
+                int idx = (Holder == null) ? -1 : ((NWField)Owner).Creatures.IndexOf((NWCreature)Holder);
                 StreamUtils.WriteInt(stream, idx);
             } catch (Exception ex) {
                 Logger.Write("Building.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

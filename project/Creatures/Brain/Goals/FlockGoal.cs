@@ -57,8 +57,8 @@ namespace NWR.Creatures.Brain.Goals
             int dX = 0;
             int dY = 0;
             if (cnt > 0) {
-                dX = (dX + (int)Math.Round(algX / (float)cnt));
-                dY = (dY + (int)Math.Round(algY / (float)cnt));
+                dX += (int)Math.Round(algX / (float)cnt);
+                dY += (int)Math.Round(algY / (float)cnt);
             }
             if (cnt > 0) {
                 cohX = (int)Math.Round(cohX / (float)cnt);

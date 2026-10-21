@@ -1114,17 +1114,17 @@ namespace NWR.Effects
             switch (state) {
                 case ItemState.is_Normal:
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.Format(RS.rs_YouFeelsYouselfExperienced, new object[]{ "" }));
-                    creature.Experience = creature.Experience + 1;
+                    creature.Experience++;
                     break;
 
                 case ItemState.is_Blessed:
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.Format(RS.rs_YouFeelsYouselfExperienced, new object[]{ BaseLocale.GetStr(RS.rs_Much) }));
-                    creature.Experience = creature.Experience + 2;
+                    creature.Experience += 2;
                     break;
 
                 case ItemState.is_Cursed:
                     GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_YouFeelsYouselfUnexperienced));
-                    creature.Experience = creature.Experience - 1;
+                    creature.Experience--;
                     if (creature.Experience < 0) {
                         creature.Death(BaseLocale.GetStr(RS.rs_SuckedDry) + ((Item)source).GetDeclinableName(Number.nSingle, Case.cInstrumental, creature.Blindness), null);
                     }
@@ -2885,11 +2885,11 @@ namespace NWR.Effects
                 for (int y = r.Top; y <= r.Bottom; y++) {
                     for (int x = r.Left; x <= r.Right; x++) {
                         if (r.IsBorder(x, y)) {
-                            if (map is NWField) {
-                                UniverseBuilder.Gen_Creature(((NWField)map), id, x, y, false);
+                            if (map is NWField field) {
+                                UniverseBuilder.Gen_Creature(field, id, x, y, false);
                             } else {
-                                if (map is NWLayer) {
-                                    ((NWLayer)map).Gen_Creature(id, x, y, false);
+                                if (map is NWLayer layer) {
+                                    layer.Gen_Creature(id, x, y, false);
                                 }
                             }
                         }
@@ -2938,7 +2938,7 @@ namespace NWR.Effects
 
         public static void e_OcarinaUse(EffectID effectID, NWCreature creature, object source, ItemState state, InvokeMode invokeMode, EffectExt ext)
         {
-            if (source is Item) {
+            if (source is Item item) {
                 bool music = creature.GetAbility(AbilityID.Ab_MusicalAcuity) > 0;
                 if (!music) {
                     GlobalVars.nwrWin.ShowText(GlobalVars.nwrWin, BaseLocale.GetStr(RS.rs_OcarinaTune));
@@ -2946,7 +2946,7 @@ namespace NWR.Effects
                     GlobalVars.nwrWin.ShowText(GlobalVars.nwrWin, BaseLocale.GetStr(RS.rs_OcarinaBeautifulTune));
                 }
 
-                if (((Item)source).CLSID == GlobalVars.iid_GlassOcarina) {
+                if (item.CLSID == GlobalVars.iid_GlassOcarina) {
                     int land_id = (ext == null) ? -1 : (int)ext.GetParam(EffectParams.ep_Land);
 
                     if (!music || land_id > 0) {
@@ -3407,7 +3407,7 @@ namespace NWR.Effects
                     {
                         if (creature.HasAffect(EffectID.eid_Relocation)) {
                             NWField fld = creature.CurrentField;
-                            if (source is BaseTile && (int)((BaseTile)source).Foreground == PlaceID.pid_TeleportTrap) {
+                            if (source is BaseTile baseTile && baseTile.Foreground == PlaceID.pid_TeleportTrap) {
                                 GlobalVars.nwrWin.ShowText(creature, BaseLocale.GetStr(RS.rs_YouSetOffTeleportationTrap));
                             }
 
@@ -3563,7 +3563,7 @@ namespace NWR.Effects
                 }
             } catch (Exception ex) {
                 Logger.Write("EffectsFactory.loadShip(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -3590,7 +3590,7 @@ namespace NWR.Effects
                 }
             } catch (Exception ex) {
                 Logger.Write("EffectsFactory.unloadShip(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -4345,11 +4345,11 @@ namespace NWR.Effects
                 eff.Ext = newExt;
 
                 AbstractMap map = (AbstractMap)dunRoom.Owner;
-                if (map is NWField) {
-                    ((NWField)map).Effects.Add(eff);
+                if (map is NWField field) {
+                    field.Effects.Add(eff);
                 } else {
-                    if (map is NWLayer) {
-                        ((NWLayer)map).Effects.Add(eff);
+                    if (map is NWLayer layer) {
+                        layer.Effects.Add(eff);
                     }
                 }
             }
@@ -4369,11 +4369,11 @@ namespace NWR.Effects
                 MapEffect eff = new MapEffect(creature.Space, map, EffectID.eid_Flood, null, EffectAction.ea_EachTurn, 20, 0);
                 eff.Ext = newExt;
 
-                if (map is NWField) {
-                    ((NWField)map).Effects.Add(eff);
+                if (map is NWField field) {
+                    field.Effects.Add(eff);
                 } else {
-                    if (map is NWLayer) {
-                        ((NWLayer)map).Effects.Add(eff);
+                    if (map is NWLayer layer) {
+                        layer.Effects.Add(eff);
                     }
                 }
             }
@@ -4767,7 +4767,7 @@ namespace NWR.Effects
             int num = GlobalVars.dbCreatures.Count;
             for (int i = 0; i < num; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(GlobalVars.dbCreatures[i]);
-                if (entry is DeclinableEntry && ((DeclinableEntry)entry).HasNounMorpheme(input)) {
+                if (entry is DeclinableEntry declinable && declinable.HasNounMorpheme(input)) {
                     return GlobalVars.dbCreatures[i];
                 }
             }
@@ -4961,7 +4961,7 @@ namespace NWR.Effects
                 return;
             }
 
-            ushort tid = (ushort)tile_id;
+            ushort tid = tile_id;
             if ((StaticData.dbPlaces[tid].Signs.Contains(PlaceFlags.psBackground))) {
                 aTile.Background = tid;
                 return;
@@ -4978,7 +4978,7 @@ namespace NWR.Effects
             for (int i = 0; i < num; i++) {
                 int id = GlobalVars.dbItems[i];
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(id);
-                if (entry is DeclinableEntry && ((DeclinableEntry)entry).HasNounMorpheme(str)) {
+                if (entry is DeclinableEntry declinable && declinable.HasNounMorpheme(str)) {
                     return id;
                 }
             }
@@ -5117,9 +5117,7 @@ namespace NWR.Effects
 
         private static string WandRayMsg(EffectID effectID, object source)
         {
-            if (source != null && source is Item) {
-                Item item = (Item)source;
-
+            if (source is Item item) {
                 string tmp = item.Entry.Name;
                 tmp = tmp.Substring(tmp.IndexOf(" ") + 1);
 

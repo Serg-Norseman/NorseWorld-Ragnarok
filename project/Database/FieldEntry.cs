@@ -78,7 +78,7 @@ namespace NWR.Database
                 }
             } catch (Exception ex) {
                 Logger.Write("FieldEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

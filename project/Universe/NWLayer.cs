@@ -46,7 +46,7 @@ namespace NWR.Universe
         {
             fSpace = space;
 
-            fEntry = (LayerEntry)GlobalVars.nwrDB.GetEntry(layerID);
+            fEntry = GlobalVars.nwrDB.GetEntry<LayerEntry>(layerID);
             fW = fEntry.W;
             fH = fEntry.H;
 
@@ -84,7 +84,7 @@ namespace NWR.Universe
         public NWGameSpace Space
         {
             get {
-                return (NWGameSpace)fSpace;
+                return fSpace;
             }
         }
 
@@ -128,7 +128,7 @@ namespace NWR.Universe
         public string Name
         {
             get {
-                return GlobalVars.nwrDB.GetEntry(EntryID).Name;
+                return fEntry.Name;
             }
         }
 
@@ -198,11 +198,8 @@ namespace NWR.Universe
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
                 object feat = Features[i];
-                if (feat is DungeonRoom) {
-                    DungeonRoom dr = (DungeonRoom)feat;
-                    if (dr.InArea(aX, aY)) {
-                        return dr;
-                    }
+                if (feat is DungeonRoom dr && dr.InArea(aX, aY)) {
+                    return dr;
                 }
             }
 
@@ -327,7 +324,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("NWLayer.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -342,7 +339,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("NWLayer.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

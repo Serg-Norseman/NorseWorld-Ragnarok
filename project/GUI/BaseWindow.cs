@@ -83,8 +83,8 @@ namespace NWR.GUI
         protected override void DoMouseMoveEvent(MouseMoveEventArgs eventArgs)
         {
             if ((HasStyle(WindowStyles.wsMoveable)) && Owner != null && (eventArgs.Shift.Contains(ShiftStates.SsLeft))) {
-                Left = Left + (fMouseX - fMouseOldX);
-                Top = Top + (fMouseY - fMouseOldY);
+                Left += (fMouseX - fMouseOldX);
+                Top += (fMouseY - fMouseOldY);
             }
             base.DoMouseMoveEvent(eventArgs);
         }

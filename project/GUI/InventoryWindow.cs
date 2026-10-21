@@ -74,8 +74,7 @@ namespace NWR.GUI
         {
             switch (eventArgs.Key) {
                 case Keys.GK_F1:
-                    if (ActiveControl is ListBox) {
-                        ListBox box = (ListBox)ActiveControl;
+                    if (ActiveControl is ListBox box) {
                         int idx = box.SelIndex;
                         if (idx >= 0 && idx < box.Items.Count) {
                             Item item = (Item)box.Items.GetItem(idx).Data;
@@ -336,7 +335,7 @@ namespace NWR.GUI
                 if (Collocutor != null) {
                     debt = player.GetDebt(Collocutor.Name);
                     if (Collocutor.IsTrader) {
-                        Building house = (Building)Collocutor.FindHouse();
+                        Building house = Collocutor.FindHouse();
 
                         if (house.Area.Contains(player.PosX, player.PosY)) {
                             fMode = IWMODE_INSHOP;
@@ -401,7 +400,7 @@ namespace NWR.GUI
                                     AddListItem(fEquipList, item.GetName(blindness), item, onlyIcons);
                                 } else {
                                     if (item.Ware) {
-                                        AddListItem(fPackList, item.GetName(blindness) + " (" + Convert.ToString((int)item.GetTradePrice(Collocutor, player)) + "$)", item, onlyIcons);
+                                        AddListItem(fPackList, item.GetName(blindness) + " (" + Convert.ToString(item.GetTradePrice(Collocutor, player)) + "$)", item, onlyIcons);
                                     } else {
                                         AddListItem(fPackList, item.GetName(blindness), item, onlyIcons);
                                     }
@@ -419,9 +418,9 @@ namespace NWR.GUI
 
                                 int num4 = groundItems.Count;
                                 for (int i = 0; i < num4; i++) {
-                                    Item item = (Item)groundItems[i];
+                                    Item item = groundItems[i];
                                     item.Identified = true;
-                                    AddListItem(fOutList, item.GetName(blindness) + " (" + Convert.ToString((int)item.GetTradePrice(player, Collocutor)) + "$)", item, onlyIcons);
+                                    AddListItem(fOutList, item.GetName(blindness) + " (" + Convert.ToString(item.GetTradePrice(player, Collocutor)) + "$)", item, onlyIcons);
                                 }
 
                                 groundItems.Dispose();
@@ -474,7 +473,7 @@ namespace NWR.GUI
                 }
             } catch (Exception ex) {
                 Logger.Write("InventoryWindow.updateEquipmentLists(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

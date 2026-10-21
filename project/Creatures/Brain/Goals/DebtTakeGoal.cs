@@ -37,9 +37,13 @@ namespace NWR.Creatures.Brain.Goals
 
         public override void Execute()
         {
-            NWCreature self = (NWCreature)Self;
-
             try {
+                if (Debtor == null) {
+                    IsComplete = true;
+                    return;
+                }
+
+                NWCreature self = (NWCreature)Self;
                 int dist = MathHelper.Distance(self.Location, Debtor.Location);
                 if (dist == 1) {
                     GlobalVars.nwrWin.ShowText(self, BaseLocale.GetStr(RS.rs_GiveMeTheMoney));

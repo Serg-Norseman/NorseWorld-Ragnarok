@@ -50,8 +50,8 @@ namespace NWR.Creatures.Specials
 
         private sealed class IvyBranchRec
         {
-            public int Kind;
-            public Directions Entries;
+            public readonly int Kind;
+            public readonly Directions Entries;
 
             public IvyBranchRec(int kind, Directions entries)
             {

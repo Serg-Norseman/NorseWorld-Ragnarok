@@ -43,7 +43,7 @@ namespace NWR.Database
                 MatKind = (MaterialKind)(Convert.ToInt32(ReadElement(element, "MatKind")));
             } catch (Exception ex) {
                 Logger.Write("MaterialEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

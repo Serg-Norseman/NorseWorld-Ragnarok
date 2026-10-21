@@ -60,7 +60,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("AbstractBody.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -78,7 +78,7 @@ namespace NWR.Creatures
                 }
             } catch (Exception ex) {
                 Logger.Write("AbstractBody.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

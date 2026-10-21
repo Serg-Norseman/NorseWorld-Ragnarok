@@ -103,15 +103,15 @@ namespace NWR.Creatures.Brain
                     NWTile tile = (NWTile)map.GetTile(self.PosX, self.PosY);
 
                     if (tile.ScentTrail != null) {
-                        int age = (int)tile.ScentAge;
+                        int age = tile.ScentAge;
                         int mx = self.PosX;
                         int my = self.PosY;
 
                         for (int y = self.PosY - 1; y <= self.PosY + 1; y++) {
                             for (int x = self.PosX - 1; x <= self.PosX + 1; x++) {
-                                tile = ((NWTile)map.GetTile(x, y));
-                                if (age < (int)tile.ScentAge) {
-                                    age = (int)tile.ScentAge;
+                                tile = (NWTile)map.GetTile(x, y);
+                                if (age < tile.ScentAge) {
+                                    age = tile.ScentAge;
                                     mx = x;
                                     my = y;
                                 }
@@ -153,7 +153,7 @@ namespace NWR.Creatures.Brain
         {
             EnemyChaseGoal chaseGoal = (EnemyChaseGoal)FindGoalByKind(GoalKind.gk_EnemyChase);
             if (chaseGoal == null || !chaseGoal.Enemy.Equals(enemy)) {
-                chaseGoal = ((EnemyChaseGoal)CreateGoal(GoalKind.gk_EnemyChase));
+                chaseGoal = (EnemyChaseGoal)CreateGoal(GoalKind.gk_EnemyChase);
                 chaseGoal.Enemy = enemy;
                 chaseGoal.Risk = risk;
                 chaseGoal.CanMove = canMove;
@@ -164,7 +164,7 @@ namespace NWR.Creatures.Brain
         {
             EnemyEvadeGoal evadeGoal = (EnemyEvadeGoal)FindGoalByKind(GoalKind.gk_EnemyEvade);
             if (evadeGoal == null || !evadeGoal.Enemy.Equals(enemy)) {
-                evadeGoal = ((EnemyEvadeGoal)CreateGoal(GoalKind.gk_EnemyEvade));
+                evadeGoal = (EnemyEvadeGoal)CreateGoal(GoalKind.gk_EnemyEvade);
                 evadeGoal.Enemy = enemy;
                 evadeGoal.Risk = risk;
                 evadeGoal.CanMove = canMove;
@@ -176,10 +176,21 @@ namespace NWR.Creatures.Brain
             NWCreature self = (NWCreature)fSelf;
             EscortGoal goal = (EscortGoal)FindGoalByKind(GoalKind.gk_Escort);
             if (goal != null) {
+                var leader = goal.Leader as NWCreature;
+                if (leader == null) {
+                    ReleaseGoal(goal);
+                    return;
+                }
+
                 if (goal.NotParty) {
-                    goal.Position = self.GetNearestPlace(goal.Leader.Location, 3, true);
+                    goal.Position = self.GetNearestPlace(leader.Location, 3, true);
                 } else {
-                    LeaderBrain leaderBrain = (LeaderBrain)goal.Leader.Brain;
+                    var leaderBrain = leader.Brain as LeaderBrain;
+                    if (leaderBrain == null) {
+                        ReleaseGoal(goal);
+                        return;
+                    }
+
                     goal.Position = leaderBrain.GetMemberPosition(self);
                 }
             }
@@ -553,7 +564,7 @@ namespace NWR.Creatures.Brain
                 case EmitterKind.ek_GuardAlarm:
                 case EmitterKind.ek_Call:
                     {
-                        result = (emitter.SourceID != fSelf.UID && MathHelper.Distance(fSelf.Location, ePos) < (int)((NWCreature)iSelf).Hear);
+                        result = (emitter.SourceID != fSelf.UID && MathHelper.Distance(fSelf.Location, ePos) < iSelf.Hear);
                         break;
                     }
                 default:

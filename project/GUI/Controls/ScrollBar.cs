@@ -93,9 +93,7 @@ namespace NWR.GUI.Controls
             set {
                 if (fPos != value) {
                     fPos = value;
-                    if (OnChange != null) {
-                        OnChange.Invoke(this);
-                    }
+                    OnChange?.Invoke(this);
                 }
             }
         }
@@ -127,10 +125,10 @@ namespace NWR.GUI.Controls
                     ExtRect rEnd = ExtRect.Create(0, Height - ArrowHeight, Width, Height);
                     ExtRect tt = ExtRect.Create(0, t, Width, t + ThumbHeight);
                     if (rBeg.Contains(eventArgs.X, eventArgs.Y) && fPos > fMin) {
-                        Pos = Pos - 1;
+                        Pos--;
                     } else {
                         if (rEnd.Contains(eventArgs.X, eventArgs.Y) && fPos < fMax) {
-                            Pos = Pos + 1;
+                            Pos++;
                         } else {
                             if (tt.Contains(eventArgs.X, eventArgs.Y)) {
                                 fOldThumbY = eventArgs.Y;
@@ -143,10 +141,10 @@ namespace NWR.GUI.Controls
                     ExtRect rEnd = ExtRect.Create(Width - ArrowWidth, 0, Width, Height);
                     ExtRect tt = ExtRect.Create(t, 0, t + ThumbWidth, Height);
                     if (rBeg.Contains(eventArgs.X, eventArgs.Y) && fPos > fMin) {
-                        Pos = Pos - 1;
+                        Pos--;
                     } else {
                         if (rEnd.Contains(eventArgs.X, eventArgs.Y) && fPos < fMax) {
-                            Pos = Pos + 1;
+                            Pos++;
                         } else {
                             if (tt.Contains(eventArgs.X, eventArgs.Y)) {
                                 fOldThumbX = eventArgs.X;

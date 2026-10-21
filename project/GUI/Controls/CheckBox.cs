@@ -49,8 +49,8 @@ namespace NWR.GUI.Controls
                             int num = Owner.Controls.Count;
                             for (int i = 0; i < num; i++) {
                                 BaseControl ctl = Owner.Controls[i];
-                                if (ctl is CheckBox && !ctl.Equals(this) && ((CheckBox)ctl).Group == Group) {
-                                    ((CheckBox)ctl).fChecked = false;
+                                if (ctl is CheckBox check && !ctl.Equals(this) && check.Group == Group) {
+                                    check.fChecked = false;
                                     cnt++;
                                 }
                             }

@@ -471,9 +471,7 @@ namespace NWR.GUI.Controls
                 }
             }
 
-            if (OnItemDraw != null) {
-                OnItemDraw.Invoke(this, screen, itemIndex, itemRect);
-            }
+            OnItemDraw?.Invoke(this, screen, itemIndex, itemRect);
         }
 
         protected virtual void DoPaintSubItem(BaseScreen screen, LBItem item, int itemIndex, int subIndex, ExtRect subRect)
@@ -563,9 +561,7 @@ namespace NWR.GUI.Controls
                     DoCheck(fSelIndex);
                 }
             }
-            if (OnItemSelect != null) {
-                OnItemSelect.Invoke(this, Button, Item);
-            }
+            OnItemSelect?.Invoke(this, Button, Item);
         }
 
 

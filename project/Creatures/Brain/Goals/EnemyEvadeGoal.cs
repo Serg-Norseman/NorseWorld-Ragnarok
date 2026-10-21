@@ -38,6 +38,10 @@ namespace NWR.Creatures.Brain.Goals
         public override void Execute()
         {
             NWCreature self = (NWCreature)Self;
+            if (Enemy == null || self.CurrentField == null) {
+                IsComplete = true;
+                return;
+            }
 
             bool ex = (self.CurrentField).Creatures.IndexOf((NWCreature)Enemy) >= 0;
 

@@ -38,9 +38,7 @@ namespace NWR.GUI
         private void OnEditKeyDown(object sender, KeyEventArgs eventArgs)
         {
             if (eventArgs.Key == Keys.GK_RETURN) {
-                if (AcceptProc != null) {
-                    AcceptProc.Invoke(fEditBox.Text);
-                }
+                AcceptProc?.Invoke(fEditBox.Text);
                 fEditBox.Text = "";
                 Hide();
             }

@@ -42,6 +42,10 @@ namespace NWR.Creatures.Brain.Goals
         {
             NWCreature self = (NWCreature)Self;
             NWCreature enemy = (NWCreature)Enemy;
+            if (enemy == null || self.CurrentField == null) {
+                IsComplete = true;
+                return;
+            }
 
             bool ex = (self.CurrentField).Creatures.IndexOf(enemy) >= 0;
             RaceID race = self.Entry.Race;

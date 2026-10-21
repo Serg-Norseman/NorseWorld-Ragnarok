@@ -18,8 +18,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Text;
 using BSLib;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
@@ -31,10 +29,11 @@ using NWR.Game.Ghosts;
 using NWR.Game.Scores;
 using NWR.Game.Story;
 using NWR.Game.Types;
-using NWR.GUI;
 using NWR.GUI.Controls;
 using NWR.Items;
 using NWR.Universe;
+using System;
+using System.Text;
 using ZRLib.Core;
 using ZRLib.Engine;
 using ZRLib.Grammar;
@@ -507,7 +506,7 @@ namespace NWR.GUI
                         int idx = Resources.AddImage(s + "_" + Convert.ToString(i) + ".tga", col, false);
 
                         if (idx > -1) {
-                            pRec.SubsLoaded = pRec.SubsLoaded + 1;
+                            pRec.SubsLoaded++;
                         }
                     }
 
@@ -530,7 +529,7 @@ namespace NWR.GUI
                             int idx = Resources.AddImage(fn, col, true);
 
                             if (idx > -1) {
-                                ikRec.ImagesLoaded = ikRec.ImagesLoaded + 1;
+                                ikRec.ImagesLoaded++;
                             }
                         }
                     }
@@ -803,9 +802,7 @@ namespace NWR.GUI
                 int px = creature.PosX;
                 int py = creature.PosY;
 
-                if (creature is SegmentedCreature) {
-                    SegmentedCreature art = (SegmentedCreature)creature;
-
+                if (creature is SegmentedCreature art) {
                     int num2 = art.Size;
                     for (int k = 0; k < num2; k++) {
                         SegmentedCreature.Segment seg = art.GetSegment(k);
@@ -868,8 +865,7 @@ namespace NWR.GUI
             for (int i = 0; i < num; i++) {
                 GameEntity he = features[i];
 
-                if (he is MapObject) {
-                    MapObject mf = (MapObject)he;
+                if (he is MapObject mf) {
                     int px = mf.PosX;
                     int py = mf.PosY;
                     NWTile place = (NWTile)field.GetTile(px, py);
@@ -894,9 +890,7 @@ namespace NWR.GUI
             for (int i = features.Count - 1; i >= 0; i--) {
                 GameEntity he = features[i];
 
-                if (he is MapObject) {
-                    MapObject mf = (MapObject)he;
-
+                if (he is MapObject mf) {
                     if (mf.IsNeedUpdate) {
                         mf.Update(time);
 
@@ -952,7 +946,7 @@ namespace NWR.GUI
                 }
             } catch (Exception ex) {
                 Logger.Write("NWMainWindow.doUserAction(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1335,7 +1329,7 @@ namespace NWR.GUI
                 fGameState = GameState.gsDefault;
             } catch (Exception ex) {
                 Logger.Write("NWMainWindow.AppCreate(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1435,10 +1429,8 @@ namespace NWR.GUI
                     case GameScreen.gsMain:
                         switch (eventArgs.Key) {
                             case Keys.GK_ESCAPE:
-                                if (fTargetData != null) {
-                                    fTargetData.Dispose();
-                                    fTargetData = null;
-                                }
+                                fTargetData?.Dispose();
+                                fTargetData = null;
                                 break;
 
                             case Keys.GK_TWIDDLE:
@@ -1693,10 +1685,8 @@ namespace NWR.GUI
 
         public void Clear()
         {
-            if (fTargetData != null) {
-                fTargetData.Dispose();
-                fTargetData = null;
-            }
+            fTargetData?.Dispose();
+            fTargetData = null;
 
             fTextBox.Clear();
 
@@ -2258,7 +2248,7 @@ namespace NWR.GUI
                 }
             } catch (Exception ex) {
                 Logger.Write("NWMainWindow.DoEvent(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -2293,7 +2283,7 @@ namespace NWR.GUI
                 }
             } catch (Exception ex) {
                 Logger.Write("NWMainWindow.doPlayerDeathEvent(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -2388,9 +2378,7 @@ namespace NWR.GUI
 
         public override void ProcessGameStep()
         {
-            if (fGameSpace != null) {
-                fGameSpace.ProcessGameStep();
-            }
+            fGameSpace?.ProcessGameStep();
         }
 
         public void ProgressInit(int stageCount)
@@ -2642,10 +2630,8 @@ namespace NWR.GUI
 
         public void InitTarget(EffectID effectID, object source, InvokeMode invokeMode, EffectExt ext)
         {
-            if (fTargetData != null) {
-                fTargetData.Dispose();
-                fTargetData = null;
-            }
+            fTargetData?.Dispose();
+            fTargetData = null;
 
             fTargetData = new TargetObj();
             fTargetData.EffID = effectID;
@@ -2729,10 +2715,8 @@ namespace NWR.GUI
 
             fGameSpace.Player.UseEffect(fTargetData.EffID, fTargetData.Source, fTargetData.InvMode, fTargetData.Ext);
 
-            if (fTargetData != null) {
-                fTargetData.Dispose();
-                fTargetData = null;
-            }
+            fTargetData?.Dispose();
+            fTargetData = null;
         }
 
         public override void DoActive(bool active)
@@ -2752,7 +2736,6 @@ namespace NWR.GUI
             }
         }
 
-        /// <param name="args"> the command line arguments </param>
         public static void Main(string[] args)
         {
             InitEnvironment(StaticData.Rs_GameName);
@@ -2763,5 +2746,4 @@ namespace NWR.GUI
             }
         }
     }
-
 }

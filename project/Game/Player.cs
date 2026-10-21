@@ -233,9 +233,7 @@ namespace NWR.Game
 
         public void ClearMercenaries()
         {
-            if (fBrain is LeaderBrain) {
-                LeaderBrain leader = ((LeaderBrain)fBrain);
-
+            if (fBrain is LeaderBrain leader) {
                 for (int i = leader.Members.Count - 1; i >= 1; i--) {
                     CreatureEntity member = leader.Members[i];
                     ((NWCreature)member).IsMercenary = false;
@@ -553,7 +551,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("Player.init(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -585,7 +583,7 @@ namespace NWR.Game
 
             knw = new Knowledge(this);
             knw.ID = entityID;
-            knw.RefsCount = (knw.RefsCount + 1);
+            knw.RefsCount++;
             fMemory.Add(sign, knw);
         }
 
@@ -723,7 +721,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("Player.enterPlace(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -741,7 +739,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("Player.leavePlace(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -788,7 +786,7 @@ namespace NWR.Game
                 ((LeaderBrain)fBrain).Formation = (PartyFormation)(StreamUtils.ReadByte(stream));
             } catch (Exception ex) {
                 Logger.Write("Player.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -867,7 +865,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("Player.setPos(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1006,7 +1004,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("Player.transferTo(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

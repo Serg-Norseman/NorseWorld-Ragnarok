@@ -213,19 +213,19 @@ namespace NWR.Database
 
                 XmlNodeList dnl = element.SelectNodes("Dialog");
                 if (dnl.Count > 0) {
-                    XmlNode dialogXmlNode = (XmlNode)dnl[0];
+                    XmlNode dialogXmlNode = dnl[0];
                     Dialog.LoadXML(dialogXmlNode, version, true);
                 }
             } catch (Exception ex) {
                 Logger.Write("CreatureEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
         public bool IsInhabitant(string landSign)
         {
             foreach (string land in Lands) {
-                if ((land == landSign)) {
+                if (land == landSign) {
                     return true;
                 }
             }

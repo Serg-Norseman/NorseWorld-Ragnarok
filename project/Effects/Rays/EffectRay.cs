@@ -49,10 +49,10 @@ namespace NWR.Effects.Rays
 
             int i = Effect.GetMagnitude(effectID);
             EffectTarget target = EffectTarget.et_None;
-            if ((ext.ReqParams.Contains(EffectParams.ep_Direction))) {
+            if (ext.ReqParams.Contains(EffectParams.ep_Direction)) {
                 target = EffectTarget.et_Direction;
             } else {
-                if ((ext.ReqParams.Contains(EffectParams.ep_Creature))) {
+                if (ext.ReqParams.Contains(EffectParams.ep_Creature)) {
                     target = EffectTarget.et_Creature;
                 }
             }
@@ -84,6 +84,10 @@ namespace NWR.Effects.Rays
             EffID = effectID;
 
             Field = Creature.CurrentField;
+            if (Field == null) {
+                Logger.Write("EffectRay.Exec(): CurrentField is null");
+                return;
+            }
 
             int eid = (int)effectID;
             EffectRec effRec = EffectsData.dbEffects[eid];

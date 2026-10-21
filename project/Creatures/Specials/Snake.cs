@@ -30,8 +30,8 @@ namespace NWR.Creatures.Specials
     {
         private sealed class SnakeSegmentRec
         {
-            public SegKind Kind;
-            public Directions Dir;
+            public readonly SegKind Kind;
+            public readonly Directions Dir;
 
             public SnakeSegmentRec(SegKind kind, Directions dir)
             {
@@ -48,7 +48,7 @@ namespace NWR.Creatures.Specials
         }
 
         private static readonly SnakeSegmentRec[] SnakeSegments;
-        private int fLength;
+        private readonly int fLength;
 
         static Snake()
         {

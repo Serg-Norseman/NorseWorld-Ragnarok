@@ -101,9 +101,7 @@ namespace NWR.GUI.Controls
 
         private void Change()
         {
-            if (OnChange != null) {
-                OnChange.Invoke(this);
-            }
+            OnChange?.Invoke(this);
         }
 
         protected override void DoMouseDownEvent(MouseEventArgs eventArgs)

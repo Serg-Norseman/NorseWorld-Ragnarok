@@ -103,9 +103,7 @@ namespace NWR.GUI.Controls
         protected string GetVariable(string varName)
         {
             string result = varName;
-            if (OnGetVariable != null) {
-                OnGetVariable.Invoke(this, ref result);
-            }
+            OnGetVariable?.Invoke(this, ref result);
             return result;
         }
 

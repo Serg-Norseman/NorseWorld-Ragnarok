@@ -84,8 +84,8 @@ namespace NWR.Items
             set {
                 if (fIdentified != value) {
                     fIdentified = value;
-                    if (fIdentified && Owner != null && Owner is NWCreature) {
-                        ((NWCreature)Owner).KnowIt(CLSID);
+                    if (fIdentified && Owner is NWCreature creature) {
+                        creature.KnowIt(CLSID);
                     }
                 }
             }
@@ -102,8 +102,7 @@ namespace NWR.Items
                         Space.ShowText(Owner, BaseLocale.GetStr(RS.rs_HexedItemsDoNotRemove));
                     } else {
                         fInUse = value;
-                        if (Owner != null && Owner is NWCreature) {
-                            NWCreature creature = (NWCreature)Owner;
+                        if (Owner is NWCreature creature) {
                             if (fInUse) {
                                 creature.ArmorClass += GetAttribute(ItemAttribute.ia_Defense);
                                 creature.DBMin += GetAttribute(ItemAttribute.ia_DamageMin);
@@ -313,11 +312,7 @@ namespace NWR.Items
         public NWCreature Holder
         {
             get {
-                if (Owner != null && Owner is NWCreature) {
-                    return (NWCreature)Owner;
-                } else {
-                    return null;
-                }
+                return (Owner is NWCreature creature) ? creature : null;
             }
         }
 
@@ -411,7 +406,7 @@ namespace NWR.Items
                 if (result < 1) {
                     result = 1;
                 }
-                result = (int)(result * Count);
+                result *= Count;
     
                 return result;
             }
@@ -431,7 +426,7 @@ namespace NWR.Items
                 if (CLSID == GlobalVars.iid_DeadBody) {
                     result = ((NWCreature)fContents[0]).Weight;
                 } else {
-                    result = (((float)fWeight * Count));
+                    result = fWeight * Count;
                 }
                 return result;
             }
@@ -444,59 +439,62 @@ namespace NWR.Items
         {
             set {
                 base.CLSID = value;
-                fEntry = ((ItemEntry)GlobalVars.nwrDB.GetEntry(value));
-    
-                fWeight = fEntry.Weight;
-                if (fEntry.Sign.CompareTo("Amulet_Holding") == 0) {
-                    State = ItemState.is_Cursed;
-                }
-                switch (Kind) {
-                    case ItemKind.ik_Armor:
-                    case ItemKind.ik_Tool:
-                    case ItemKind.ik_Wand:
-                    case ItemKind.ik_BluntWeapon:
-                    case ItemKind.ik_Amulet:
-                    case ItemKind.ik_ShortBlade:
-                    case ItemKind.ik_LongBlade:
-                    case ItemKind.ik_Shield:
-                    case ItemKind.ik_Helmet:
-                    case ItemKind.ik_Clothing:
-                    case ItemKind.ik_Spear:
-                    case ItemKind.ik_Axe:
-                    case ItemKind.ik_Bow:
-                    case ItemKind.ik_CrossBow:
-                    case ItemKind.ik_HeavyArmor:
-                    case ItemKind.ik_MediumArmor:
-                    case ItemKind.ik_LightArmor:
-                    case ItemKind.ik_Projectile:
-                    case ItemKind.ik_Misc:
-                        {
-                            Bonus = GenBonus();
-                            break;
-                        }
-                    case ItemKind.ik_DeadBody:
-                    case ItemKind.ik_Food:
-                    case ItemKind.ik_Potion:
-                    case ItemKind.ik_Scroll:
-                    case ItemKind.ik_Coin:
-                        {
-                            Bonus = 0;
-                            break;
-                        }
-                    case ItemKind.ik_Ring:
-                        {
-                            if (value == GlobalVars.iid_Ring_Delusion) {
-                                Bonus = GlobalVars.dbRings[RandomHelper.GetRandom(GlobalVars.dbRings.Count)];
+                ResetCLSID();
+            }
+        }
+
+        public void ResetCLSID()
+        {
+            var value = CLSID;
+            fEntry = (ItemEntry)GlobalVars.nwrDB.GetEntry(value);
+
+            fWeight = fEntry.Weight;
+            if (fEntry.Sign.CompareTo("Amulet_Holding") == 0) {
+                State = ItemState.is_Cursed;
+            }
+            switch (Kind) {
+                case ItemKind.ik_Armor:
+                case ItemKind.ik_Tool:
+                case ItemKind.ik_Wand:
+                case ItemKind.ik_BluntWeapon:
+                case ItemKind.ik_Amulet:
+                case ItemKind.ik_ShortBlade:
+                case ItemKind.ik_LongBlade:
+                case ItemKind.ik_Shield:
+                case ItemKind.ik_Helmet:
+                case ItemKind.ik_Clothing:
+                case ItemKind.ik_Spear:
+                case ItemKind.ik_Axe:
+                case ItemKind.ik_Bow:
+                case ItemKind.ik_CrossBow:
+                case ItemKind.ik_HeavyArmor:
+                case ItemKind.ik_MediumArmor:
+                case ItemKind.ik_LightArmor:
+                case ItemKind.ik_Projectile:
+                case ItemKind.ik_Misc: {
+                        Bonus = GenBonus();
+                        break;
+                    }
+                case ItemKind.ik_DeadBody:
+                case ItemKind.ik_Food:
+                case ItemKind.ik_Potion:
+                case ItemKind.ik_Scroll:
+                case ItemKind.ik_Coin: {
+                        Bonus = 0;
+                        break;
+                    }
+                case ItemKind.ik_Ring: {
+                        if (value == GlobalVars.iid_Ring_Delusion) {
+                            Bonus = GlobalVars.dbRings[RandomHelper.GetRandom(GlobalVars.dbRings.Count)];
+                        } else {
+                            if (value == GlobalVars.iid_SoulTrapping_Ring) {
+                                Bonus = 0;
                             } else {
-                                if (value == GlobalVars.iid_SoulTrapping_Ring) {
-                                    Bonus = 0;
-                                } else {
-                                    Bonus = GenBonus();
-                                }
+                                Bonus = GenBonus();
                             }
-                            break;
                         }
-                }
+                        break;
+                    }
             }
         }
 
@@ -807,11 +805,11 @@ namespace NWR.Items
             get {
                 ItemsList result = null;
     
-                if (Owner is NWCreature) {
-                    result = ((NWCreature)Owner).Items;
+                if (Owner is NWCreature creature) {
+                    result = creature.Items;
                 } else {
-                    if (Owner is NWField) {
-                        result = ((NWField)Owner).Items;
+                    if (Owner is NWField field) {
+                        result = field.Items;
                     }
                 }
     
@@ -822,7 +820,7 @@ namespace NWR.Items
         public Item GetSeveral(int aCount)
         {
             Item Result = null;
-            if (Countable && Count != 1 && aCount < (int)Count) {
+            if (Countable && Count != 1 && aCount < Count) {
                 Count = (ushort)(Count - aCount);
                 Result = new Item(fSpace, null);
                 Result.CLSID = CLSID;
@@ -840,10 +838,10 @@ namespace NWR.Items
             NWCreature seller = (NWCreature)((aSeller is NWCreature) ? aSeller : null);
             if (buyer != null && seller != null) {
                 if (seller.IsTrader) {
-                    result = (int)Math.Round((result * 1.2));
+                    result = (int)Math.Round(result * 1.2);
                 } else {
                     if (buyer.IsTrader) {
-                        result = (int)((int)((uint)result >> 1));
+                        result = (int)((uint)result >> 1);
                     }
                 }
             }
@@ -897,8 +895,9 @@ namespace NWR.Items
         public override void LoadFromStream(BinaryReader  stream, FileVersion version)
         {
             base.LoadFromStream(stream, version);
+            ResetCLSID();
 
-            Count = (ushort)StreamUtils.ReadWord(stream);
+            Count = StreamUtils.ReadWord(stream);
             if (Container) {
                 Contents.LoadFromStream(stream, version);
             }
@@ -925,7 +924,7 @@ namespace NWR.Items
                 StreamUtils.WriteFloat(stream, fWeight);
             } catch (Exception ex) {
                 Logger.Write("Item.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -947,10 +946,10 @@ namespace NWR.Items
             }
 
             EntityList<Item> list = null;
-            if (owner is NWCreature) {
-                list = ((NWCreature)owner).Items;
-            } else if (owner is NWField) {
-                list = ((NWField)owner).Items;
+            if (owner is NWCreature creature) {
+                list = creature.Items;
+            } else if (owner is NWField field) {
+                list = field.Items;
             } else if (owner is NWLayer) {
                 //list = ((NWLayer) owner).getItems();
             }

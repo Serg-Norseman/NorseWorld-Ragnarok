@@ -23,7 +23,6 @@ using System.Collections.Generic;
 using System.IO;
 using BSLib;
 using NWR.Database;
-using NWR.Game;
 using ZRLib.Core;
 using ZRLib.Engine;
 using ZRLib.Grammar;
@@ -134,7 +133,7 @@ namespace NWR.Game.Story
         public void Save(string fileName)
         {
             try {
-                FileStream fs = new FileStream(fileName, FileMode.CreateNew);
+                FileStream fs = new FileStream(fileName, FileMode.Create);
                 using (var dos = new BinaryWriter(fs)) {
                     RSJ_Header.Write(dos);
                     

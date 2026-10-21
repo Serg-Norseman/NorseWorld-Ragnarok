@@ -200,14 +200,12 @@ namespace NWR.GUI
             MaterialKind iMaterial = MaterialKind.mk_None;
             string result = "";
 
-            if (itemObj is Item) {
-                Item item = (Item)itemObj;
+            if (itemObj is Item item) {
                 iWeight = item.Weight;
                 iMaterial = item.Material;
                 result = item.Name;
             } else {
-                if (itemObj is ItemEntry) {
-                    ItemEntry itemEntry = (ItemEntry)itemObj;
+                if (itemObj is ItemEntry itemEntry) {
                     iWeight = itemEntry.Weight;
                     iMaterial = itemEntry.Material;
                     result = itemEntry.Name;

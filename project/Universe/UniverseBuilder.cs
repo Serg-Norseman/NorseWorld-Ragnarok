@@ -189,7 +189,7 @@ namespace NWR.Universe
 
         public static ushort TranslateTile(TileType aTile)
         {
-            ushort res = (ushort)PlaceID.pid_Undefined;
+            ushort res = PlaceID.pid_Undefined;
 
             switch (aTile) {
                 case TileType.ttGrass:
@@ -197,7 +197,7 @@ namespace NWR.Universe
                     break;
 
                 case TileType.ttTree:
-                    res = (ushort)PlaceID.pid_Tree;
+                    res = PlaceID.pid_Tree;
                     break;
 
                 case TileType.ttWater:
@@ -207,65 +207,65 @@ namespace NWR.Universe
                     break;
 
                 case TileType.ttBWallN:
-                    res = (ushort)PlaceID.pid_FenceN;
+                    res = PlaceID.pid_FenceN;
                     break;
 
                 case TileType.ttBWallS:
-                    res = (ushort)PlaceID.pid_FenceS;
+                    res = PlaceID.pid_FenceS;
                     break;
 
                 case TileType.ttBWallW:
-                    res = (ushort)PlaceID.pid_FenceW;
+                    res = PlaceID.pid_FenceW;
                     break;
 
                 case TileType.ttBWallE:
-                    res = (ushort)PlaceID.pid_FenceE;
+                    res = PlaceID.pid_FenceE;
                     break;
 
                 case TileType.ttBWallNW:
-                    res = (ushort)PlaceID.pid_FenceNW;
+                    res = PlaceID.pid_FenceNW;
                     break;
 
                 case TileType.ttBWallNE:
-                    res = (ushort)PlaceID.pid_FenceNE;
+                    res = PlaceID.pid_FenceNE;
                     break;
 
                 case TileType.ttBWallSW:
-                    res = (ushort)PlaceID.pid_FenceSW;
+                    res = PlaceID.pid_FenceSW;
                     break;
 
                 case TileType.ttBWallSE:
-                    res = (ushort)PlaceID.pid_FenceSE;
+                    res = PlaceID.pid_FenceSE;
                     break;
 
                 case TileType.ttCaveFloor:
-                    res = (ushort)PlaceID.pid_CaveFloor;
+                    res = PlaceID.pid_CaveFloor;
                     break;
 
                 case TileType.ttRock:
                 case TileType.ttCaveWall:
-                    res = (ushort)PlaceID.pid_CaveWall;
+                    res = PlaceID.pid_CaveWall;
                     break;
 
                 case TileType.ttMountain:
-                    res = (ushort)PlaceID.pid_Mountain;
+                    res = PlaceID.pid_Mountain;
                     break;
 
 
                 case TileType.ttLinearCorridorWall:
-                    res = (ushort)PlaceID.pid_Stalagmite;
+                    res = PlaceID.pid_Stalagmite;
                     break;
 
                 case TileType.ttRectRoomWall:
-                    res = (ushort)PlaceID.pid_QuicksandTrap;
+                    res = PlaceID.pid_QuicksandTrap;
                     break;
 
                 case TileType.ttCylindricityRoomWall:
-                    res = (ushort)PlaceID.pid_LavaTrap;
+                    res = PlaceID.pid_LavaTrap;
                     break;
 
                 case TileType.ttDungeonWall:
-                    res = (ushort)PlaceID.pid_CaveWall;
+                    res = PlaceID.pid_CaveWall;
                     break;
             }
 
@@ -309,8 +309,7 @@ namespace NWR.Universe
 
                     IList<DungeonArea> areas = builder.AreasList;
                     foreach (DungeonArea area in areas) {
-                        if (area is RectangularRoom) {
-                            RectangularRoom room = (RectangularRoom)area;
+                        if (area is RectangularRoom room) {
                             DungeonRoom dunRoom = new DungeonRoom(GameSpace.Instance, map);
                             dunRoom.SetArea(room.Left, room.Top, room.Right, room.Bottom);
                             map.Features.Add(dunRoom);
@@ -336,7 +335,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Dungeon(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -441,7 +440,7 @@ namespace NWR.Universe
                         }
 
                         if (!fog) {
-                            tile.BackgroundExt = (ushort)PlaceID.pid_Undefined;
+                            tile.BackgroundExt = PlaceID.pid_Undefined;
 
                             int back = tile.BackBase;
 
@@ -458,7 +457,7 @@ namespace NWR.Universe
                                 NormalizeTile(field, x, y, tile, back, PlaceID.pid_Rubble, PlaceID.pid_RubbleMask, fog, false, select);
                             }
                         } else {
-                            tile.FogExtID = (ushort)PlaceID.pid_Undefined;
+                            tile.FogExtID = PlaceID.pid_Undefined;
 
                             int defp = (tile.FogID);
 
@@ -665,7 +664,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Alfheim(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -748,41 +747,41 @@ namespace NWR.Universe
 
                         for (int y = r.Top + 1; y <= r.Bottom - 1; y++) {
                             for (int x = r.Left + 1; x <= r.Right - 1; x++) {
-                                DataEntry entry = null;
-
+                                int entryId = -1;
                                 switch (AreaItem[yy, xx]) {
                                     case Bik_Ring:
                                         if (AuxUtils.Chance(10)) {
-                                            entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Amulet);
+                                            entryId = GlobalVars.iid_Rnd_Amulet;
                                         } else {
-                                            entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Ring);
+                                            entryId = GlobalVars.iid_Rnd_Ring;
                                         }
                                         break;
                                     case Bik_Potion:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Potion);
+                                        entryId = GlobalVars.iid_Rnd_Potion;
                                         break;
                                     case Bik_Wand:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Wand);
+                                        entryId = GlobalVars.iid_Rnd_Wand;
                                         break;
                                     case Bik_Food:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Food);
+                                        entryId = GlobalVars.iid_Rnd_Food;
                                         break;
                                     case Bik_Scroll:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Scroll);
+                                        entryId = GlobalVars.iid_Rnd_Scroll;
                                         break;
                                     case Bik_Armor:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Armor);
+                                        entryId = GlobalVars.iid_Rnd_Armor;
                                         break;
                                     case Bik_Tool:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Tool);
+                                        entryId = GlobalVars.iid_Rnd_Tool;
                                         break;
                                     case Bik_Weapon:
-                                        entry = GlobalVars.nwrDB.GetEntry(GlobalVars.iid_Rnd_Weapon);
+                                        entryId = GlobalVars.iid_Rnd_Weapon;
                                         break;
                                 }
 
-                                if (entry != null) {
-                                    int id = ((ItemEntry)entry).Rnd;
+                                var entry = GlobalVars.nwrDB.GetEntry(entryId);
+                                if (entry is ItemEntry itemEntry) {
+                                    int id = itemEntry.Rnd;
                                     field.AddItem(x, y, id).Owner = merchant;
                                 }
                             }
@@ -791,7 +790,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Bazaar(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -976,7 +975,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Crossroads(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -990,12 +989,12 @@ namespace NWR.Universe
 
                     BaseTile tile = field.GetTile(x, y);
                     if (!field.IsBarrier(x, y) && (int)tile.Background == PlaceID.pid_Floor) {
-                        tile.Foreground = (ushort)PlaceID.pid_Stalagmite;
+                        tile.Foreground = PlaceID.pid_Stalagmite;
                     }
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.gen_CaveObjects(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1039,7 +1038,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Forest(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1048,11 +1047,11 @@ namespace NWR.Universe
             try {
                 for (int i = 1; i <= 5; i++) {
                     ExtPoint pt = field.SearchFreeLocation();
-                    field.GetTile(pt.X, pt.Y).Foreground = (ushort)PlaceID.pid_SmallPit;
+                    field.GetTile(pt.X, pt.Y).Foreground = PlaceID.pid_SmallPit;
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_GrynrHalls(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1129,7 +1128,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.gen_Items(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1158,7 +1157,7 @@ namespace NWR.Universe
         {
             BaseTile tile = map.GetTile(x, y);
             if (tile != null) {
-                tile.Background = (ushort)PlaceID.pid_Water;
+                tile.Background = PlaceID.pid_Water;
             }
         }
 
@@ -1176,7 +1175,7 @@ namespace NWR.Universe
                 field.Normalize();
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_MimerWell(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1214,7 +1213,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.gen_Mountains(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1236,7 +1235,7 @@ namespace NWR.Universe
                 field.Normalize();
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Muspelheim(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1360,7 +1359,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.gen_Traps(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1405,7 +1404,7 @@ namespace NWR.Universe
                 //
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_GodsFortress(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1445,7 +1444,7 @@ namespace NWR.Universe
                 field.AddCreature(-1, -1, GlobalVars.cid_Odin);
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Valhalla(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1457,7 +1456,7 @@ namespace NWR.Universe
                 field.AddCreature(-1, -1, GlobalVars.cid_Ketill);
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_VidurTemple(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1474,8 +1473,8 @@ namespace NWR.Universe
                 int num = field.Features.Count;
                 for (int i = 0; i < num; i++) {
                     GameEntity entry = field.Features[i];
-                    if (entry is Building) {
-                        ((Building)entry).Prepare();
+                    if (entry is Building building) {
+                        building.Prepare();
                     }
                 }
 
@@ -1489,7 +1488,7 @@ namespace NWR.Universe
                 field.Research(true, BaseTile.TS_VISITED);
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Village(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1497,7 +1496,7 @@ namespace NWR.Universe
         {
             BaseTile tile = map.GetTile(x, y);
             if (tile != null) {
-                tile.Background = (ushort)PlaceID.pid_Lava;
+                tile.Background = PlaceID.pid_Lava;
             }
         }
 
@@ -1511,12 +1510,12 @@ namespace NWR.Universe
                 ExtRect area = ExtRect.Create(x - rad, y - rad, x + rad, y + rad);
                 field.Gen_Lake(area, ChangeWLTile);
 
-                field.GetTile(x, y).Foreground = (ushort)PlaceID.pid_Vulcan;
+                field.GetTile(x, y).Foreground = PlaceID.pid_Vulcan;
 
                 field.Normalize();
             } catch (Exception ex) {
                 Logger.Write("UniverseBuilder.build_Wasteland(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1525,7 +1524,7 @@ namespace NWR.Universe
             BaseTile tile = map.GetTile(x, y);
             if (tile != null) {
                 NWTile nwTile = (NWTile)tile;
-                nwTile.FogID = (ushort)PlaceID.pid_Fog;
+                nwTile.FogID = PlaceID.pid_Fog;
                 nwTile.FogAge = -1;
             }
         }
@@ -1536,7 +1535,7 @@ namespace NWR.Universe
             field.Gen_RarefySpace(area, ChangeFogTile, 8, 400);
 
             NWTile tile = (NWTile)field.GetTile(aX, aY);
-            tile.FogID = (ushort)PlaceID.pid_Undefined;
+            tile.FogID = PlaceID.pid_Undefined;
             tile.FogAge = 0;
 
             field.NormalizeFog();

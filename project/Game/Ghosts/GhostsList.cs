@@ -111,7 +111,7 @@ namespace NWR.Game.Ghosts
                     StreamUtils.WriteInt(dos, cnt);
                     for (int i = 0; i < cnt; i++) {
                         Ghost ghost = fList[i];
-                        ghost.SaveToStream(dos, null);
+                        ghost.SaveToStream(dos, RGL_Header.Version);
                     }
                 }
             } catch (Exception ex) {

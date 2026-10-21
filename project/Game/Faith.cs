@@ -341,7 +341,7 @@ namespace NWR.Game
                 } else {
                     ShowText(Locale.GetStr(RS.rs_AShaftOfLucentRadianceLancesDownFromTheHeavens));
                     ShowText(Locale.GetStr(RS.rs_YouFeelUplifted));
-                    fPlayer.Experience = fPlayer.Experience + value;
+                    fPlayer.Experience += value;
                     fPlayer.UseEffect(EffectID.eid_Cure, null, InvokeMode.im_ItSelf, null);
                     fPlayer.UseEffect(EffectID.eid_Luck, null, InvokeMode.im_ItSelf, null);
                 }

@@ -29,7 +29,6 @@ using NWR.Creatures.Brain.Goals;
 using NWR.Creatures.Specials;
 using NWR.Database;
 using NWR.Effects;
-using NWR.Game;
 using NWR.Game.Ghosts;
 using NWR.Game.Quests;
 using NWR.Game.Story;
@@ -62,14 +61,14 @@ namespace NWR.Game
         public static readonly char[] RGT_Sign = new char[]{ 'R', 'G', 'T' };
 
         private NWDatabase fDB;
-        private ExtList<object> fEventsQueue;
+        private readonly ExtList<object> fEventsQueue;
         private int fFileIndex;
         private List<NWLayer> fLayers;
-        private NamesLib fNameLib;
-        private Player fPlayer;
-        private NWDateTime fTime;
+        private readonly NamesLib fNameLib;
+        private readonly Player fPlayer;
+        private readonly NWDateTime fTime;
         private TurnState fTurnState;
-        private Journal fJournal;
+        private readonly Journal fJournal;
         private List<Quest> fQuests;
 
         public ExtPoint MimerWellPos;
@@ -242,8 +241,8 @@ namespace NWR.Game
             int num = GlobalVars.nwrDB.EntriesCount;
             for (int i = 0; i < num; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
-                if (entry is VolatileEntry) {
-                    ((VolatileEntry)entry).RuntimeState = VolatileState.None;
+                if (entry is VolatileEntry volatileEntry) {
+                    volatileEntry.RuntimeState = VolatileState.None;
                 }
             }
         }
@@ -366,7 +365,7 @@ namespace NWR.Game
                 PreparePrefixes();
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.initData(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -560,8 +559,8 @@ namespace NWR.Game
                 int id = StreamUtils.ReadInt(stream);
                 VolatileState ves = (VolatileState)StreamUtils.ReadByte(stream);
                 DataEntry entry = GetDataEntry(id);
-                if (entry is VolatileEntry) {
-                    ((VolatileEntry)entry).RuntimeState = ves;
+                if (entry is VolatileEntry volatileEntry) {
+                    volatileEntry.RuntimeState = ves;
                 }
             }
         }
@@ -573,7 +572,7 @@ namespace NWR.Game
             int num = GlobalVars.nwrDB.EntriesCount;
             for (int i = 0; i < num; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
-                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.None) {
+                if (entry is VolatileEntry volatileEntry && volatileEntry.RuntimeState != VolatileState.None) {
                     count++;
                 }
             }
@@ -583,9 +582,9 @@ namespace NWR.Game
             int num2 = GlobalVars.nwrDB.EntriesCount;
             for (int i = 0; i < num2; i++) {
                 DataEntry entry = GlobalVars.nwrDB.GetEntry(i);
-                if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState != VolatileState.None) {
+                if (entry is VolatileEntry volatileEntry && volatileEntry.RuntimeState != VolatileState.None) {
                     StreamUtils.WriteInt(stream, entry.GUID);
-                    StreamUtils.WriteByte(stream, (byte)((VolatileEntry)entry).RuntimeState);
+                    StreamUtils.WriteByte(stream, (byte)volatileEntry.RuntimeState);
                 }
             }
         }
@@ -967,7 +966,7 @@ namespace NWR.Game
                 Logger.Write("NWGameSpace.loadPlayer.io(): " + ex.Message);
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.loadPlayer(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1016,8 +1015,8 @@ namespace NWR.Game
                                 for (int i = 0; i < num3; i++) {
                                     int id = oldExtincted[i];
                                     DataEntry entry = GetDataEntry(id);
-                                    if (entry is VolatileEntry) {
-                                        ((VolatileEntry)entry).RuntimeState = VolatileState.Extincted;
+                                    if (entry is VolatileEntry volatileEntry) {
+                                        volatileEntry.RuntimeState = VolatileState.Extincted;
                                     }
                                 }
                             } else {
@@ -1033,7 +1032,7 @@ namespace NWR.Game
                     }
                 } catch (IOException e) {
                     Logger.Write("NWGameSpace.loadGame.io(): " + e.Message);
-                    //throw e;
+                    //throw;
                 }
 
                 fJournal.Load(GetSaveFile(SAVEFILE_JOURNAL, index));
@@ -1061,7 +1060,7 @@ namespace NWR.Game
                 GlobalVars.nwrWin.PlaySound("game_load.ogg", SoundEngine.sk_Sound, -1, -1);
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.loadGame(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1072,7 +1071,7 @@ namespace NWR.Game
             try {
                 try {
                     FileHeader header = new FileHeader();
-                    FileStream fileStream = new FileStream(GetSaveFile(SAVEFILE_PLAYER, index), FileMode.CreateNew);
+                    FileStream fileStream = new FileStream(GetSaveFile(SAVEFILE_PLAYER, index), FileMode.Create);
                     using (var dos = new BinaryWriter(fileStream)) {
                         Array.Copy(RGP_Sign, 0, header.Sign, 0, 3);
                         header.Version = RGF_Version.Clone();
@@ -1088,7 +1087,7 @@ namespace NWR.Game
 
                     GlobalVars.nwrWin.ProgressInit(total);
 
-                    fileStream = new FileStream(GetSaveFile(SAVEFILE_TERRAINS, index), FileMode.CreateNew);
+                    fileStream = new FileStream(GetSaveFile(SAVEFILE_TERRAINS, index), FileMode.Create);
                     using (var dos = new BinaryWriter(fileStream)) {
                         Array.Copy(RGT_Sign, 0, header.Sign, 0, 3);
                         header.Version = RGF_Version.Clone();
@@ -1115,10 +1114,10 @@ namespace NWR.Game
                 GlobalVars.nwrWin.PlaySound("game_save.ogg", SoundEngine.sk_Sound, -1, -1);
             } catch (IOException ex) {
                 Logger.Write("NWGameSpace.saveGame.IO(): " + ex.Message);
-                //throw ex;
+                //throw;
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.saveGame(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -1184,7 +1183,7 @@ namespace NWR.Game
                 }
             } catch (Exception ex) {
                 Logger.Write("NWGameSpace.getEventMessage(): " + ex.Message);
-                throw ex;
+                throw;
             }
 
             return result;
@@ -1193,7 +1192,7 @@ namespace NWR.Game
         public NWField GetField(int layerID, int fX, int fY)
         {
             NWLayer layer = GetLayerByID(layerID);
-            return ((layer == null) ? null : layer.GetField(fX, fY));
+            return layer?.GetField(fX, fY);
         }
 
         public NWLayer GetLayerByID(int aID)
@@ -1213,7 +1212,7 @@ namespace NWR.Game
                 int num = GlobalVars.nwrDB.EntriesCount;
                 for (int k = 0; k < num; k++) {
                     DataEntry entry = GlobalVars.nwrDB.GetEntry(k);
-                    if (entry is VolatileEntry && ((VolatileEntry)entry).RuntimeState == VolatileState.Extincted) {
+                    if (entry is VolatileEntry volatileEntry && volatileEntry.RuntimeState == VolatileState.Extincted) {
                         list.Add(entry.GUID);
                     }
                 }
@@ -1334,8 +1333,8 @@ namespace NWR.Game
             VolatileState result;
 
             DataEntry entry = GetDataEntry(id);
-            if (entry is VolatileEntry) {
-                result = ((VolatileEntry)entry).RuntimeState;
+            if (entry is VolatileEntry volatileEntry) {
+                result = volatileEntry.RuntimeState;
             } else {
                 result = VolatileState.None;
             }
@@ -2158,8 +2157,8 @@ namespace NWR.Game
         public void SetVolatileState(int aID, VolatileState aState)
         {
             DataEntry entry = GetDataEntry(aID);
-            if (entry is VolatileEntry) {
-                ((VolatileEntry)entry).RuntimeState = aState;
+            if (entry is VolatileEntry volatileEntry) {
+                volatileEntry.RuntimeState = aState;
             }
         }
 
@@ -2271,30 +2270,30 @@ namespace NWR.Game
             string result;
 
             if (n_num == Number.nSingle && n_case == Case.cNominative) {
-                if (obj is Item) {
-                    result = ((Item)obj).Entry.Name;
+                if (obj is Item item) {
+                    result = item.Entry.Name;
                 } else {
-                    if (obj is NWCreature) {
-                        result = ((NWCreature)obj).Entry.Name;
+                    if (obj is NWCreature creature) {
+                        result = creature.Entry.Name;
                     } else {
-                        if (obj is DeclinableEntry) {
-                            result = ((DeclinableEntry)obj).Name;
+                        if (obj is DeclinableEntry declinable) {
+                            result = declinable.Name;
                         } else {
-                            result = "";
+                            result = string.Empty;
                         }
                     }
                 }
             } else {
-                if (obj is Item) {
-                    result = ((Item)obj).GetDeclinableName(n_num, n_case, false);
+                if (obj is Item item) {
+                    result = item.GetDeclinableName(n_num, n_case, false);
                 } else {
-                    if (obj is NWCreature) {
-                        result = ((NWCreature)obj).GetDeclinableName(n_num, n_case);
+                    if (obj is NWCreature creature) {
+                        result = creature.GetDeclinableName(n_num, n_case);
                     } else {
-                        if (obj is DeclinableEntry) {
-                            result = ((DeclinableEntry)obj).GetNounDeclension(n_num, n_case);
+                        if (obj is DeclinableEntry declinable) {
+                            result = declinable.GetNounDeclension(n_num, n_case);
                         } else {
-                            result = "";
+                            result = string.Empty;
                         }
                     }
                 }

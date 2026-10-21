@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>NWR</RootNamespace>
     <AssemblyName>NWR</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <TargetFrameworkProfile />
     <StartupObject>NWR.GUI.NWMainWindow</StartupObject>
@@ -217,6 +217,7 @@
     <Compile Include="Game\NWDateTime.cs" />
     <Compile Include="Game\RS.cs" />
     <Compile Include="Game\StaticData.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GUI\BaseControl.cs" />
     <Compile Include="GUI\BaseDragObject.cs" />
     <Compile Include="GUI\BaseHintWindow.cs" />

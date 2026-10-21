@@ -74,12 +74,12 @@ namespace NWR.Universe
             ValidCreatures = new List<int>();
 
             if (Layer != null) {
-                LayerEntry layerEntry = (LayerEntry)GlobalVars.nwrDB.GetEntry(Layer.EntryID);
+                var layerEntry = GlobalVars.nwrDB.GetEntry<LayerEntry>(Layer.EntryID);
                 fEntry = layerEntry.GetFieldEntry(fCoords.X, fCoords.Y);
 
                 EntryID = fEntry.GUID;
 
-                fLandEntry = (LandEntry)GlobalVars.nwrDB.FindEntryBySign(fEntry.LandSign);
+                fLandEntry = GlobalVars.nwrDB.FindEntryBySign<LandEntry>(fEntry.LandSign);
                 LandID = fLandEntry.GUID;
 
                 PrepareCreatures();
@@ -153,7 +153,7 @@ namespace NWR.Universe
         public NWGameSpace Space
         {
             get {
-                return (NWGameSpace)fSpace;
+                return fSpace;
             }
         }
 
@@ -230,7 +230,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("NWField.prepareCreatures(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -594,8 +594,8 @@ namespace NWR.Universe
                     int num = Features.Count;
                     for (int i = 0; i < num; i++) {
                         GameEntity entry = Features[i];
-                        if (entry is Building) {
-                            ((Building)entry).Refresh();
+                        if (entry is Building building) {
+                            building.Refresh();
                         }
                     }
                 }
@@ -609,8 +609,8 @@ namespace NWR.Universe
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
                 GameEntity feat = Features[i];
-                if (feat is Building && ((Building)feat).Area.Contains(aX, aY)) {
-                    return ((Building)feat);
+                if (feat is Building building && building.Area.Contains(aX, aY)) {
+                    return building;
                 }
             }
             return null;
@@ -621,11 +621,8 @@ namespace NWR.Universe
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
                 object feat = Features[i];
-                if (feat is DungeonRoom) {
-                    DungeonRoom dr = ((DungeonRoom)feat);
-                    if (dr.InArea(aX, aY)) {
-                        return dr;
-                    }
+                if (feat is DungeonRoom dr && dr.InArea(aX, aY)) {
+                    return dr;
                 }
             }
 
@@ -637,8 +634,8 @@ namespace NWR.Universe
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
                 object feat = Features[i];
-                if (feat is Village) {
-                    return ((Village)feat);
+                if (feat is Village village) {
+                    return village;
                 }
             }
 
@@ -824,11 +821,8 @@ namespace NWR.Universe
             int num = features.Count;
             for (int i = 0; i < num; i++) {
                 GameEntity feat = features[i];
-                if (feat is Gate) {
-                    Gate gate = (Gate)feat;
-                    if (gate.Location.Equals(tx, ty)) {
-                        return gate;
-                    }
+                if (feat is Gate gate && gate.Location.Equals(tx, ty)) {
+                    return gate;
                 }
             }
             return null;
@@ -918,7 +912,7 @@ namespace NWR.Universe
                 Visited = false;
             } catch (Exception ex) {
                 Logger.Write("NWField.clear(" + DebugSign + "): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -945,7 +939,7 @@ namespace NWR.Universe
                 Visited = StreamUtils.ReadBoolean(stream);
             } catch (Exception ex) {
                 Logger.Write("NWField.loadFromStream(): " + ex.Message, ex);
-                throw ex;
+                throw;
             }
         }
 
@@ -966,7 +960,7 @@ namespace NWR.Universe
                 StreamUtils.WriteBoolean(stream, Visited);
             } catch (Exception ex) {
                 Logger.Write("NWField.saveToStream(): " + ex.Message, ex);
-                throw ex;
+                throw;
             }
         }
 
@@ -1104,11 +1098,8 @@ namespace NWR.Universe
             int num = Features.Count;
             for (int i = 0; i < num; i++) {
                 GameEntity entry = Features[i];
-                if (entry is Region) {
-                    Region region = ((Region)entry);
-                    if (region.InArea(ax, ay)) {
-                        return region;
-                    }
+                if (entry is Region region && region.InArea(ax, ay)) {
+                    return region;
                 }
             }
 

@@ -208,7 +208,7 @@ namespace NWR.Database
                 BonusRange.Max = Convert.ToInt32(ReadElement(element, "BonusRange_Max"));
             } catch (Exception ex) {
                 Logger.Write("ItemEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

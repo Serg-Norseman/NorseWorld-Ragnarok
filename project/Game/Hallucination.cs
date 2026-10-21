@@ -32,14 +32,14 @@ namespace NWR.Game
         static Hallucination()
         {
             Hashmap = new Dictionary<int, ushort[]>();
-            Hashmap[(int)PlaceID.pid_Grass] = new ushort[] {
+            Hashmap[PlaceID.pid_Grass] = new ushort[] {
                 PlaceID.pid_Grass,
                 PlaceID.pid_Water,
                 PlaceID.pid_Quicksand,
                 PlaceID.pid_Space,
                 PlaceID.pid_Floor
             };
-            Hashmap[(int)PlaceID.pid_Tree] = new ushort[] {
+            Hashmap[PlaceID.pid_Tree] = new ushort[] {
                 PlaceID.pid_Tree,
                 PlaceID.pid_DeadTree,
                 PlaceID.pid_Mountain,

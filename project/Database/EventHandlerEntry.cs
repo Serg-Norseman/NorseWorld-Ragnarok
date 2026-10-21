@@ -43,7 +43,7 @@ namespace NWR.Database
                 SourceScript = ReadElement(element, "SourceScript");
             } catch (Exception ex) {
                 Logger.Write("EventHandlerEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

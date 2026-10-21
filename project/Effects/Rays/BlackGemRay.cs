@@ -45,7 +45,7 @@ namespace NWR.Effects.Rays
                     }
                     c.ApplyDamage(val, DamageKind.Physical, null, "");
                     if (Creature.Items.FindByCLSID(GlobalVars.iid_SoulTrapping_Ring) == null) {
-                        Creature.HPCur = Creature.HPCur + val;
+                        Creature.HPCur += val;
                     }
                     // TODO: messages!!!
                 }

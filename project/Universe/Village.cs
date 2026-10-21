@@ -64,8 +64,7 @@ namespace NWR.Universe
                 int num = field.Features.Count;
                 for (int i = 0; i < num; i++) {
                     GameEntity feat = field.Features[i];
-                    if (feat is Building) {
-                        Building b = (Building)feat;
+                    if (feat is Building b) {
                         ExtRect area = b.Area;
 
                         if (lsd > area.Left) {
@@ -121,7 +120,7 @@ namespace NWR.Universe
                 }
             } catch (Exception ex) {
                 Logger.Write("Village.buildBattlement(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

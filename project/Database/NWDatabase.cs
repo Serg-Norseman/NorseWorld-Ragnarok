@@ -76,11 +76,12 @@ namespace NWR.Database
 
         public DataEntry GetEntry(int id)
         {
-            if (id >= 0 && id < fEntriesCount) {
-                return fEntries[id];
-            } else {
-                return null;
-            }
+            return (id >= 0 && id < fEntriesCount) ? fEntries[id] : null;
+        }
+
+        public T GetEntry<T>(int id) where T : DataEntry
+        {
+            return (id >= 0 && id < fEntriesCount) ? fEntries[id] as T : null;
         }
 
         private DataEntry CreateEntry(sbyte kind)
@@ -223,6 +224,19 @@ namespace NWR.Database
                 DataEntry entry = fEntries[id];
                 if (entry != null && entry.Sign.CompareTo(sign) == 0) {
                     return entry;
+                }
+            }
+
+            return null;
+        }
+
+        public T FindEntryBySign<T>(string sign) where T : DataEntry
+        {
+            int num = fEntriesCount;
+            for (int id = 0; id < num; id++) {
+                var entry = fEntries[id];
+                if (entry != null && entry.Sign.CompareTo(sign) == 0) {
+                    return entry as T;
                 }
             }
 

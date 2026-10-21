@@ -121,8 +121,8 @@ namespace NWR.Effects
                 if (exec) {
                     EffectID eid = (EffectID)CLSID;
 
-                    if (this is MapEffect) {
-                        EffectExt ext = ((MapEffect)this).Ext;
+                    if (this is MapEffect effect) {
+                        EffectExt ext = effect.Ext;
                         InvokeEffect(eid, null, Source, mode, EffectAction.ea_Instant, ext);
                     } else {
                         NWCreature creature = (NWCreature)Owner;
@@ -190,9 +190,7 @@ namespace NWR.Effects
 
             refExt.ReqParams = EffectsData.dbEffects[(int)effectID].ReqParams;
             ICheckProc proc = EffectsData.dbEffectProcs[(int)effectID].Check;
-            if (proc != null) {
-                proc.Invoke(effectID, (NWCreature)creature, source, invokeMode, refExt);
-            }
+            proc?.Invoke(effectID, (NWCreature)creature, source, invokeMode, refExt);
 
             return refExt.Valid;
         }
@@ -212,19 +210,12 @@ namespace NWR.Effects
                     @event.Dispose();
                 }
 
-                ItemState state;
-                if (source != null && source is Item) {
-                    state = ((Item)source).State;
-                } else {
-                    state = ItemState.is_Normal;
-                }
+                ItemState state = (source is Item item) ? item.State : ItemState.is_Normal;
 
                 bool valid = (ext == null || ext.Valid);
                 if (valid) {
                     IEffectProc proc = EffectsData.dbEffectProcs[(int)effectID].Proc;
-                    if (proc != null) {
-                        proc.Invoke(effectID, (NWCreature)creature, source, state, invokeMode, ext);
-                    }
+                    proc?.Invoke(effectID, (NWCreature)creature, source, state, invokeMode, ext);
                 }
             } catch (Exception ex) {
                 //EffectsData.dbEffects[(int)effectID]
@@ -232,8 +223,8 @@ namespace NWR.Effects
                 if (creature != null) {
                     msg = msg + "/" + ((NWCreature)creature).Entry.Sign;
                 }
-                if (source != null && source is Item) {
-                    msg = msg + "/" + ((Item)source).Entry.Sign;
+                if (source != null && source is Item item) {
+                    msg = msg + "/" + item.Entry.Sign;
                 }
                 msg = msg + ", " + ex.Message;
                 Logger.Write(msg);

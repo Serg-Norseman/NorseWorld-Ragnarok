@@ -49,6 +49,10 @@ namespace NWR.Creatures.Brain
             try {
                 NWCreature self = (NWCreature)fSelf;
                 Building house = self.FindHouse();
+                if (house == null) {
+                    return;
+                }
+
                 ExtRect houseArea = house.Area.Clone();
                 if (!houseArea.Contains(self.PosX, self.PosY) && !(FindGoalByKind(GoalKind.gk_ShopReturn) is ShopReturnGoal)) {
                     houseArea.Inflate(-1, -1);
@@ -69,7 +73,7 @@ namespace NWR.Creatures.Brain
 
                 Player player = GlobalVars.nwrGame.Player;
                 int debt = player.GetDebt(self.Name);
-                if (debt > 0 && self.IsAvailable(player, true) && !player.InRect(shop.Area)) {
+                if (shop != null && debt > 0 && self.IsAvailable(player, true) && !player.InRect(shop.Area)) {
                     debtor = player;
                 }
 
@@ -103,7 +107,7 @@ namespace NWR.Creatures.Brain
                     case GoalKind.gk_DebtTake:
                         {
                             DebtTakeGoal dtGoal = (DebtTakeGoal)goal;
-                            if (self.IsAvailable(dtGoal.Debtor, true)) {
+                            if (dtGoal.Debtor != null && self.IsAvailable(dtGoal.Debtor, true)) {
                                 goal.Value = 1f;
                             } else {
                                 goal.Value = 0.1f;
@@ -112,8 +116,8 @@ namespace NWR.Creatures.Brain
                         break;
 
                     case GoalKind.gk_WareReturn:
-                        Building house = (Building)self.FindHouse();
-                        if (house.Area.Contains(self.PosX, self.PosY)) {
+                        Building house = self.FindHouse();
+                        if (house != null && house.Area.Contains(self.PosX, self.PosY)) {
                             goal.Value = 0.9f;
                         } else {
                             goal.Value = 0.22f;
@@ -144,7 +148,11 @@ namespace NWR.Creatures.Brain
         public override void StepTo(int aX, int aY)
         {
             try {
-                Building house = (Building)((NWCreature)fSelf).FindHouse();
+                Building house = ((NWCreature)fSelf).FindHouse();
+                if (house == null) {
+                    base.StepTo(aX, aY);
+                    return;
+                }
 
                 if (house.Area.Contains(aX, aY)) {
                     house.SwitchDoors(DoorState.Opened);

@@ -62,7 +62,7 @@ namespace NWR.Database
                 }
             } catch (Exception ex) {
                 Logger.Write("LandEntry.loadXML(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

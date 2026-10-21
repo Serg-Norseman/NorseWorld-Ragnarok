@@ -64,7 +64,7 @@ namespace NWR.GUI
                 }
             } catch (Exception ex) {
                 Logger.Write("HeroWindow.DoMouseDown(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 

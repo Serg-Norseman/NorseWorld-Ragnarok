@@ -116,7 +116,7 @@ namespace NWR.Database
                 }
             } catch (Exception ex) {
                 Logger.Write("BaseEntry.getNounDeclension(): " + ex.Message);
-                throw ex;
+                throw;
             }
 
             return result;

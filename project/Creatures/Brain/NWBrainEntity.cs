@@ -52,7 +52,7 @@ namespace NWR.Creatures.Brain
                 }
             } catch (Exception ex) {
                 Logger.Write("NWBrainEntity.loadFromStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
 
@@ -81,7 +81,7 @@ namespace NWR.Creatures.Brain
                 }
             } catch (Exception ex) {
                 Logger.Write("NWBrainEntity.saveToStream(): " + ex.Message);
-                throw ex;
+                throw;
             }
         }
     }

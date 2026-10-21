@@ -89,7 +89,7 @@ namespace NWR.GUI.Controls
             do {
                 I = L;
                 int J = R;
-                int P = (int)((int)((uint)(L + R) >> 1));
+                int P = (int)((uint)(L + R) >> 1);
                 do {
                     while (CompareText(I, P) < 0) {
                         I++;
@@ -120,15 +120,15 @@ namespace NWR.GUI.Controls
 
         private void Changed()
         {
-            if (fUpdateCount == 0 && OnChange != null) {
-                OnChange.Invoke(this);
+            if (fUpdateCount == 0) {
+                OnChange?.Invoke(this);
             }
         }
 
         private void Changing()
         {
-            if (fUpdateCount == 0 && OnChanging != null) {
-                OnChanging.Invoke(this);
+            if (fUpdateCount == 0) {
+                OnChanging?.Invoke(this);
             }
         }
 
@@ -207,7 +207,7 @@ namespace NWR.GUI.Controls
         {
             Changing();
             for (int i = fList.Count - 1; i >= 0; i--) {
-                ((LBItem)fList[i]).Dispose();
+                fList[i].Dispose();
             }
             fList.Clear();
             Changed();
@@ -247,7 +247,7 @@ namespace NWR.GUI.Controls
         {
             int num = fList.Count;
             for (int i = 0; i < num; i++) {
-                LBItem item = (LBItem)fList[i];
+                LBItem item = fList[i];
                 if (item.Text.CompareTo(S) == 0) {
                     return i;
                 }
@@ -272,7 +272,7 @@ namespace NWR.GUI.Controls
 
             int num = fList.Count;
             for (int i = 0; i < num; i++) {
-                LBItem item = (LBItem)fList[i];
+                LBItem item = fList[i];
 
                 if (item.Text.CompareTo(S) == 0) {
                     result = item;
@@ -295,5 +295,4 @@ namespace NWR.GUI.Controls
             }
         }
     }
-
 }

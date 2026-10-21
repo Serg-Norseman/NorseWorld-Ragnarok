@@ -100,7 +100,7 @@ namespace NWR.GUI
 
         public void Step()
         {
-            Stage = Stage + 1;
+            Stage++;
         }
     }
 }

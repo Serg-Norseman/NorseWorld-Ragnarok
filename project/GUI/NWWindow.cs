@@ -157,8 +157,7 @@ namespace NWR.GUI
 
                 if (idx >= 0 && idx < list.Items.Count) {
                     object data = list.Items.GetItem(idx).Data;
-                    if (data != null && data is Item) {
-                        Item item = (Item)data;
+                    if (data is Item item) {
                         list.Hint = item.GetHint(trade);
                     }
                 }

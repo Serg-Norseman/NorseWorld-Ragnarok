@@ -71,10 +71,10 @@ namespace NWR.GUI
             int yy = viewRect.Top + 30 * (py - mapRect.Top);
 
             if (place != null && !place.EmptyStates) {
-                int bg = (int)place.Background;
-                int fg = (int)place.Foreground;
-                int bgExt = (int)place.BackgroundExt;
-                int fgExt = (int)place.ForegroundExt;
+                int bg = place.Background;
+                int fg = place.Foreground;
+                int bgExt = place.BackgroundExt;
+                int fgExt = place.ForegroundExt;
                 int fog = place.FogID;
                 int fogExt = place.FogExtID;
 
@@ -208,7 +208,7 @@ namespace NWR.GUI
             int result;
 
             if (fld.LandID == GlobalVars.Land_Valhalla || fld.LandID == GlobalVars.Land_GodsFortress) {
-                int pbase = (tid);
+                int pbase = tid;
                 int res;
 
                 switch (pbase) {
@@ -253,7 +253,7 @@ namespace NWR.GUI
                         break;
                 }
 
-                result = (int)res;
+                result = res;
             } else {
                 result = tid;
             }
@@ -283,8 +283,7 @@ namespace NWR.GUI
                 if (@var < 1 || @var > StaticData.dbPlaces[@base].SubsLoaded) {
                     @var = 0;
                 }
-
-                result = result + @var;
+                result += @var;
             }
 
             return result;

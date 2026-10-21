@@ -70,7 +70,7 @@ namespace NWR.GUI
         private int fAbsTop;
         private BaseControl fActiveControl;
         private string fCaption;
-        private ExtList<BaseControl> fControls;
+        private readonly ExtList<BaseControl> fControls;
         private BaseImage fCursor;
         private int fDragMode;
         private Font fFont;
@@ -412,8 +412,8 @@ namespace NWR.GUI
         private bool KeyPreview
         {
             get {
-                BaseWindow wnd = (this is BaseWindow) ? (BaseWindow)this : null;
-                return (wnd != null) ? wnd.HasStyle(WindowStyles.wsKeyPreview) : false;
+                BaseWindow wnd = (this is BaseWindow window) ? window : null;
+                return (wnd != null && wnd.HasStyle(WindowStyles.wsKeyPreview));
             }
         }
 
@@ -427,7 +427,7 @@ namespace NWR.GUI
         private BaseControl GetClientControl(int aX, int aY)
         {
             for (int i = fControls.Count - 1; i >= 0; i--) {
-                BaseControl ctl = ((BaseControl)fControls[i]);
+                BaseControl ctl = fControls[i];
                 if (ctl.fVisible && ctl.InClientRect(aX, aY)) {
                     return ctl;
                 }
@@ -480,9 +480,9 @@ namespace NWR.GUI
                 if (DragObject.ActiveDrag) {
                     ExDragTo(DragObject.DragStartPos);
                 }
-            } catch (Exception e) {
+            } catch (Exception) {
                 DragControl = null;
-                throw e;
+                throw;
             }
         }
 
@@ -526,9 +526,6 @@ namespace NWR.GUI
                     }
                 } finally {
                     DragControl = null;
-                    if (DragSave != null) {
-                        DragSave = null;
-                    }
                 }
             }
         }
@@ -558,23 +555,17 @@ namespace NWR.GUI
 
         protected virtual void DoClickEvent()
         {
-            if (OnClick != null) {
-                OnClick.Invoke(this);
-            }
+            OnClick?.Invoke(this);
         }
 
         protected virtual void DoDragDropEvent(object Source, int X, int Y)
         {
-            if (OnDragDrop != null) {
-                OnDragDrop.Invoke(this, Source, X, Y);
-            }
+            OnDragDrop?.Invoke(this, Source, X, Y);
         }
 
         protected virtual void DoDragEndEvent(object Target, int X, int Y)
         {
-            if (OnDragEnd != null) {
-                OnDragEnd.Invoke(this, Target, X, Y);
-            }
+            OnDragEnd?.Invoke(this, Target, X, Y);
         }
 
         protected virtual void DoDragOverEvent(object source, int X, int Y, int dragState, ref bool  refAccept)
@@ -588,23 +579,17 @@ namespace NWR.GUI
 
         protected virtual void DoDragStartEvent(ref BaseDragObject  dragObject)
         {
-            if (OnDragStart != null) {
-                OnDragStart.Invoke(this, ref dragObject);
-            }
+            OnDragStart?.Invoke(this, ref dragObject);
         }
 
         protected virtual void DoEnterEvent()
         {
-            if (OnEnter != null) {
-                OnEnter.Invoke(this);
-            }
+            OnEnter?.Invoke(this);
         }
 
         protected virtual void DoExitEvent()
         {
-            if (OnExit != null) {
-                OnExit.Invoke(this);
-            }
+            OnExit?.Invoke(this);
         }
 
         protected virtual void DoHideEvent()
@@ -616,72 +601,52 @@ namespace NWR.GUI
                     ctl.DoHideEvent();
                 }
             }
-            if (OnHide != null) {
-                OnHide.Invoke(this);
-            }
+            OnHide?.Invoke(this);
         }
 
         protected virtual void DoKeyDownEvent(KeyEventArgs eventArgs)
         {
-            if (OnKeyDown != null) {
-                OnKeyDown.Invoke(this, eventArgs);
-            }
+            OnKeyDown?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoKeyPressEvent(KeyPressEventArgs eventArgs)
         {
-            if (OnKeyPress != null) {
-                OnKeyPress.Invoke(this, eventArgs);
-            }
+            OnKeyPress?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoKeyUpEvent(KeyEventArgs eventArgs)
         {
-            if (OnKeyUp != null) {
-                OnKeyUp.Invoke(this, eventArgs);
-            }
+            OnKeyUp?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoMouseDownEvent(MouseEventArgs eventArgs)
         {
-            if (OnMouseDown != null) {
-                OnMouseDown.Invoke(this, eventArgs);
-            }
+            OnMouseDown?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoMouseMoveEvent(MouseMoveEventArgs eventArgs)
         {
-            if (OnMouseMove != null) {
-                OnMouseMove.Invoke(this, eventArgs);
-            }
+            OnMouseMove?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoMouseUpEvent(MouseEventArgs eventArgs)
         {
-            if (OnMouseUp != null) {
-                OnMouseUp.Invoke(this, eventArgs);
-            }
+            OnMouseUp?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoMouseWheelEvent(MouseWheelEventArgs eventArgs)
         {
-            if (OnMouseWheel != null) {
-                OnMouseWheel.Invoke(this, eventArgs);
-            }
+            OnMouseWheel?.Invoke(this, eventArgs);
         }
 
         protected virtual void DoPaintEvent(BaseScreen screen)
         {
-            if (OnPaint != null) {
-                OnPaint.Invoke(this, screen);
-            }
+            OnPaint?.Invoke(this, screen);
         }
 
         protected virtual void DoResizeEvent()
         {
-            if (OnResize != null) {
-                OnResize.Invoke(this);
-            }
+            OnResize?.Invoke(this);
         }
 
         protected virtual void DoShowEvent()
@@ -694,9 +659,7 @@ namespace NWR.GUI
                 }
             }
 
-            if (OnShow != null) {
-                OnShow.Invoke(this);
-            }
+            OnShow?.Invoke(this);
         }
 
         protected virtual void DoStyleChanged()
@@ -708,14 +671,14 @@ namespace NWR.GUI
             get {
                 BaseMainWindow result;
                 if (fOwner == null) {
-                    if (this is BaseMainWindow) {
-                        result = (BaseMainWindow)this;
+                    if (this is BaseMainWindow window) {
+                        result = window;
                     } else {
                         result = null;
                     }
                 } else {
-                    if (fOwner is BaseMainWindow) {
-                        result = (BaseMainWindow)fOwner;
+                    if (fOwner is BaseMainWindow window) {
+                        result = window;
                     } else {
                         result = fOwner.MainWindow;
                     }
@@ -747,9 +710,7 @@ namespace NWR.GUI
 
         public virtual void ChangeLang()
         {
-            if (OnLangChange != null) {
-                OnLangChange.Invoke(this);
-            }
+            OnLangChange?.Invoke(this);
 
             int num = fControls.Count;
             for (int i = 0; i < num; i++) {
