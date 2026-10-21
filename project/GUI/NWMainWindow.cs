@@ -33,6 +33,7 @@ using NWR.GUI.Controls;
 using NWR.Items;
 using NWR.Universe;
 using System;
+using System.Linq;
 using System.Text;
 using ZRLib.Core;
 using ZRLib.Engine;
@@ -119,8 +120,8 @@ namespace NWR.GUI
 
         public int DialogVisibleRefs;
 
-        public NWMainWindow()
-            : base(800, 600)
+        public NWMainWindow(bool fullScreen)
+            : base(800, 600, fullScreen)
         {
             Caption = StaticData.Rs_GameName;
             fSoundEngine = new SoundEngine();
@@ -2492,7 +2493,7 @@ namespace NWR.GUI
         {
             try {
                 if (sender != null && !string.IsNullOrEmpty(text)) {
-                    bool res = sender.Equals(this) || sender.Equals(fGameSpace.Player) || (sender is NWCreature && fGameSpace.Player.IsAvailable((NWCreature)sender, true));
+                    bool res = sender.Equals(this) || sender.Equals(fGameSpace.Player) || (sender is NWCreature crSender && fGameSpace.Player.IsAvailable(crSender, true));
                     if (res) {
                         string temp = text;
                         temp = StringHelper.UniformName(temp);
@@ -2740,7 +2741,9 @@ namespace NWR.GUI
         {
             InitEnvironment(StaticData.Rs_GameName);
             if (!InstanceExists) {
-                GlobalVars.nwrWin = new NWMainWindow();
+                bool fullScreen = args.Contains("--fullscreen");
+
+                GlobalVars.nwrWin = new NWMainWindow(fullScreen);
                 GlobalVars.nwrWin.Run();
                 GlobalVars.nwrWin.Dispose();
             }

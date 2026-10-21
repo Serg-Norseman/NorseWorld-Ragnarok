@@ -237,14 +237,14 @@ namespace NWR.GUI
             return result;
         }
 
-        protected BaseMainWindow(int width, int height)
+        protected BaseMainWindow(int width, int height, bool fullScreen)
             : base(null)
         {
             fPrevPos = new ExtPoint();
             fFrameCount = 0;
             fFrameStartTime = 0;
             FPS = 0f;
-            fSystem = new SDL2System(this, width, height, false);
+            fSystem = new SDL2System(this, width, height, fullScreen);
 
             Bounds = ExtRect.Create(0, 0, width - 1, height - 1);
 
