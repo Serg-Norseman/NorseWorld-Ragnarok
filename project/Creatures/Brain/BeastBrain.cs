@@ -48,7 +48,7 @@ namespace NWR.Creatures.Brain
         protected override EmitterList Emitters
         {
             get {
-                return (((NWCreature)fSelf).CurrentField).Emitters;
+                return ((NWCreature)fSelf).CurrentField.Emitters;
             }
         }
 
@@ -68,7 +68,7 @@ namespace NWR.Creatures.Brain
                 NWField fld = self.CurrentField;
 
                 fNearKinsfolk = null;
-                fNearKinsfolkDist = AuxUtils.MaxInt;
+                fNearKinsfolkDist = int.MaxValue;
 
                 int num = fld.Creatures.Count;
                 for (int i = 0; i < num; i++) {
@@ -120,7 +120,7 @@ namespace NWR.Creatures.Brain
 
                         StalkGoal goal = (StalkGoal)FindGoalByKind(GoalKind.gk_Stalk);
                         if (goal == null) {
-                            goal = ((StalkGoal)CreateGoal(GoalKind.gk_Stalk));
+                            goal = (StalkGoal)CreateGoal(GoalKind.gk_Stalk);
                         }
                         goal.Position = new ExtPoint(mx, my);
                         goal.Duration = 2;
@@ -236,14 +236,14 @@ namespace NWR.Creatures.Brain
                 case GoalKind.gk_Escort:
                     {
                         int dist = MathHelper.Distance(fSelf.Location, ((EscortGoal)goal).Position);
-                        goal.Value = ((0.3f + dist / 20.0f));
+                        goal.Value = (0.3f + dist / 20.0f);
                         break;
                     }
 
                 case GoalKind.gk_Flock:
                     goal.Value = 0.22f;
                     if (Flock && !IsLeader) {
-                        goal.Value = ((0.22f + 0.01f * Kinsfolks.Count));
+                        goal.Value = (0.22f + 0.01f * Kinsfolks.Count);
                     }
                     break;
 

@@ -92,8 +92,8 @@ namespace NWR.GUI
         private void DoCommand(string cmd)
         {
             try {
-                int tokCount = (int)AuxUtils.GetTokensCount(cmd, " ");
-                string token = AuxUtils.GetToken(cmd, " ", 1).ToLower();
+                int tokCount = StringHelper.GetTokensCount(cmd, " ");
+                string token = StringHelper.GetToken(cmd, " ", 1).ToLower();
                 Player player = GlobalVars.nwrGame.Player;
                 if (token.Equals("name_gen")) {
                     for (int i = 1; i <= 10; i++) {
@@ -115,7 +115,7 @@ namespace NWR.GUI
                                     if (tokCount == 1) {
                                         throw new Exception(BaseLocale.GetStr(RS.rs_NoValue));
                                     }
-                                    string temp = AuxUtils.GetToken(cmd, " ", 2);
+                                    string temp = StringHelper.GetToken(cmd, " ", 2);
                                     DataEntry entry = GlobalVars.nwrDB.FindEntryBySign(temp);
                                     if (entry != null) {
                                         EffectExt ext = new EffectExt();
@@ -127,12 +127,12 @@ namespace NWR.GUI
                                         if (tokCount == 1) {
                                             throw new Exception(BaseLocale.GetStr(RS.rs_NoValue));
                                         }
-                                        string temp = AuxUtils.GetToken(cmd, " ", 2);
+                                        string temp = StringHelper.GetToken(cmd, " ", 2);
                                         int tx;
                                         int ty;
                                         if (tokCount == 4) {
-                                            tx = Convert.ToInt32(AuxUtils.GetToken(cmd, " ", 3));
-                                            ty = Convert.ToInt32(AuxUtils.GetToken(cmd, " ", 4));
+                                            tx = Convert.ToInt32(StringHelper.GetToken(cmd, " ", 3));
+                                            ty = Convert.ToInt32(StringHelper.GetToken(cmd, " ", 4));
                                         } else {
                                             tx = -1;
                                             ty = -1;
@@ -178,7 +178,7 @@ namespace NWR.GUI
                                                             if (tokCount == 1) {
                                                                 throw new Exception(BaseLocale.GetStr(RS.rs_NoValue));
                                                             }
-                                                            int dummy = Convert.ToInt32(AuxUtils.GetToken(cmd, " ", 2));
+                                                            int dummy = Convert.ToInt32(StringHelper.GetToken(cmd, " ", 2));
                                                             player.Morality = (sbyte)dummy;
                                                             AddMessage(">> (Player.Morality = " + Convert.ToString(dummy) + ")");
                                                         } else {
@@ -189,8 +189,8 @@ namespace NWR.GUI
                                                                 if (tokCount == 2) {
                                                                     throw new Exception(BaseLocale.GetStr(RS.rs_NoCount));
                                                                 }
-                                                                token = AuxUtils.GetToken(cmd, " ", 2);
-                                                                int dummy = Convert.ToInt32(AuxUtils.GetToken(cmd, " ", 3));
+                                                                token = StringHelper.GetToken(cmd, " ", 2);
+                                                                int dummy = Convert.ToInt32(StringHelper.GetToken(cmd, " ", 3));
                                                                 TakePlayerItem(player, token, dummy);
                                                             } else {
                                                                 AddMessage(BaseLocale.GetStr(RS.rs_CommandUnknown));

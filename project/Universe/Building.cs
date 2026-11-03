@@ -30,6 +30,23 @@ using ZRLib.Map;
 
 namespace NWR.Universe
 {
+    public enum BuildingID
+    {
+        bid_None,
+        bid_House,
+
+        bid_MerchantShop,
+        bid_Smithy,
+        bid_AlchemistShop,
+        bid_ConjurerShop,
+        bid_SageShop,
+        bid_WoodsmanShop,
+
+        bid_First = bid_House,
+        bid_Last = bid_WoodsmanShop
+    }
+
+
     public sealed class Building : BaseRoom
     {
         public static bool RuinsMode = false;
@@ -420,7 +437,7 @@ namespace NWR.Universe
                     merchant.AddItem(coins);
                     Holder = merchant;
                 } else {
-                    Item coins = (Item)merchant.Items.FindByCLSID(GlobalVars.iid_Coin);
+                    Item coins = merchant.Items.FindByCLSID(GlobalVars.iid_Coin);
                     if (coins != null) {
                         coins.Count = (ushort)RandomHelper.GetBoundedRnd(15000, 25000);
                     }

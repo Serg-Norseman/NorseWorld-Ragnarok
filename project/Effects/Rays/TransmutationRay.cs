@@ -32,7 +32,7 @@ namespace NWR.Effects.Rays
             PlaceID.pid_Rubble
         };
 
-        public override void TileProc(int aX, int aY, ref bool  refContinue)
+        public override void TileProc(int aX, int aY, ref bool refContinue)
         {
             NWField f = Field;
             if (f.IsBarrier(aX, aY)) {
@@ -48,26 +48,24 @@ namespace NWR.Effects.Rays
 
                 NWCreature c = (NWCreature)f.FindCreature(aX, aY);
                 if (c != null) {
-                    string cSign = c.Entry.Sign;
-
-                    if (cSign.Equals("Mudman") || cSign.Equals("MudFlow")) {
-                        EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Mud);
-                    } else {
-                        if (cSign.Equals("LavaFlow")) {
+                    switch (c.Entry.Sign) {
+                        case "Mudman":
+                        case "MudFlow":
+                            EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Mud);
+                            break;
+                        case "LavaFlow":
                             EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Lava);
-                        } else {
-                            if (cSign.Equals("Jagredin") || cSign.Equals("LiveRock")) {
-                                EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Rubble);
-                            } else {
-                                if (cSign.Equals("SandForm")) {
-                                    EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Quicksand);
-                                } else {
-                                    if (cSign.Equals("WateryForm")) {
-                                        EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Water);
-                                    }
-                                }
-                            }
-                        }
+                            break;
+                        case "Jagredin":
+                        case "LiveRock":
+                            EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Rubble);
+                            break;
+                        case "SandForm":
+                            EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Quicksand);
+                            break;
+                        case "WateryForm":
+                            EffectsFactory.Deanimate(f, c, tile, PlaceID.pid_Water);
+                            break;
                     }
                 }
             }

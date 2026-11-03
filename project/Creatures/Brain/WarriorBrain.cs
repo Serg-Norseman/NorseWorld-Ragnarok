@@ -31,13 +31,13 @@ namespace NWR.Creatures.Brain
         public WarriorBrain(CreatureEntity owner)
             : base(owner)
         {
-            EmittersX = new BytesSet((sbyte)EmitterKind.ek_GuardAlarm);
+            EmittersX = new BytesSet(EmitterKind.ek_GuardAlarm);
         }
 
         private void SetAlarm()
         {
-            NWCreature self = ((NWCreature)fSelf);
-            if ((Townsman) && !self.Mercenary) {
+            NWCreature self = (NWCreature)fSelf;
+            if (Townsman && !self.Mercenary) {
                 Emitters.AddEmitter(EmitterKind.ek_GuardAlarm, self.UID, self.Location, 10f, 2, true);
             }
         }
@@ -95,7 +95,7 @@ namespace NWR.Creatures.Brain
                     case GoalKind.gk_Escort:
                         {
                             int dist = MathHelper.Distance(self.Location, ((EscortGoal)goal).Position);
-                            goal.Value = ((0.3f + dist / 20.0f));
+                            goal.Value = (0.3f + dist / 20.0f);
                             break;
                         }
 
@@ -123,7 +123,7 @@ namespace NWR.Creatures.Brain
 
                     case GoalKind.gk_AreaGuard:
                         {
-                            int dist = AuxUtils.CalcDistanceToArea(self.Location, ((AreaGuardGoal)goal).Area);
+                            int dist = GfxHelper.CalcDistanceToArea(self.Location, ((AreaGuardGoal)goal).Area);
                             goal.Value += dist / 100.0f;
                             break;
                         }

@@ -817,19 +817,19 @@ namespace NWR.Game
         public static string MorphCompNoun(string aComp, Case c, Number q, CreatureSex sex, bool animate, bool endingstressed)
         {
             if (string.IsNullOrEmpty(aComp)) {
-                return "";
+                return string.Empty;
             }
 
             try {
                 Gender gender = StaticData.GenderBySex[(int)sex];
                 string result = "";
 
-                int cnt = AuxUtils.GetTokensCount(aComp, " ");
+                int cnt = StringHelper.GetTokensCount(aComp, " ");
                 for (int i = 1; i <= cnt; i++) {
                     if (i > 1) {
                         result += " ";
                     }
-                    string tok = AuxUtils.GetToken(aComp, " ", i);
+                    string tok = StringHelper.GetToken(aComp, " ", i);
                     result += Grammar.morphNoun(tok, c, q, gender, animate, endingstressed);
                 }
 
@@ -845,11 +845,11 @@ namespace NWR.Game
             try {
                 string result;
 
-                string word = AuxUtils.GetToken(wordRes, "[]", 1);
-                string sfx = AuxUtils.GetToken(wordRes, "[]", 2);
+                string word = StringHelper.GetToken(wordRes, "[]", 1);
+                string sfx = StringHelper.GetToken(wordRes, "[]", 2);
 
                 int sf_idx = (voice - 1) * 3 + ((int)gender);
-                string sf = AuxUtils.GetToken(sfx, ",", sf_idx);
+                string sf = StringHelper.GetToken(sfx, ",", sf_idx);
                 if (sf.CompareTo("") == 0) {
                     result = word;
                 } else {

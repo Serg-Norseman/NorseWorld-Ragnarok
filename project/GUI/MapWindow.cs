@@ -151,7 +151,7 @@ namespace NWR.GUI
 
             int ax = 8;
             int ay = 8;
-            screen.DrawImage(ax, ay, 0, 0, (int)fImage.Width, (int)fImage.Height, fImage, 255);
+            screen.DrawImage(ax, ay, 0, 0, fImage.Width, fImage.Height, fImage, 255);
 
             screen.Font = CtlCommon.BgFont;
             screen.DrawText(ax + 40, ay + 25, BaseLocale.GetStr(RS.rs_WorldsTree), 0);

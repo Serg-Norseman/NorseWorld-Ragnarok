@@ -21,7 +21,6 @@
 using System.Collections.Generic;
 using BSLib;
 using NWR.Game.Types;
-using ZRLib.Core;
 
 namespace NWR.Game
 {
@@ -50,7 +49,7 @@ namespace NWR.Game
 
         public static ushort GetPlaceID(ushort placeID)
         {
-            ushort[] array = Hashmap.GetValueOrNull(placeID);
+            ushort[] array = Hashmap.GetValueOrDefault(placeID);
             if (array == null) {
                 return placeID;
             } else {

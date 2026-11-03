@@ -164,15 +164,6 @@ namespace NWR.Creatures.Brain
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fList.Dispose();
-                fList = null;
-            }
-            base.Dispose(disposing);
-        }
-
         public bool AddMember(NWCreature member)
         {
             bool result = false;
@@ -186,7 +177,7 @@ namespace NWR.Creatures.Brain
         public ExtPoint GetMemberPosition(NWCreature member)
         {
             int idx = fList.IndexOf(member);
-            return new ExtPoint(fSelf.PosX + (int)fOffsets[idx].RX, fSelf.PosY + (int)fOffsets[idx].RY);
+            return new ExtPoint(fSelf.PosX + fOffsets[idx].RX, fSelf.PosY + fOffsets[idx].RY);
         }
 
         public int IndexOfMember(NWCreature member)

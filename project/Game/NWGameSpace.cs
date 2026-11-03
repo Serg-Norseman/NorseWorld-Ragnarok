@@ -43,6 +43,15 @@ using ZRLib.Map;
 
 namespace NWR.Game
 {
+    public enum GameState
+    {
+        gsDefault,
+        gsResLoad,
+        gsAppBusy,
+        gsWorldGen
+    }
+
+
     public sealed class NWGameSpace : GameSpace, IHost
     {
         public const int SAVEFILE_PLAYER = 1;
@@ -2308,7 +2317,7 @@ namespace NWR.Game
             Case n_case = Case.cNominative;
 
             if (GlobalVars.nwrWin.LangExt == "ru" && hasParams) {
-                string tok = AuxUtils.GetToken(aToken, "_", 2);
+                string tok = StringHelper.GetToken(aToken, "_", 2);
                 char c = tok[0];
                 if (c != 'p') {
                     if (c == 's') {
@@ -2318,7 +2327,7 @@ namespace NWR.Game
                     n_num = Number.nPlural;
                 }
 
-                tok = AuxUtils.GetToken(aToken, "_", 3);
+                tok = StringHelper.GetToken(aToken, "_", 3);
                 switch (tok[0]) {
                     case 'a':
                         {
@@ -2359,8 +2368,8 @@ namespace NWR.Game
         private static string PrepareToken(string token, int tokIndex, params object[] args)
         {
             token = token.Substring(1, token.Length - 1 - 1);
-            int cnt = (int)AuxUtils.GetTokensCount(token, "_");
-            string tok = AuxUtils.GetToken(token, "_", 1);
+            int cnt = (int)StringHelper.GetTokensCount(token, "_");
+            string tok = StringHelper.GetToken(token, "_", 1);
 
             string result = "";
 
@@ -2394,9 +2403,9 @@ namespace NWR.Game
 
                 string result = str;
                 int num = 0;
-                int cnt = (int)AuxUtils.GetTokensCount(str, " .,");
+                int cnt = (int)StringHelper.GetTokensCount(str, " .,");
                 for (int i = 1; i <= cnt; i++) {
-                    string tok = AuxUtils.GetToken(str, " .,", i);
+                    string tok = StringHelper.GetToken(str, " .,", i);
                     if (string.IsNullOrEmpty(tok)) {
                         continue;
                     }

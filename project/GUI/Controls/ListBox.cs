@@ -300,10 +300,6 @@ namespace NWR.GUI.Controls
         }
 
 
-
-
-
-
         protected override void DoKeyDownEvent(KeyEventArgs eventArgs)
         {
             base.DoKeyDownEvent(eventArgs);
@@ -672,11 +668,11 @@ namespace NWR.GUI.Controls
             BaseScreen scr = MainWindow.Screen;
 
             CheckImage = NWResourceManager.LoadImage(scr, "itf/Check.tga", Colors.None);
-            CheckHeight = (int)((int)CheckImage.Height / 3);
-            CheckWidth = (int)CheckImage.Width;
+            CheckHeight = CheckImage.Height / 3;
+            CheckWidth = CheckImage.Width;
 
             TVBtn = NWResourceManager.LoadImage(scr, "itf/TVBtn.tga", Colors.Black);
-            LevelOffset = (int)TVBtn.Width;
+            LevelOffset = TVBtn.Width;
         }
 
         protected override void Dispose(bool disposing)

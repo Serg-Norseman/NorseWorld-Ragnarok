@@ -76,7 +76,7 @@ namespace NWR.GUI
             btn.ImageFile = "itf/DlgBtn.tga";
             btn.OnClick = OnBtnExchange;
             btn.OnLangChange = GlobalVars.nwrWin.LangChange;
-            btn.LangResID = (int)RS.rs_Exchange;
+            btn.LangResID = RS.rs_Exchange;
 
             btn = new NWButton(this);
             btn.Width = 90;
@@ -86,7 +86,7 @@ namespace NWR.GUI
             btn.ImageFile = "itf/DlgBtn.tga";
             btn.OnClick = OnBtnTeach;
             btn.OnLangChange = GlobalVars.nwrWin.LangChange;
-            btn.LangResID = (int)RS.rs_Teach;
+            btn.LangResID = RS.rs_Teach;
         }
 
         private void OnBtnClose(object sender)

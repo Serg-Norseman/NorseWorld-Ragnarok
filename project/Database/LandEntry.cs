@@ -51,8 +51,8 @@ namespace NWR.Database
                     throw new Exception("LandSigns not equals");
                 }
 
-                BackSFX = (ReadElement(element, "BackSFX"));
-                Song = (ReadElement(element, "Song"));
+                BackSFX = ReadElement(element, "BackSFX");
+                Song = ReadElement(element, "Song");
 
                 XmlNodeList nl = element.SelectNodes("ForeSFX");
                 ForeSFX = new string[nl.Count];

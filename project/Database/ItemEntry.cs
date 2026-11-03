@@ -109,8 +109,8 @@ namespace NWR.Database
                     ProbabilityTable<int> data = new ProbabilityTable<int>();
                     for (int i = 0; i < cnt; i++) {
                         string sign = contents[i].ItemID;
-                        ItemEntry entry = ((ItemEntry)db.FindEntryBySign(sign));
-                        int freq = (int)entry.Frequency;
+                        ItemEntry entry = (ItemEntry)db.FindEntryBySign(sign);
+                        int freq = entry.Frequency;
                         if (freq > 0) {
                             data.Add(entry.GUID, freq);
                         }
@@ -118,7 +118,7 @@ namespace NWR.Database
                     
                     result = data.GetRandomItem();
                     
-                    ItemEntry iEntry = ((ItemEntry)db.GetEntry(result));
+                    ItemEntry iEntry = (ItemEntry)db.GetEntry(result);
                     if (iEntry != null && iEntry.Meta) {
                         result = iEntry.Rnd;
                     }

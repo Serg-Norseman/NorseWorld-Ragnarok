@@ -174,7 +174,7 @@ namespace NWR.GUI
             base.DoKeyPressEvent(eventArgs);
 
             if ("0123456789".IndexOf(eventArgs.Key) >= 0) {
-                int i = (int)eventArgs.Key - 48;
+                int i = eventArgs.Key - 48;
                 PrepareFile(i);
             }
         }

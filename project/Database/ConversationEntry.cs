@@ -40,7 +40,7 @@ namespace NWR.Database
 
         public override void LoadXML(XmlNode element, FileVersion version)
         {
-            Name = (element.Attributes["Name"].InnerText);
+            Name = element.Attributes["Name"].InnerText;
             base.LoadXML(element, version);
         }
     }

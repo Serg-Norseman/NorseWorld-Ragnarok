@@ -23,6 +23,13 @@ using ZRLib.Core;
 
 namespace NWR.GUI.Controls
 {
+    public sealed class LBColumnTitle
+    {
+        public string Text;
+        public int Width;
+    }
+
+
     public sealed class LBColumnTitles : BaseObject
     {
         private readonly ExtList<LBColumnTitle> fList;

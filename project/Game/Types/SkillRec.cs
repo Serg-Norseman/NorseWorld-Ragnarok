@@ -22,6 +22,14 @@ using NWR.Effects;
 
 namespace NWR.Game.Types
 {
+    public enum SkillKind
+    {
+        Plain,
+        InnatePower,
+        Meta
+    }
+
+
     public sealed class SkillRec
     {
         public int Name;

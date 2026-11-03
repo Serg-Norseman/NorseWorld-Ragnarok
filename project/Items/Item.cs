@@ -32,6 +32,15 @@ using ZRLib.Grammar;
 
 namespace NWR.Items
 {
+    public static class ItemsCompareResult
+    {
+        public const int NotComparable = -2;
+        public const int Worse = -1;
+        public const int Equivalent = 0;
+        public const int Better = 1;
+    }
+
+
     public class Item : LocatedEntity
     {
         private EntityList<LocatedEntity> fContents;

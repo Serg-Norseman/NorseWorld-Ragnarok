@@ -56,10 +56,10 @@ namespace NWR.Database
             try {
                 base.LoadXML(element, version);
 
-                W = (Convert.ToInt32(ReadElement(element, "W")));
-                H = (Convert.ToInt32(ReadElement(element, "H")));
-                MSX = (Convert.ToInt32(ReadElement(element, "MSX")));
-                MSY = (Convert.ToInt32(ReadElement(element, "MSY")));
+                W = Convert.ToInt32(ReadElement(element, "W"));
+                H = Convert.ToInt32(ReadElement(element, "H"));
+                MSX = Convert.ToInt32(ReadElement(element, "MSX"));
+                MSY = Convert.ToInt32(ReadElement(element, "MSY"));
                 IconsName = ReadElement(element, "IconsName");
             } catch (Exception ex) {
                 Logger.Write("LayerEntry.loadXML(): " + ex.Message);

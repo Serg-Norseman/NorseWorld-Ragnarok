@@ -48,7 +48,7 @@ namespace NWR.GUI
 
                 int fog = place.FogID;
                 if (fog != PlaceID.pid_Undefined) {
-                    symImages.DrawImage(screen, sx, sy, GetSymImageIndex((ushort)PlaceID.pid_Fog), op);
+                    symImages.DrawImage(screen, sx, sy, GetSymImageIndex(PlaceID.pid_Fog), op);
                 } else {
                     if (fg != PlaceID.pid_Undefined) {
                         bool trap = field.IsTrap(px, py);
@@ -272,8 +272,8 @@ namespace NWR.GUI
         {
             int result = -1;
 
-            int @base = AuxUtils.GetShortLo(tid);
-            int @var = AuxUtils.GetShortHi(tid);
+            int @base = Algorithms.GetShortLo(tid);
+            int @var = Algorithms.GetShortHi(tid);
 
             if (@base >= PlaceID.pid_First && @base <= PlaceID.pid_Last) {
                 result = StaticData.dbPlaces[@base].ImageIndex;
@@ -293,8 +293,8 @@ namespace NWR.GUI
         {
             int result;
 
-            int @base = AuxUtils.GetShortLo(tid);
-            int @var = AuxUtils.GetShortHi(tid);
+            int @base = Algorithms.GetShortLo(tid);
+            int @var = Algorithms.GetShortHi(tid);
 
             SymbolID sym = StaticData.dbPlaces[@base].Symbol;
             SymbolRec symRec = StaticData.dbSymbols[(int)sym];

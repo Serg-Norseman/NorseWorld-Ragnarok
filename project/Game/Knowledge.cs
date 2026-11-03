@@ -19,7 +19,6 @@
  */
 
 using System.IO;
-using NWR.Game;
 using ZRLib.Core;
 
 namespace NWR.Game

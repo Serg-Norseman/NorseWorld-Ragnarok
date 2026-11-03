@@ -20,7 +20,6 @@
 
 using System;
 using System.IO;
-using NWR.Game;
 using ZRLib.Core;
 using ZRLib.Grammar;
 

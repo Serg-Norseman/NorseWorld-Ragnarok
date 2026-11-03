@@ -168,7 +168,7 @@ namespace NWR.GUI
                                     } else {
                                         imageIndex = skRec.ImageIndex;
                                     }
-                                    AddItem(s, (object)(int)sk, imageIndex);
+                                    AddItem(s, (int)sk, imageIndex);
                                 }
                             }
                             break;
@@ -181,7 +181,7 @@ namespace NWR.GUI
                             int skill_Spellcasting = player.GetSkill(SkillID.Sk_Spellcasting);
                             for (var eff = EffectID.eid_First; eff <= EffectID.eid_Last; eff++) {
                                 EffectRec efRec = EffectsData.dbEffects[(int)eff];
-                                if (skill_Spellcasting >= (int)efRec.LevReq && efRec.MPReq <= player.MPCur) {
+                                if (skill_Spellcasting >= efRec.LevReq && efRec.MPReq <= player.MPCur) {
                                     string st = " (" + Convert.ToString(efRec.MPReq) + ")";
                                     AddItem(BaseLocale.GetStr(efRec.NameRS) + st, eff,
                                                  StaticData.dbSkills[(int)SkillID.Sk_Spellcasting].ImageIndex);

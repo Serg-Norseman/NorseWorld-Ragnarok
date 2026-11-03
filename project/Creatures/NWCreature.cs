@@ -37,6 +37,22 @@ namespace NWR.Creatures
 {
     using ItemStates = EnumSet<ItemState>;
 
+
+    public enum RequestKind
+    {
+        None,
+        PlaceYield
+    }
+
+
+    public enum Reaction
+    {
+        Hostile,
+        Neutral,
+        Ally
+    }
+
+
     public class NWCreature : CreatureEntity
     {
         protected sealed class AttackInfo
@@ -2377,7 +2393,7 @@ namespace NWR.Creatures
                 ShootObj shootObj = new ShootObj();
                 shootObj.ACreature = this;
                 shootObj.AEnemy = enemy;
-                return AuxUtils.DoLine(PosX, PosY, enemy.PosX, enemy.PosY, shootObj.LineProc, true);
+                return GfxHelper.DoLine(PosX, PosY, enemy.PosX, enemy.PosY, shootObj.LineProc, true);
             }
         }
 

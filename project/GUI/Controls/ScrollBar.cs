@@ -109,9 +109,9 @@ namespace NWR.GUI.Controls
                 fFactor = 1f;
             } else {
                 if (fKind == SBK_HORIZONTAL) {
-                    fFactor = (float)(((double)(Width - (ArrowWidth << 1) - ThumbWidth) / (double)size));
+                    fFactor = (float)((Width - (ArrowWidth << 1) - ThumbWidth) / (double)size);
                 } else {
-                    fFactor = (float)(((double)(Height - (ArrowHeight << 1) - ThumbHeight) / (double)size));
+                    fFactor = (float)((Height - (ArrowHeight << 1) - ThumbHeight) / (double)size);
                 }
             }
         }
@@ -166,7 +166,7 @@ namespace NWR.GUI.Controls
                 } else {
                     delta = eventArgs.X - fOldThumbX - ArrowWidth;
                 }
-                int aPos = (int)((long)Math.Round((double)(fOldThumbPos + delta) / (double)fFactor));
+                int aPos = (int)Math.Round((fOldThumbPos + delta) / (double)fFactor);
                 if (aPos < fMin) {
                     aPos = fMin;
                 }
@@ -192,15 +192,15 @@ namespace NWR.GUI.Controls
             int AW = ArrowWidth;
             if (fKind == SBK_VERTICAL) {
                 if (fVBack != null) {
-                    int cnt = Height / (int)fVBack.Height + 1;
+                    int cnt = Height / fVBack.Height + 1;
 
                     for (int i = 0; i < cnt; i++) {
-                        int th = (int)fVBack.Height;
-                        int t = crt.Top + i * (int)fVBack.Height;
+                        int th = fVBack.Height;
+                        int t = crt.Top + i * fVBack.Height;
                         if (t + th > crt.Top + Height) {
                             th = crt.Top + Height - t;
                         }
-                        screen.DrawImage(crt.Left, t, 0, 0, (int)fVBack.Width, th, fVBack, 255);
+                        screen.DrawImage(crt.Left, t, 0, 0, fVBack.Width, th, fVBack, 255);
                     }
 
                     if (tPos < 0) {
@@ -209,20 +209,20 @@ namespace NWR.GUI.Controls
                     } else {
                         screen.DrawImage(crt.Left, crt.Top, 0, 0, AW, AH, fVArrows, 255);
                         screen.DrawImage(crt.Left, crt.Top + Height - AH, 0, AH, AW, AH, fVArrows, 255);
-                        screen.DrawImage(crt.Left, crt.Top + tPos, 0, 0, (int)fThumb.Width, (int)fThumb.Height, fThumb, 255);
+                        screen.DrawImage(crt.Left, crt.Top + tPos, 0, 0, fThumb.Width, fThumb.Height, fThumb, 255);
                     }
                 }
             } else {
                 if (fHBack != null) {
-                    int cnt = Width / (int)fHBack.Width + 1;
+                    int cnt = Width / fHBack.Width + 1;
 
                     for (int i = 0; i < cnt; i++) {
-                        int tw = (int)fHBack.Width;
-                        int t = crt.Left + i * (int)fHBack.Width;
+                        int tw = fHBack.Width;
+                        int t = crt.Left + i * fHBack.Width;
                         if (t + tw > crt.Left + Width) {
                             tw = crt.Left + Width - t;
                         }
-                        screen.DrawImage(t, crt.Top, 0, 0, tw, (int)fHBack.Height, fHBack, 255);
+                        screen.DrawImage(t, crt.Top, 0, 0, tw, fHBack.Height, fHBack, 255);
                     }
 
                     if (tPos < 0) {
@@ -231,7 +231,7 @@ namespace NWR.GUI.Controls
                     } else {
                         screen.DrawImage(crt.Left, crt.Top, 0, 0, AW, AH, fHArrows, 255);
                         screen.DrawImage(crt.Left + Width - AW, crt.Top, AW, 0, AW, AH, fHArrows, 255);
-                        screen.DrawImage(crt.Left + tPos, crt.Top, 0, 0, (int)fThumb.Width, (int)fThumb.Height, fThumb, 255);
+                        screen.DrawImage(crt.Left + tPos, crt.Top, 0, 0, fThumb.Width, fThumb.Height, fThumb, 255);
                     }
                 }
             }
@@ -255,7 +255,7 @@ namespace NWR.GUI.Controls
                 if (fMax - fMin <= 0) {
                     result = -1;
                 } else {
-                    result = (int)((long)Math.Round(((double)fFactor * (double)fPos)));
+                    result = (int)(long)Math.Round(fFactor * (double)fPos);
                     if (fKind == SBK_HORIZONTAL) {
                         result += ArrowWidth;
                     } else {

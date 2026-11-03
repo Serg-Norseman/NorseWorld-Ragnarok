@@ -20,15 +20,15 @@
 
 namespace NWR.Game.Types
 {
-	public sealed class EffectTargetRec
-	{
-		public int Question;
-		public int Invalid;
+    public sealed class EffectTargetRec
+    {
+        public int Question;
+        public int Invalid;
 
-		public EffectTargetRec(int question, int invalid)
-		{
-			Question = question;
-			Invalid = invalid;
-		}
-	}
+        public EffectTargetRec(int question, int invalid)
+        {
+            Question = question;
+            Invalid = invalid;
+        }
+    }
 }

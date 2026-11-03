@@ -28,6 +28,13 @@ using ZRLib.Map;
 
 namespace NWR.Database
 {
+    public enum FieldSource
+    {
+        fsGenerator,
+        fsTemplate
+    }
+
+
     public sealed class FieldEntry : DataEntry
     {
         public sealed class FDTile

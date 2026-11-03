@@ -18,9 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using BSLib;
 using NWR.Game;
 using NWR.Game.Types;
-using ZRLib.Core;
 
 namespace NWR.Effects
 {

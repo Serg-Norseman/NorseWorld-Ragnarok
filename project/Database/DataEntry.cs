@@ -93,14 +93,14 @@ namespace NWR.Database
 
             try {
                 if (!string.IsNullOrEmpty(Morphology)) {
-                    string word = AuxUtils.GetToken(Morphology, "[]", 1);
-                    if (AuxUtils.GetTokensCount(Morphology, "[]") == 1) {
+                    string word = StringHelper.GetToken(Morphology, "[]", 1);
+                    if (StringHelper.GetTokensCount(Morphology, "[]") == 1) {
                         result = word;
                     } else {
-                        string sfx = AuxUtils.GetToken(Morphology, "[]", 2);
+                        string sfx = StringHelper.GetToken(Morphology, "[]", 2);
 
                         int sf_idx = ((int)(number) - 1) * 6 + (int)(ncase);
-                        string sf = AuxUtils.GetToken(sfx, ",", sf_idx);
+                        string sf = StringHelper.GetToken(sfx, ",", sf_idx);
 
                         if (sf.CompareTo("") == 0) {
                             result = word;

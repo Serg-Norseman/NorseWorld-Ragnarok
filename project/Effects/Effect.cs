@@ -30,6 +30,27 @@ using ZRLib.Core;
 
 namespace NWR.Effects
 {
+    public enum EffectAction
+    {
+        ea_Instant,
+        ea_Persistent,
+        ea_EachTurn,
+        ea_RandomTurn,
+        ea_LastTurn
+    }
+
+
+    public enum InvokeMode
+    {
+        im_Use,
+        im_reserved,
+        im_UseBegin,
+        im_UseEnd,
+        im_ItSelf,
+        im_FinAction
+    }
+
+
     public class Effect : GameEntity
     {
         public EffectAction Action;
@@ -173,7 +194,7 @@ namespace NWR.Effects
             }
             MNXRange r = EffectsData.dbEffects[(int)effectID].Duration;
             float f = StaticData.dbItemStates[(int)state].Factor;
-            return RandomHelper.GetBoundedRnd((int)((long)Math.Round(((double)r.Min * (double)f))), (int)((long)Math.Round(((double)r.Max * (double)f))));
+            return RandomHelper.GetBoundedRnd((int)(long)Math.Round(r.Min * (double)f), (int)(long)Math.Round(r.Max * (double)f));
         }
 
         public static int GetMagnitude(EffectID effectID)

@@ -31,7 +31,7 @@ namespace NWR.Effects
         {
             NWTile nwTile = (NWTile)map.GetTile(x, y);
             if (nwTile.Foreground == PlaceID.pid_Undefined) {
-                nwTile.FogID = (ushort)PlaceID.pid_Fog;
+                nwTile.FogID = PlaceID.pid_Fog;
                 nwTile.FogAge = (sbyte)(nwTile.FogAge + RandomHelper.GetBoundedRnd(5, 17));
             }
         }

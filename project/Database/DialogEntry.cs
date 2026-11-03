@@ -48,7 +48,7 @@ namespace NWR.Database
         {
             ConversationEntry result = null;
             if (index >= 0 && index < fConversations.Count) {
-                result = ((ConversationEntry)fConversations[index]);
+                result = fConversations[index];
             }
             return result;
         }
@@ -84,7 +84,7 @@ namespace NWR.Database
 
         public void DeleteConversation(int index)
         {
-            ((ConversationEntry)fConversations[index]).Dispose();
+            fConversations[index].Dispose();
             fConversations.Delete(index);
         }
 

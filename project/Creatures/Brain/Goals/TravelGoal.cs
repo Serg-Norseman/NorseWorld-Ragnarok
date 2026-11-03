@@ -38,7 +38,7 @@ namespace NWR.Creatures.Brain.Goals
             if (!next.IsEmpty) {
                 Brain.StepTo(next.X, next.Y);
             }
-            IsComplete = (self.Location.Equals(Position));
+            IsComplete = self.Location.Equals(Position);
         }
     }
 }

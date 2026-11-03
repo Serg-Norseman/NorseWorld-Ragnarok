@@ -22,7 +22,6 @@ using System;
 using BSLib;
 using NWR.Creatures;
 using NWR.Database;
-using NWR.Game;
 using NWR.Game.Types;
 using NWR.Items;
 using ZRLib.Core;
@@ -76,12 +75,12 @@ namespace NWR.Game
             for (int i = 1; i < dbRecipes.Length; i++) {
                 RecipeRec recipe = dbRecipes[i];
 
-                int t_cnt = AuxUtils.GetTokensCount(recipe.Ingredients, "+");
+                int t_cnt = StringHelper.GetTokensCount(recipe.Ingredients, "+");
                 int finded = 0;
                 ready.Clear();
 
                 for (int t = 1; t <= t_cnt; t++) {
-                    string tok = AuxUtils.GetToken(recipe.Ingredients, "+", (sbyte)t);
+                    string tok = StringHelper.GetToken(recipe.Ingredients, "+", (sbyte)t);
                     char f = tok[0];
                     if (f != '_' && f != '!') {
                         f = '?';
@@ -90,7 +89,7 @@ namespace NWR.Game
                     }
 
                     if (f == '_') {
-                        Item item = (Item)ingredients.FindByCLSID(GlobalVars.iid_DeadBody);
+                        Item item = ingredients.FindByCLSID(GlobalVars.iid_DeadBody);
                         NWCreature db = (NWCreature)item.Contents[0];
                         if (db.Entry.Sign.CompareTo(tok) == 0) {
                             finded++;
@@ -98,7 +97,7 @@ namespace NWR.Game
                         }
                     } else {
                         int id = GlobalVars.nwrDB.FindEntryBySign(tok).GUID;
-                        Item item = (Item)ingredients.FindByCLSID(id);
+                        Item item = ingredients.FindByCLSID(id);
                         if (item != null && (f == '?' || (f == '!' && item.State == ItemState.is_Blessed))) {
                             finded++;
                             ready.Add(item);
@@ -121,7 +120,7 @@ namespace NWR.Game
             Item result = null;
 
             try {
-                Item vial = (Item)fPlayer.Items.FindByCLSID(GlobalVars.iid_Vial);
+                Item vial = fPlayer.Items.FindByCLSID(GlobalVars.iid_Vial);
 
                 if (ingredients.Count < 2) {
                     ShowText(BaseLocale.GetStr(RS.rs_IngredientsLack));

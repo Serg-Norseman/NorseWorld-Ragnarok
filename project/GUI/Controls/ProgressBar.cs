@@ -56,7 +56,7 @@ namespace NWR.GUI.Controls
                 if (Max == 0) {
                     percent = 0;
                 } else {
-                    percent = (int)((long)Math.Round((double)(fPos * 100) / (double)Max));
+                    percent = (int)(long)Math.Round(fPos * 100 / (double)Max);
                 }
     
                 if (fPercent != percent) {
@@ -87,10 +87,10 @@ namespace NWR.GUI.Controls
                 if (max == 0) {
                     percent = 0f;
                 } else {
-                    percent = (((float)cur / (float)max));
+                    percent = ((cur / (float)max));
                 }
 
-                int rw = (int)Math.Round((float)L * percent);
+                int rw = (int)Math.Round(L * percent);
 
                 if (rw > 0) {
                     screen.DrawRectangle(ExtRect.Create(R.Left, R.Top, R.Left + rw, R.Bottom), cReady, cBorder);

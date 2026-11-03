@@ -97,7 +97,7 @@ namespace NWR.Effects
 
             int num = list.Count;
             for (int i = 0; i < num; i++) {
-                NWCreature cr = (NWCreature)list[i];
+                NWCreature cr = list[i];
                 RaceID race = cr.Entry.Race;
                 if (cr == creature || race == RaceID.crAesir || race == RaceID.crEvilGod || race == RaceID.crDaemon) {
                     continue;
@@ -4999,9 +4999,9 @@ namespace NWR.Effects
         {
             string name;
             string count;
-            if (ConvertHelper.IsValidInt(AuxUtils.GetToken(input, " ", 1))) {
-                count = AuxUtils.GetToken(input, " ", 1);
-                name = AuxUtils.GetToken(input, " ", 2);
+            if (ConvertHelper.IsValidInt(StringHelper.GetToken(input, " ", 1))) {
+                count = StringHelper.GetToken(input, " ", 1);
+                name = StringHelper.GetToken(input, " ", 2);
             } else {
                 count = "1";
                 name = input;

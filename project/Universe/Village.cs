@@ -131,7 +131,7 @@ namespace NWR.Universe
                     for (int x = area.Left; x <= area.Right; x++) {
                         BaseTile ft = field.GetTile(x, y);
                         ft.Background = field.TranslateTile(TileType.ttGrass);
-                        int fg = (int)ft.Foreground;
+                        int fg = ft.Foreground;
                         if (fg != field.TranslateTile(TileType.ttTree)) {
                             ft.Foreground = PlaceID.pid_Undefined;
                         }
@@ -141,7 +141,7 @@ namespace NWR.Universe
                 for (var bid = BuildingID.bid_First; bid <= BuildingID.bid_Last; bid++) {
                     BuildingRec bRec = StaticData.dbBuildings[(int)bid];
 
-                    int cnt = RandomHelper.GetBoundedRnd((int)bRec.MinCount, (int)bRec.MaxCount);
+                    int cnt = RandomHelper.GetBoundedRnd(bRec.MinCount, bRec.MaxCount);
                     for (int j = 1; j <= cnt; j++) {
                         Building b = new Building(fSpace, field);
                         if (b.Build(bRec.MaxDoors, bRec.MinSize, bRec.MaxSize, area)) {

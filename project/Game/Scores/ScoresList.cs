@@ -21,7 +21,6 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Game;
 using ZRLib.Core;
 
 namespace NWR.Game.Scores
@@ -96,7 +95,7 @@ namespace NWR.Game.Scores
                         
                         int cnt = StreamUtils.ReadInt(dis);
                         for (int i = 0; i < cnt; i++) {
-                            byte kind = (byte)StreamUtils.ReadByte(dis);
+                            byte kind = StreamUtils.ReadByte(dis);
                             string name = StreamUtils.ReadString(dis, StaticData.DefEncoding);
                             string desc = StreamUtils.ReadString(dis, StaticData.DefEncoding);
                             int exp = StreamUtils.ReadInt(dis);

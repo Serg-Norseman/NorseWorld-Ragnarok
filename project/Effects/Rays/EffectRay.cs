@@ -18,6 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using BSLib;
 using NWR.Creatures;
 using NWR.Game;
 using NWR.Game.Types;
@@ -100,7 +101,7 @@ namespace NWR.Effects.Rays
                 MapObject = null;
             }
 
-            TargetMeeted = AuxUtils.DoLine(x, y, x2, y2, LineProc, true);
+            TargetMeeted = GfxHelper.DoLine(x, y, x2, y2, LineProc, true);
 
             if (MapObject != null) {
                 Field.Features.Remove(MapObject);

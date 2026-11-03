@@ -21,12 +21,11 @@
 using System;
 using System.IO;
 using BSLib;
-using NWR.Game.Types;
 using NWR.Creatures;
 using NWR.Creatures.Brain;
 using NWR.Effects;
-using NWR.Game;
 using NWR.Game.Ghosts;
+using NWR.Game.Types;
 using NWR.Items;
 using NWR.Universe;
 using ZRLib.Core;
@@ -103,8 +102,8 @@ namespace NWR.Game
             }
             set {
                 if (fSatiety != value) {
-                    if ((int)value > SatietyMax) {
-                        fSatiety = (short)SatietyMax;
+                    if (value > SatietyMax) {
+                        fSatiety = SatietyMax;
                     } else {
                         fSatiety = value;
                     }
@@ -125,7 +124,7 @@ namespace NWR.Game
                 DayTime dayTime = Space.DayTime;
                 int bonus;
                 if (dayTime < DayTime.dt_DayFH || dayTime >= DayTime.dt_Dusk) {
-                    bonus = (int)LightRadius;
+                    bonus = LightRadius;
                 } else {
                     bonus = 0;
                 }
@@ -143,7 +142,7 @@ namespace NWR.Game
                     f = 1f;
                 }
     
-                return (byte)((Math.Round(((int)base.Survey * f))) + bonus);
+                return (byte)((Math.Round(base.Survey * f)) + bonus);
             }
         }
 
@@ -179,7 +178,7 @@ namespace NWR.Game
 
         private void ApplyLightEffect()
         {
-            int rad = (int)LightRadius;
+            int rad = LightRadius;
             if (rad > 0) {
                 CreaturesList crList = CurrentField.Creatures;
                 int num = crList.Count;
@@ -342,7 +341,7 @@ namespace NWR.Game
                         if (fSatiety == 200) {
                             GlobalVars.nwrWin.ShowText(this, BaseLocale.GetStr(RS.rs_YouHungry));
                         } else {
-                            if (fSatiety <= 150 && (int)fSatiety % 50 == 0) {
+                            if (fSatiety <= 150 && fSatiety % 50 == 0) {
                                 UseEffect(EffectID.eid_Swoon, null, InvokeMode.im_ItSelf, null);
                             } else {
                                 if (fSatiety <= 0) {
@@ -747,7 +746,7 @@ namespace NWR.Game
         {
             bool res = true;
             if (byMoney) {
-                int hPrice = (int)mercenary.HirePrice;
+                int hPrice = mercenary.HirePrice;
                 if (Money < hPrice) {
                     res = false;
                     GlobalVars.nwrWin.ShowText(GlobalVars.nwrWin, BaseLocale.GetStr(RS.rs_NoMoney));
@@ -762,7 +761,7 @@ namespace NWR.Game
 
                 int dist = MathHelper.Distance(Location, mercenary.Location);
                 ExtPoint pt = GetNearestPlace(3, true);
-                if ((dist > (int)Survey) && (!pt.IsEmpty)) {
+                if ((dist > Survey) && (!pt.IsEmpty)) {
                     mercenary.CheckTile(false);
                     mercenary.SetPos(pt.X, pt.Y);
                     mercenary.CheckTile(true);

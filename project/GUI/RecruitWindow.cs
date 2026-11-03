@@ -97,7 +97,7 @@ namespace NWR.GUI
 
         private void AddCandidate(NWCreature aCreature)
         {
-            int hPrice = (int)aCreature.HirePrice;
+            int hPrice = aCreature.HirePrice;
             LBItem item = fMercenariesList.Items.Add(aCreature.Name, aCreature);
             item.SubItems.Add(Convert.ToString(hPrice), null);
             if (GlobalVars.nwrGame.Player.Money >= hPrice && CanRecruit()) {

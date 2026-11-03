@@ -66,9 +66,9 @@ namespace NWR.GUI
         protected override void DoPaintEvent(BaseScreen screen)
         {
             base.DoPaintEvent(screen);
-            int xx = (Width - (int)fSplash.Width) / 2;
+            int xx = (Width - fSplash.Width) / 2;
             int yy = 20;
-            screen.DrawImage(xx, yy, 0, 0, (int)fSplash.Width, (int)fSplash.Height, fSplash, 255);
+            screen.DrawImage(xx, yy, 0, 0, fSplash.Width, fSplash.Height, fSplash, 255);
         }
 
         public MenuWindow(BaseControl owner)

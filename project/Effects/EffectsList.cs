@@ -88,7 +88,7 @@ namespace NWR.Effects
                                 eff.Duration++;
                             }
 
-                            eff.Magnitude = (int)Math.Round((float)eff.Magnitude * ((float)eff.Duration / (float)oldDuration));
+                            eff.Magnitude = (int)Math.Round(eff.Magnitude * (eff.Duration / (float)oldDuration));
 
                             if (eff.Source == null && eff.Duration == 0) {
                                 // e_Prowling has change effects list, 

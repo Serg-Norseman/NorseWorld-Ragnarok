@@ -46,7 +46,7 @@ namespace NWR.Database
         {
             TopicEntry result = null;
             if (index >= 0 && index < fTopics.Count) {
-                result = ((TopicEntry)fTopics[index]);
+                result = fTopics[index];
             }
             return result;
         }
@@ -75,7 +75,7 @@ namespace NWR.Database
 
         public void DeleteTopic(int index)
         {
-            ((TopicEntry)fTopics[index]).Dispose();
+            fTopics[index].Dispose();
             fTopics.Delete(index);
         }
 

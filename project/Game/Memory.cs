@@ -20,6 +20,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using BSLib;
 using ZRLib.Core;
 
 namespace NWR.Game
@@ -55,7 +56,7 @@ namespace NWR.Game
         public MemoryEntry Find(string sign)
         {
             MemoryEntry result;
-            if (fTable.ContainsKey(sign) ? (result = fTable.GetValueOrNull(sign)) == result : false) {
+            if (fTable.ContainsKey(sign) ? (result = fTable.GetValueOrDefault(sign)) == result : false) {
                 return result;
             } else {
                 return null;

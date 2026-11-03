@@ -24,6 +24,14 @@ using NWR.Items;
 
 namespace NWR.Game.Story
 {
+    public enum QuestItemState
+    {
+        None,
+        Founded,
+        Completed
+    }
+
+
     public class Quest
     {
         private bool fIsComplete = false;

@@ -1381,8 +1381,6 @@ namespace NWR.GUI
                 fGameSpace = null;
 
                 NWResourceManager.Close();
-
-                fLocale.Dispose();
             } catch (Exception ex) {
                 Logger.Write("NWMainWindow.AppDestroy(): " + ex.Message);
             }

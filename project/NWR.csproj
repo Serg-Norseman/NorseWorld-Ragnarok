@@ -59,7 +59,6 @@
     <Compile Include="Game\Types\AnimationKind.cs" />
     <Compile Include="Game\Types\AttackKind.cs" />
     <Compile Include="Game\Types\BestWeaponSigns.cs" />
-    <Compile Include="Game\Types\BuildingID.cs" />
     <Compile Include="Game\Types\BuildingRec.cs" />
     <Compile Include="Game\Types\CreatureAction.cs" />
     <Compile Include="Game\Types\CreatureState.cs" />
@@ -69,12 +68,10 @@
     <Compile Include="Game\Types\EventID.cs" />
     <Compile Include="Game\Types\EventRec.cs" />
     <Compile Include="Game\Types\GameScreen.cs" />
-    <Compile Include="Game\Types\GameState.cs" />
     <Compile Include="Game\Types\ItemAttribute.cs" />
     <Compile Include="Game\Types\ItemKind.cs" />
     <Compile Include="Game\Types\ItemKindRec.cs" />
     <Compile Include="Game\Types\ItemPrefixRec.cs" />
-    <Compile Include="Game\Types\ItemsCompareResult.cs" />
     <Compile Include="Game\Types\ItemState.cs" />
     <Compile Include="Game\Types\ItemStateRec.cs" />
     <Compile Include="Game\Types\ItfElement.cs" />
@@ -90,19 +87,15 @@
     <Compile Include="Game\Types\PlaceFlags.cs" />
     <Compile Include="Game\Types\PlaceID.cs" />
     <Compile Include="Game\Types\PlaceRec.cs" />
-    <Compile Include="Game\Types\QuestItemState.cs" />
     <Compile Include="Game\Types\RaceID.cs" />
     <Compile Include="Game\Types\RaceRec.cs" />
-    <Compile Include="Game\Types\Reaction.cs" />
     <Compile Include="Game\Types\RecipeRec.cs" />
-    <Compile Include="Game\Types\RequestKind.cs" />
     <Compile Include="Game\Types\RuneRec.cs" />
     <Compile Include="Game\Types\ScreenRec.cs" />
     <Compile Include="Game\Types\ScreenStatus.cs" />
     <Compile Include="Game\Types\Service.cs" />
     <Compile Include="Game\Types\SexRec.cs" />
     <Compile Include="Game\Types\SkillID.cs" />
-    <Compile Include="Game\Types\SkillKind.cs" />
     <Compile Include="Game\Types\SkillRec.cs" />
     <Compile Include="Game\Types\SymbolID.cs" />
     <Compile Include="Game\Types\SysCreature.cs" />
@@ -115,7 +108,6 @@
     <Compile Include="Game\Types\TurnState.cs" />
     <Compile Include="Game\Types\UserAction.cs" />
     <Compile Include="Game\Types\UserActionRec.cs" />
-    <Compile Include="Game\Types\VolatileState.cs" />
     <Compile Include="Game\Types\BodypartAbilities.cs" />
     <Compile Include="Game\Types\BodypartType.cs" />
     <Compile Include="Creatures\Brain\AttackRisk.cs" />
@@ -165,7 +157,6 @@
     <Compile Include="Database\DialogEntry.cs" />
     <Compile Include="Database\EventHandlerEntry.cs" />
     <Compile Include="Database\FieldEntry.cs" />
-    <Compile Include="Database\FieldSource.cs" />
     <Compile Include="Database\InfoEntry.cs" />
     <Compile Include="Database\ItemEntry.cs" />
     <Compile Include="Database\ItemFlags.cs" />
@@ -178,7 +169,6 @@
     <Compile Include="Database\TopicsContainer.cs" />
     <Compile Include="Database\VolatileEntry.cs" />
     <Compile Include="Effects\Effect.cs" />
-    <Compile Include="Effects\EffectAction.cs" />
     <Compile Include="Effects\EffectExt.cs" />
     <Compile Include="Effects\EffectFlags.cs" />
     <Compile Include="Effects\EffectID.cs" />
@@ -190,7 +180,6 @@
     <Compile Include="Effects\EffectsList.cs" />
     <Compile Include="Effects\EffectTarget.cs" />
     <Compile Include="Effects\FyleischCloud.cs" />
-    <Compile Include="Effects\InvokeMode.cs" />
     <Compile Include="Effects\Rays\AnnihilationRay.cs" />
     <Compile Include="Effects\Rays\BlackGemRay.cs" />
     <Compile Include="Effects\Rays\CancellationRay.cs" />
@@ -248,7 +237,6 @@
     <Compile Include="GUI\Controls\EditBox.cs" />
     <Compile Include="GUI\Controls\HintWindow.cs" />
     <Compile Include="GUI\Controls\Label.cs" />
-    <Compile Include="GUI\Controls\LBColumnTitle.cs" />
     <Compile Include="GUI\Controls\LBColumnTitles.cs" />
     <Compile Include="GUI\Controls\LBItem.cs" />
     <Compile Include="GUI\Controls\LBItemList.cs" />

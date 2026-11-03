@@ -57,14 +57,6 @@ namespace NWR.Game
             LoadLangs();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fLangs = null;
-            }
-            base.Dispose(disposing);
-        }
-
         public LangRec GetLang(int index)
         {
             if (index >= 0 && index < fLangs.Count) {
@@ -84,7 +76,7 @@ namespace NWR.Game
         public int FindLang(string langName)
         {
             for (int i = 0; i < fLangs.Count; i++) {
-                if ((fLangs[i].Name == langName)) {
+                if (fLangs[i].Name == langName) {
                     return i;
                 }
             }

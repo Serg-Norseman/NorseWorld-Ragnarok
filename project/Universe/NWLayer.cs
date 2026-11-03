@@ -218,7 +218,7 @@ namespace NWR.Universe
 
         public override Movements GetTileMovements(ushort tileID)
         {
-            int pd = AuxUtils.GetShortLo(tileID);
+            int pd = Algorithms.GetShortLo(tileID);
             return StaticData.dbPlaces[pd].Moves;
         }
 

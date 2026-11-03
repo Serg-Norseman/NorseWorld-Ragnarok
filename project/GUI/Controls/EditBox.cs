@@ -141,14 +141,9 @@ namespace NWR.GUI.Controls
                 return fText;
             }
             set {
-                if ((fText != value)) {
+                if (fText != value) {
                     fText = value;
-    
-                    if ((fText == "")) {
-                        fCaretPos = 0;
-                    } else {
-                        fCaretPos = fText.Length;
-                    }
+                    fCaretPos = (fText == "") ? 0 : fText.Length;
                 }
             }
         }
@@ -157,13 +152,7 @@ namespace NWR.GUI.Controls
             : base(owner)
         {
             Text = "";
-
-            if (Font != null) {
-                Height = Font.Height + 8;
-            } else {
-                Height = 20;
-            }
-
+            Height = (Font != null) ? Font.Height + 8 : 20;
             Width = 200;
         }
     }

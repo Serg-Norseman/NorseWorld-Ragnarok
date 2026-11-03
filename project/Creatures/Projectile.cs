@@ -18,6 +18,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using BSLib;
 using NWR.Database;
 using NWR.Effects;
 using NWR.Game;
@@ -68,7 +69,7 @@ namespace NWR.Creatures
             ProjectileItem.SetPos(sx, sy);
             ProjectileItem.Frame = (byte)dir;
 
-            AuxUtils.DoLine(sx, sy, tX, tY, LineProc, true);
+            GfxHelper.DoLine(sx, sy, tX, tY, LineProc, true);
 
             if (ProjectileItem.Entry.Flags.Contains(ItemFlags.if_ReturnWeapon)) {
                 Creature.PickupItem(ProjectileItem);

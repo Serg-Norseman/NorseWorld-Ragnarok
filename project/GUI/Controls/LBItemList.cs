@@ -52,7 +52,7 @@ namespace NWR.GUI.Controls
         {
             LBItem result = null;
             if (index >= 0 && index < fList.Count) {
-                result = ((LBItem)fList[index]);
+                result = fList[index];
             }
             return result;
         }

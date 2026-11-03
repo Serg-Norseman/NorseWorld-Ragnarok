@@ -23,7 +23,6 @@ using BSLib;
 using NWR.Creatures;
 using NWR.Database;
 using NWR.Effects;
-using NWR.Game;
 using NWR.Game.Types;
 using NWR.Items;
 using NWR.Universe;

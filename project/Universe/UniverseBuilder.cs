@@ -366,13 +366,13 @@ namespace NWR.Universe
                             tid = tile.ForeBase;
                             break;
                         case TSL_BACK_EXT:
-                            tid = AuxUtils.GetShortLo(tile.BackgroundExt);
+                            tid = Algorithms.GetShortLo(tile.BackgroundExt);
                             break;
                         case TSL_FORE_EXT:
-                            tid = AuxUtils.GetShortLo(tile.ForegroundExt);
+                            tid = Algorithms.GetShortLo(tile.ForegroundExt);
                             break;
                         case TSL_FOG:
-                            tid = AuxUtils.GetShortLo(tile.FogID);
+                            tid = Algorithms.GetShortLo(tile.FogID);
                             break;
                         default:
                             tid = 0;

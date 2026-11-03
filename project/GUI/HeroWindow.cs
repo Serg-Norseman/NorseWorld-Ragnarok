@@ -87,7 +87,7 @@ namespace NWR.GUI
                 s = BaseLocale.GetStr(sc.Name);
                 ExtRect r = sc.ScrRect;
                 BaseImage img = fImages[(int)pa];
-                screen.DrawImage(r.Left, r.Top, 0, 0, (int)img.Width, (int)img.Height, img, 255);
+                screen.DrawImage(r.Left, r.Top, 0, 0, img.Width, img.Height, img, 255);
                 screen.DrawText(r.Left + (r.Width - CtlCommon.SmFont.GetTextWidth(s)) / 2, r.Top - CtlCommon.SmFont.Height, s, 0);
             }
         }

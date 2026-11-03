@@ -100,11 +100,9 @@ namespace NWR.Creatures.Brain
 
             NWCreature self = (NWCreature)fSelf;
 
-            if (!IsShipSail) {
-                if (self.Entry.Flags.Contains(CreatureFlags.esUseItems)) {
-                    PrepareCheckHealth();
-                    PrepareItemAcquire();
-                }
+            if (!IsShipSail && self.Entry.Flags.Contains(CreatureFlags.esUseItems)) {
+                PrepareCheckHealth();
+                PrepareItemAcquire();
             }
         }
 
@@ -120,7 +118,7 @@ namespace NWR.Creatures.Brain
             } else {
                 for (int i = 0; i < parentTopic.TopicsCount; i++) {
                     TopicEntry subTopic = parentTopic.GetTopic(i);
-                    if ((subTopic.Phrase == phrase)) {
+                    if (subTopic.Phrase == phrase) {
                         result = subTopic;
                         break;
                     }

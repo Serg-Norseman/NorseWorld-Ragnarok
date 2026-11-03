@@ -80,7 +80,7 @@ namespace NWR.Creatures.Brain
                 DebtTakeGoal dtGoal = (DebtTakeGoal)FindGoalByKind(GoalKind.gk_DebtTake);
                 if (debtor != null) {
                     if (dtGoal == null) {
-                        dtGoal = ((DebtTakeGoal)CreateGoal(GoalKind.gk_DebtTake));
+                        dtGoal = (DebtTakeGoal)CreateGoal(GoalKind.gk_DebtTake);
                     }
                     dtGoal.Debtor = debtor;
                 } else {

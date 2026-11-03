@@ -49,7 +49,7 @@ namespace NWR.Game
         {
             byte[] signBuffer = new byte[3];
             for (int i = 0; i <= 2; i++) {
-                signBuffer[i] = (byte)StreamUtils.ReadByte(S);
+                signBuffer[i] = StreamUtils.ReadByte(S);
             }
             Sign = StaticData.DefEncoding.GetChars(signBuffer);
 
