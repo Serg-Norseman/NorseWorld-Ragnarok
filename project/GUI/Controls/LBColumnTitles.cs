@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -30,12 +30,12 @@ namespace NWR.GUI.Controls
     }
 
 
-    public sealed class LBColumnTitles : BaseObject
+    public sealed class LBColumnTitles
     {
         private readonly ExtList<LBColumnTitle> fList;
 
-        public INotifyEvent OnChange;
-        public INotifyEvent OnChanging;
+        public event INotifyEvent OnChange;
+        public event INotifyEvent OnChanging;
 
         public int Count
         {
@@ -66,17 +66,6 @@ namespace NWR.GUI.Controls
         public LBColumnTitles()
         {
             fList = new ExtList<LBColumnTitle>();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                OnChange = null;
-                OnChanging = null;
-                Clear();
-                fList.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
         public int Add(string text, int width)

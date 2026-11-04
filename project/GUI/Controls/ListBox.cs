@@ -643,9 +643,9 @@ namespace NWR.GUI.Controls
 
             fMode = MODE_LIST;
             fColumnTitles = new LBColumnTitles();
-            fColumnTitles.OnChange = OnChange;
+            fColumnTitles.OnChange += OnChange;
             fItems = new LBItemList(this, null);
-            fItems.OnChange = OnChange;
+            fItems.OnChange += OnChange;
             fColumns = 1;
             fTopIndex = 0;
             fSelIndex = 0;
@@ -683,8 +683,8 @@ namespace NWR.GUI.Controls
                     CheckImage = null;
                 }
 
-                fItems.Dispose();
-                fColumnTitles.Dispose();
+                fItems.OnChange -= OnChange;
+                fColumnTitles.OnChange -= OnChange;
             }
             base.Dispose(disposing);
         }

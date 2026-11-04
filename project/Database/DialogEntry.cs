@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -24,7 +24,7 @@ using ZRLib.Core;
 
 namespace NWR.Database
 {
-    public sealed class DialogEntry : BaseObject
+    public sealed class DialogEntry
     {
         private readonly ExtList<ConversationEntry> fConversations;
 
@@ -33,15 +33,6 @@ namespace NWR.Database
         public DialogEntry()
         {
             fConversations = new ExtList<ConversationEntry>();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                Clear();
-                fConversations.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
         public ConversationEntry GetConversation(int index)
@@ -84,7 +75,6 @@ namespace NWR.Database
 
         public void DeleteConversation(int index)
         {
-            fConversations[index].Dispose();
             fConversations.Delete(index);
         }
 

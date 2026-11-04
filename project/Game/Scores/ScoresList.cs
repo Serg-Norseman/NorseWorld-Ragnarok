@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -25,24 +25,15 @@ using ZRLib.Core;
 
 namespace NWR.Game.Scores
 {
-    public sealed class ScoresList : BaseObject
+    public sealed class ScoresList
     {
-        public static readonly FileHeader RSL_Header = new FileHeader(new char[]{ 'R', 'S', 'L' }, new FileVersion(1, 0));
+        public static readonly FileHeader RSL_Header = new FileHeader(new char[] { 'R', 'S', 'L' }, new FileVersion(1, 0));
 
         private ExtList<Score> fList;
 
         public ScoresList()
         {
             fList = new ExtList<Score>(true);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fList.Dispose();
-                fList = null;
-            }
-            base.Dispose(disposing);
         }
 
         public Score GetScore(int index)
@@ -92,7 +83,7 @@ namespace NWR.Game.Scores
                     using (var dis = new BinaryReader(fs)) {
                         FileHeader header = new FileHeader();
                         header.Read(dis);
-                        
+
                         int cnt = StreamUtils.ReadInt(dis);
                         for (int i = 0; i < cnt; i++) {
                             byte kind = StreamUtils.ReadByte(dis);
@@ -115,12 +106,12 @@ namespace NWR.Game.Scores
                 FileStream fs = new FileStream(fileName, FileMode.Create);
                 using (var dos = new BinaryWriter(fs)) {
                     RSL_Header.Write(dos);
-                    
+
                     int cnt = fList.Count;
                     StreamUtils.WriteInt(dos, cnt);
                     for (int i = 0; i < cnt; i++) {
                         Score sr = fList[i];
-                        
+
                         StreamUtils.WriteByte(dos, sr.Kind);
                         StreamUtils.WriteString(dos, sr.Name, StaticData.DefEncoding);
                         StreamUtils.WriteString(dos, sr.Desc, StaticData.DefEncoding);

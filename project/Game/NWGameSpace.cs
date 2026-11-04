@@ -77,7 +77,7 @@ namespace NWR.Game
         private readonly Player fPlayer;
         private readonly NWDateTime fTime;
         private TurnState fTurnState;
-        private readonly Journal fJournal;
+        private Journal fJournal;
         private List<Quest> fQuests;
 
         public ExtPoint MimerWellPos;
@@ -165,7 +165,7 @@ namespace NWR.Game
                     fPlayer.Dispose();
 
                     fQuests = null;
-                    fJournal.Dispose();
+                    fJournal = null;
 
                     DoneData();
                     fEventsQueue.Dispose();

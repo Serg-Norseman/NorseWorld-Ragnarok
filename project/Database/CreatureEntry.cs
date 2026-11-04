@@ -121,9 +121,9 @@ namespace NWR.Database
         protected override void Dispose(bool disposing)
         {
             if (disposing) {
-                Abilities.Dispose();
-                Skills.Dispose();
-                Dialog.Dispose();
+                Abilities = null;
+                Skills = null;
+                Dialog = null;
                 Inventory = null;
                 Lands = null;
             }

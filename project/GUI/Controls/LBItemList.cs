@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -23,7 +23,7 @@ using ZRLib.Core;
 
 namespace NWR.GUI.Controls
 {
-    public sealed class LBItemList : BaseObject
+    public sealed class LBItemList
     {
         private readonly ExtList<LBItem> fList;
         private readonly ListBox fOwner;
@@ -31,8 +31,8 @@ namespace NWR.GUI.Controls
         private bool fSorted;
         private int fUpdateCount;
 
-        public INotifyEvent OnChange;
-        public INotifyEvent OnChanging;
+        public event INotifyEvent OnChange;
+        public event INotifyEvent OnChanging;
 
         public LBItem ParentItem
         {
@@ -151,17 +151,6 @@ namespace NWR.GUI.Controls
             fSorted = false;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                OnChange = null;
-                OnChanging = null;
-                Clear();
-                fList.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         public LBItem Add(string S, object aData)
         {
             Changing();
@@ -206,21 +195,14 @@ namespace NWR.GUI.Controls
         public void Clear()
         {
             Changing();
-            for (int i = fList.Count - 1; i >= 0; i--) {
-                fList[i].Dispose();
-            }
             fList.Clear();
             Changed();
         }
 
-        public void Delete(int Index)
+        public void Delete(int index)
         {
             Changing();
-            LBItem item = GetItem(Index);
-            if (item != null) {
-                item.Dispose();
-            }
-            fList.Delete(Index);
+            fList.Delete(index);
             Changed();
         }
 

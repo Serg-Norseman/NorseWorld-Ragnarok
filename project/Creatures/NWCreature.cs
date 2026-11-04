@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014, 2020 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -67,7 +67,7 @@ namespace NWR.Creatures
         private static readonly Reaction[, ] Relations;
         public static readonly int[] ShootIsoTrans;
 
-        private readonly AttributeList fAbilities;
+        private AttributeList fAbilities;
         private AbstractBody fBody;
         private int fDamageBase;
         private readonly EffectsList fEffects;
@@ -82,7 +82,7 @@ namespace NWR.Creatures
         private bool fIsTrader;
         private string fName;
         private EffectID fProwlSource;
-        private readonly AttributeList fSkills;
+        private AttributeList fSkills;
         private int fSpeed;
         private CreatureState fState;
         private byte fSurvey;
@@ -390,8 +390,8 @@ namespace NWR.Creatures
             if (disposing) {
                 fItems.Dispose();
                 fEffects.Dispose();
-                fSkills.Dispose();
-                fAbilities.Dispose();
+                fSkills = null;
+                fAbilities = null;
 
                 fBody?.Dispose();
             }

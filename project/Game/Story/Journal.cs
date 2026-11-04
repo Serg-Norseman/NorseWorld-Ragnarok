@@ -29,9 +29,9 @@ using ZRLib.Grammar;
 
 namespace NWR.Game.Story
 {
-    public sealed class Journal : BaseObject
+    public sealed class Journal
     {
-        public static readonly FileHeader RSJ_Header = new FileHeader(new char[]{ 'R', 'S', 'J' }, new FileVersion(1, 0));
+        public static readonly FileHeader RSJ_Header = new FileHeader(new char[] { 'R', 'S', 'J' }, new FileVersion(1, 0));
 
         private List<JournalItem> fMessages;
         private AttributeList fEnemies;
@@ -42,23 +42,9 @@ namespace NWR.Game.Story
             fEnemies = new AttributeList();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fMessages.Clear();
-                fMessages = null;
-
-                fEnemies.Dispose();
-                fEnemies = null;
-            }
-            base.Dispose(disposing);
-        }
-
         public int Count
         {
-            get {
-                return fMessages.Count;
-            }
+            get { return fMessages.Count; }
         }
 
         public JournalItem GetItem(int index)
@@ -110,14 +96,14 @@ namespace NWR.Game.Story
                     using (var dis = new BinaryReader(fs)) {
                         FileHeader header = new FileHeader();
                         header.Read(dis);
-                        
+
                         int cnt = StreamUtils.ReadInt(dis);
                         for (int i = 0; i < cnt; i++) {
                             JournalItem m = new JournalItem();
                             m.LoadFromStream(dis, header.Version);
                             fMessages.Add(m);
                         }
-                        
+
                         if (dis.BaseStream.Length - dis.BaseStream.Position == 0) {
                             Logger.Write("journalLoad(): ok");
                         } else {
@@ -136,7 +122,7 @@ namespace NWR.Game.Story
                 FileStream fs = new FileStream(fileName, FileMode.Create);
                 using (var dos = new BinaryWriter(fs)) {
                     RSJ_Header.Write(dos);
-                    
+
                     int cnt = fMessages.Count;
                     StreamUtils.WriteInt(dos, cnt);
                     for (int i = 0; i < cnt; i++) {

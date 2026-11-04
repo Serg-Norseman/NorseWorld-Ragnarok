@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -18,11 +18,9 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using BSLib;
-
 namespace NWR.Effects
 {
-    public sealed class EffectExt : BaseObject
+    public sealed class EffectExt
     {
         private readonly EffectParams fHasParams;
         private readonly object[] fParams = new object[EffectParams.ep_Last + 1];

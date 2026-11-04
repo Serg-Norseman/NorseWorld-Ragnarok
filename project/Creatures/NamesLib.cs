@@ -226,7 +226,7 @@ namespace NWR.Creatures
                         }
                     }
 
-                    aParser.Dispose();
+                    aParser = null;
                 }
             } catch (Exception ex) {
                 Logger.Write("TNWNameLib.InitNorseDic(): " + ex.Message);

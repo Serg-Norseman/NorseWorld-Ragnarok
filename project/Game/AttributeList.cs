@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -25,7 +25,7 @@ using ZRLib.Core;
 
 namespace NWR.Game
 {
-    public sealed class AttributeList : BaseObject
+    public sealed class AttributeList
     {
         // List Assign Operators
         public const byte Lao_Copy = 0;
@@ -39,40 +39,20 @@ namespace NWR.Game
             fList = new ExtList<Attribute>();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                Clear();
-                fList.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         public int Count
         {
-            get {
-                return fList.Count;
-            }
+            get { return fList.Count; }
         }
 
         public Attribute GetItem(int index)
         {
-            if (index >= 0 && index < fList.Count) {
-                return fList[index];
-            } else {
-                return null;
-            }
+            return (index >= 0 && index < fList.Count) ? fList[index] : null;
         }
 
         public int GetValue(int ID)
         {
             int idx = IndexOf(ID);
-
-            if (idx < 0) {
-                return 0;
-            } else {
-                return fList[idx].AValue;
-            }
+            return (idx < 0) ? 0 : fList[idx].AValue;
         }
 
         public void SetValue(int ID, int Value)
@@ -101,8 +81,7 @@ namespace NWR.Game
         public void Assign(AttributeList source, byte @operator)
         {
             switch (@operator) {
-                case Lao_Copy:
-                    {
+                case Lao_Copy: {
                         Clear();
                         int count = source.Count;
                         for (int i = 0; i < count; i++) {
@@ -112,8 +91,7 @@ namespace NWR.Game
                     }
                     break;
 
-                case Lao_And:
-                    {
+                case Lao_And: {
                         for (int i = Count - 1; i >= 0; i--) {
                             Attribute aItem = fList[i];
                             if (source.IndexOf(aItem.AID) == -1) {
@@ -123,8 +101,7 @@ namespace NWR.Game
                     }
                     break;
 
-                case Lao_Or:
-                    {
+                case Lao_Or: {
                         int count = source.Count;
                         for (int i = 0; i < count; i++) {
                             Attribute aItem = source.fList[i];
@@ -181,8 +158,6 @@ namespace NWR.Game
             }
         }
 
-
-
         public void LoadFromStream(BinaryReader stream, FileVersion version)
         {
             try {
@@ -200,8 +175,6 @@ namespace NWR.Game
             }
         }
 
-
-        
         public void SaveToStream(BinaryWriter stream, FileVersion version)
         {
             try {

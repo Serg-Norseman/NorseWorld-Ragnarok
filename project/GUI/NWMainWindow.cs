@@ -455,10 +455,10 @@ namespace NWR.GUI
             Symbols.Dispose();
 
             fScoresList.Save(NWResourceManager.GetAppPath() + StaticData.SCORES_FILE);
-            fScoresList.Dispose();
+            fScoresList = null;
 
             fGhostsList.Save(NWResourceManager.GetAppPath() + StaticData.GHOSTS_FILE);
-            fGhostsList.Dispose();
+            fGhostsList = null;
         }
 
         private void AppInit()
@@ -1428,7 +1428,6 @@ namespace NWR.GUI
                     case GameScreen.gsMain:
                         switch (eventArgs.Key) {
                             case Keys.GK_ESCAPE:
-                                fTargetData?.Dispose();
                                 fTargetData = null;
                                 break;
 
@@ -1684,7 +1683,6 @@ namespace NWR.GUI
 
         public void Clear()
         {
-            fTargetData?.Dispose();
             fTargetData = null;
 
             fTextBox.Clear();
@@ -2629,7 +2627,6 @@ namespace NWR.GUI
 
         public void InitTarget(EffectID effectID, object source, InvokeMode invokeMode, EffectExt ext)
         {
-            fTargetData?.Dispose();
             fTargetData = null;
 
             fTargetData = new TargetObj();
@@ -2714,7 +2711,6 @@ namespace NWR.GUI
 
             fGameSpace.Player.UseEffect(fTargetData.EffID, fTargetData.Source, fTargetData.InvMode, fTargetData.Ext);
 
-            fTargetData?.Dispose();
             fTargetData = null;
         }
 

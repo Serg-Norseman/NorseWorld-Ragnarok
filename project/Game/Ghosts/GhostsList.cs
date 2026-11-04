@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -25,24 +25,15 @@ using ZRLib.Core;
 
 namespace NWR.Game.Ghosts
 {
-    public sealed class GhostsList : BaseObject
+    public sealed class GhostsList
     {
-        public static readonly FileHeader RGL_Header = new FileHeader(new char[]{ 'R', 'G', 'L' }, new FileVersion(1, 0));
+        public static readonly FileHeader RGL_Header = new FileHeader(new char[] { 'R', 'G', 'L' }, new FileVersion(1, 0));
 
         private ExtList<Ghost> fList;
 
         public GhostsList()
         {
             fList = new ExtList<Ghost>(true);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fList.Dispose();
-                fList = null;
-            }
-            base.Dispose(disposing);
         }
 
         public Ghost GetGhost(int index)
@@ -56,9 +47,7 @@ namespace NWR.Game.Ghosts
 
         public int GhostCount
         {
-            get {
-                return fList.Count;
-            }
+            get { return fList.Count; }
         }
 
         public void Add(Ghost ghost)
@@ -86,7 +75,7 @@ namespace NWR.Game.Ghosts
                     using (var dis = new BinaryReader(fs)) {
                         FileHeader header = new FileHeader();
                         header.Read(dis);
-                        
+
                         int cnt = StreamUtils.ReadInt(dis);
                         for (int i = 0; i < cnt; i++) {
                             Ghost ghost = new Ghost(null, null);
@@ -106,7 +95,7 @@ namespace NWR.Game.Ghosts
                 FileStream fs = new FileStream(fileName, FileMode.Create);
                 using (var dos = new BinaryWriter(fs)) {
                     RGL_Header.Write(dos);
-                    
+
                     int cnt = fList.Count;
                     StreamUtils.WriteInt(dos, cnt);
                     for (int i = 0; i < cnt; i++) {

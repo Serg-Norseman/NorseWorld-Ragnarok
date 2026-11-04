@@ -39,9 +39,7 @@ namespace NWR.Universe
         protected override void Dispose(bool disposing)
         {
             if (disposing) {
-                if (Ext != null) {
-                    Ext.Dispose();
-                }
+                Ext = null;
             }
             base.Dispose(disposing);
         }

@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -18,12 +18,11 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using BSLib;
 using ZRLib.Engine;
 
 namespace NWR.GUI.Controls
 {
-    public sealed class LBItem : BaseObject
+    public sealed class LBItem
     {
         private readonly int fLevel;
         private readonly ListBox fOwner;
@@ -70,15 +69,6 @@ namespace NWR.GUI.Controls
             fParent = null;
             fSubItems = new LBItemList(fOwner, this);
             Text = "";
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                fSubItems.Dispose();
-                fSubItems = null;
-            }
-            base.Dispose(disposing);
         }
     }
 }

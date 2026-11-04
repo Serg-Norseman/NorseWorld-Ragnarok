@@ -1,6 +1,6 @@
 /*
  *  "NorseWorld: Ragnarok", a roguelike game for PCs.
- *  Copyright (C) 2002-2008, 2014 by Serg V. Zhdanovskih.
+ *  Copyright (C) 2002-2026 by Serg V. Zhdanovskih.
  *
  *  This file is part of "NorseWorld: Ragnarok".
  *
@@ -23,7 +23,7 @@ using NWR.Effects;
 
 namespace NWR.Game
 {
-    public sealed class TargetObj : BaseObject
+    public sealed class TargetObj
     {
         public EffectID EffID;
         public EffectExt Ext;
@@ -34,17 +34,6 @@ namespace NWR.Game
         public TargetObj()
         {
             Ext = null;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing) {
-                if (Ext != null) {
-                    Ext.Dispose();
-                    Ext = null;
-                }
-            }
-            base.Dispose(disposing);
         }
     }
 }
